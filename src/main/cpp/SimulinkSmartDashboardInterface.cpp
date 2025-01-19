@@ -171,6 +171,38 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Drive_Motor_Control_Sign_Change_Deadband__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_Sign_Change_Deadband = event.GetValueEventData()->value.GetDouble();});
     __Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(7000);
  
+    __Elevator_Gain_Int__Entry = NTtable_Tune->GetEntry("Elevator_Gain_Int");
+    NTinst.AddListener(__Elevator_Gain_Int__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Gain_Int = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Gain_Int__Entry.SetDouble(0.001);
+ 
+    __Elevator_Gain_Prop__Entry = NTtable_Tune->GetEntry("Elevator_Gain_Prop");
+    NTinst.AddListener(__Elevator_Gain_Prop__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Gain_Prop = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Gain_Prop__Entry.SetDouble(0.05);
+ 
+    __Elevator_Int_IC__Entry = NTtable_Tune->GetEntry("Elevator_Int_IC");
+    NTinst.AddListener(__Elevator_Int_IC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Int_IC = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Int_IC__Entry.SetDouble(0);
+ 
+    __Elevator_Int_LL__Entry = NTtable_Tune->GetEntry("Elevator_Int_LL");
+    NTinst.AddListener(__Elevator_Int_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Int_LL = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Int_LL__Entry.SetDouble(0);
+ 
+    __Elevator_Int_UL__Entry = NTtable_Tune->GetEntry("Elevator_Int_UL");
+    NTinst.AddListener(__Elevator_Int_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Int_UL = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Int_UL__Entry.SetDouble(0.1);
+ 
+    __Elevator_MotorRev_to_Inch__Entry = NTtable_Tune->GetEntry("Elevator_MotorRev_to_Inch");
+    NTinst.AddListener(__Elevator_MotorRev_to_Inch__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_MotorRev_to_Inch = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_MotorRev_to_Inch__Entry.SetDouble(0.31416);
+ 
+    __Elevator_Total_LL__Entry = NTtable_Tune->GetEntry("Elevator_Total_LL");
+    NTinst.AddListener(__Elevator_Total_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_LL = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Total_LL__Entry.SetDouble(0);
+ 
+    __Elevator_Total_UL__Entry = NTtable_Tune->GetEntry("Elevator_Total_UL");
+    NTinst.AddListener(__Elevator_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_UL = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Total_UL__Entry.SetDouble(0.2);
+ 
     __Gyro_Calibration_Reset_Degree__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Reset_Degree");
     NTinst.AddListener(__Gyro_Calibration_Reset_Degree__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Reset_Degree = event.GetValueEventData()->value.GetDouble();});
     __Gyro_Calibration_Reset_Degree__Entry.SetDouble(0);
@@ -418,6 +450,9 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __BackRight_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackRight_Drive_Motor_Speed");
     __BackRight_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackRight_Steer_Rev");
     __BackRight_Turn_Offset__Entry = NTtable_Inport->GetEntry("BackRight_Turn_Offset");
+    __Elevator_Limit_Switch_Bottom__Entry = NTtable_Inport->GetEntry("Elevator_Limit_Switch_Bottom");
+    __Elevator_Limit_Switch_Top__Entry = NTtable_Inport->GetEntry("Elevator_Limit_Switch_Top");
+    __Elevator_Motor_Rev__Entry = NTtable_Inport->GetEntry("Elevator_Motor_Rev");
     __FrontLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Rev");
     __FrontLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Speed");
     __FrontLeft_Steer_Rev__Entry = NTtable_Inport->GetEntry("FrontLeft_Steer_Rev");
@@ -493,6 +528,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __BackRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Drive_DutyCycle");
     __BackRight_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Steer_DutyCycle");
     __Disable_Wheels__Entry = NTtable_Outport->GetEntry("Disable_Wheels");
+    __Elevator_DutyCycle__Entry = NTtable_Outport->GetEntry("Elevator_DutyCycle");
     __Enable_Wheels__Entry = NTtable_Outport->GetEntry("Enable_Wheels");
     __FrontLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Drive_DutyCycle");
     __FrontLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Steer_DutyCycle");
@@ -598,6 +634,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __BackRight_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.BackRight_Drive_Motor_Speed);
     __BackRight_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.BackRight_Steer_Rev);
     __BackRight_Turn_Offset__Entry.SetDouble(Code_Gen_Model_U.BackRight_Turn_Offset);
+    __Elevator_Limit_Switch_Bottom__Entry.SetDouble(Code_Gen_Model_U.Elevator_Limit_Switch_Bottom);
+    __Elevator_Limit_Switch_Top__Entry.SetDouble(Code_Gen_Model_U.Elevator_Limit_Switch_Top);
+    __Elevator_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.Elevator_Motor_Rev);
     __FrontLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Rev);
     __FrontLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed);
     __FrontLeft_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Steer_Rev);
@@ -672,6 +711,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __BackRight_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackRight_Drive_DutyCycle);
     __BackRight_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
     __Disable_Wheels__Entry.SetDouble(Code_Gen_Model_Y.Disable_Wheels);
+    __Elevator_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Elevator_DutyCycle);
     __Enable_Wheels__Entry.SetDouble(Code_Gen_Model_Y.Enable_Wheels);
     __FrontLeft_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle);
     __FrontLeft_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle);

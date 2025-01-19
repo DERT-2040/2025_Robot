@@ -100,4 +100,24 @@ namespace Constants
         static constexpr int k_Pigeon2_Device_ID = 5;
         static constexpr std::string_view k_Pigeon2_Device_Name = "uno";
     };
+
+    namespace Elevator
+    {
+        static constexpr NeoSparkCreateInfo defaultElevatorCreateInfo{
+            -1,   // canID
+            true, // isReversed
+            10,   // smartCurrentLimit
+            10,   // secondaryCurrentLimit
+            0.1,  // openLoopRampRate
+            true // includeSensor
+        };
+        static NeoSparkCreateInfo motor = NeoSparkCreateInfo::modifyInfo(defaultElevatorCreateInfo,
+                                                                             10, // CAN ID
+                                                                             &Code_Gen_Model_Y.Elevator_DutyCycle,
+                                                                             nullptr,
+                                                                             &Code_Gen_Model_U.Elevator_Motor_Rev);
+        
+        static constexpr int bottomLimitSwitchID = 0;
+        static constexpr int topLimitSwitchID = 1;
+    };
 };

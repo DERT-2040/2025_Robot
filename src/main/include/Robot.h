@@ -13,6 +13,7 @@
 #include "include/SimulinkSmartDashboardInterface.h"
 #include "include/FMSInfo.h"
 #include "include/PhotonVisionInterface.h"
+#include "include/Elevator.h"
 // For each component also add content in this file at the bottom of the private area
 
 //frc
@@ -142,4 +143,9 @@ private:
    * Component that reads the field management system info from smart dashboard and puts it into simulink
    */
   FMSInfo m_FMSInfo;
+
+  /**
+   * Component that supports the elevator inputs and outputs
+   */
+  Elevator m_Elevator;
 };

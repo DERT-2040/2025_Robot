@@ -58,6 +58,14 @@ private:
         nt::NetworkTableEntry __Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_Sign_Change_Deadband__Entry;
+        nt::NetworkTableEntry __Elevator_Gain_Int__Entry;
+        nt::NetworkTableEntry __Elevator_Gain_Prop__Entry;
+        nt::NetworkTableEntry __Elevator_Int_IC__Entry;
+        nt::NetworkTableEntry __Elevator_Int_LL__Entry;
+        nt::NetworkTableEntry __Elevator_Int_UL__Entry;
+        nt::NetworkTableEntry __Elevator_MotorRev_to_Inch__Entry;
+        nt::NetworkTableEntry __Elevator_Total_LL__Entry;
+        nt::NetworkTableEntry __Elevator_Total_UL__Entry;
         nt::NetworkTableEntry __Gyro_Calibration_Reset_Degree__Entry;
         nt::NetworkTableEntry __Gyro_Calibration_Reset_Flag__Entry;
         nt::NetworkTableEntry __KF_Enable__Entry;
@@ -132,6 +140,9 @@ private:
         nt::NetworkTableEntry __BackRight_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry __BackRight_Steer_Rev__Entry;
         nt::NetworkTableEntry __BackRight_Turn_Offset__Entry;
+        nt::NetworkTableEntry __Elevator_Limit_Switch_Bottom__Entry;
+        nt::NetworkTableEntry __Elevator_Limit_Switch_Top__Entry;
+        nt::NetworkTableEntry __Elevator_Motor_Rev__Entry;
         nt::NetworkTableEntry __FrontLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry __FrontLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry __FrontLeft_Steer_Rev__Entry;
@@ -206,6 +217,7 @@ private:
         nt::NetworkTableEntry __BackRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __BackRight_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry __Disable_Wheels__Entry;
+        nt::NetworkTableEntry __Elevator_DutyCycle__Entry;
         nt::NetworkTableEntry __Enable_Wheels__Entry;
         nt::NetworkTableEntry __FrontLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontLeft_Steer_DutyCycle__Entry;
