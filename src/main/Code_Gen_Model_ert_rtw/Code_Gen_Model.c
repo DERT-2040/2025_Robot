@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.221
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Jan 18 21:31:38 2025
+ * C/C++ source code generated on : Sat Jan 18 22:21:49 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -4746,10 +4746,15 @@ void Code_Gen_Model_step(void)
   /* Outport: '<Root>/Swerve_Motors_Disabled' */
   Code_Gen_Model_Y.Swerve_Motors_Disabled = rtb_Swerve_Motors_Disabled;
 
-  /* Switch: '<S4>/Switch1' incorporates:
+  /* Logic: '<S4>/OR' incorporates:
    *  Inport: '<Root>/Elevator_Limit_Switch_Top'
+   *  Switch: '<S4>/Switch1'
    */
-  rtb_thetay_n = !(Code_Gen_Model_U.Elevator_Limit_Switch_Top != 0.0);
+  rtb_FixPtRelationalOperator = !(Code_Gen_Model_U.Elevator_Limit_Switch_Top !=
+    0.0);
+
+  /* Switch: '<S4>/Switch1' */
+  rtb_thetay_n = rtb_FixPtRelationalOperator;
 
   /* Sum: '<S18>/Sum' incorporates:
    *  Constant: '<S1>/Constant2'
@@ -4762,12 +4767,12 @@ void Code_Gen_Model_step(void)
   /* Gain: '<S18>/Gain1' */
   rtb_thetay = Elevator_Gain_Prop * rtb_rx;
 
-  /* Logic: '<S4>/OR' incorporates:
+  /* Logic: '<S4>/NOT' incorporates:
    *  Inport: '<Root>/Elevator_Limit_Switch_Bottom'
-   *  Inport: '<Root>/Elevator_Limit_Switch_Top'
+   *  Logic: '<S4>/OR'
    */
-  rtb_Is_Absolute_Translation_g = ((Code_Gen_Model_U.Elevator_Limit_Switch_Top
-    != 0.0) || (Code_Gen_Model_U.Elevator_Limit_Switch_Bottom != 0.0));
+  rtb_Is_Absolute_Translation_g = (rtb_FixPtRelationalOperator &&
+    (!(Code_Gen_Model_U.Elevator_Limit_Switch_Bottom != 0.0)));
 
   /* Switch: '<S18>/Switch' incorporates:
    *  Constant: '<S18>/Constant2'
@@ -4851,7 +4856,7 @@ void Code_Gen_Model_step(void)
   /* Switch: '<S19>/Switch2' incorporates:
    *  RelationalOperator: '<S19>/LowerRelop1'
    */
-  if (!(rtb_thetay > rtb_thetay_n)) {
+  if (!(rtb_thetay > ((real_T)rtb_FixPtRelationalOperator))) {
     /* Switch: '<S4>/Switch' incorporates:
      *  Constant: '<S4>/Constant3'
      *  Constant: '<S4>/Constant4'
