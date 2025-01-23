@@ -60,6 +60,13 @@ private:
         nt::NetworkTableEntry __Drive_Motor_Control_Sign_Change_Deadband__Entry;
         nt::NetworkTableEntry __Elevator_Gain_Int__Entry;
         nt::NetworkTableEntry __Elevator_Gain_Prop__Entry;
+        nt::NetworkTableEntry __Elevator_Height_L1__Entry;
+        nt::NetworkTableEntry __Elevator_Height_L2__Entry;
+        nt::NetworkTableEntry __Elevator_Height_L3__Entry;
+        nt::NetworkTableEntry __Elevator_Height_L4__Entry;
+        nt::NetworkTableEntry __Elevator_Height_Pickup__Entry;
+        nt::NetworkTableEntry __Elevator_Height_RL_Dec__Entry;
+        nt::NetworkTableEntry __Elevator_Height_RL_Inc__Entry;
         nt::NetworkTableEntry __Elevator_Int_IC__Entry;
         nt::NetworkTableEntry __Elevator_Int_LL__Entry;
         nt::NetworkTableEntry __Elevator_Int_UL__Entry;

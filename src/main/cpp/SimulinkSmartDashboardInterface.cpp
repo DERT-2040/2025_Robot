@@ -179,13 +179,41 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Elevator_Gain_Prop__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Gain_Prop = event.GetValueEventData()->value.GetDouble();});
     __Elevator_Gain_Prop__Entry.SetDouble(0.05);
  
+    __Elevator_Height_L1__Entry = NTtable_Tune->GetEntry("Elevator_Height_L1");
+    NTinst.AddListener(__Elevator_Height_L1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L1 = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Height_L1__Entry.SetDouble(10);
+ 
+    __Elevator_Height_L2__Entry = NTtable_Tune->GetEntry("Elevator_Height_L2");
+    NTinst.AddListener(__Elevator_Height_L2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L2 = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Height_L2__Entry.SetDouble(10);
+ 
+    __Elevator_Height_L3__Entry = NTtable_Tune->GetEntry("Elevator_Height_L3");
+    NTinst.AddListener(__Elevator_Height_L3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L3 = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Height_L3__Entry.SetDouble(10);
+ 
+    __Elevator_Height_L4__Entry = NTtable_Tune->GetEntry("Elevator_Height_L4");
+    NTinst.AddListener(__Elevator_Height_L4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L4 = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Height_L4__Entry.SetDouble(10);
+ 
+    __Elevator_Height_Pickup__Entry = NTtable_Tune->GetEntry("Elevator_Height_Pickup");
+    NTinst.AddListener(__Elevator_Height_Pickup__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Pickup = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Height_Pickup__Entry.SetDouble(10);
+ 
+    __Elevator_Height_RL_Dec__Entry = NTtable_Tune->GetEntry("Elevator_Height_RL_Dec");
+    NTinst.AddListener(__Elevator_Height_RL_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_RL_Dec = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Height_RL_Dec__Entry.SetDouble(-0.08);
+ 
+    __Elevator_Height_RL_Inc__Entry = NTtable_Tune->GetEntry("Elevator_Height_RL_Inc");
+    NTinst.AddListener(__Elevator_Height_RL_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_RL_Inc = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Height_RL_Inc__Entry.SetDouble(0.08);
+ 
     __Elevator_Int_IC__Entry = NTtable_Tune->GetEntry("Elevator_Int_IC");
     NTinst.AddListener(__Elevator_Int_IC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Int_IC = event.GetValueEventData()->value.GetDouble();});
     __Elevator_Int_IC__Entry.SetDouble(0);
  
     __Elevator_Int_LL__Entry = NTtable_Tune->GetEntry("Elevator_Int_LL");
     NTinst.AddListener(__Elevator_Int_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Int_LL = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Int_LL__Entry.SetDouble(0);
+    __Elevator_Int_LL__Entry.SetDouble(-0.1);
  
     __Elevator_Int_UL__Entry = NTtable_Tune->GetEntry("Elevator_Int_UL");
     NTinst.AddListener(__Elevator_Int_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Int_UL = event.GetValueEventData()->value.GetDouble();});
@@ -197,7 +225,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Total_LL__Entry = NTtable_Tune->GetEntry("Elevator_Total_LL");
     NTinst.AddListener(__Elevator_Total_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_LL = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Total_LL__Entry.SetDouble(0);
+    __Elevator_Total_LL__Entry.SetDouble(-0.2);
  
     __Elevator_Total_UL__Entry = NTtable_Tune->GetEntry("Elevator_Total_UL");
     NTinst.AddListener(__Elevator_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_UL = event.GetValueEventData()->value.GetDouble();});
