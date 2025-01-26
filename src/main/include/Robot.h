@@ -120,12 +120,12 @@ private:
   /**
    * Component Object for the IMU pigeon2
    */
-  IMU m_IMU;
+  // IMU m_IMU;
   
   /**
    * Component Object for all Swerve Drive objects such as sensors and motors
    */
-  SwerveDrive m_SwerveDrive;
+  // SwerveDrive m_SwerveDrive;
   
   // PhotonVisionInterface m_PhotonVisionInterface;
   
