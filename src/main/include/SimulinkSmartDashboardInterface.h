@@ -58,6 +58,7 @@ private:
         nt::NetworkTableEntry __Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_Sign_Change_Deadband__Entry;
+        nt::NetworkTableEntry __Elevator_Error_Bottom_Disable__Entry;
         nt::NetworkTableEntry __Elevator_Gain_Int__Entry;
         nt::NetworkTableEntry __Elevator_Gain_Prop__Entry;
         nt::NetworkTableEntry __Elevator_Height_Bottom__Entry;
@@ -66,8 +67,6 @@ private:
         nt::NetworkTableEntry __Elevator_Height_L3__Entry;
         nt::NetworkTableEntry __Elevator_Height_L4__Entry;
         nt::NetworkTableEntry __Elevator_Height_Pickup__Entry;
-        nt::NetworkTableEntry __Elevator_Height_RL_Dec__Entry;
-        nt::NetworkTableEntry __Elevator_Height_RL_Inc__Entry;
         nt::NetworkTableEntry __Elevator_Hold_at_Top_DC__Entry;
         nt::NetworkTableEntry __Elevator_Int_IC__Entry;
         nt::NetworkTableEntry __Elevator_Int_LL__Entry;
@@ -254,11 +253,14 @@ private:
         nt::NetworkTableEntry __Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Z__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Z_Mode__Entry;
+        nt::NetworkTableEntry __Elevator_Error__Entry;
         nt::NetworkTableEntry __Elevator_Height_Desired__Entry;
         nt::NetworkTableEntry __Elevator_Height_Measured__Entry;
         nt::NetworkTableEntry __Elevator_Height_Measured_Raw__Entry;
         nt::NetworkTableEntry __Elevator_Height_Offset__Entry;
+        nt::NetworkTableEntry __Elevator_Integral__Entry;
         nt::NetworkTableEntry __Elevator_Motor_Enable__Entry;
+        nt::NetworkTableEntry __Elevator_Proportional__Entry;
         nt::NetworkTableEntry __FL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __FL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __FL_Desired_Wheel_Speed_in__Entry;
