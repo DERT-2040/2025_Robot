@@ -22,3 +22,8 @@ Elevator_Total_UL = 1.0;    % DC
 Elevator_Total_LL = -0.4;      % DC
 Elevator_Hold_at_Top_DC = 0.01;  % DC
 Elevator_Error_Bottom_Disable = 3; % inches
+
+% Coral Wheel Control
+Coral_Motor_DC_Pickup = 0.1;
+Coral_Motor_DC_Hold = 0.01;
+Coral_Motor_DC_Eject = -0.1;
