@@ -16,12 +16,12 @@
 //etc
 #include <frc/smartdashboard/SmartDashboard.h>
 
-namespace ElevatorNameSpace = Constants::Elevator;
+namespace ReefscapeGameNameSpace = Constants::ReefscapeGame;
 
-class Elevator : public Component
+class ReefscapeGame : public Component
 {
 public:
-  Elevator();
+  ReefscapeGame();
     
     /**
      * Runs before the step function is called in the main loop
@@ -51,14 +51,14 @@ public:
 
 private:
  
-  NeoSet elevatorMotor
+  NeoSet ReefscapeGameNeoSet
   {
     {
-      ElevatorNameSpace::motor
+      ReefscapeGameNameSpace::motor
     }
   };
 
-  frc::DigitalInput bottomLimitSwitch {ElevatorNameSpace::bottomLimitSwitchID};
-  frc::DigitalInput topLimitSwitch {ElevatorNameSpace::topLimitSwitchID};
+  frc::DigitalInput bottomLimitSwitch {ReefscapeGameNameSpace::bottomLimitSwitchID};
+  frc::DigitalInput topLimitSwitch {ReefscapeGameNameSpace::topLimitSwitchID};
 
 };

@@ -13,7 +13,7 @@
 #include "include/SimulinkSmartDashboardInterface.h"
 #include "include/FMSInfo.h"
 #include "include/PhotonVisionInterface.h"
-#include "include/Elevator.h"
+#include "include/ReefscapeGame.h"
 // For each component also add content in this file at the bottom of the private area
 
 //frc
@@ -145,7 +145,7 @@ private:
   FMSInfo m_FMSInfo;
 
   /**
-   * Component that supports the elevator inputs and outputs
+   * Component that supports the ReefscapeGame inputs and outputs
    */
-  Elevator m_Elevator;
+  ReefscapeGame m_ReefscapeGame;
 };

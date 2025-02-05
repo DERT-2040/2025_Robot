@@ -101,9 +101,9 @@ namespace Constants
         static constexpr std::string_view k_Pigeon2_Device_Name = "uno";
     };
 
-    namespace Elevator
+    namespace ReefscapeGame
     {
-        static constexpr NeoSparkCreateInfo defaultElevatorCreateInfo{
+        static constexpr NeoSparkCreateInfo defaultReefscapeGameCreateInfo{
             -1,   // canID
             true, // isReversed
             10,   // smartCurrentLimit
@@ -111,7 +111,7 @@ namespace Constants
             0.1,  // openLoopRampRate
             true // includeSensor
         };
-        static NeoSparkCreateInfo motor = NeoSparkCreateInfo::modifyInfo(defaultElevatorCreateInfo,
+        static NeoSparkCreateInfo motor = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
                                                                              10, // CAN ID
                                                                              &Code_Gen_Model_Y.Elevator_DutyCycle,
                                                                              nullptr,
