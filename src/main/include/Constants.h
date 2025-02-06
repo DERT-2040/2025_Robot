@@ -124,14 +124,16 @@ namespace Constants
                                                                              12, // CAN ID
                                                                              &Code_Gen_Model_Y.Coral_Wheel_DutyCycle);
 
-        // Limit switches
-        // These values correspond to the RoboRIO Digital Input/Output (DIO) port on the device
+        // These values correspond to the RoboRIO Digital Input/Output (DIO) ports
         static constexpr int bottomLimitSwitchID = 0;
         static constexpr int topLimitSwitchID = 1;
         static constexpr int coralLimitSwitchID = 2;
+        static constexpr int coralThroughBoreEncoderID = 3;
+        static constexpr int coralThroughBoreEncoderOffset = 180; // degrees
 
         // The Playing with Fusion configuration interface tool may be accessed by typing in the
         // IP address of the roboRIO into a web browser followed by :5812
         static constexpr uint8_t Coral_TOF_ID = 1;
+        
     };
 };

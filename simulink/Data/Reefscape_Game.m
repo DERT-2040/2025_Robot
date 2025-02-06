@@ -18,7 +18,6 @@ Elevator_Height_L3      = 13.125;
 Elevator_Height_L4      = 26.125;
 
 % Coral arm angles (degrees)
-Coral_Arm_Measurement_Offset = -180;
 Coral_Arm_Angle_L1      = -65;
 Coral_Arm_Angle_L2      = 42;
 Coral_Arm_Angle_L3      = 42;

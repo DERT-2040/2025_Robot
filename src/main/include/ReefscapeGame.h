@@ -71,4 +71,8 @@ private:
   // Playing with Fusion - Time of Flight sensor
   pwf::TimeOfFlight coralTimeOfFlightSensor{ReefscapeGameNameSpace::Coral_TOF_ID};
 
+  // REV Through Bore Encoder
+  // Initializes a duty cycle encoder on a DIO pin to return a value of 360 degrees for a full rotation with an offset angle
+  frc::DutyCycleEncoder coralArmAngle{ReefscapeGameNameSpace::coralThroughBoreEncoderID, 360, ReefscapeGameNameSpace::coralThroughBoreEncoderOffset};
+
 };

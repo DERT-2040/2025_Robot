@@ -8,9 +8,12 @@ void ReefscapeGame::PreStepCallback()
     ReefscapeGameNeoSet.pushData();
 
     // Limit Switches
-    Code_Gen_Model_U.Elevator_Limit_Switch_Bottom = bottomLimitSwitch.Get(); 
-    Code_Gen_Model_U.Elevator_Limit_Switch_Top = topLimitSwitch.Get();   
+    Code_Gen_Model_U.Elevator_Limit_Switch_Bottom = bottomLimitSwitch.Get();
+    Code_Gen_Model_U.Elevator_Limit_Switch_Top = topLimitSwitch.Get();
     Code_Gen_Model_U.Coral_Limit_Switch = coralLimitSwitch.Get();
+
+    // REV Through Bore Encoder
+    Code_Gen_Model_U.Coral_Arm_Angle_Measured = coralArmAngle.Get();
 
     // Time of Flight sensors
     Code_Gen_Model_U.Coral_TOF_Distance = coralTimeOfFlightSensor.GetRange();

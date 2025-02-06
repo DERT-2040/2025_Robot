@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.237
+ * Model version                  : 2.239
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Feb  5 22:00:39 2025
+ * C/C++ source code generated on : Thu Feb  6 08:58:21 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -167,9 +167,6 @@ real_T Coral_Arm_Int_UL = 0.1;         /* Variable: Coral_Arm_Int_UL
 real_T Coral_Arm_Manual_Gain = 0.0;    /* Variable: Coral_Arm_Manual_Gain
                                         * Referenced by: '<S334>/Coral_Chart'
                                         */
-real_T Coral_Arm_Measurement_Offset = -180.0;/* Variable: Coral_Arm_Measurement_Offset
-                                              * Referenced by: '<S1>/Add Constant'
-                                              */
 real_T Coral_Arm_Total_LL = -1.0;      /* Variable: Coral_Arm_Total_LL
                                         * Referenced by:
                                         *   '<S22>/Constant1'
@@ -1273,12 +1270,6 @@ void Code_Gen_Model_step(void)
 
   /* End of Switch: '<S9>/Switch' */
 
-  /* Bias: '<S1>/Add Constant' incorporates:
-   *  Inport: '<Root>/Coral_Arm_Angle_Measured_Raw'
-   */
-  Code_Gen_Model_B.Coral_Arm_Angle_Measured =
-    Code_Gen_Model_U.Coral_Arm_Angle_Measured_Raw + Coral_Arm_Measurement_Offset;
-
   /* SwitchCase: '<S1>/Switch Case' incorporates:
    *  Inport: '<Root>/GameState'
    */
@@ -2150,6 +2141,7 @@ void Code_Gen_Model_step(void)
 
     /* Chart: '<S334>/Coral_Chart' incorporates:
      *  Constant: '<S5>/Constant'
+     *  Inport: '<Root>/Coral_Arm_Angle_Measured'
      *  Inport: '<Root>/Coral_Limit_Switch'
      *  Inport: '<Root>/Coral_TOF_Distance'
      *  Inport: '<Root>/Gamepad_RB'
@@ -2235,7 +2227,7 @@ void Code_Gen_Model_step(void)
                   Code_Gen_Model_B.Elevator_Height_Measured) <=
              Elevator_Height_Error_Threshold) && ((fabs
               (Code_Gen_Model_B.Coral_Arm_Angle_Desired_o -
-               Code_Gen_Model_B.Coral_Arm_Angle_Measured) <=
+               Code_Gen_Model_U.Coral_Arm_Angle_Measured) <=
               Coral_Arm_Angle_Error_Threshold) &&
              (Code_Gen_Model_U.Coral_TOF_Distance < Coral_Detect_Distance))) {
           Code_Gen_Model_DW.is_c4_Code_Gen_Model =
@@ -5527,10 +5519,12 @@ void Code_Gen_Model_step(void)
 
   /* End of Switch: '<S8>/Switch2' */
 
-  /* Sum: '<S6>/Subtract' */
+  /* Sum: '<S6>/Subtract' incorporates:
+   *  Inport: '<Root>/Coral_Arm_Angle_Measured'
+   */
   Code_Gen_Model_B.Coral_ArmAngle_Error =
     Code_Gen_Model_B.Coral_Arm_Angle_Desired -
-    Code_Gen_Model_B.Coral_Arm_Angle_Measured;
+    Code_Gen_Model_U.Coral_Arm_Angle_Measured;
 
   /* Gain: '<S22>/Gain1' */
   Code_Gen_Model_B.Elevator_Proportional_a = Coral_Arm_Gain_Prop *
