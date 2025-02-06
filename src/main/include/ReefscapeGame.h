@@ -13,6 +13,8 @@
 //rev
 #include <rev/SparkMax.h>
 #include <rev/SparkRelativeEncoder.h>
+//playing with fusion
+#include <TimeOfFlight.h>
 //etc
 #include <frc/smartdashboard/SmartDashboard.h>
 
@@ -51,6 +53,7 @@ public:
 
 private:
  
+  // NEO Spark Max motor controllers
   NeoSet ReefscapeGameNeoSet
   {
     {
@@ -60,8 +63,12 @@ private:
     }
   };
 
+  // Limit Switches
   frc::DigitalInput bottomLimitSwitch {ReefscapeGameNameSpace::bottomLimitSwitchID};
   frc::DigitalInput topLimitSwitch {ReefscapeGameNameSpace::topLimitSwitchID};
   frc::DigitalInput coralLimitSwitch {ReefscapeGameNameSpace::coralLimitSwitchID};
+
+  // Playing with Fusion - Time of Flight sensor
+  pwf::TimeOfFlight coralTimeOfFlightSensor{ReefscapeGameNameSpace::Coral_TOF_ID};
 
 };
