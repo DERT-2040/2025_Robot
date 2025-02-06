@@ -111,13 +111,20 @@ namespace Constants
             0.1,  // openLoopRampRate
             true // includeSensor
         };
-        static NeoSparkCreateInfo motor = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+        static NeoSparkCreateInfo motorElevator = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
                                                                              10, // CAN ID
                                                                              &Code_Gen_Model_Y.Elevator_DutyCycle,
                                                                              nullptr,
                                                                              &Code_Gen_Model_U.Elevator_Motor_Rev);
-        
+        static NeoSparkCreateInfo motorCoralArm = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+                                                                             11, // CAN ID
+                                                                             &Code_Gen_Model_Y.Coral_Arm_DutyCycle);
+        static NeoSparkCreateInfo motorCoralWheel = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+                                                                             12, // CAN ID
+                                                                             &Code_Gen_Model_Y.Coral_Wheel_DutyCycle);
+
         static constexpr int bottomLimitSwitchID = 0;
         static constexpr int topLimitSwitchID = 1;
+        static constexpr int coralLimitSwitchID = 2;
     };
 };

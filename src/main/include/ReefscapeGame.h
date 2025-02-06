@@ -54,11 +54,14 @@ private:
   NeoSet ReefscapeGameNeoSet
   {
     {
-      ReefscapeGameNameSpace::motor
+      ReefscapeGameNameSpace::motorElevator,
+      ReefscapeGameNameSpace::motorCoralArm,
+      ReefscapeGameNameSpace::motorCoralWheel
     }
   };
 
   frc::DigitalInput bottomLimitSwitch {ReefscapeGameNameSpace::bottomLimitSwitchID};
   frc::DigitalInput topLimitSwitch {ReefscapeGameNameSpace::topLimitSwitchID};
+  frc::DigitalInput coralLimitSwitch {ReefscapeGameNameSpace::coralLimitSwitchID};
 
 };
