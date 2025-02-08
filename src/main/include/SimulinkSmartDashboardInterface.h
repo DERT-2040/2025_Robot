@@ -171,7 +171,7 @@ private:
         nt::NetworkTableEntry __BackRight_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry __BackRight_Steer_Rev__Entry;
         nt::NetworkTableEntry __BackRight_Turn_Offset__Entry;
-        nt::NetworkTableEntry __Coral_Arm_Angle_Measured__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Angle_Measured_Raw__Entry;
         nt::NetworkTableEntry __Coral_Limit_Switch__Entry;
         nt::NetworkTableEntry __Coral_TOF_Distance__Entry;
         nt::NetworkTableEntry __Elevator_Limit_Switch_Bottom__Entry;
@@ -281,6 +281,7 @@ private:
         nt::NetworkTableEntry __Coral_ArmAngle_Error__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Desired__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Desired_o__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Angle_Measured__Entry;
         nt::NetworkTableEntry __Coral_Wheel_DC__Entry;
         nt::NetworkTableEntry __Drive_Joystick_X__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Y__Entry;

@@ -574,7 +574,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __BackRight_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackRight_Drive_Motor_Speed");
     __BackRight_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackRight_Steer_Rev");
     __BackRight_Turn_Offset__Entry = NTtable_Inport->GetEntry("BackRight_Turn_Offset");
-    __Coral_Arm_Angle_Measured__Entry = NTtable_Inport->GetEntry("Coral_Arm_Angle_Measured");
+    __Coral_Arm_Angle_Measured_Raw__Entry = NTtable_Inport->GetEntry("Coral_Arm_Angle_Measured_Raw");
     __Coral_Limit_Switch__Entry = NTtable_Inport->GetEntry("Coral_Limit_Switch");
     __Coral_TOF_Distance__Entry = NTtable_Inport->GetEntry("Coral_TOF_Distance");
     __Elevator_Limit_Switch_Bottom__Entry = NTtable_Inport->GetEntry("Elevator_Limit_Switch_Bottom");
@@ -685,6 +685,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Coral_ArmAngle_Error__Entry = NTtable_TPoint->GetEntry("Coral_ArmAngle_Error");
     __Coral_Arm_Angle_Desired__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired");
     __Coral_Arm_Angle_Desired_o__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired_o");
+    __Coral_Arm_Angle_Measured__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Measured");
     __Coral_Wheel_DC__Entry = NTtable_TPoint->GetEntry("Coral_Wheel_DC");
     __Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     __Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
@@ -779,7 +780,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __BackRight_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.BackRight_Drive_Motor_Speed);
     __BackRight_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.BackRight_Steer_Rev);
     __BackRight_Turn_Offset__Entry.SetDouble(Code_Gen_Model_U.BackRight_Turn_Offset);
-    __Coral_Arm_Angle_Measured__Entry.SetDouble(Code_Gen_Model_U.Coral_Arm_Angle_Measured);
+    __Coral_Arm_Angle_Measured_Raw__Entry.SetDouble(Code_Gen_Model_U.Coral_Arm_Angle_Measured_Raw);
     __Coral_Limit_Switch__Entry.SetDouble(Code_Gen_Model_U.Coral_Limit_Switch);
     __Coral_TOF_Distance__Entry.SetDouble(Code_Gen_Model_U.Coral_TOF_Distance);
     __Elevator_Limit_Switch_Bottom__Entry.SetDouble(Code_Gen_Model_U.Elevator_Limit_Switch_Bottom);
@@ -888,6 +889,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Coral_ArmAngle_Error__Entry.SetDouble(Code_Gen_Model_B.Coral_ArmAngle_Error);
     __Coral_Arm_Angle_Desired__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired);
     __Coral_Arm_Angle_Desired_o__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired_o);
+    __Coral_Arm_Angle_Measured__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Measured);
     __Coral_Wheel_DC__Entry.SetDouble(Code_Gen_Model_B.Coral_Wheel_DC);
     __Drive_Joystick_X__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_X);
     __Drive_Joystick_Y__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Y);

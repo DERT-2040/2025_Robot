@@ -13,7 +13,8 @@ void ReefscapeGame::PreStepCallback()
     Code_Gen_Model_U.Coral_Limit_Switch = coralLimitSwitch.Get();
 
     // REV Through Bore Encoder
-    Code_Gen_Model_U.Coral_Arm_Angle_Measured = coralArmAngle.Get();
+    coralArmAngle.SetInverted(true);
+    Code_Gen_Model_U.Coral_Arm_Angle_Measured_Raw = coralArmAngle.Get();
 
     // Time of Flight sensors
     Code_Gen_Model_U.Coral_TOF_Distance = coralTimeOfFlightSensor.GetRange();

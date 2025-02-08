@@ -129,11 +129,11 @@ namespace Constants
         static constexpr int topLimitSwitchID = 1;
         static constexpr int coralLimitSwitchID = 2;
         static constexpr int coralThroughBoreEncoderID = 3;
-        static constexpr int coralThroughBoreEncoderOffset = 180; // degrees
+        static constexpr int coralThroughBoreEncoderOffset = 80.5; // degrees
 
         // The Playing with Fusion configuration interface tool may be accessed by typing in the
         // IP address of the roboRIO into a web browser followed by :5812
-        static constexpr uint8_t Coral_TOF_ID = 1;
+        static constexpr uint8_t Coral_TOF_ID = 0;
         
     };
 };

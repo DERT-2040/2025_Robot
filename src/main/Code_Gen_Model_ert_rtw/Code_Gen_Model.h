@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.239
+ * Model version                  : 2.241
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Feb  6 08:58:21 2025
+ * C/C++ source code generated on : Sat Feb  8 17:05:55 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -53,6 +53,7 @@ typedef struct {
   real_T Elevator_Height_Measured_Raw; /* '<S9>/Gain1' */
   real_T Elevator_Height_Offset;       /* '<S9>/Subtract' */
   real_T Elevator_Height_Measured;     /* '<S9>/Switch' */
+  real_T Coral_Arm_Angle_Measured;     /* '<S1>/Add Constant' */
   real_T Gyro_Angle_Field_rad;         /* '<S10>/Add' */
   real_T Spline_Num_Poses;             /* '<S14>/Merge9' */
   real_T Steering_Abs_Cmd;             /* '<S14>/Merge1' */
@@ -385,7 +386,8 @@ typedef struct {
   real_T Elevator_Limit_Switch_Bottom;
                                      /* '<Root>/Elevator_Limit_Switch_Bottom' */
   real_T Elevator_Limit_Switch_Top;    /* '<Root>/Elevator_Limit_Switch_Top' */
-  real_T Coral_Arm_Angle_Measured;     /* '<Root>/Coral_Arm_Angle_Measured' */
+  real_T Coral_Arm_Angle_Measured_Raw;
+                                     /* '<Root>/Coral_Arm_Angle_Measured_Raw' */
   real_T Coral_TOF_Distance;           /* '<Root>/Coral_TOF_Distance' */
   real_T Coral_Limit_Switch;           /* '<Root>/Coral_Limit_Switch' */
 } ExtU_Code_Gen_Model_T;
