@@ -111,6 +111,22 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__AT_XY_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_XY_Control_Gain = event.GetValueEventData()->value.GetDouble();});
     __AT_XY_Control_Gain__Entry.SetDouble(1.5);
  
+    __Algae_Eject_Time__Entry = NTtable_Tune->GetEntry("Algae_Eject_Time");
+    NTinst.AddListener(__Algae_Eject_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Algae_Eject_Time = event.GetValueEventData()->value.GetDouble();});
+    __Algae_Eject_Time__Entry.SetDouble(1);
+ 
+    __Algae_Hold_DC__Entry = NTtable_Tune->GetEntry("Algae_Hold_DC");
+    NTinst.AddListener(__Algae_Hold_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Algae_Hold_DC = event.GetValueEventData()->value.GetDouble();});
+    __Algae_Hold_DC__Entry.SetDouble(0.005);
+ 
+    __Algae_Pull_In_DC__Entry = NTtable_Tune->GetEntry("Algae_Pull_In_DC");
+    NTinst.AddListener(__Algae_Pull_In_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Algae_Pull_In_DC = event.GetValueEventData()->value.GetDouble();});
+    __Algae_Pull_In_DC__Entry.SetDouble(1);
+ 
+    __Algae_Push_Out_DC__Entry = NTtable_Tune->GetEntry("Algae_Push_Out_DC");
+    NTinst.AddListener(__Algae_Push_Out_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Algae_Push_Out_DC = event.GetValueEventData()->value.GetDouble();});
+    __Algae_Push_Out_DC__Entry.SetDouble(-0.3);
+ 
     __Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
     __Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.28);
@@ -566,6 +582,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __AT_Tag_14_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_14_Found");
     __AT_Tag_15_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_15_Found");
     __AT_Tag_16_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_16_Found");
+    __Algae_Limit_Switch__Entry = NTtable_Inport->GetEntry("Algae_Limit_Switch");
     __BackLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Rev");
     __BackLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Speed");
     __BackLeft_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Steer_Rev");
@@ -651,6 +668,8 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Photon_Est_Pose_Y__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Y");
  
 // Outports
+    __Algae_Wheel_Inside_DutyCycle__Entry = NTtable_Outport->GetEntry("Algae_Wheel_Inside_DutyCycle");
+    __Algae_Wheel_Outside_DutyCycle__Entry = NTtable_Outport->GetEntry("Algae_Wheel_Outside_DutyCycle");
     __BackLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Drive_DutyCycle");
     __BackLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Steer_DutyCycle");
     __BackRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Drive_DutyCycle");
@@ -772,6 +791,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __AT_Tag_14_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_14_Found);
     __AT_Tag_15_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_15_Found);
     __AT_Tag_16_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_16_Found);
+    __Algae_Limit_Switch__Entry.SetDouble(Code_Gen_Model_U.Algae_Limit_Switch);
     __BackLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Rev);
     __BackLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Speed);
     __BackLeft_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Steer_Rev);
@@ -856,6 +876,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Photon_Est_Pose_X__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_X);
     __Photon_Est_Pose_Y__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Y);
     // Outports
+    __Algae_Wheel_Inside_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Algae_Wheel_Inside_DutyCycle);
+    __Algae_Wheel_Outside_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Algae_Wheel_Outside_DutyCycle);
     __BackLeft_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackLeft_Drive_DutyCycle);
     __BackLeft_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
     __BackRight_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackRight_Drive_DutyCycle);

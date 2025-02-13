@@ -123,12 +123,19 @@ namespace Constants
         static NeoSparkCreateInfo motorCoralWheel = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
                                                                              12, // CAN ID
                                                                              &Code_Gen_Model_Y.Coral_Wheel_DutyCycle);
+        static NeoSparkCreateInfo motorAlgaeWheelOutside = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+                                                                             13, // CAN ID
+                                                                             &Code_Gen_Model_Y.Algae_Wheel_Outside_DutyCycle);
+        static NeoSparkCreateInfo motorAlgaeWheelInside = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+                                                                             14, // CAN ID
+                                                                             &Code_Gen_Model_Y.Algae_Wheel_Inside_DutyCycle);                                                                             
 
         // These values correspond to the RoboRIO Digital Input/Output (DIO) ports
         static constexpr int bottomLimitSwitchID = 0;
         static constexpr int topLimitSwitchID = 1;
         static constexpr int coralLimitSwitchID = 2;
-        static constexpr int coralThroughBoreEncoderID = 3;
+        static constexpr int algaeLimitSwitchID = 3;
+        static constexpr int coralThroughBoreEncoderID = 4;
         static constexpr int coralThroughBoreEncoderOffset = 80.5; // degrees
 
         // The Playing with Fusion configuration interface tool may be accessed by typing in the

@@ -43,6 +43,10 @@ private:
         nt::NetworkTableEntry __AT_Target_Tag_6_X__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_6_Y__Entry;
         nt::NetworkTableEntry __AT_XY_Control_Gain__Entry;
+        nt::NetworkTableEntry __Algae_Eject_Time__Entry;
+        nt::NetworkTableEntry __Algae_Hold_DC__Entry;
+        nt::NetworkTableEntry __Algae_Pull_In_DC__Entry;
+        nt::NetworkTableEntry __Algae_Push_Out_DC__Entry;
         nt::NetworkTableEntry __Boost_Trigger_Decreasing_Limit__Entry;
         nt::NetworkTableEntry __Boost_Trigger_High_Speed__Entry;
         nt::NetworkTableEntry __Boost_Trigger_Increasing_Limit__Entry;
@@ -163,6 +167,7 @@ private:
         nt::NetworkTableEntry __AT_Tag_14_Found__Entry;
         nt::NetworkTableEntry __AT_Tag_15_Found__Entry;
         nt::NetworkTableEntry __AT_Tag_16_Found__Entry;
+        nt::NetworkTableEntry __Algae_Limit_Switch__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry __BackLeft_Steer_Rev__Entry;
@@ -247,6 +252,8 @@ private:
         nt::NetworkTableEntry __Photon_Est_Pose_X__Entry;
         nt::NetworkTableEntry __Photon_Est_Pose_Y__Entry;
         // Outports
+        nt::NetworkTableEntry __Algae_Wheel_Inside_DutyCycle__Entry;
+        nt::NetworkTableEntry __Algae_Wheel_Outside_DutyCycle__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __BackLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry __BackRight_Drive_DutyCycle__Entry;

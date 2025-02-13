@@ -11,6 +11,7 @@ void ReefscapeGame::PreStepCallback()
     Code_Gen_Model_U.Elevator_Limit_Switch_Bottom = bottomLimitSwitch.Get();
     Code_Gen_Model_U.Elevator_Limit_Switch_Top = topLimitSwitch.Get();
     Code_Gen_Model_U.Coral_Limit_Switch = coralLimitSwitch.Get();
+    Code_Gen_Model_U.Algae_Limit_Switch = algaeLimitSwitch.Get();    
 
     // REV Through Bore Encoder
     coralArmAngle.SetInverted(true);

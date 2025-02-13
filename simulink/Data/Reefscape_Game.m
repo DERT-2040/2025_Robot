@@ -60,4 +60,10 @@ Coral_Arm_Manual_Gain       = 0;
 Coral_Detect_Distance       = 100; % mm
 Coral_Eject_Time            = 1; % seconds
 
+% Algae specific parameters
+Algae_Pull_In_DC = 1;
+Algae_Hold_DC = 0.005;
+Algae_Push_Out_DC = -0.3;
+Algae_Eject_Time = 1;
+
 

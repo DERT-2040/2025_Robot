@@ -59,7 +59,9 @@ private:
     {
       ReefscapeGameNameSpace::motorElevator,
       ReefscapeGameNameSpace::motorCoralArm,
-      ReefscapeGameNameSpace::motorCoralWheel
+      ReefscapeGameNameSpace::motorCoralWheel,
+      ReefscapeGameNameSpace::motorAlgaeWheelOutside,
+      ReefscapeGameNameSpace::motorAlgaeWheelInside
     }
   };
 
@@ -67,6 +69,7 @@ private:
   frc::DigitalInput bottomLimitSwitch {ReefscapeGameNameSpace::bottomLimitSwitchID};
   frc::DigitalInput topLimitSwitch {ReefscapeGameNameSpace::topLimitSwitchID};
   frc::DigitalInput coralLimitSwitch {ReefscapeGameNameSpace::coralLimitSwitchID};
+  frc::DigitalInput algaeLimitSwitch {ReefscapeGameNameSpace::algaeLimitSwitchID};
 
   // Playing with Fusion - Time of Flight sensor
   pwf::TimeOfFlight coralTimeOfFlightSensor{ReefscapeGameNameSpace::Coral_TOF_ID};
