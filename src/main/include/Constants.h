@@ -112,6 +112,7 @@ namespace Constants
             0.1,  // openLoopRampRate
             true // includeSensor
         };
+        
         static NeoSparkCreateInfo motorElevator = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
                                                                              10, // CAN ID
                                                                              &Code_Gen_Model_Y.Elevator_DutyCycle,
@@ -136,7 +137,8 @@ namespace Constants
         static constexpr int coralLimitSwitchID = 2;
         static constexpr int algaeLimitSwitchID = 3;
         static constexpr int coralThroughBoreEncoderID = 4;
-        static constexpr int coralThroughBoreEncoderOffset = 80.5; // degrees
+        static constexpr int coralThroughBoreEncoderOffset = 80.8; // degrees
+
 
         // The Playing with Fusion configuration interface tool may be accessed by typing in the
         // IP address of the roboRIO into a web browser followed by :5812
