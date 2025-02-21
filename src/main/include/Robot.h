@@ -8,8 +8,8 @@
 #include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
 #include "lib/include/Component.h"
 #include "include/HIDs.h"
-//#include "include/IMU.h"
-//#include "include/SwerveDrive.h"
+#include "include/IMU.h"
+#include "include/SwerveDrive.h"
 #include "include/SimulinkSmartDashboardInterface.h"
 #include "include/FMSInfo.h"
 //#include "include/PhotonVisionInterface.h"
@@ -73,7 +73,6 @@ class Robot : public frc::TimedRobot {
    */
   void TestPeriodic() override;
 
-
   /**
    * Runs once when robot changes into Simulation mode
    */
@@ -120,12 +119,12 @@ private:
   /**
    * Component Object for the IMU pigeon2
    */
- // IMU m_IMU;
+  IMU m_IMU;
   
   /**
    * Component Object for all Swerve Drive objects such as sensors and motors
    */
-  //SwerveDrive m_SwerveDrive;
+  SwerveDrive m_SwerveDrive;
   
   // PhotonVisionInterface m_PhotonVisionInterface;
   

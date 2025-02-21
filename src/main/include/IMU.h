@@ -14,11 +14,7 @@ class IMU : public Component
 {
 public:
     IMU();
-    /**
-     * Resets yaw zero
-     * 
-     */
-    void Reset();
+
     /**
      * Runs before the step function is called in the main loop
      */

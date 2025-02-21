@@ -107,8 +107,8 @@ namespace Constants
         static constexpr NeoSparkCreateInfo defaultReefscapeGameCreateInfo{
             -1,   // canID
             true, // isReversed
-            10,   // smartCurrentLimit
-            10,   // secondaryCurrentLimit
+            20,   // smartCurrentLimit
+            20,   // secondaryCurrentLimit
             0.1,  // openLoopRampRate
             true // includeSensor
         };

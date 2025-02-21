@@ -1,6 +1,9 @@
 #include "include/ReefscapeGame.h"
 
-ReefscapeGame::ReefscapeGame(){}
+ReefscapeGame::ReefscapeGame()
+{
+    coralArmAngle.SetInverted(true);
+}
 
 void ReefscapeGame::PreStepCallback()
 {
@@ -14,7 +17,6 @@ void ReefscapeGame::PreStepCallback()
     Code_Gen_Model_U.Algae_Limit_Switch = algaeLimitSwitch.Get();    
 
     // REV Through Bore Encoder
-    coralArmAngle.SetInverted(true);
     Code_Gen_Model_U.Coral_Arm_Angle_Measured_Raw = coralArmAngle.Get();
 
     // Time of Flight sensors
