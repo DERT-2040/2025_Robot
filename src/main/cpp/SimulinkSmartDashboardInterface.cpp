@@ -155,6 +155,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Coral_Arm_Angle_L2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L2 = event.GetValueEventData()->value.GetDouble();});
     __Coral_Arm_Angle_L2__Entry.SetDouble(50);
  
+    __Coral_Arm_Angle_L2_pre_thresh__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_L2_pre_thresh");
+    NTinst.AddListener(__Coral_Arm_Angle_L2_pre_thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L2_pre_thresh = event.GetValueEventData()->value.GetDouble();});
+    __Coral_Arm_Angle_L2_pre_thresh__Entry.SetDouble(-50);
+ 
     __Coral_Arm_Angle_L3__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_L3");
     NTinst.AddListener(__Coral_Arm_Angle_L3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L3 = event.GetValueEventData()->value.GetDouble();});
     __Coral_Arm_Angle_L3__Entry.SetDouble(50);
@@ -357,19 +361,19 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_LowerPickup_Time__Entry = NTtable_Tune->GetEntry("Elevator_LowerPickup_Time");
     NTinst.AddListener(__Elevator_LowerPickup_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_LowerPickup_Time = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_LowerPickup_Time__Entry.SetDouble(0.5);
+    __Elevator_LowerPickup_Time__Entry.SetDouble(0.2);
  
     __Elevator_MotorRev_to_Inch__Entry = NTtable_Tune->GetEntry("Elevator_MotorRev_to_Inch");
     NTinst.AddListener(__Elevator_MotorRev_to_Inch__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_MotorRev_to_Inch = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_MotorRev_to_Inch__Entry.SetDouble(-0.27646);
+    __Elevator_MotorRev_to_Inch__Entry.SetDouble(0.27646);
  
     __Elevator_Total_LL__Entry = NTtable_Tune->GetEntry("Elevator_Total_LL");
     NTinst.AddListener(__Elevator_Total_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_LL = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Total_LL__Entry.SetDouble(-0.25);
+    __Elevator_Total_LL__Entry.SetDouble(-0.05);
  
     __Elevator_Total_UL__Entry = NTtable_Tune->GetEntry("Elevator_Total_UL");
     NTinst.AddListener(__Elevator_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_UL = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Total_UL__Entry.SetDouble(1);
+    __Elevator_Total_UL__Entry.SetDouble(0.05);
  
     __Gyro_Calibration_Reset_Degree__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Reset_Degree");
     NTinst.AddListener(__Gyro_Calibration_Reset_Degree__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Reset_Degree = event.GetValueEventData()->value.GetDouble();});
@@ -764,10 +768,8 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Face_Left_Driver__Entry = NTtable_TPoint->GetEntry("Face_Left_Driver");
     __Face_Right_Driver__Entry = NTtable_TPoint->GetEntry("Face_Right_Driver");
     __Face_Toward_Driver__Entry = NTtable_TPoint->GetEntry("Face_Toward_Driver");
-    __FixPtRelationalOperator__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator");
-    __FixPtRelationalOperator_d__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_d");
-    __FixPtRelationalOperator_k__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_k");
-    __FixPtRelationalOperator_n__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_n");
+    __FixPtRelationalOperator_i__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_i");
+    __FixPtRelationalOperator_m__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_m");
     __Gyro_Angle_Calibrated_deg__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Calibrated_deg");
     __Gyro_Angle_Field_rad__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Field_rad");
     __Gyro_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_SPF");
@@ -979,10 +981,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Face_Left_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Left_Driver);
     __Face_Right_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Right_Driver);
     __Face_Toward_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Toward_Driver);
-    __FixPtRelationalOperator__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator);
-    __FixPtRelationalOperator_d__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_d);
-    __FixPtRelationalOperator_k__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_k);
-    __FixPtRelationalOperator_n__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_n);
+    __FixPtRelationalOperator_i__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_i);
+    __FixPtRelationalOperator_m__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_m);
     __Gyro_Angle_Calibrated_deg__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Calibrated_deg);
     __Gyro_Angle_Field_rad__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Field_rad);
     __Gyro_Angle_SPF__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_SPF);

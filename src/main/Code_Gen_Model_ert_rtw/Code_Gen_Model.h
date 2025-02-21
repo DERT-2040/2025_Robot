@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.273
+ * Model version                  : 2.275
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 15 22:33:01 2025
+ * C/C++ source code generated on : Fri Feb 21 07:15:59 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -133,10 +133,8 @@ typedef struct {
   boolean_T Robot_Reached_Destination; /* '<S18>/Merge7' */
   boolean_T Steering_Abs_Angle_Active; /* '<S359>/AND6' */
   boolean_T previous_call_was_for_speaker;/* '<S356>/Logical Operator' */
-  boolean_T FixPtRelationalOperator;   /* '<S379>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_n; /* '<S380>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_k; /* '<S381>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_d; /* '<S382>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_i; /* '<S385>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_m; /* '<S386>/FixPt Relational Operator' */
   boolean_T Elevator_LowerPickup_Reset;/* '<S358>/Reefscape_Chart' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S147>/Merge1' */
 } B_Code_Gen_Model_T;
@@ -246,11 +244,17 @@ typedef struct {
   uint8_T is_active_c4_Code_Gen_Model; /* '<S358>/Reefscape_Chart' */
   uint8_T is_Coral;                    /* '<S358>/Reefscape_Chart' */
   uint8_T is_Coral_Eject;              /* '<S358>/Reefscape_Chart' */
+  uint8_T is_Set_Level;                /* '<S358>/Reefscape_Chart' */
+  uint8_T is_Actions;                  /* '<S358>/Reefscape_Chart' */
   uint8_T is_Coral_Score_Position;     /* '<S358>/Reefscape_Chart' */
   uint8_T is_Algae;                    /* '<S358>/Reefscape_Chart' */
   uint8_T is_active_c9_Code_Gen_Model; /* '<S17>/Chart' */
   uint8_T is_c9_Code_Gen_Model;        /* '<S17>/Chart' */
   boolean_T icLoad;                    /* '<S75>/MemoryX' */
+  boolean_T Set_L1;                    /* '<S358>/Reefscape_Chart' */
+  boolean_T Set_L2;                    /* '<S358>/Reefscape_Chart' */
+  boolean_T Set_L3;                    /* '<S358>/Reefscape_Chart' */
+  boolean_T Set_L4;                    /* '<S358>/Reefscape_Chart' */
   boolean_T EnabledSubsystem_MODE;     /* '<S102>/Enabled Subsystem' */
   boolean_T MeasurementUpdate_MODE;    /* '<S95>/MeasurementUpdate' */
 } DW_Code_Gen_Model_T;
@@ -627,6 +631,10 @@ extern real_T Coral_Arm_Angle_L1;      /* Variable: Coral_Arm_Angle_L1
 extern real_T Coral_Arm_Angle_L2;      /* Variable: Coral_Arm_Angle_L2
                                         * Referenced by: '<S358>/Reefscape_Chart'
                                         */
+extern real_T Coral_Arm_Angle_L2_pre_thresh;
+                                      /* Variable: Coral_Arm_Angle_L2_pre_thresh
+                                       * Referenced by: '<S358>/Reefscape_Chart'
+                                       */
 extern real_T Coral_Arm_Angle_L3;      /* Variable: Coral_Arm_Angle_L3
                                         * Referenced by: '<S358>/Reefscape_Chart'
                                         */

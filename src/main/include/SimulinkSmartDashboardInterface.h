@@ -54,6 +54,7 @@ private:
         nt::NetworkTableEntry __Coral_Arm_Angle_Error_Threshold__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L1__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L2__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Angle_L2_pre_thresh__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L3__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L4__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Neg_Threshold__Entry;
@@ -327,10 +328,8 @@ private:
         nt::NetworkTableEntry __Face_Left_Driver__Entry;
         nt::NetworkTableEntry __Face_Right_Driver__Entry;
         nt::NetworkTableEntry __Face_Toward_Driver__Entry;
-        nt::NetworkTableEntry __FixPtRelationalOperator__Entry;
-        nt::NetworkTableEntry __FixPtRelationalOperator_d__Entry;
-        nt::NetworkTableEntry __FixPtRelationalOperator_k__Entry;
-        nt::NetworkTableEntry __FixPtRelationalOperator_n__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_i__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_m__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Calibrated_deg__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Field_rad__Entry;
         nt::NetworkTableEntry __Gyro_Angle_SPF__Entry;

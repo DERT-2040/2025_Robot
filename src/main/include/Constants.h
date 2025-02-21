@@ -70,7 +70,7 @@ namespace Constants
                 true,                                  // isReversed
                 60,                                    // smartCurrentLimit
                 60,                                    // secondaryCurrentLimit
-                0.1,                                   // openLoopRampRate
+                0.01,                                  // openLoopRampRate (seconds)
                 false                                  // includeSensor
             };
             static NeoSparkCreateInfo frontLeft  = NeoSparkCreateInfo::modifyInfo(defaultSteerCreateInfo,
@@ -103,31 +103,70 @@ namespace Constants
 
     namespace ReefscapeGame
     {
-        // NEO Spark Max motor controllers
-        static constexpr NeoSparkCreateInfo defaultReefscapeGameCreateInfo{
+        // Elevator motor controller configuration
+        static constexpr NeoSparkCreateInfo elevatorMotorCreateInfo{
             -1,   // canID
-            true, // isReversed
-            20,   // smartCurrentLimit
-            20,   // secondaryCurrentLimit
-            0.1,  // openLoopRampRate
-            true // includeSensor
-        };
-        
-        static NeoSparkCreateInfo motorElevator = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+            false,// isReversed
+            80,   // smartCurrentLimit
+            80,   // secondaryCurrentLimit
+            0.01, // openLoopRampRate (seconds)
+            true  // includeSensor
+        };      
+        static NeoSparkCreateInfo motorElevator = NeoSparkCreateInfo::modifyInfo(elevatorMotorCreateInfo,
                                                                              10, // CAN ID
                                                                              &Code_Gen_Model_Y.Elevator_DutyCycle,
                                                                              nullptr,
                                                                              &Code_Gen_Model_U.Elevator_Motor_Rev);
-        static NeoSparkCreateInfo motorCoralArm = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+
+        // Coral Arm motor controller configuration
+        static constexpr NeoSparkCreateInfo coralArmMotorCreateInfo{
+            -1,   // canID
+            false,// isReversed
+            80,   // smartCurrentLimit
+            80,   // secondaryCurrentLimit
+            0.01, // openLoopRampRate (seconds)
+            false // includeSensor
+        };
+        static NeoSparkCreateInfo motorCoralArm = NeoSparkCreateInfo::modifyInfo(coralArmMotorCreateInfo,
                                                                              11, // CAN ID
                                                                              &Code_Gen_Model_Y.Coral_Arm_DutyCycle);
-        static NeoSparkCreateInfo motorCoralWheel = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+
+        // Coral Wheel motor controller configuration
+        static constexpr NeoSparkCreateInfo coralWheelMotorCreateInfo{
+            -1,   // canID
+            false,// isReversed
+            40,   // smartCurrentLimit
+            40,   // secondaryCurrentLimit
+            0.01, // openLoopRampRate (seconds)
+            false // includeSensor
+        };
+        static NeoSparkCreateInfo motorCoralWheel = NeoSparkCreateInfo::modifyInfo(coralWheelMotorCreateInfo,
                                                                              12, // CAN ID
                                                                              &Code_Gen_Model_Y.Coral_Wheel_DutyCycle);
-        static NeoSparkCreateInfo motorAlgaeWheelOutside = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+
+        // Algae Outside Wheel motor controller configuration
+        static constexpr NeoSparkCreateInfo algaeOutsideWheelMotorCreateInfo{
+            -1,   // canID
+            false,// isReversed
+            40,   // smartCurrentLimit
+            40,   // secondaryCurrentLimit
+            0.01, // openLoopRampRate (seconds)
+            false // includeSensor
+        };
+        static NeoSparkCreateInfo motorAlgaeWheelOutside = NeoSparkCreateInfo::modifyInfo(algaeOutsideWheelMotorCreateInfo,
                                                                              13, // CAN ID
                                                                              &Code_Gen_Model_Y.Algae_Wheel_Outside_DutyCycle);
-        static NeoSparkCreateInfo motorAlgaeWheelInside = NeoSparkCreateInfo::modifyInfo(defaultReefscapeGameCreateInfo,
+
+        // Algae Inside Wheel motor controller configuration
+        static constexpr NeoSparkCreateInfo algaeInsideWheelMotorCreateInfo{
+            -1,   // canID
+            true, // isReversed
+            40,   // smartCurrentLimit
+            40,   // secondaryCurrentLimit
+            0.01, // openLoopRampRate (seconds)
+            false // includeSensor
+        };
+        static NeoSparkCreateInfo motorAlgaeWheelInside = NeoSparkCreateInfo::modifyInfo(algaeInsideWheelMotorCreateInfo,
                                                                              14, // CAN ID
                                                                              &Code_Gen_Model_Y.Algae_Wheel_Inside_DutyCycle);                                                                             
 
@@ -138,7 +177,6 @@ namespace Constants
         static constexpr int algaeLimitSwitchID = 3;
         static constexpr int coralThroughBoreEncoderID = 4;
         static constexpr int coralThroughBoreEncoderOffset = 80.8; // degrees
-
 
         // The Playing with Fusion configuration interface tool may be accessed by typing in the
         // IP address of the roboRIO into a web browser followed by :5812
