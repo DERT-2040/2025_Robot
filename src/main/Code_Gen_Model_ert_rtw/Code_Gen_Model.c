@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.275
+ * Model version                  : 2.276
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Feb 21 07:15:59 2025
+ * C/C++ source code generated on : Fri Feb 21 20:43:02 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -384,12 +384,12 @@ real_T Elevator_LowerPickup_Time = 0.2;/* Variable: Elevator_LowerPickup_Time
 real_T Elevator_MotorRev_to_Inch = 0.27646;/* Variable: Elevator_MotorRev_to_Inch
                                             * Referenced by: '<S10>/Gain1'
                                             */
-real_T Elevator_Total_LL = -0.05;      /* Variable: Elevator_Total_LL
+real_T Elevator_Total_LL = -0.25;      /* Variable: Elevator_Total_LL
                                         * Referenced by:
                                         *   '<S42>/Constant1'
                                         *   '<S42>/Saturation2'
                                         */
-real_T Elevator_Total_UL = 0.05;       /* Variable: Elevator_Total_UL
+real_T Elevator_Total_UL = 1.0;        /* Variable: Elevator_Total_UL
                                         * Referenced by:
                                         *   '<S42>/Constant'
                                         *   '<S42>/Saturation2'

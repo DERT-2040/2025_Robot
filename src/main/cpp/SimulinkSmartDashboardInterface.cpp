@@ -369,11 +369,11 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Total_LL__Entry = NTtable_Tune->GetEntry("Elevator_Total_LL");
     NTinst.AddListener(__Elevator_Total_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_LL = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Total_LL__Entry.SetDouble(-0.05);
+    __Elevator_Total_LL__Entry.SetDouble(-0.25);
  
     __Elevator_Total_UL__Entry = NTtable_Tune->GetEntry("Elevator_Total_UL");
     NTinst.AddListener(__Elevator_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_UL = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Total_UL__Entry.SetDouble(0.05);
+    __Elevator_Total_UL__Entry.SetDouble(1);
  
     __Gyro_Calibration_Reset_Degree__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Reset_Degree");
     NTinst.AddListener(__Gyro_Calibration_Reset_Degree__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Reset_Degree = event.GetValueEventData()->value.GetDouble();});

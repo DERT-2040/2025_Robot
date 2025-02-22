@@ -33,10 +33,8 @@ Elevator_Gain_Int = 0.02;  % DC/(inch*loops)
 Elevator_Int_IC = 0;
 Elevator_Int_UL = 0.1;
 Elevator_Int_LL = -0.1;
-% Elevator_Total_UL = 1;    % DC
-% Elevator_Total_LL = -0.25;      % DC
-Elevator_Total_UL = 0.05;    % DC
-Elevator_Total_LL = -0.05;      % DC
+Elevator_Total_UL = 1;    % DC
+Elevator_Total_LL = -0.25;      % DC
 Elevator_Hold_at_Top_DC = 0.1;  % DC
 Elevator_Error_Bottom_Disable = 3; % inches
 Elevator_Error_Increase = 0.0;  % inches, increase error to force elevator up when we want to go lower but are not able to because of coral arm angle
@@ -50,12 +48,10 @@ Coral_Arm_Int_UL = 0.05;
 Coral_Arm_Int_LL = -0.05;
 
 Coral_Arm_DC_Upper_Limit_Angle_In = [0 50 80];  % deg
-% Coral_Arm_DC_Upper_Limit_Out = [0.8 0.7 0.4]; % DC
-Coral_Arm_DC_Upper_Limit_Out = [0.05 0.05 0.05]; % DC
+Coral_Arm_DC_Upper_Limit_Out = [0.8 0.7 0.4]; % DC
 
 Coral_Arm_DC_Lower_Limit_Angle_In = [-80 -40];  % deg
-% Coral_Arm_DC_Lower_Limit_Out = [-0.2 -0.5]; % DC
-Coral_Arm_DC_Lower_Limit_Out = [-0.05 -0.05]; % DC
+Coral_Arm_DC_Lower_Limit_Out = [-0.2 -0.5]; % DC
 
 Coral_Arm_Elevator_Height_Low_Thresh = 8.5;  % inch
 Coral_Arm_Angle_Neg_Threshold = -88;  % deg

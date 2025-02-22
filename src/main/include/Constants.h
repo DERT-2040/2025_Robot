@@ -106,7 +106,7 @@ namespace Constants
         // Elevator motor controller configuration
         static constexpr NeoSparkCreateInfo elevatorMotorCreateInfo{
             -1,   // canID
-            false,// isReversed
+            true, // isReversed
             80,   // smartCurrentLimit
             80,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
@@ -121,7 +121,7 @@ namespace Constants
         // Coral Arm motor controller configuration
         static constexpr NeoSparkCreateInfo coralArmMotorCreateInfo{
             -1,   // canID
-            false,// isReversed
+            true, // isReversed
             80,   // smartCurrentLimit
             80,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
@@ -147,7 +147,7 @@ namespace Constants
         // Algae Outside Wheel motor controller configuration
         static constexpr NeoSparkCreateInfo algaeOutsideWheelMotorCreateInfo{
             -1,   // canID
-            false,// isReversed
+            true, // isReversed
             40,   // smartCurrentLimit
             40,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
@@ -160,7 +160,7 @@ namespace Constants
         // Algae Inside Wheel motor controller configuration
         static constexpr NeoSparkCreateInfo algaeInsideWheelMotorCreateInfo{
             -1,   // canID
-            true, // isReversed
+            false,// isReversed
             40,   // smartCurrentLimit
             40,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
