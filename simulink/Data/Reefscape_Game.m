@@ -1,3 +1,7 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEVATOR
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Conversion from Motor Revolutions to Elevator Height
 elevator_sprocket_diameter = 1.76;  % inches, pitch diameter
 elevator_gear_ratio = 20;
@@ -9,7 +13,6 @@ Elevator_Height_Bottom  = 0;
 Elevator_Height_Top     = 28;
 Elevator_Height_Top_Reset = 28.125;
 Elevator_Height_PickupLower_Reset = 6.8;
-Elevator_LowerPickup_Time = 0.2;  % seconds
 
 Elevator_Height_Prepare = 12.0;
 Elevator_Height_Lower   = 6.0;
@@ -20,12 +23,9 @@ Elevator_Height_L2      = 5.25+2;
 Elevator_Height_L3      = 13.125+2;
 Elevator_Height_L4      = 26.125;
 
-% Coral arm angles (degrees)
-Coral_Arm_Angle_L1      = -15;
-Coral_Arm_Angle_L2_pre_thresh = -50;  % angle must be greater than this value to proceed to the next state for elevator movement
-Coral_Arm_Angle_L2      = 50;
-Coral_Arm_Angle_L3      = 50;
-Coral_Arm_Angle_L4      = 50;
+Elevator_Height_Algae_Score = 12;
+Elevator_Height_Algae_Low   = 15;
+Elevator_Height_Algae_High  = 23;
 
 % Closed loop control for elevator height
 Elevator_Gain_Prop = 0.3;  % DC/inch
@@ -40,48 +40,78 @@ Elevator_Error_Bottom_Disable = 3; % inches
 Elevator_Error_Increase = 0.0;  % inches, increase error to force elevator up when we want to go lower but are not able to because of coral arm angle
 Elevator_DC_Inc_RL = 1/0.3*0.02;  % duty cycle per loop
 
+% State transition thresholds
+Elevator_Height_Error_Threshold = 1.00; % inches
+Elevator_LowerPickup_Time = 0.5;  % seconds
+
+% Coral Time Of Flight (TOF) detection threshold to start lowering elevator
+Coral_Detect_Distance       = 70; % mm
+
+% Gamepad elevator and arm control gains
+Elevator_Height_Manual_Gain = 0.1;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CORAL ARM
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Coral arm angles (degrees)
+Coral_Arm_Angle_L1      = -15;
+Coral_Arm_Angle_L2_pre_thresh = -50;  % angle must be greater than this value to proceed to the next state for elevator movement
+Coral_Arm_Angle_L2      = 50;
+Coral_Arm_Angle_L3      = 50;
+Coral_Arm_Angle_L4      = 50;
+Coral_Arm_Angle_Up      = 85;
+
 % Closed loop control for coral arm
 Coral_Arm_Gain_Prop = 0.01;  % DC/deg
 Coral_Arm_Gain_Int = 0.001;  % DC/(deg*loops)
 Coral_Arm_Int_IC = 0;
 Coral_Arm_Int_UL = 0.05;
 Coral_Arm_Int_LL = -0.05;
-
 Coral_Arm_DC_Upper_Limit_Angle_In = [0 50 80];  % deg
 Coral_Arm_DC_Upper_Limit_Out = [0.8 0.7 0.4]; % DC
-
 Coral_Arm_DC_Lower_Limit_Angle_In = [-80 -40];  % deg
 Coral_Arm_DC_Lower_Limit_Out = [-0.2 -0.5]; % DC
-
-Coral_Arm_Elevator_Height_Low_Thresh = 8.5;  % inch
-Coral_Arm_Angle_Neg_Threshold = -88;  % deg
-Coral_Arm_Neg90_DC = -0.03;
 Coral_Arm_DC_Inc_RL = 1/0.3*0.02;  % duty cycle per loop
 
-% Coral Wheel Control
+% State transition thresholds
+Coral_Arm_Angle_Error_Threshold = 3;    % degrees
+
+% Thresholds to bypass closed loop control and set a duty cycle
+Coral_Arm_Angle_Neg_Threshold = -88;  % deg
+Elevator_Height_Coral_Arm_Low_Thresh = 8.5;  % inch
+Coral_Arm_Neg90_DC = -0.03;
+
+% Gamepad elevator and arm control gains
+Coral_Arm_Manual_Gain       = 0.4;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CORAL WHEEL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Coral Wheel Duty Cycles
 Coral_Motor_DC_Pickup = 0.1;
 Coral_Motor_DC_Hold = 0.01;
 Coral_Motor_DC_Eject = -0.65;
 
-% State transition error thresholds
-Elevator_Height_Error_Threshold = 1.00; % inches
-Coral_Arm_Angle_Error_Threshold = 3;    % degrees
+% Coral ejection time
+Coral_Eject_Time = 0.5; % seconds
 
-% Gamepad elevator and arm control gains
-Elevator_Height_Manual_Gain = 0.1;
-Coral_Arm_Manual_Gain       = 0.4;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ALGAE WHEELS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Coral specific parameters
-Coral_Detect_Distance       = 70; % mm
-Coral_Eject_Time            = 0.5; % seconds
-
-% Algae specific parameters
+% Algae Wheel Duty Cycles
 Algae_Pull_In_DC = 1;
 Algae_Hold_DC = 0.005;
 Algae_Push_Out_DC = -0.3;
-Algae_Eject_Time = 1;
 
-%% Range of Motion checks 
+% Algae ejection time
+Algae_Eject_Time = 1;  % seconds
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEVATOR & CORAL RANGE OF MOTION CHECKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % elevator height lower limit vs. coral arm angle
 % define dimensions
 arm_length = 20.5;

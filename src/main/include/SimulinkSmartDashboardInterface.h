@@ -58,8 +58,8 @@ private:
         nt::NetworkTableEntry __Coral_Arm_Angle_L3__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L4__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Neg_Threshold__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Angle_Up__Entry;
         nt::NetworkTableEntry __Coral_Arm_DC_Inc_RL__Entry;
-        nt::NetworkTableEntry __Coral_Arm_Elevator_Height_Low_Thresh__Entry;
         nt::NetworkTableEntry __Coral_Arm_Gain_Int__Entry;
         nt::NetworkTableEntry __Coral_Arm_Gain_Prop__Entry;
         nt::NetworkTableEntry __Coral_Arm_Int_IC__Entry;
@@ -88,7 +88,11 @@ private:
         nt::NetworkTableEntry __Elevator_Error_Increase__Entry;
         nt::NetworkTableEntry __Elevator_Gain_Int__Entry;
         nt::NetworkTableEntry __Elevator_Gain_Prop__Entry;
+        nt::NetworkTableEntry __Elevator_Height_Algae_High__Entry;
+        nt::NetworkTableEntry __Elevator_Height_Algae_Low__Entry;
+        nt::NetworkTableEntry __Elevator_Height_Algae_Score__Entry;
         nt::NetworkTableEntry __Elevator_Height_Bottom__Entry;
+        nt::NetworkTableEntry __Elevator_Height_Coral_Arm_Low_Thresh__Entry;
         nt::NetworkTableEntry __Elevator_Height_Error_Threshold__Entry;
         nt::NetworkTableEntry __Elevator_Height_L1__Entry;
         nt::NetworkTableEntry __Elevator_Height_L2__Entry;
@@ -328,8 +332,12 @@ private:
         nt::NetworkTableEntry __Face_Left_Driver__Entry;
         nt::NetworkTableEntry __Face_Right_Driver__Entry;
         nt::NetworkTableEntry __Face_Toward_Driver__Entry;
-        nt::NetworkTableEntry __FixPtRelationalOperator_i__Entry;
-        nt::NetworkTableEntry __FixPtRelationalOperator_m__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_d__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_ji__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_k__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_ml__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_n__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Calibrated_deg__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Field_rad__Entry;
         nt::NetworkTableEntry __Gyro_Angle_SPF__Entry;
