@@ -209,7 +209,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Coral_Detect_Distance__Entry = NTtable_Tune->GetEntry("Coral_Detect_Distance");
     NTinst.AddListener(__Coral_Detect_Distance__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Detect_Distance = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Detect_Distance__Entry.SetDouble(70);
+    __Coral_Detect_Distance__Entry.SetDouble(60);
  
     __Coral_Eject_Time__Entry = NTtable_Tune->GetEntry("Coral_Eject_Time");
     NTinst.AddListener(__Coral_Eject_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Eject_Time = event.GetValueEventData()->value.GetDouble();});
@@ -293,15 +293,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_Algae_High__Entry = NTtable_Tune->GetEntry("Elevator_Height_Algae_High");
     NTinst.AddListener(__Elevator_Height_Algae_High__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Algae_High = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Algae_High__Entry.SetDouble(23);
+    __Elevator_Height_Algae_High__Entry.SetDouble(19);
  
     __Elevator_Height_Algae_Low__Entry = NTtable_Tune->GetEntry("Elevator_Height_Algae_Low");
     NTinst.AddListener(__Elevator_Height_Algae_Low__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Algae_Low = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Algae_Low__Entry.SetDouble(15);
+    __Elevator_Height_Algae_Low__Entry.SetDouble(11);
  
     __Elevator_Height_Algae_Score__Entry = NTtable_Tune->GetEntry("Elevator_Height_Algae_Score");
     NTinst.AddListener(__Elevator_Height_Algae_Score__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Algae_Score = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Algae_Score__Entry.SetDouble(12);
+    __Elevator_Height_Algae_Score__Entry.SetDouble(2.5);
  
     __Elevator_Height_Bottom__Entry = NTtable_Tune->GetEntry("Elevator_Height_Bottom");
     NTinst.AddListener(__Elevator_Height_Bottom__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Bottom = event.GetValueEventData()->value.GetDouble();});
@@ -749,6 +749,9 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __BR_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("BR_Desired_Wheel_Speed");
     __BR_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("BR_Desired_Wheel_Speed_in");
     __BR_Steer_Module_Angle__Entry = NTtable_TPoint->GetEntry("BR_Steer_Module_Angle");
+    __Button_Disable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Disable_Wheels");
+    __Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
+    __Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
     __Coral_ArmAngle_Error__Entry = NTtable_TPoint->GetEntry("Coral_ArmAngle_Error");
     __Coral_Arm_Angle_Desired__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired");
     __Coral_Arm_Angle_Desired_o__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired_o");
@@ -790,6 +793,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __FixPtRelationalOperator_k__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_k");
     __FixPtRelationalOperator_ml__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_ml");
     __FixPtRelationalOperator_n__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_n");
+    __Gamepad_POV_Down__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Down");
+    __Gamepad_POV_Left__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Left");
+    __Gamepad_POV_Right__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Right");
+    __Gamepad_POV_Up__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Up");
     __Gyro_Angle_Calibrated_deg__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Calibrated_deg");
     __Gyro_Angle_Field_rad__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Field_rad");
     __Gyro_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_SPF");
@@ -966,6 +973,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __BR_Desired_Wheel_Speed__Entry.SetDouble(Code_Gen_Model_B.BR_Desired_Wheel_Speed);
     __BR_Desired_Wheel_Speed_in__Entry.SetDouble(Code_Gen_Model_B.BR_Desired_Wheel_Speed_in);
     __BR_Steer_Module_Angle__Entry.SetDouble(Code_Gen_Model_B.BR_Steer_Module_Angle);
+    __Button_Disable_Wheels__Entry.SetDouble(Code_Gen_Model_B.Button_Disable_Wheels);
+    __Button_Enable_Wheels__Entry.SetDouble(Code_Gen_Model_B.Button_Enable_Wheels);
+    __Button_Reset_Wheel_Offsets__Entry.SetDouble(Code_Gen_Model_B.Button_Reset_Wheel_Offsets);
     __Coral_ArmAngle_Error__Entry.SetDouble(Code_Gen_Model_B.Coral_ArmAngle_Error);
     __Coral_Arm_Angle_Desired__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired);
     __Coral_Arm_Angle_Desired_o__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired_o);
@@ -1007,6 +1017,10 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __FixPtRelationalOperator_k__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_k);
     __FixPtRelationalOperator_ml__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_ml);
     __FixPtRelationalOperator_n__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_n);
+    __Gamepad_POV_Down__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Down);
+    __Gamepad_POV_Left__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Left);
+    __Gamepad_POV_Right__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Right);
+    __Gamepad_POV_Up__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Up);
     __Gyro_Angle_Calibrated_deg__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Calibrated_deg);
     __Gyro_Angle_Field_rad__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Field_rad);
     __Gyro_Angle_SPF__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_SPF);

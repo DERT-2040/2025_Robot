@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.278
+ * Model version                  : 2.280
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 22 11:17:47 2025
+ * C/C++ source code generated on : Sat Feb 22 18:36:05 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -116,6 +116,9 @@ typedef struct {
   real_T Product2[2];                  /* '<S127>/Product2' */
   real_T Product3[2];                  /* '<S125>/Product3' */
   uint8_T Active_GameState;            /* '<S17>/Chart' */
+  boolean_T Button_Enable_Wheels;      /* '<S71>/FixPt Relational Operator' */
+  boolean_T Button_Reset_Wheel_Offsets;/* '<S72>/FixPt Relational Operator' */
+  boolean_T Button_Disable_Wheels;     /* '<S73>/FixPt Relational Operator' */
   boolean_T Drive_Joystick_Z_Mode;     /* '<S63>/Compare' */
   boolean_T Is_Boosting;               /* '<S70>/Compare' */
   boolean_T Align_Amp;                 /* '<S68>/Compare' */
@@ -124,6 +127,10 @@ typedef struct {
   boolean_T Face_Right_Driver;         /* '<S64>/Compare' */
   boolean_T Face_Left_Driver;          /* '<S65>/Compare' */
   boolean_T Face_Away_Driver;          /* '<S62>/Compare' */
+  boolean_T Gamepad_POV_Up;            /* '<S58>/Compare' */
+  boolean_T Gamepad_POV_Down;          /* '<S59>/Compare' */
+  boolean_T Gamepad_POV_Left;          /* '<S61>/Compare' */
+  boolean_T Gamepad_POV_Right;         /* '<S60>/Compare' */
   boolean_T Spline_Enable;             /* '<S15>/Merge7' */
   boolean_T Is_Absolute_Translation_SPF;/* '<S18>/Merge4' */
   boolean_T Is_Absolute_Steering_SPF;  /* '<S18>/Merge5' */

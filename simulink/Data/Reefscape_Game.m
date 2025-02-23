@@ -23,9 +23,9 @@ Elevator_Height_L2      = 5.25+2;
 Elevator_Height_L3      = 13.125+2;
 Elevator_Height_L4      = 26.125;
 
-Elevator_Height_Algae_Score = 12;
-Elevator_Height_Algae_Low   = 15;
-Elevator_Height_Algae_High  = 23;
+Elevator_Height_Algae_Score = 2.5;
+Elevator_Height_Algae_Low   = 11;
+Elevator_Height_Algae_High  = 19;
 
 % Closed loop control for elevator height
 Elevator_Gain_Prop = 0.3;  % DC/inch
@@ -45,7 +45,7 @@ Elevator_Height_Error_Threshold = 1.00; % inches
 Elevator_LowerPickup_Time = 0.5;  % seconds
 
 % Coral Time Of Flight (TOF) detection threshold to start lowering elevator
-Coral_Detect_Distance       = 70; % mm
+Coral_Detect_Distance       = 60; % mm
 
 % Gamepad elevator and arm control gains
 Elevator_Height_Manual_Gain = 0.1;

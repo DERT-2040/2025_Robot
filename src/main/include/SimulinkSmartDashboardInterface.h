@@ -297,6 +297,9 @@ private:
         nt::NetworkTableEntry __BR_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __BR_Desired_Wheel_Speed_in__Entry;
         nt::NetworkTableEntry __BR_Steer_Module_Angle__Entry;
+        nt::NetworkTableEntry __Button_Disable_Wheels__Entry;
+        nt::NetworkTableEntry __Button_Enable_Wheels__Entry;
+        nt::NetworkTableEntry __Button_Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry __Coral_ArmAngle_Error__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Desired__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Desired_o__Entry;
@@ -338,6 +341,10 @@ private:
         nt::NetworkTableEntry __FixPtRelationalOperator_k__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_ml__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_n__Entry;
+        nt::NetworkTableEntry __Gamepad_POV_Down__Entry;
+        nt::NetworkTableEntry __Gamepad_POV_Left__Entry;
+        nt::NetworkTableEntry __Gamepad_POV_Right__Entry;
+        nt::NetworkTableEntry __Gamepad_POV_Up__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Calibrated_deg__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Field_rad__Entry;
         nt::NetworkTableEntry __Gyro_Angle_SPF__Entry;
