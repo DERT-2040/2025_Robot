@@ -12,7 +12,7 @@
 #include "include/SwerveDrive.h"
 #include "include/SimulinkSmartDashboardInterface.h"
 #include "include/FMSInfo.h"
-//#include "include/PhotonVisionInterface.h"
+#include "include/Limelight.h"
 #include "include/ReefscapeGame.h"
 // For each component also add content in this file at the bottom of the private area
 
@@ -121,6 +121,11 @@ private:
    */
   IMU m_IMU;
   
+  /**
+   * Component Object for Limelight Vision
+   */
+  Limelight m_Limelight;
+
   /**
    * Component Object for all Swerve Drive objects such as sensors and motors
    */

@@ -40,7 +40,7 @@ public:
      * X X X X                 Class Specific Methods                  X X X X
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      */
-private:
+    private:
     /**
      * Pigeon 2 IMU from CRTE
     */
