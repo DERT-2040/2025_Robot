@@ -44,6 +44,9 @@ void Limelight::PreStepCallback() {
     double StarboardLLAvgTagDist = StarboardLLMeasurement.avgTagDist;
     double StarboardLLTagCount = StarboardLLMeasurement.tagCount;
 
+    // Pass Into Simulink
+    // Code_Gen_Model_U.Num_Tags_Detected = PortLLTagCount + StarboardLLTagCount;
+
     // Logic to evaluate which Limelight has "better" tags currently, based on amount of Tag on screen and tag distance
     // Sets input values based on that
     if (PortLLAvgTagArea > StarboardLLAvgTagArea) {
