@@ -1,10 +1,16 @@
 #pragma once
+
+// Limelight
 #include "LimelightHelpers.h"
-#include "include/IMU.h"
+
+// Other
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
-#include <ctre/phoenix6/Pigeon2.hpp>
 #include "lib/include/Component.h"
+
+// IMU
 #include "include/Constants.h"
+#include <ctre/phoenix6/Pigeon2.hpp>
+#include "include/IMU.h"
 
 class Limelight {
     public: 
@@ -35,8 +41,14 @@ class Limelight {
 
     private:
 
-    LimelightHelpers::PoseEstimate limelightMeasurement;
-
+    // IMU Object used to set Limelight Yaw Value
     ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, static_cast<std::string>(kIMU::k_Pigeon2_Device_Name)};
+
+    // IMU Offset Set from Simulink Output Value
+    double IMU_Offset = 0;
+
+    // Limelight Data Objects
+    LimelightHelpers::PoseEstimate PortLLMeasurement;
+    LimelightHelpers::PoseEstimate StarboardLLMeasurement;
 
 };
