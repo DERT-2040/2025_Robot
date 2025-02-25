@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.280
+ * Model version                  : 2.282
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 22 18:36:05 2025
+ * C/C++ source code generated on : Mon Feb 24 21:42:56 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -144,9 +144,11 @@ typedef struct {
   boolean_T FixPtRelationalOperator_n; /* '<S379>/FixPt Relational Operator' */
   boolean_T FixPtRelationalOperator_k; /* '<S383>/FixPt Relational Operator' */
   boolean_T FixPtRelationalOperator_d; /* '<S384>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_m; /* '<S388>/FixPt Relational Operator' */
   boolean_T FixPtRelationalOperator_ji;/* '<S381>/FixPt Relational Operator' */
   boolean_T FixPtRelationalOperator_ml;/* '<S382>/FixPt Relational Operator' */
   boolean_T Elevator_LowerPickup_Reset;/* '<S357>/Reefscape_Chart' */
+  boolean_T Coral_Pickup_Lower_Wait_State;/* '<S357>/Reefscape_Chart' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S146>/Merge1' */
 } B_Code_Gen_Model_T;
 
@@ -258,8 +260,8 @@ typedef struct {
   uint8_T is_active_c4_Code_Gen_Model; /* '<S357>/Reefscape_Chart' */
   uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S357>/Reefscape_Chart' */
   uint8_T is_Coral_Eject;              /* '<S357>/Reefscape_Chart' */
-  uint8_T is_Set_Level;                /* '<S357>/Reefscape_Chart' */
   uint8_T is_Actions;                  /* '<S357>/Reefscape_Chart' */
+  uint8_T is_Set_Level;                /* '<S357>/Reefscape_Chart' */
   uint8_T is_Coral_Score_Position;     /* '<S357>/Reefscape_Chart' */
   uint8_T is_Algae_Wheels;             /* '<S357>/Reefscape_Chart' */
   uint8_T is_active_c9_Code_Gen_Model; /* '<S17>/Chart' */
@@ -645,10 +647,6 @@ extern real_T Coral_Arm_Angle_L1;      /* Variable: Coral_Arm_Angle_L1
 extern real_T Coral_Arm_Angle_L2;      /* Variable: Coral_Arm_Angle_L2
                                         * Referenced by: '<S357>/Reefscape_Chart'
                                         */
-extern real_T Coral_Arm_Angle_L2_pre_thresh;
-                                      /* Variable: Coral_Arm_Angle_L2_pre_thresh
-                                       * Referenced by: '<S357>/Reefscape_Chart'
-                                       */
 extern real_T Coral_Arm_Angle_L3;      /* Variable: Coral_Arm_Angle_L3
                                         * Referenced by: '<S357>/Reefscape_Chart'
                                         */
@@ -659,6 +657,12 @@ extern real_T Coral_Arm_Angle_Neg_Threshold;
                                       /* Variable: Coral_Arm_Angle_Neg_Threshold
                                        * Referenced by: '<S24>/Constant'
                                        */
+extern real_T Coral_Arm_Angle_Start;   /* Variable: Coral_Arm_Angle_Start
+                                        * Referenced by: '<S357>/Reefscape_Chart'
+                                        */
+extern real_T Coral_Arm_Angle_Start_Thresh;/* Variable: Coral_Arm_Angle_Start_Thresh
+                                            * Referenced by: '<S357>/Reefscape_Chart'
+                                            */
 extern real_T Coral_Arm_Angle_Up;      /* Variable: Coral_Arm_Angle_Up
                                         * Referenced by: '<S357>/Reefscape_Chart'
                                         */
@@ -776,6 +780,9 @@ extern real_T Drive_Motor_Control_Sign_Change_Deadband;
                             *   '<S258>/Constant'
                             *   '<S279>/Constant'
                             */
+extern real_T Elevator_Bottom_DC;      /* Variable: Elevator_Bottom_DC
+                                        * Referenced by: '<S9>/Constant7'
+                                        */
 extern real_T Elevator_DC_Inc_RL;      /* Variable: Elevator_DC_Inc_RL
                                         * Referenced by: '<S41>/Constant3'
                                         */

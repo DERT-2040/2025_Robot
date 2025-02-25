@@ -36,6 +36,7 @@ Elevator_Int_LL = -0.1;
 Elevator_Total_UL = 1;    % DC
 Elevator_Total_LL = -0.25;      % DC
 Elevator_Hold_at_Top_DC = 0.1;  % DC
+Elevator_Bottom_DC = -0.04;     % DC
 Elevator_Error_Bottom_Disable = 3; % inches
 Elevator_Error_Increase = 0.0;  % inches, increase error to force elevator up when we want to go lower but are not able to because of coral arm angle
 Elevator_DC_Inc_RL = 1/0.3*0.02;  % duty cycle per loop
@@ -56,11 +57,12 @@ Elevator_Height_Manual_Gain = 0.1;
 
 % Coral arm angles (degrees)
 Coral_Arm_Angle_L1      = -15;
-Coral_Arm_Angle_L2_pre_thresh = -50;  % angle must be greater than this value to proceed to the next state for elevator movement
 Coral_Arm_Angle_L2      = 50;
 Coral_Arm_Angle_L3      = 50;
 Coral_Arm_Angle_L4      = 50;
 Coral_Arm_Angle_Up      = 85;
+Coral_Arm_Angle_Start   = -15;
+Coral_Arm_Angle_Start_Thresh = -75;  % angle must be greater than this value to proceed to the next state for elevator movement
 
 % Closed loop control for coral arm
 Coral_Arm_Gain_Prop = 0.01;  % DC/deg

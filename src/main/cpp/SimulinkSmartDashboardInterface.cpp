@@ -155,10 +155,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Coral_Arm_Angle_L2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L2 = event.GetValueEventData()->value.GetDouble();});
     __Coral_Arm_Angle_L2__Entry.SetDouble(50);
  
-    __Coral_Arm_Angle_L2_pre_thresh__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_L2_pre_thresh");
-    NTinst.AddListener(__Coral_Arm_Angle_L2_pre_thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L2_pre_thresh = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Angle_L2_pre_thresh__Entry.SetDouble(-50);
- 
     __Coral_Arm_Angle_L3__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_L3");
     NTinst.AddListener(__Coral_Arm_Angle_L3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L3 = event.GetValueEventData()->value.GetDouble();});
     __Coral_Arm_Angle_L3__Entry.SetDouble(50);
@@ -170,6 +166,14 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Coral_Arm_Angle_Neg_Threshold__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Neg_Threshold");
     NTinst.AddListener(__Coral_Arm_Angle_Neg_Threshold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Neg_Threshold = event.GetValueEventData()->value.GetDouble();});
     __Coral_Arm_Angle_Neg_Threshold__Entry.SetDouble(-88);
+ 
+    __Coral_Arm_Angle_Start__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Start");
+    NTinst.AddListener(__Coral_Arm_Angle_Start__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Start = event.GetValueEventData()->value.GetDouble();});
+    __Coral_Arm_Angle_Start__Entry.SetDouble(-15);
+ 
+    __Coral_Arm_Angle_Start_Thresh__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Start_Thresh");
+    NTinst.AddListener(__Coral_Arm_Angle_Start_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Start_Thresh = event.GetValueEventData()->value.GetDouble();});
+    __Coral_Arm_Angle_Start_Thresh__Entry.SetDouble(-75);
  
     __Coral_Arm_Angle_Up__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Up");
     NTinst.AddListener(__Coral_Arm_Angle_Up__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Up = event.GetValueEventData()->value.GetDouble();});
@@ -270,6 +274,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Drive_Motor_Control_Sign_Change_Deadband__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_Sign_Change_Deadband");
     NTinst.AddListener(__Drive_Motor_Control_Sign_Change_Deadband__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_Sign_Change_Deadband = event.GetValueEventData()->value.GetDouble();});
     __Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(7000);
+ 
+    __Elevator_Bottom_DC__Entry = NTtable_Tune->GetEntry("Elevator_Bottom_DC");
+    NTinst.AddListener(__Elevator_Bottom_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Bottom_DC = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Bottom_DC__Entry.SetDouble(-0.04);
  
     __Elevator_DC_Inc_RL__Entry = NTtable_Tune->GetEntry("Elevator_DC_Inc_RL");
     NTinst.AddListener(__Elevator_DC_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_DC_Inc_RL = event.GetValueEventData()->value.GetDouble();});
@@ -756,6 +764,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Coral_Arm_Angle_Desired__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired");
     __Coral_Arm_Angle_Desired_o__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired_o");
     __Coral_Arm_Angle_Measured__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Measured");
+    __Coral_Pickup_Lower_Wait_State__Entry = NTtable_TPoint->GetEntry("Coral_Pickup_Lower_Wait_State");
     __Coral_Wheel_DC__Entry = NTtable_TPoint->GetEntry("Coral_Wheel_DC");
     __DeadZone__Entry = NTtable_TPoint->GetEntry("DeadZone");
     __DeadZone1__Entry = NTtable_TPoint->GetEntry("DeadZone1");
@@ -791,6 +800,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __FixPtRelationalOperator_d__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_d");
     __FixPtRelationalOperator_ji__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_ji");
     __FixPtRelationalOperator_k__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_k");
+    __FixPtRelationalOperator_m__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_m");
     __FixPtRelationalOperator_ml__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_ml");
     __FixPtRelationalOperator_n__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_n");
     __Gamepad_POV_Down__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Down");
@@ -980,6 +990,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Coral_Arm_Angle_Desired__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired);
     __Coral_Arm_Angle_Desired_o__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired_o);
     __Coral_Arm_Angle_Measured__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Measured);
+    __Coral_Pickup_Lower_Wait_State__Entry.SetDouble(Code_Gen_Model_B.Coral_Pickup_Lower_Wait_State);
     __Coral_Wheel_DC__Entry.SetDouble(Code_Gen_Model_B.Coral_Wheel_DC);
     __DeadZone__Entry.SetDouble(Code_Gen_Model_B.DeadZone);
     __DeadZone1__Entry.SetDouble(Code_Gen_Model_B.DeadZone1);
@@ -1015,6 +1026,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __FixPtRelationalOperator_d__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_d);
     __FixPtRelationalOperator_ji__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_ji);
     __FixPtRelationalOperator_k__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_k);
+    __FixPtRelationalOperator_m__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_m);
     __FixPtRelationalOperator_ml__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_ml);
     __FixPtRelationalOperator_n__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_n);
     __Gamepad_POV_Down__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Down);

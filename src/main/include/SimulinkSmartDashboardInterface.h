@@ -54,10 +54,11 @@ private:
         nt::NetworkTableEntry __Coral_Arm_Angle_Error_Threshold__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L1__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L2__Entry;
-        nt::NetworkTableEntry __Coral_Arm_Angle_L2_pre_thresh__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L3__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L4__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Neg_Threshold__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Angle_Start__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Angle_Start_Thresh__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Up__Entry;
         nt::NetworkTableEntry __Coral_Arm_DC_Inc_RL__Entry;
         nt::NetworkTableEntry __Coral_Arm_Gain_Int__Entry;
@@ -83,6 +84,7 @@ private:
         nt::NetworkTableEntry __Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_Sign_Change_Deadband__Entry;
+        nt::NetworkTableEntry __Elevator_Bottom_DC__Entry;
         nt::NetworkTableEntry __Elevator_DC_Inc_RL__Entry;
         nt::NetworkTableEntry __Elevator_Error_Bottom_Disable__Entry;
         nt::NetworkTableEntry __Elevator_Error_Increase__Entry;
@@ -304,6 +306,7 @@ private:
         nt::NetworkTableEntry __Coral_Arm_Angle_Desired__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Desired_o__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Measured__Entry;
+        nt::NetworkTableEntry __Coral_Pickup_Lower_Wait_State__Entry;
         nt::NetworkTableEntry __Coral_Wheel_DC__Entry;
         nt::NetworkTableEntry __DeadZone__Entry;
         nt::NetworkTableEntry __DeadZone1__Entry;
@@ -339,6 +342,7 @@ private:
         nt::NetworkTableEntry __FixPtRelationalOperator_d__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_ji__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_k__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_m__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_ml__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_n__Entry;
         nt::NetworkTableEntry __Gamepad_POV_Down__Entry;
