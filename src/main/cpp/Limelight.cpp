@@ -1,7 +1,7 @@
 #include "include/Limelight.h"
 
 Limelight::Limelight() {
-    LimelightHelpers::setCameraPose_RobotSpace("PortLimelight", 
+    LimelightHelpers::setCameraPose_RobotSpace("CameraOneLimelight", 
         0.5,    // Forward offset (meters)
         0.0,    // Side offset (meters)
         0.5,    // Height offset (meters)
@@ -9,7 +9,7 @@ Limelight::Limelight() {
         30.0,   // Pitch (degrees)
         0.0     // Yaw (degrees)
     );
-    LimelightHelpers::setCameraPose_RobotSpace("StarboardLimelight", 
+    LimelightHelpers::setCameraPose_RobotSpace("CameraTwoLimelight", 
         0.5,    // Forward offset (meters)
         0.0,    // Side offset (meters)
         0.5,    // Height offset (meters)
@@ -21,68 +21,68 @@ Limelight::Limelight() {
 
 void Limelight::PreStepCallback() {
 
-    auto adjustedGyro = m_Pigeon2.GetRotation2d().Degrees().value() + IMU_Offset;
+    auto adjustedGyro = m_Pigeon2.GetRotation2d().Degrees().value() + Gyro_Offset;
 
     //Sets Robot Oriention (MT2 Requirement)
-    LimelightHelpers::SetRobotOrientation("PortLimelight", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
-    LimelightHelpers::SetRobotOrientation("StarboardLimelight", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
+    LimelightHelpers::SetRobotOrientation("CameraOneLimelight", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
+    LimelightHelpers::SetRobotOrientation("CameraTwoLimelight", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
 
     //Updates Pose
-    PortLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("PortLimelight");
-    StarboardLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("StarboardLimelight");
+    CameraOneLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("CameraOneLimelight");
+    CameraTwoLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("CameraTwoLimelight");
    
     // Limelight Tag Scores
-    int PortLLScore = 0;
-    int StarboardLLScore = 0;
+    int CameraOneLLScore = 0;
+    int CameraTwoLLScore = 0;
     
     // Limelight Values for Scoring & Selection
-    double PortLLAvgTagArea = PortLLMeasurement.avgTagArea;
-    double PortLLAvgTagDist = PortLLMeasurement.avgTagDist;
-    double PortLLTagCount = PortLLMeasurement.tagCount;
+    double CameraOneLLAvgTagArea = CameraOneLLMeasurement.avgTagArea;
+    double CameraOneLLAvgTagDist = CameraOneLLMeasurement.avgTagDist;
+    double CameraOneLLTagCount = CameraOneLLMeasurement.tagCount;
 
-    double StarboardLLAvgTagArea = StarboardLLMeasurement.avgTagArea;
-    double StarboardLLAvgTagDist = StarboardLLMeasurement.avgTagDist;
-    double StarboardLLTagCount = StarboardLLMeasurement.tagCount;
+    double CameraTwoLLAvgTagArea = CameraTwoLLMeasurement.avgTagArea;
+    double CameraTwoLLAvgTagDist = CameraTwoLLMeasurement.avgTagDist;
+    double CameraTwoLLTagCount = CameraTwoLLMeasurement.tagCount;
 
     // Pass Into Simulink
-    // Code_Gen_Model_U.Num_Tags_Detected = PortLLTagCount + StarboardLLTagCount;
+    Code_Gen_Model_U.Num_Tags_Detected = CameraOneLLTagCount + CameraTwoLLTagCount;
 
     // Logic to evaluate which Limelight has "better" tags currently, based on amount of Tag on screen and tag distance
     // Sets input values based on that
-    if (PortLLAvgTagArea > StarboardLLAvgTagArea) {
-        PortLLScore++;
-    } else if (PortLLAvgTagArea < StarboardLLAvgTagArea) {
-        StarboardLLScore++;
+    if (CameraOneLLAvgTagArea > CameraTwoLLAvgTagArea) {
+        CameraOneLLScore++;
+    } else if (CameraOneLLAvgTagArea < CameraTwoLLAvgTagArea) {
+        CameraTwoLLScore++;
     }
-    if (PortLLAvgTagDist < StarboardLLAvgTagDist) {
-        PortLLScore++;
-    } else if (PortLLAvgTagDist > StarboardLLAvgTagDist) {
-        StarboardLLScore++;
+    if (CameraOneLLAvgTagDist < CameraTwoLLAvgTagDist) {
+        CameraOneLLScore++;
+    } else if (CameraOneLLAvgTagDist > CameraTwoLLAvgTagDist) {
+        CameraTwoLLScore++;
     }
-    if (PortLLTagCount == StarboardLLTagCount) {
-        if (PortLLScore > StarboardLLScore) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = PortLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Photon_Est_Pose_Y = PortLLMeasurement.pose.Y().value();
-        } else if (StarboardLLScore > PortLLScore) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = StarboardLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Photon_Est_Pose_Y = StarboardLLMeasurement.pose.Y().value();
-        } else if (StarboardLLScore == PortLLScore) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = (StarboardLLMeasurement.pose.X().value() + PortLLMeasurement.pose.X().value())/2;
-            Code_Gen_Model_U.Photon_Est_Pose_Y = (StarboardLLMeasurement.pose.Y().value() + PortLLMeasurement.pose.Y().value())/2;
+    if (CameraOneLLTagCount == CameraTwoLLTagCount) {
+        if (CameraOneLLScore > CameraTwoLLScore) {
+            Code_Gen_Model_U.Photon_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
+            Code_Gen_Model_U.Photon_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
+        } else if (CameraTwoLLScore > CameraOneLLScore) {
+            Code_Gen_Model_U.Photon_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
+            Code_Gen_Model_U.Photon_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
+        } else if (CameraTwoLLScore == CameraOneLLScore) {
+            Code_Gen_Model_U.Photon_Est_Pose_X = (CameraTwoLLMeasurement.pose.X().value() + CameraOneLLMeasurement.pose.X().value())/2;
+            Code_Gen_Model_U.Photon_Est_Pose_Y = (CameraTwoLLMeasurement.pose.Y().value() + CameraOneLLMeasurement.pose.Y().value())/2;
         }
-    } else if (PortLLTagCount > StarboardLLTagCount) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = PortLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Photon_Est_Pose_Y = PortLLMeasurement.pose.Y().value();
-    } else if (PortLLTagCount < StarboardLLTagCount) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = StarboardLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Photon_Est_Pose_Y = StarboardLLMeasurement.pose.Y().value();
+    } else if (CameraOneLLTagCount > CameraTwoLLTagCount) {
+            Code_Gen_Model_U.Photon_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
+            Code_Gen_Model_U.Photon_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
+    } else if (CameraOneLLTagCount < CameraTwoLLTagCount) {
+            Code_Gen_Model_U.Photon_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
+            Code_Gen_Model_U.Photon_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
     }
 }
 
 void Limelight::PostStepCallback() 
 {
-    // Pulls IMU Yaw Offset
-    //IMU_Offset = Code_Gen_Model_Y.IMU_Offset;
+    // Pulls Gyro Yaw Offset
+    Gyro_Offset = Code_Gen_Model_Y.Gyro_Angle_Offset_Total;
 }
 
 void Limelight::SmartDashboardCallback() 

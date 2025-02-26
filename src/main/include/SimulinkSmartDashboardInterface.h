@@ -118,7 +118,6 @@ private:
         nt::NetworkTableEntry __Gyro_Calibration_Reset_Degree__Entry;
         nt::NetworkTableEntry __Gyro_Calibration_Reset_Flag__Entry;
         nt::NetworkTableEntry __KF_Enable__Entry;
-        nt::NetworkTableEntry __KF_Vision_Ambiguity_Thresh__Entry;
         nt::NetworkTableEntry __Odometry_IC_X__Entry;
         nt::NetworkTableEntry __Odometry_IC_Y__Entry;
         nt::NetworkTableEntry __Odometry_Reset_IC__Entry;
@@ -262,7 +261,7 @@ private:
         nt::NetworkTableEntry __Joystick_Right_X__Entry;
         nt::NetworkTableEntry __Joystick_Right_Y__Entry;
         nt::NetworkTableEntry __Joystick_Right_Z__Entry;
-        nt::NetworkTableEntry __Photon_Est_Pose_Ambiguity__Entry;
+        nt::NetworkTableEntry __Num_Tags_Detected__Entry;
         nt::NetworkTableEntry __Photon_Est_Pose_X__Entry;
         nt::NetworkTableEntry __Photon_Est_Pose_Y__Entry;
         // Outports
@@ -281,6 +280,7 @@ private:
         nt::NetworkTableEntry __FrontLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontRight_Steer_DutyCycle__Entry;
+        nt::NetworkTableEntry __Gyro_Angle_Offset_Total__Entry;
         nt::NetworkTableEntry __Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry __Swerve_Motors_Disabled__Entry;
  

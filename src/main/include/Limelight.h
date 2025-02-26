@@ -44,11 +44,11 @@ class Limelight {
     // IMU Object used to set Limelight Yaw Value
     ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, static_cast<std::string>(kIMU::k_Pigeon2_Device_Name)};
 
-    // IMU Offset Set from Simulink Output Value
-    double IMU_Offset = 0;
+    // Gyro angle Offset Set from Simulink Output Value
+    double Gyro_Offset = 0;
 
     // Limelight Data Objects
-    LimelightHelpers::PoseEstimate PortLLMeasurement;
-    LimelightHelpers::PoseEstimate StarboardLLMeasurement;
+    LimelightHelpers::PoseEstimate CameraOneLLMeasurement;
+    LimelightHelpers::PoseEstimate CameraTwoLLMeasurement;
 
 };

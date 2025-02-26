@@ -411,10 +411,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
     __KF_Enable__Entry.SetDouble(1);
  
-    __KF_Vision_Ambiguity_Thresh__Entry = NTtable_Tune->GetEntry("KF_Vision_Ambiguity_Thresh");
-    NTinst.AddListener(__KF_Vision_Ambiguity_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Vision_Ambiguity_Thresh = event.GetValueEventData()->value.GetDouble();});
-    __KF_Vision_Ambiguity_Thresh__Entry.SetDouble(0.1);
- 
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
     __Odometry_IC_X__Entry.SetDouble(0);
@@ -719,7 +715,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Joystick_Right_X__Entry = NTtable_Inport->GetEntry("Joystick_Right_X");
     __Joystick_Right_Y__Entry = NTtable_Inport->GetEntry("Joystick_Right_Y");
     __Joystick_Right_Z__Entry = NTtable_Inport->GetEntry("Joystick_Right_Z");
-    __Photon_Est_Pose_Ambiguity__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Ambiguity");
+    __Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Num_Tags_Detected");
     __Photon_Est_Pose_X__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_X");
     __Photon_Est_Pose_Y__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Y");
  
@@ -739,6 +735,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __FrontLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Steer_DutyCycle");
     __FrontRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontRight_Drive_DutyCycle");
     __FrontRight_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontRight_Steer_DutyCycle");
+    __Gyro_Angle_Offset_Total__Entry = NTtable_Outport->GetEntry("Gyro_Angle_Offset_Total");
     __Reset_Wheel_Offsets__Entry = NTtable_Outport->GetEntry("Reset_Wheel_Offsets");
     __Swerve_Motors_Disabled__Entry = NTtable_Outport->GetEntry("Swerve_Motors_Disabled");
  
@@ -947,7 +944,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Joystick_Right_X__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_X);
     __Joystick_Right_Y__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_Y);
     __Joystick_Right_Z__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_Z);
-    __Photon_Est_Pose_Ambiguity__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Ambiguity);
+    __Num_Tags_Detected__Entry.SetDouble(Code_Gen_Model_U.Num_Tags_Detected);
     __Photon_Est_Pose_X__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_X);
     __Photon_Est_Pose_Y__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Y);
     // Outports
@@ -966,6 +963,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __FrontLeft_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle);
     __FrontRight_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontRight_Drive_DutyCycle);
     __FrontRight_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontRight_Steer_DutyCycle);
+    __Gyro_Angle_Offset_Total__Entry.SetDouble(Code_Gen_Model_Y.Gyro_Angle_Offset_Total);
     __Reset_Wheel_Offsets__Entry.SetDouble(Code_Gen_Model_Y.Reset_Wheel_Offsets);
     __Swerve_Motors_Disabled__Entry.SetDouble(Code_Gen_Model_Y.Swerve_Motors_Disabled);
     // Test Points

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.282
+ * Model version                  : 2.285
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Feb 24 21:42:56 2025
+ * C/C++ source code generated on : Tue Feb 25 21:07:39 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -464,7 +464,7 @@ typedef struct {
   real_T BackRight_Turn_Offset;        /* '<Root>/BackRight_Turn_Offset' */
   real_T Photon_Est_Pose_X;            /* '<Root>/Photon_Est_Pose_X' */
   real_T Photon_Est_Pose_Y;            /* '<Root>/Photon_Est_Pose_Y' */
-  real_T Photon_Est_Pose_Ambiguity;    /* '<Root>/Photon_Est_Pose_Ambiguity' */
+  real_T Num_Tags_Detected;            /* '<Root>/Num_Tags_Detected' */
   boolean_T AT_Tag_11_Found;           /* '<Root>/AT_Tag_11_Found' */
   boolean_T AT_Tag_12_Found;           /* '<Root>/AT_Tag_12_Found' */
   boolean_T AT_Tag_13_Found;           /* '<Root>/AT_Tag_13_Found' */
@@ -503,6 +503,7 @@ typedef struct {
                                     /* '<Root>/Algae_Wheel_Outside_DutyCycle' */
   real_T Algae_Wheel_Inside_DutyCycle;
                                      /* '<Root>/Algae_Wheel_Inside_DutyCycle' */
+  real_T Gyro_Angle_Offset_Total;      /* '<Root>/Gyro_Angle_Offset_Total' */
 } ExtY_Code_Gen_Model_T;
 
 /* Real-time Model Data Structure */
@@ -899,9 +900,6 @@ extern real_T KF_Enable;               /* Variable: KF_Enable
                                         *   '<S14>/Constant1'
                                         *   '<S14>/Constant2'
                                         */
-extern real_T KF_Vision_Ambiguity_Thresh;/* Variable: KF_Vision_Ambiguity_Thresh
-                                          * Referenced by: '<S14>/Constant'
-                                          */
 extern real_T Odometry_IC_X;           /* Variable: Odometry_IC_X
                                         * Referenced by: '<S1>/Constant'
                                         */
