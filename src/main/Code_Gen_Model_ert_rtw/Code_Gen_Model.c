@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.285
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Feb 25 21:07:39 2025
+ * C/C++ source code generated on : Thu Feb 27 21:00:26 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -7493,9 +7493,11 @@ void Code_Gen_Model_step(void)
   Code_Gen_Model_Y.Algae_Wheel_Inside_DutyCycle = rtb_thetay_n;
 
   /* Outport: '<Root>/Gyro_Angle_Offset_Total' incorporates:
+   *  Gain: '<S11>/Gain'
    *  Sum: '<S11>/Add1'
    */
-  Code_Gen_Model_Y.Gyro_Angle_Offset_Total = rtb_Switch1_p2 + rtb_Switch1;
+  Code_Gen_Model_Y.Gyro_Angle_Offset_Total = (rtb_Switch1_p2 + rtb_Switch1) *
+    57.295779513082323;
 
   /* SignalConversion: '<S12>/Signal Copy4' incorporates:
    *  Inport: '<Root>/Joystick_Right_X'

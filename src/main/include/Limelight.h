@@ -12,7 +12,7 @@
 #include <ctre/phoenix6/Pigeon2.hpp>
 #include "include/IMU.h"
 
-class Limelight {
+class Limelight : public Component {
     public: 
 
     //Initilization Code

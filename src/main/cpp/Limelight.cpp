@@ -1,7 +1,7 @@
 #include "include/Limelight.h"
 
 Limelight::Limelight() {
-    LimelightHelpers::setCameraPose_RobotSpace("CameraOneLimelight", 
+    LimelightHelpers::setCameraPose_RobotSpace("limelight-one", 
         0.5,    // Forward offset (meters)
         0.0,    // Side offset (meters)
         0.5,    // Height offset (meters)
@@ -9,7 +9,7 @@ Limelight::Limelight() {
         30.0,   // Pitch (degrees)
         0.0     // Yaw (degrees)
     );
-    LimelightHelpers::setCameraPose_RobotSpace("CameraTwoLimelight", 
+    LimelightHelpers::setCameraPose_RobotSpace("limelight-two", 
         0.5,    // Forward offset (meters)
         0.0,    // Side offset (meters)
         0.5,    // Height offset (meters)
@@ -24,12 +24,12 @@ void Limelight::PreStepCallback() {
     auto adjustedGyro = m_Pigeon2.GetRotation2d().Degrees().value() + Gyro_Offset;
 
     //Sets Robot Oriention (MT2 Requirement)
-    LimelightHelpers::SetRobotOrientation("CameraOneLimelight", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
-    LimelightHelpers::SetRobotOrientation("CameraTwoLimelight", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
+    LimelightHelpers::SetRobotOrientation("limelight-one", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
+    LimelightHelpers::SetRobotOrientation("limelight-two", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
 
     //Updates Pose
-    CameraOneLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("CameraOneLimelight");
-    CameraTwoLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("CameraTwoLimelight");
+    CameraOneLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-one");
+    CameraTwoLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-two");
    
     // Limelight Tag Scores
     int CameraOneLLScore = 0;
