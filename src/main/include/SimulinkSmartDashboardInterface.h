@@ -261,9 +261,9 @@ private:
         nt::NetworkTableEntry __Joystick_Right_X__Entry;
         nt::NetworkTableEntry __Joystick_Right_Y__Entry;
         nt::NetworkTableEntry __Joystick_Right_Z__Entry;
+        nt::NetworkTableEntry __Limelight_Est_Pose_X__Entry;
+        nt::NetworkTableEntry __Limelight_Est_Pose_Y__Entry;
         nt::NetworkTableEntry __Num_Tags_Detected__Entry;
-        nt::NetworkTableEntry __Photon_Est_Pose_X__Entry;
-        nt::NetworkTableEntry __Photon_Est_Pose_Y__Entry;
         // Outports
         nt::NetworkTableEntry __Algae_Wheel_Inside_DutyCycle__Entry;
         nt::NetworkTableEntry __Algae_Wheel_Outside_DutyCycle__Entry;

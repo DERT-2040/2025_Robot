@@ -715,9 +715,9 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Joystick_Right_X__Entry = NTtable_Inport->GetEntry("Joystick_Right_X");
     __Joystick_Right_Y__Entry = NTtable_Inport->GetEntry("Joystick_Right_Y");
     __Joystick_Right_Z__Entry = NTtable_Inport->GetEntry("Joystick_Right_Z");
+    __Limelight_Est_Pose_X__Entry = NTtable_Inport->GetEntry("Limelight_Est_Pose_X");
+    __Limelight_Est_Pose_Y__Entry = NTtable_Inport->GetEntry("Limelight_Est_Pose_Y");
     __Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Num_Tags_Detected");
-    __Photon_Est_Pose_X__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_X");
-    __Photon_Est_Pose_Y__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Y");
  
 // Outports
     __Algae_Wheel_Inside_DutyCycle__Entry = NTtable_Outport->GetEntry("Algae_Wheel_Inside_DutyCycle");
@@ -944,9 +944,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Joystick_Right_X__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_X);
     __Joystick_Right_Y__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_Y);
     __Joystick_Right_Z__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_Z);
+    __Limelight_Est_Pose_X__Entry.SetDouble(Code_Gen_Model_U.Limelight_Est_Pose_X);
+    __Limelight_Est_Pose_Y__Entry.SetDouble(Code_Gen_Model_U.Limelight_Est_Pose_Y);
     __Num_Tags_Detected__Entry.SetDouble(Code_Gen_Model_U.Num_Tags_Detected);
-    __Photon_Est_Pose_X__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_X);
-    __Photon_Est_Pose_Y__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Y);
     // Outports
     __Algae_Wheel_Inside_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Algae_Wheel_Inside_DutyCycle);
     __Algae_Wheel_Outside_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Algae_Wheel_Outside_DutyCycle);

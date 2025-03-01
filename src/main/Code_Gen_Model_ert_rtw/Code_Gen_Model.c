@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.285
+ * Model version                  : 2.286
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Feb 27 21:00:26 2025
+ * C/C++ source code generated on : Fri Feb 28 22:12:56 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1810,7 +1810,7 @@ void Code_Gen_Model_step(void)
   real_T rtb_thetay_n;
   real_T tmp;
   int32_T i;
-  int32_T rtb_Num_Segments;
+  int32_T i_0;
   int32_T tmp_0;
   int8_T rtAction;
   int8_T rtPrevAction;
@@ -1945,23 +1945,19 @@ void Code_Gen_Model_step(void)
     -1.0);
 
   /* Reshape: '<S74>/Reshapey' incorporates:
-   *  Inport: '<Root>/Photon_Est_Pose_X'
-   *  Inport: '<Root>/Photon_Est_Pose_Y'
+   *  Inport: '<Root>/Limelight_Est_Pose_X'
+   *  Inport: '<Root>/Limelight_Est_Pose_Y'
    *  S-Function (sfix_udelay): '<S14>/Tapped Delay'
    *  S-Function (sfix_udelay): '<S14>/Tapped Delay1'
    *  Sum: '<S14>/Add'
    *  Sum: '<S14>/Add1'
    */
-  rtb_Reshapey_idx_0 = (((((Code_Gen_Model_U.Photon_Est_Pose_X +
-    Code_Gen_Model_DW.TappedDelay_X[0]) + Code_Gen_Model_DW.TappedDelay_X[1]) +
-    Code_Gen_Model_DW.TappedDelay_X[2]) + Code_Gen_Model_DW.TappedDelay_X[3]) +
-                        Code_Gen_Model_DW.TappedDelay_X[4]) +
-    Code_Gen_Model_DW.TappedDelay_X[5];
-  rtb_Reshapey_idx_1 = (((((Code_Gen_Model_U.Photon_Est_Pose_Y +
-    Code_Gen_Model_DW.TappedDelay1_X[0]) + Code_Gen_Model_DW.TappedDelay1_X[1])
-    + Code_Gen_Model_DW.TappedDelay1_X[2]) + Code_Gen_Model_DW.TappedDelay1_X[3])
-                        + Code_Gen_Model_DW.TappedDelay1_X[4]) +
-    Code_Gen_Model_DW.TappedDelay1_X[5];
+  rtb_Reshapey_idx_0 = (Code_Gen_Model_U.Limelight_Est_Pose_X +
+                        Code_Gen_Model_DW.TappedDelay_X[0]) +
+    Code_Gen_Model_DW.TappedDelay_X[1];
+  rtb_Reshapey_idx_1 = (Code_Gen_Model_U.Limelight_Est_Pose_Y +
+                        Code_Gen_Model_DW.TappedDelay1_X[0]) +
+    Code_Gen_Model_DW.TappedDelay1_X[1];
 
   /* Delay: '<S74>/MemoryX' incorporates:
    *  Constant: '<S74>/X0'
@@ -4028,9 +4024,9 @@ void Code_Gen_Model_step(void)
    */
   tmp *= rtb_Rotationmatrixfromlocalto_0;
   if (rtIsNaN(tmp)) {
-    rtb_Num_Segments = 0;
+    i_0 = 0;
   } else {
-    rtb_Num_Segments = (int32_T)fmod(tmp, 256.0);
+    i_0 = (int32_T)fmod(tmp, 256.0);
   }
 
   /* Switch: '<S294>/Switch' incorporates:
@@ -4043,9 +4039,8 @@ void Code_Gen_Model_step(void)
    *  RelationalOperator: '<S300>/Compare'
    *  UnitDelay: '<S294>/Unit Delay'
    */
-  if ((Code_Gen_Model_B.Translation_Speed_RL == 0.0) || (((rtb_Num_Segments < 0)
-        ? ((int32_T)((int8_T)(-((int8_T)((uint8_T)(-((real_T)rtb_Num_Segments)))))))
-        : rtb_Num_Segments) > 0)) {
+  if ((Code_Gen_Model_B.Translation_Speed_RL == 0.0) || (((i_0 < 0) ? ((int32_T)
+         ((int8_T)(-((int8_T)((uint8_T)(-((real_T)i_0))))))) : i_0) > 0)) {
     rtb_rx_c = Code_Gen_Model_B.Translation_Speed_SPF;
   } else {
     rtb_rx_c = 0.0;
@@ -4385,9 +4380,9 @@ void Code_Gen_Model_step(void)
    */
   tmp *= rtb_Rotationmatrixfromlocalto_0;
   if (rtIsNaN(tmp)) {
-    rtb_Num_Segments = 0;
+    i_0 = 0;
   } else {
-    rtb_Num_Segments = (int32_T)fmod(tmp, 256.0);
+    i_0 = (int32_T)fmod(tmp, 256.0);
   }
 
   /* Switch: '<S307>/Switch' incorporates:
@@ -4400,9 +4395,8 @@ void Code_Gen_Model_step(void)
    *  RelationalOperator: '<S317>/Compare'
    *  UnitDelay: '<S307>/Unit Delay'
    */
-  if ((Code_Gen_Model_DW.UnitDelay_DSTATE_d == 0.0) || (((rtb_Num_Segments < 0) ?
-        ((int32_T)((int8_T)(-((int8_T)((uint8_T)(-((real_T)rtb_Num_Segments)))))))
-        : rtb_Num_Segments) > 0)) {
+  if ((Code_Gen_Model_DW.UnitDelay_DSTATE_d == 0.0) || (((i_0 < 0) ? ((int32_T)
+         ((int8_T)(-((int8_T)((uint8_T)(-((real_T)i_0))))))) : i_0) > 0)) {
     rtb_Switch_jh = rtb_Sin4;
   } else {
     rtb_Switch_jh = 0.0;
@@ -4593,9 +4587,9 @@ void Code_Gen_Model_step(void)
    */
   tmp *= rtb_Rotationmatrixfromlocalto_0;
   if (rtIsNaN(tmp)) {
-    rtb_Num_Segments = 0;
+    i_0 = 0;
   } else {
-    rtb_Num_Segments = (int32_T)fmod(tmp, 256.0);
+    i_0 = (int32_T)fmod(tmp, 256.0);
   }
 
   /* Switch: '<S306>/Switch' incorporates:
@@ -4608,9 +4602,8 @@ void Code_Gen_Model_step(void)
    *  RelationalOperator: '<S310>/Compare'
    *  UnitDelay: '<S306>/Unit Delay'
    */
-  if ((Code_Gen_Model_DW.UnitDelay_DSTATE_g == 0.0) || (((rtb_Num_Segments < 0) ?
-        ((int32_T)((int8_T)(-((int8_T)((uint8_T)(-((real_T)rtb_Num_Segments)))))))
-        : rtb_Num_Segments) > 0)) {
+  if ((Code_Gen_Model_DW.UnitDelay_DSTATE_g == 0.0) || (((i_0 < 0) ? ((int32_T)
+         ((int8_T)(-((int8_T)((uint8_T)(-((real_T)i_0))))))) : i_0) > 0)) {
     rtb_Switch2_k = Code_Gen_Model_B.Steering_Rel_Cmd_SPF;
   } else {
     rtb_Switch2_k = 0.0;
@@ -6935,9 +6928,9 @@ void Code_Gen_Model_step(void)
    */
   tmp *= rtb_Rotationmatrixfromlocalto_0;
   if (rtIsNaN(tmp)) {
-    rtb_Num_Segments = 0;
+    i_0 = 0;
   } else {
-    rtb_Num_Segments = (int32_T)fmod(tmp, 256.0);
+    i_0 = (int32_T)fmod(tmp, 256.0);
   }
 
   /* Switch: '<S41>/Switch' incorporates:
@@ -6949,9 +6942,8 @@ void Code_Gen_Model_step(void)
    *  RelationalOperator: '<S44>/Compare'
    *  RelationalOperator: '<S45>/Compare'
    */
-  if ((rtb_thetay_a == 0.0) || (((rtb_Num_Segments < 0) ? ((int32_T)((int8_T)
-          (-((int8_T)((uint8_T)(-((real_T)rtb_Num_Segments))))))) :
-        rtb_Num_Segments) > 0)) {
+  if ((rtb_thetay_a == 0.0) || (((i_0 < 0) ? ((int32_T)((int8_T)(-((int8_T)
+            ((uint8_T)(-((real_T)i_0))))))) : i_0) > 0)) {
     rtb_rx_g = rtb_Uk1_iw;
   } else {
     rtb_rx_g = 0.0;
@@ -7307,9 +7299,9 @@ void Code_Gen_Model_step(void)
    */
   tmp *= rtb_Rotationmatrixfromlocalto_0;
   if (rtIsNaN(tmp)) {
-    rtb_Num_Segments = 0;
+    i_0 = 0;
   } else {
-    rtb_Num_Segments = (int32_T)fmod(tmp, 256.0);
+    i_0 = (int32_T)fmod(tmp, 256.0);
   }
 
   /* Switch: '<S25>/Switch' incorporates:
@@ -7321,9 +7313,8 @@ void Code_Gen_Model_step(void)
    *  RelationalOperator: '<S28>/Compare'
    *  RelationalOperator: '<S29>/Compare'
    */
-  if ((rtb_thetay_a == 0.0) || (((rtb_Num_Segments < 0) ? ((int32_T)((int8_T)
-          (-((int8_T)((uint8_T)(-((real_T)rtb_Num_Segments))))))) :
-        rtb_Num_Segments) > 0)) {
+  if ((rtb_thetay_a == 0.0) || (((i_0 < 0) ? ((int32_T)((int8_T)(-((int8_T)
+            ((uint8_T)(-((real_T)i_0))))))) : i_0) > 0)) {
     rtb_rx_g = rtb_Uk1_iw;
   } else {
     rtb_rx_g = 0.0;
@@ -7640,16 +7631,16 @@ void Code_Gen_Model_step(void)
   /* Product: '<S16>/Product7' incorporates:
    *  Constant: '<S16>/Constant4'
    */
-  for (rtb_Num_Segments = 0; rtb_Num_Segments < 2; rtb_Num_Segments++) {
+  for (i_0 = 0; i_0 < 2; i_0++) {
     tmp = 0.0;
     tmp_0 = 0;
     for (i = 0; i < 8; i++) {
-      tmp += Code_Gen_Model_ConstP.Constant4_Value[tmp_0 + rtb_Num_Segments] *
+      tmp += Code_Gen_Model_ConstP.Constant4_Value[tmp_0 + i_0] *
         rtb_thetay_n_0[i];
       tmp_0 += 2;
     }
 
-    rtb_Akxhatkk1[rtb_Num_Segments] = tmp;
+    rtb_Akxhatkk1[i_0] = tmp;
   }
 
   /* End of Product: '<S16>/Product7' */
@@ -7818,29 +7809,14 @@ void Code_Gen_Model_step(void)
    *  Store in Global RAM
    */
   Code_Gen_Model_DW.DelayInput1_DSTATE_n = Code_Gen_Model_U.Joystick_Left_B13;
-  for (rtb_Num_Segments = 0; rtb_Num_Segments < 5; rtb_Num_Segments++) {
-    /* Update for S-Function (sfix_udelay): '<S14>/Tapped Delay' incorporates:
-     *  Bias: '<S168>/Bias'
-     *  Merge: '<S142>/Merge1'
-     *  S-Function (sfix_udelay): '<S14>/Tapped Delay1'
-     */
-    Code_Gen_Model_DW.TappedDelay_X[rtb_Num_Segments] =
-      Code_Gen_Model_DW.TappedDelay_X[rtb_Num_Segments + 1];
-
-    /* Update for S-Function (sfix_udelay): '<S14>/Tapped Delay1' incorporates:
-     *  Bias: '<S168>/Bias'
-     *  Merge: '<S142>/Merge1'
-     *  S-Function (sfix_udelay): '<S14>/Tapped Delay'
-     */
-    Code_Gen_Model_DW.TappedDelay1_X[rtb_Num_Segments] =
-      Code_Gen_Model_DW.TappedDelay1_X[rtb_Num_Segments + 1];
-  }
 
   /* Update for S-Function (sfix_udelay): '<S14>/Tapped Delay' */
-  Code_Gen_Model_DW.TappedDelay_X[5] = Code_Gen_Model_B.Product6[0];
+  Code_Gen_Model_DW.TappedDelay_X[0] = Code_Gen_Model_DW.TappedDelay_X[1];
+  Code_Gen_Model_DW.TappedDelay_X[1] = Code_Gen_Model_B.Product6[0];
 
   /* Update for S-Function (sfix_udelay): '<S14>/Tapped Delay1' */
-  Code_Gen_Model_DW.TappedDelay1_X[5] = Code_Gen_Model_B.Product6[1];
+  Code_Gen_Model_DW.TappedDelay1_X[0] = Code_Gen_Model_DW.TappedDelay1_X[1];
+  Code_Gen_Model_DW.TappedDelay1_X[1] = Code_Gen_Model_B.Product6[1];
 
   /* Update for Delay: '<S74>/MemoryX' */
   Code_Gen_Model_DW.icLoad = false;

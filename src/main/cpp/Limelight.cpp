@@ -2,12 +2,12 @@
 
 Limelight::Limelight() {
     LimelightHelpers::setCameraPose_RobotSpace("limelight-one", 
-        0.5,    // Forward offset (meters)
-        0.0,    // Side offset (meters)
-        0.5,    // Height offset (meters)
-        0.0,    // Roll (degrees)
-        30.0,   // Pitch (degrees)
-        0.0     // Yaw (degrees)
+        8.0/39.37008,   // Forward offset (meters)
+        9.75/39.37008,  // Side offset (meters)
+        12.5/39.37008,  // Height offset (meters)
+        0.0,            // Roll (degrees)
+        9.0,            // Pitch (degrees)
+        24.0            // Yaw (degrees)
     );
     LimelightHelpers::setCameraPose_RobotSpace("limelight-two", 
         0.5,    // Forward offset (meters)
@@ -61,21 +61,21 @@ void Limelight::PreStepCallback() {
     }
     if (CameraOneLLTagCount == CameraTwoLLTagCount) {
         if (CameraOneLLScore > CameraTwoLLScore) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Photon_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
+            Code_Gen_Model_U.Limelight_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
+            Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
         } else if (CameraTwoLLScore > CameraOneLLScore) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Photon_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
+            Code_Gen_Model_U.Limelight_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
+            Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
         } else if (CameraTwoLLScore == CameraOneLLScore) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = (CameraTwoLLMeasurement.pose.X().value() + CameraOneLLMeasurement.pose.X().value())/2;
-            Code_Gen_Model_U.Photon_Est_Pose_Y = (CameraTwoLLMeasurement.pose.Y().value() + CameraOneLLMeasurement.pose.Y().value())/2;
+            Code_Gen_Model_U.Limelight_Est_Pose_X = (CameraTwoLLMeasurement.pose.X().value() + CameraOneLLMeasurement.pose.X().value())/2;
+            Code_Gen_Model_U.Limelight_Est_Pose_Y = (CameraTwoLLMeasurement.pose.Y().value() + CameraOneLLMeasurement.pose.Y().value())/2;
         }
     } else if (CameraOneLLTagCount > CameraTwoLLTagCount) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Photon_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
+            Code_Gen_Model_U.Limelight_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
+            Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
     } else if (CameraOneLLTagCount < CameraTwoLLTagCount) {
-            Code_Gen_Model_U.Photon_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Photon_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
+            Code_Gen_Model_U.Limelight_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
+            Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
     }
 }
 

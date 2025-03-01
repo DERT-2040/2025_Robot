@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.285
+ * Model version                  : 2.286
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Feb 27 21:00:26 2025
+ * C/C++ source code generated on : Fri Feb 28 22:12:56 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -157,8 +157,8 @@ typedef struct {
   real_T DelayInput1_DSTATE;           /* '<S71>/Delay Input1' */
   real_T DelayInput1_DSTATE_e;         /* '<S72>/Delay Input1' */
   real_T DelayInput1_DSTATE_n;         /* '<S73>/Delay Input1' */
-  real_T TappedDelay_X[6];             /* '<S14>/Tapped Delay' */
-  real_T TappedDelay1_X[6];            /* '<S14>/Tapped Delay1' */
+  real_T TappedDelay_X[2];             /* '<S14>/Tapped Delay' */
+  real_T TappedDelay1_X[2];            /* '<S14>/Tapped Delay1' */
   real_T MemoryX_DSTATE[2];            /* '<S74>/MemoryX' */
   real_T Accumulator2_DSTATE;          /* '<S16>/Accumulator2' */
   real_T Accumulator_DSTATE;           /* '<S16>/Accumulator' */
@@ -462,8 +462,8 @@ typedef struct {
   real_T FrontRight_Turn_Offset;       /* '<Root>/FrontRight_Turn_Offset' */
   real_T BackLeft_Turn_Offset;         /* '<Root>/BackLeft_Turn_Offset' */
   real_T BackRight_Turn_Offset;        /* '<Root>/BackRight_Turn_Offset' */
-  real_T Photon_Est_Pose_X;            /* '<Root>/Photon_Est_Pose_X' */
-  real_T Photon_Est_Pose_Y;            /* '<Root>/Photon_Est_Pose_Y' */
+  real_T Limelight_Est_Pose_X;         /* '<Root>/Limelight_Est_Pose_X' */
+  real_T Limelight_Est_Pose_Y;         /* '<Root>/Limelight_Est_Pose_Y' */
   real_T Num_Tags_Detected;            /* '<Root>/Num_Tags_Detected' */
   boolean_T AT_Tag_11_Found;           /* '<Root>/AT_Tag_11_Found' */
   boolean_T AT_Tag_12_Found;           /* '<Root>/AT_Tag_12_Found' */
