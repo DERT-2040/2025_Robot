@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.292
+ * Model version                  : 2.294
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar  1 18:18:00 2025
+ * C/C++ source code generated on : Sat Mar  1 23:19:10 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -107,7 +107,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
     0.4, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
 
   /* Expression: Rotation_Local_Inv
-   * Referenced by: '<S16>/Constant4'
+   * Referenced by: '<S17>/Constant4'
    */
   { 0.25, 0.0, 0.0, 0.25, 0.25, 0.0, 0.0, 0.25, 0.25, 0.0, 0.0, 0.25, 0.25, 0.0,
     0.0, 0.25 },

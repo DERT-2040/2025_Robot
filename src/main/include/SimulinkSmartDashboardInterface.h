@@ -18,10 +18,15 @@ public:
     void GameStateChangeCallback();
 private:
         // Parameters
+        nt::NetworkTableEntry __AT_Reef_Target_Center_X__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_Center_Y__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_Left_Y__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_Poles_X__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_Right_Y__Entry;
-        nt::NetworkTableEntry __AT_Reef_Target_X__Entry;
-        nt::NetworkTableEntry __AT_XY_Control_Gain__Entry;
+        nt::NetworkTableEntry __AT_Steering_Error_Angle_Gain__Entry;
+        nt::NetworkTableEntry __AT_Steering_Speed_Max__Entry;
+        nt::NetworkTableEntry __AT_Translation_Control_Gain__Entry;
+        nt::NetworkTableEntry __AT_Translation_Speed_Max__Entry;
         nt::NetworkTableEntry __Algae_Eject_Time__Entry;
         nt::NetworkTableEntry __Algae_Hold_DC__Entry;
         nt::NetworkTableEntry __Algae_Pull_In_DC__Entry;
@@ -109,7 +114,6 @@ private:
         nt::NetworkTableEntry __Spline_Pose_Num_Before_End_Reduce_Speed__Entry;
         nt::NetworkTableEntry __Spline_Stop_Radius__Entry;
         nt::NetworkTableEntry __Spline_Velocity_Multiplier_TEST__Entry;
-        nt::NetworkTableEntry __Steering_AT_Error_Angle_Gain__Entry;
         nt::NetworkTableEntry __Steering_Absolute_Cmd_Approach_Zero_Error_Thresh__Entry;
         nt::NetworkTableEntry __Steering_Absolute_Cmd_Approach_Zero_Final_Thresh__Entry;
         nt::NetworkTableEntry __Steering_Absolute_Cmd_NonZero_Error_Thresh__Entry;
@@ -240,9 +244,9 @@ private:
         nt::NetworkTableEntry __Joystick_Right_Z__Entry;
         nt::NetworkTableEntry __Limelight_Est_Pose_X__Entry;
         nt::NetworkTableEntry __Limelight_Est_Pose_Y__Entry;
-        nt::NetworkTableEntry __Limelight_Tag_angle__Entry;
-        nt::NetworkTableEntry __Limelight_Tag_x__Entry;
-        nt::NetworkTableEntry __Limelight_Tag_y__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_Angle__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_X__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_Y__Entry;
         nt::NetworkTableEntry __Num_Tags_Detected__Entry;
         // Outports
         nt::NetworkTableEntry __Algae_Wheel_Inside_DutyCycle__Entry;
@@ -270,8 +274,8 @@ private:
         nt::NetworkTableEntry __AT_Error_Y__Entry;
         nt::NetworkTableEntry __AT_Target_Enable__Entry;
         nt::NetworkTableEntry __Active_GameState__Entry;
+        nt::NetworkTableEntry __Align_Center__Entry;
         nt::NetworkTableEntry __Align_Left__Entry;
-        nt::NetworkTableEntry __Align_Processor__Entry;
         nt::NetworkTableEntry __Align_Right__Entry;
         nt::NetworkTableEntry __BL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed__Entry;
@@ -370,7 +374,6 @@ private:
         nt::NetworkTableEntry __Steering_Localized_PID__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd_SPF__Entry;
-        nt::NetworkTableEntry __Subtract__Entry;
         nt::NetworkTableEntry __Test_Mode__Entry;
         nt::NetworkTableEntry __Translation_Angle__Entry;
         nt::NetworkTableEntry __Translation_Angle_SPF__Entry;

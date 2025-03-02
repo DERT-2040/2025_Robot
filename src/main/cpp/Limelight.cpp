@@ -31,15 +31,23 @@ void Limelight::PreStepCallback() {
     CameraOneLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-one");
     CameraTwoLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-two");
 
-    //Local distance to tag
+    // Robot Pose Relative to tag
     std::vector<double> CameraOneRobotPose = LimelightHelpers::getTargetPose_RobotSpace("limelight-one");
-    double cameraOne_Tag_x = CameraOneRobotPose.at(2);
-    double cameraOne_Tag_y = CameraOneRobotPose.at(0);
-    double cameraOne_Tag_angle = CameraOneRobotPose.at(4);
+    size_t vectorLength = CameraOneRobotPose.size();
 
-    Code_Gen_Model_U.Limelight_Tag_x = cameraOne_Tag_x;
-    Code_Gen_Model_U.Limelight_Tag_y = cameraOne_Tag_y;
-    Code_Gen_Model_U.Limelight_Tag_angle = cameraOne_Tag_angle;
+    if (vectorLength > 1) {
+        double cameraOne_Tag_x = CameraOneRobotPose.at(2);
+        double cameraOne_Tag_y = CameraOneRobotPose.at(0);
+        double cameraOne_Tag_angle = CameraOneRobotPose.at(4);
+
+        Code_Gen_Model_U.Limelight_Tag_X = cameraOne_Tag_x;
+        Code_Gen_Model_U.Limelight_Tag_Y = cameraOne_Tag_y;
+        Code_Gen_Model_U.Limelight_Tag_Angle = cameraOne_Tag_angle;
+    } else {
+        Code_Gen_Model_U.Limelight_Tag_X = 0;
+        Code_Gen_Model_U.Limelight_Tag_Y = 0;
+        Code_Gen_Model_U.Limelight_Tag_Angle = 0;
+    }
 
     // Limelight Values for Scoring & Selection
     double CameraOneLLAvgTagArea = CameraOneLLMeasurement.avgTagArea;

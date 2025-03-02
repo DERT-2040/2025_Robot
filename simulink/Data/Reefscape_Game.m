@@ -153,11 +153,14 @@ clear arm_length arm_pivot_offset_x arm_pivot_offset_y m b k angle_var height_va
 % APRIL TAG TRACKING TARGETS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Limelight_Tag_X_Offset = 0;
-Limelight_Tag_Y_Offset = 0;
-Limelight_Tag_Angle_Offset = 0;
+Limelight_Tag_X_Offset = 0;     % inches
+Limelight_Tag_Y_Offset = 0;     % inches
+Limelight_Tag_Angle_Offset = 0; % degrees
 
-AT_Reef_Target_X = 29/39.37008;
-AT_Reef_Target_Left_Y = 5.5/39.37008;
-AT_Reef_Target_Right_Y = -7.5/39.37008;
+AT_Reef_Target_Center_X = 27;   % inches, used for L1 scoring
+AT_Reef_Target_Poles_X = 29;    % inches, used for L1, L2, L4 scoring
+
+AT_Reef_Target_Left_Y = 5.5;    % inches
+AT_Reef_Target_Center_Y = -1.0; % inches
+AT_Reef_Target_Right_Y = -7.5;  % inches
 

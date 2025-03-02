@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.292
+ * Model version                  : 2.294
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar  1 18:18:00 2025
+ * C/C++ source code generated on : Sat Mar  1 23:19:10 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -48,9 +48,9 @@ typedef struct {
   real_T Drive_Joystick_Z;             /* '<S12>/Signal Copy3' */
   real_T Steer_Joystick_Y;             /* '<S12>/Signal Copy5' */
   real_T Steer_Joystick_Z;             /* '<S12>/Signal Copy6' */
-  real_T Limelight_Tag_Corrected_X;    /* '<S20>/Add' */
-  real_T Limelight_Tag_Corrected_Y;    /* '<S20>/Add1' */
-  real_T Limelight_Tag_Corrected_Angle;/* '<S20>/Add2' */
+  real_T Limelight_Tag_Corrected_X;    /* '<S15>/Add' */
+  real_T Limelight_Tag_Corrected_Y;    /* '<S15>/Add1' */
+  real_T Limelight_Tag_Corrected_Angle;/* '<S15>/Add2' */
   real_T Gyro_Angle_Calibrated_deg;    /* '<S11>/Subtract1' */
   real_T Gyro_Angle_rad;               /* '<S57>/Gain1' */
   real_T Elevator_Height_Measured_Raw; /* '<S10>/Gain1' */
@@ -58,24 +58,24 @@ typedef struct {
   real_T Elevator_Height_Measured;     /* '<S10>/Switch' */
   real_T Coral_Arm_Angle_Measured;     /* '<S1>/Add Constant' */
   real_T Gyro_Angle_Field_rad;         /* '<S11>/Add' */
-  real_T Product6[2];                  /* '<S16>/Product6' */
-  real_T Odom_Position_X;              /* '<S16>/Accumulator2' */
+  real_T Product6[2];                  /* '<S17>/Product6' */
+  real_T Odom_Position_X;              /* '<S17>/Accumulator2' */
   real_T KF_Position_X;                /* '<S14>/Switch' */
-  real_T Odom_Position_Y;              /* '<S16>/Accumulator' */
+  real_T Odom_Position_Y;              /* '<S17>/Accumulator' */
   real_T KF_Position_Y;                /* '<S14>/Switch1' */
-  real_T Spline_Num_Poses;             /* '<S15>/Merge9' */
-  real_T Steering_Abs_Cmd;             /* '<S15>/Merge1' */
-  real_T Steering_Rel_Cmd;             /* '<S15>/Merge2' */
-  real_T Translation_Speed;            /* '<S15>/Merge4' */
-  real_T Translation_Angle;            /* '<S15>/Merge3' */
-  real_T Translation_Speed_SPF;        /* '<S18>/Merge2' */
+  real_T Spline_Num_Poses;             /* '<S16>/Merge9' */
+  real_T Steering_Abs_Cmd;             /* '<S16>/Merge1' */
+  real_T Steering_Rel_Cmd;             /* '<S16>/Merge2' */
+  real_T Translation_Speed;            /* '<S16>/Merge4' */
+  real_T Translation_Angle;            /* '<S16>/Merge3' */
+  real_T Translation_Speed_SPF;        /* '<S19>/Merge2' */
   real_T Translation_Speed_RL;         /* '<S304>/Sum' */
-  real_T Translation_Angle_SPF;        /* '<S18>/Merge3' */
-  real_T Gyro_Angle_SPF;               /* '<S18>/Merge8' */
+  real_T Translation_Angle_SPF;        /* '<S19>/Merge3' */
+  real_T Gyro_Angle_SPF;               /* '<S19>/Merge8' */
   real_T Translation_Steering_Cmd;     /* '<S298>/Switch' */
-  real_T Steering_Abs_Cmd_SPF;         /* '<S18>/Merge' */
+  real_T Steering_Abs_Cmd_SPF;         /* '<S19>/Merge' */
   real_T Steering_Localized_PID;       /* '<S325>/Saturation2' */
-  real_T Steering_Rel_Cmd_SPF;         /* '<S18>/Merge1' */
+  real_T Steering_Rel_Cmd_SPF;         /* '<S19>/Merge1' */
   real_T Steering_Localized_Cmd;       /* '<S297>/Switch' */
   real_T BR_Desired_Wheel_Speed_in;    /* '<S351>/Switch1' */
   real_T FL_Desired_Wheel_Speed_in;    /* '<S336>/Switch1' */
@@ -89,8 +89,8 @@ typedef struct {
   real_T FR_Desired_Module_Angle;      /* '<S341>/Switch' */
   real_T BL_Desired_Wheel_Speed;       /* '<S331>/Product2' */
   real_T BL_Desired_Module_Angle;      /* '<S346>/Switch' */
-  real_T Elevator_Height_Desired;      /* '<S15>/Merge11' */
-  real_T Coral_Arm_Angle_Desired;      /* '<S15>/Merge13' */
+  real_T Elevator_Height_Desired;      /* '<S16>/Merge11' */
+  real_T Coral_Arm_Angle_Desired;      /* '<S16>/Merge13' */
   real_T Elevator_Error;               /* '<S9>/Add' */
   real_T Elevator_Proportional;        /* '<S43>/Gain1' */
   real_T Elevator_Integral;            /* '<S43>/Switch' */
@@ -107,8 +107,7 @@ typedef struct {
   real_T Steering_Abs_Gyro;            /* '<S362>/Switch2' */
   real_T Steering_Abs_Angle;           /* '<S362>/Switch3' */
   real_T AT_Error_Y;                   /* '<S356>/Subtract1' */
-  real_T Subtract;                     /* '<S356>/Subtract' */
-  real_T AT_Error_X;                   /* '<S356>/Unary Minus1' */
+  real_T AT_Error_X;                   /* '<S356>/Subtract' */
   real_T DeadZone;                     /* '<S358>/Dead Zone' */
   real_T DeadZone1;                    /* '<S358>/Dead Zone1' */
   real_T Elevator_Height_Desired_m;    /* '<S358>/Reefscape_Chart' */
@@ -119,7 +118,7 @@ typedef struct {
   real_T Spline_Target_X;              /* '<S144>/Selector2' */
   real_T Product2[2];                  /* '<S128>/Product2' */
   real_T Product3[2];                  /* '<S126>/Product3' */
-  uint8_T Active_GameState;            /* '<S17>/Chart' */
+  uint8_T Active_GameState;            /* '<S18>/Chart' */
   boolean_T Button_Enable_Wheels;      /* '<S72>/FixPt Relational Operator' */
   boolean_T Button_Reset_Wheel_Offsets;/* '<S73>/FixPt Relational Operator' */
   boolean_T Button_Disable_Wheels;     /* '<S74>/FixPt Relational Operator' */
@@ -127,6 +126,7 @@ typedef struct {
   boolean_T Is_Boosting;               /* '<S71>/Compare' */
   boolean_T Align_Left;                /* '<S69>/Compare' */
   boolean_T Align_Right;               /* '<S68>/Compare' */
+  boolean_T Align_Center;              /* '<S70>/Compare' */
   boolean_T Face_Toward_Driver;        /* '<S67>/Compare' */
   boolean_T Face_Right_Driver;         /* '<S65>/Compare' */
   boolean_T Face_Left_Driver;          /* '<S66>/Compare' */
@@ -135,23 +135,22 @@ typedef struct {
   boolean_T Gamepad_POV_Down;          /* '<S60>/Compare' */
   boolean_T Gamepad_POV_Left;          /* '<S62>/Compare' */
   boolean_T Gamepad_POV_Right;         /* '<S61>/Compare' */
-  boolean_T Spline_Enable;             /* '<S15>/Merge7' */
-  boolean_T Is_Absolute_Translation_SPF;/* '<S18>/Merge4' */
-  boolean_T Is_Absolute_Steering_SPF;  /* '<S18>/Merge5' */
-  boolean_T Reefscape_Motors_Enable;   /* '<S15>/Merge12' */
-  boolean_T Robot_Reached_Destination; /* '<S18>/Merge7' */
-  boolean_T Test_Mode;                 /* '<S15>/Merge10' */
-  boolean_T Elevator_LowerPickup_Reset_tp;/* '<S15>/Merge21' */
-  boolean_T Align_Processor;           /* '<S70>/Compare' */
+  boolean_T Spline_Enable;             /* '<S16>/Merge7' */
+  boolean_T Is_Absolute_Translation_SPF;/* '<S19>/Merge4' */
+  boolean_T Is_Absolute_Steering_SPF;  /* '<S19>/Merge5' */
+  boolean_T Reefscape_Motors_Enable;   /* '<S16>/Merge12' */
+  boolean_T Robot_Reached_Destination; /* '<S19>/Merge7' */
+  boolean_T Test_Mode;                 /* '<S16>/Merge10' */
+  boolean_T Elevator_LowerPickup_Reset_tp;/* '<S16>/Merge21' */
   boolean_T AT_Target_Enable;          /* '<S356>/Logical Operator3' */
   boolean_T Steering_Abs_Angle_Active; /* '<S362>/AND6' */
-  boolean_T FixPtRelationalOperator;   /* '<S382>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_n; /* '<S383>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_k; /* '<S387>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_d; /* '<S388>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_m; /* '<S392>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_ji;/* '<S385>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_ml;/* '<S386>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator;   /* '<S383>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_n; /* '<S384>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_k; /* '<S388>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_d; /* '<S389>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_m; /* '<S393>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_ji;/* '<S386>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_ml;/* '<S387>/FixPt Relational Operator' */
   boolean_T Elevator_LowerPickup_Reset;/* '<S358>/Reefscape_Chart' */
   boolean_T Coral_Pickup_Lower_Wait_State;/* '<S358>/Reefscape_Chart' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S147>/Merge1' */
@@ -172,8 +171,8 @@ typedef struct {
   real_T TappedDelay1_X[2];            /* '<S14>/Tapped Delay1' */
   real_T MemoryX_DSTATE[2];            /* '<S75>/MemoryX' */
   real_T UD_DSTATE_d;                  /* '<S129>/UD' */
-  real_T Accumulator2_DSTATE;          /* '<S16>/Accumulator2' */
-  real_T Accumulator_DSTATE;           /* '<S16>/Accumulator' */
+  real_T Accumulator2_DSTATE;          /* '<S17>/Accumulator2' */
+  real_T Accumulator_DSTATE;           /* '<S17>/Accumulator' */
   real_T UnitDelay1_DSTATE_i;          /* '<S328>/Unit Delay1' */
   real_T UD_DSTATE_a;                  /* '<S327>/UD' */
   real_T UnitDelay_DSTATE_m;           /* '<S325>/Unit Delay' */
@@ -214,18 +213,18 @@ typedef struct {
   real_T DelayInput1_DSTATE_f;         /* '<S369>/Delay Input1' */
   real_T UnitDelay3_DSTATE;            /* '<S362>/Unit Delay3' */
   real_T UnitDelay1_DSTATE_j;          /* '<S362>/Unit Delay1' */
-  real_T UnitDelay1_DSTATE_l;          /* '<S375>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_p;           /* '<S375>/Unit Delay' */
-  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S379>/FixPt Unit Delay1' */
-  real_T DelayInput1_DSTATE_c;         /* '<S382>/Delay Input1' */
-  real_T DelayInput1_DSTATE_nr;        /* '<S383>/Delay Input1' */
-  real_T DelayInput1_DSTATE_ez;        /* '<S387>/Delay Input1' */
-  real_T DelayInput1_DSTATE_nh;        /* '<S388>/Delay Input1' */
-  real_T DelayInput1_DSTATE_i;         /* '<S389>/Delay Input1' */
-  real_T DelayInput1_DSTATE_cp;        /* '<S384>/Delay Input1' */
-  real_T DelayInput1_DSTATE_pd;        /* '<S390>/Delay Input1' */
-  real_T DelayInput1_DSTATE_o;         /* '<S393>/Delay Input1' */
-  real_T DelayInput1_DSTATE_j;         /* '<S394>/Delay Input1' */
+  real_T UnitDelay1_DSTATE_l;          /* '<S376>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_p;           /* '<S376>/Unit Delay' */
+  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S380>/FixPt Unit Delay1' */
+  real_T DelayInput1_DSTATE_c;         /* '<S383>/Delay Input1' */
+  real_T DelayInput1_DSTATE_nr;        /* '<S384>/Delay Input1' */
+  real_T DelayInput1_DSTATE_ez;        /* '<S388>/Delay Input1' */
+  real_T DelayInput1_DSTATE_nh;        /* '<S389>/Delay Input1' */
+  real_T DelayInput1_DSTATE_i;         /* '<S390>/Delay Input1' */
+  real_T DelayInput1_DSTATE_cp;        /* '<S385>/Delay Input1' */
+  real_T DelayInput1_DSTATE_pd;        /* '<S391>/Delay Input1' */
+  real_T DelayInput1_DSTATE_o;         /* '<S394>/Delay Input1' */
+  real_T DelayInput1_DSTATE_j;         /* '<S395>/Delay Input1' */
   real_T UnitDelay_DSTATE_gh;          /* '<S143>/Unit Delay' */
   real_T timer;                        /* '<S358>/Reefscape_Chart' */
   int32_T Selector4_DIMS1[2];          /* '<S164>/Selector4' */
@@ -234,7 +233,7 @@ typedef struct {
   uint8_T FixPtUnitDelay2_DSTATE_c;    /* '<S316>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_o;    /* '<S51>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_j;    /* '<S35>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S379>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S380>/FixPt Unit Delay2' */
   boolean_T DelayInput1_DSTATE_b;      /* '<S54>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o1;     /* '<S55>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_mph;      /* '<S1>/Unit Delay' */
@@ -249,14 +248,14 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_g2;     /* '<S368>/Delay Input1' */
   boolean_T UnitDelay2_DSTATE;         /* '<S362>/Unit Delay2' */
   boolean_T UnitDelay4_DSTATE;         /* '<S362>/Unit Delay4' */
-  boolean_T DelayInput1_DSTATE_oy;     /* '<S391>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_fx;     /* '<S392>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_o5;     /* '<S385>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_a;      /* '<S386>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_oy;     /* '<S392>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_fx;     /* '<S393>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_o5;     /* '<S386>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_a;      /* '<S387>/Delay Input1' */
   int8_T SwitchCase_ActiveSubsystem;   /* '<S1>/Switch Case' */
-  int8_T Accumulator2_PrevResetState;  /* '<S16>/Accumulator2' */
-  int8_T Accumulator_PrevResetState;   /* '<S16>/Accumulator' */
-  int8_T If_ActiveSubsystem;           /* '<S18>/If' */
+  int8_T Accumulator2_PrevResetState;  /* '<S17>/Accumulator2' */
+  int8_T Accumulator_PrevResetState;   /* '<S17>/Accumulator' */
+  int8_T If_ActiveSubsystem;           /* '<S19>/If' */
   int8_T If_ActiveSubsystem_h;         /* '<S147>/If' */
   int8_T If_ActiveSubsystem_o;         /* '<S150>/If' */
   int8_T If_ActiveSubsystem_d;         /* '<S152>/If' */
@@ -267,8 +266,8 @@ typedef struct {
   uint8_T is_Set_Level;                /* '<S358>/Reefscape_Chart' */
   uint8_T is_Coral_Score_Position;     /* '<S358>/Reefscape_Chart' */
   uint8_T is_Algae_Wheels;             /* '<S358>/Reefscape_Chart' */
-  uint8_T is_active_c9_Code_Gen_Model; /* '<S17>/Chart' */
-  uint8_T is_c9_Code_Gen_Model;        /* '<S17>/Chart' */
+  uint8_T is_active_c9_Code_Gen_Model; /* '<S18>/Chart' */
+  uint8_T is_c9_Code_Gen_Model;        /* '<S18>/Chart' */
   boolean_T icLoad;                    /* '<S75>/MemoryX' */
   boolean_T Set_L1;                    /* '<S358>/Reefscape_Chart' */
   boolean_T Set_L2;                    /* '<S358>/Reefscape_Chart' */
@@ -331,7 +330,7 @@ typedef struct {
   real_T Modulation_Drv_bp01Data[21];
 
   /* Expression: Rotation_Local_Inv
-   * Referenced by: '<S16>/Constant4'
+   * Referenced by: '<S17>/Constant4'
    */
   real_T Constant4_Value[16];
 
@@ -342,7 +341,7 @@ typedef struct {
    *   '<S256>/1-D Lookup Table'
    *   '<S277>/1-D Lookup Table'
    */
-  real_T pooled27[2];
+  real_T pooled28[2];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
@@ -351,21 +350,21 @@ typedef struct {
    *   '<S256>/1-D Lookup Table'
    *   '<S277>/1-D Lookup Table'
    */
-  real_T pooled28[2];
+  real_T pooled29[2];
 
   /* Pooled Parameter (Expression: Elevator_Height_Lower_Limit_Out)
    * Referenced by:
    *   '<S9>/Range of Motion Protection Limit'
    *   '<S9>/Range of Motion Protection Limit1'
    */
-  real_T pooled29[96];
+  real_T pooled30[96];
 
   /* Pooled Parameter (Expression: Elevator_Height_Lower_Limit_Coral_Arm_Input)
    * Referenced by:
    *   '<S9>/Range of Motion Protection Limit'
    *   '<S9>/Range of Motion Protection Limit1'
    */
-  real_T pooled30[96];
+  real_T pooled31[96];
 
   /* Expression: Coral_Arm_DC_Upper_Limit_Out
    * Referenced by: '<S7>/1-D Lookup Table'
@@ -477,9 +476,9 @@ typedef struct {
   real_T Coral_TOF_Distance;           /* '<Root>/Coral_TOF_Distance' */
   real_T Coral_Limit_Switch;           /* '<Root>/Coral_Limit_Switch' */
   real_T Algae_Limit_Switch;           /* '<Root>/Algae_Limit_Switch' */
-  real_T Limelight_Tag_x;              /* '<Root>/Limelight_Tag_x' */
-  real_T Limelight_Tag_y;              /* '<Root>/Limelight_Tag_y' */
-  real_T Limelight_Tag_angle;          /* '<Root>/Limelight_Tag_angle' */
+  real_T Limelight_Tag_X;              /* '<Root>/Limelight_Tag_X' */
+  real_T Limelight_Tag_Y;              /* '<Root>/Limelight_Tag_Y' */
+  real_T Limelight_Tag_Angle;          /* '<Root>/Limelight_Tag_Angle' */
 } ExtU_Code_Gen_Model_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -535,17 +534,32 @@ extern const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP;
  * these parameters and exports their symbols.
  *
  */
+extern real_T AT_Reef_Target_Center_X; /* Variable: AT_Reef_Target_Center_X
+                                        * Referenced by: '<S356>/Constant4'
+                                        */
+extern real_T AT_Reef_Target_Center_Y; /* Variable: AT_Reef_Target_Center_Y
+                                        * Referenced by: '<S356>/Constant3'
+                                        */
 extern real_T AT_Reef_Target_Left_Y;   /* Variable: AT_Reef_Target_Left_Y
                                         * Referenced by: '<S356>/Constant1'
+                                        */
+extern real_T AT_Reef_Target_Poles_X;  /* Variable: AT_Reef_Target_Poles_X
+                                        * Referenced by: '<S356>/Constant'
                                         */
 extern real_T AT_Reef_Target_Right_Y;  /* Variable: AT_Reef_Target_Right_Y
                                         * Referenced by: '<S356>/Constant2'
                                         */
-extern real_T AT_Reef_Target_X;        /* Variable: AT_Reef_Target_X
-                                        * Referenced by: '<S356>/Constant'
+extern real_T AT_Steering_Error_Angle_Gain;/* Variable: AT_Steering_Error_Angle_Gain
+                                            * Referenced by: '<S362>/Constant4'
+                                            */
+extern real_T AT_Steering_Speed_Max;   /* Variable: AT_Steering_Speed_Max
+                                        * Referenced by: '<S362>/Constant10'
                                         */
-extern real_T AT_XY_Control_Gain;      /* Variable: AT_XY_Control_Gain
-                                        * Referenced by: '<S363>/Gain2'
+extern real_T AT_Translation_Control_Gain;/* Variable: AT_Translation_Control_Gain
+                                           * Referenced by: '<S363>/Gain2'
+                                           */
+extern real_T AT_Translation_Speed_Max;/* Variable: AT_Translation_Speed_Max
+                                        * Referenced by: '<S363>/Constant5'
                                         */
 extern real_T Algae_Eject_Time;        /* Variable: Algae_Eject_Time
                                         * Referenced by: '<S358>/Reefscape_Chart'
@@ -561,19 +575,19 @@ extern real_T Algae_Push_Out_DC;       /* Variable: Algae_Push_Out_DC
                                         */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
-                                      * Referenced by: '<S376>/Constant1'
+                                      * Referenced by: '<S377>/Constant1'
                                       */
 extern real_T Boost_Trigger_High_Speed;/* Variable: Boost_Trigger_High_Speed
                                         * Referenced by:
-                                        *   '<S372>/Constant'
-                                        *   '<S372>/Saturation'
+                                        *   '<S373>/Constant'
+                                        *   '<S373>/Saturation'
                                         */
 extern real_T Boost_Trigger_Increasing_Limit;
                                      /* Variable: Boost_Trigger_Increasing_Limit
-                                      * Referenced by: '<S376>/Constant3'
+                                      * Referenced by: '<S377>/Constant3'
                                       */
 extern real_T Boost_Trigger_Low_Speed; /* Variable: Boost_Trigger_Low_Speed
-                                        * Referenced by: '<S372>/Constant1'
+                                        * Referenced by: '<S373>/Constant1'
                                         */
 extern real_T Coral_Arm_Angle_Error_Threshold;
                                     /* Variable: Coral_Arm_Angle_Error_Threshold
@@ -838,13 +852,13 @@ extern real_T KF_Enable;               /* Variable: KF_Enable
                                         *   '<S14>/Constant2'
                                         */
 extern real_T Limelight_Tag_Angle_Offset;/* Variable: Limelight_Tag_Angle_Offset
-                                          * Referenced by: '<S20>/Constant2'
+                                          * Referenced by: '<S15>/Constant2'
                                           */
 extern real_T Limelight_Tag_X_Offset;  /* Variable: Limelight_Tag_X_Offset
-                                        * Referenced by: '<S20>/Constant'
+                                        * Referenced by: '<S15>/Constant'
                                         */
 extern real_T Limelight_Tag_Y_Offset;  /* Variable: Limelight_Tag_Y_Offset
-                                        * Referenced by: '<S20>/Constant1'
+                                        * Referenced by: '<S15>/Constant1'
                                         */
 extern real_T Odometry_IC_X;           /* Variable: Odometry_IC_X
                                         * Referenced by: '<S1>/Constant'
@@ -853,7 +867,7 @@ extern real_T Odometry_IC_Y;           /* Variable: Odometry_IC_Y
                                         * Referenced by: '<S1>/Constant1'
                                         */
 extern real_T Odometry_Reset_IC;       /* Variable: Odometry_Reset_IC
-                                        * Referenced by: '<S16>/Constant'
+                                        * Referenced by: '<S17>/Constant'
                                         */
 extern real_T Odometry_X_Y_TEAR;       /* Variable: Odometry_X_Y_TEAR
                                         * Referenced by: '<S138>/Constant'
@@ -877,9 +891,6 @@ extern real_T Spline_Velocity_Multiplier_TEST;
                                     /* Variable: Spline_Velocity_Multiplier_TEST
                                      * Referenced by: '<S197>/Constant3'
                                      */
-extern real_T Steering_AT_Error_Angle_Gain;/* Variable: Steering_AT_Error_Angle_Gain
-                                            * Referenced by: '<S362>/Constant4'
-                                            */
 extern real_T Steering_Absolute_Cmd_Approach_Zero_Error_Thresh;
                    /* Variable: Steering_Absolute_Cmd_Approach_Zero_Error_Thresh
                     * Referenced by: '<S308>/Constant5'
@@ -1140,9 +1151,9 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S107>/CheckSignalProperties' : Unused code path elimination
  * Block '<S116>/CheckSignalProperties' : Unused code path elimination
  * Block '<S117>/CheckSignalProperties' : Unused code path elimination
- * Block '<S18>/Gain' : Unused code path elimination
- * Block '<S18>/Gain1' : Unused code path elimination
- * Block '<S18>/Scope' : Unused code path elimination
+ * Block '<S19>/Gain' : Unused code path elimination
+ * Block '<S19>/Gain1' : Unused code path elimination
+ * Block '<S19>/Scope' : Unused code path elimination
  * Block '<S156>/FixPt Data Type Duplicate' : Unused code path elimination
  * Block '<S160>/FixPt Data Type Duplicate' : Unused code path elimination
  * Block '<S166>/FixPt Data Type Duplicate' : Unused code path elimination
@@ -1188,9 +1199,11 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S329>/Data Type Propagation' : Unused code path elimination
  * Block '<S325>/Scope' : Unused code path elimination
  * Block '<S356>/Logical Operator10' : Unused code path elimination
- * Block '<S378>/Data Type Duplicate' : Unused code path elimination
- * Block '<S378>/Data Type Propagation' : Unused code path elimination
- * Block '<S379>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S372>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S372>/Data Type Propagation' : Unused code path elimination
+ * Block '<S379>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S379>/Data Type Propagation' : Unused code path elimination
+ * Block '<S380>/FixPt Data Type Duplicate1' : Unused code path elimination
  * Block '<S22>/Signal Copy1' : Unused code path elimination
  * Block '<S22>/Signal Copy2' : Unused code path elimination
  * Block '<S118>/Conversion' : Eliminate redundant data type conversion
@@ -1204,10 +1217,10 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S75>/Reshapexhat' : Reshape block reduction
  * Block '<S14>/Signal Copy' : Eliminate redundant signal conversion block
  * Block '<S14>/Signal Copy1' : Eliminate redundant signal conversion block
- * Block '<S16>/Signal Copy' : Eliminate redundant signal conversion block
- * Block '<S16>/Signal Copy1' : Eliminate redundant signal conversion block
- * Block '<S16>/Signal Copy2' : Eliminate redundant signal conversion block
- * Block '<S16>/Signal Copy3' : Eliminate redundant signal conversion block
+ * Block '<S17>/Signal Copy' : Eliminate redundant signal conversion block
+ * Block '<S17>/Signal Copy1' : Eliminate redundant signal conversion block
+ * Block '<S17>/Signal Copy2' : Eliminate redundant signal conversion block
+ * Block '<S17>/Signal Copy3' : Eliminate redundant signal conversion block
  * Block '<S196>/Signal Copy' : Eliminate redundant signal conversion block
  */
 
@@ -1240,12 +1253,12 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S12>'  : 'Code_Gen_Model/RoboRio Controls/Human_Input_Pre_Processing'
  * '<S13>'  : 'Code_Gen_Model/RoboRio Controls/Internal Feedback'
  * '<S14>'  : 'Code_Gen_Model/RoboRio Controls/Kalman_Filter'
- * '<S15>'  : 'Code_Gen_Model/RoboRio Controls/Merge'
- * '<S16>'  : 'Code_Gen_Model/RoboRio Controls/Odometry'
- * '<S17>'  : 'Code_Gen_Model/RoboRio Controls/Previous GameState'
- * '<S18>'  : 'Code_Gen_Model/RoboRio Controls/Spline_Path_Following'
- * '<S19>'  : 'Code_Gen_Model/RoboRio Controls/Steer_Module_Offset_Adjustments'
- * '<S20>'  : 'Code_Gen_Model/RoboRio Controls/Subsystem'
+ * '<S15>'  : 'Code_Gen_Model/RoboRio Controls/Limelight Tag Corrections'
+ * '<S16>'  : 'Code_Gen_Model/RoboRio Controls/Merge'
+ * '<S17>'  : 'Code_Gen_Model/RoboRio Controls/Odometry'
+ * '<S18>'  : 'Code_Gen_Model/RoboRio Controls/Previous GameState'
+ * '<S19>'  : 'Code_Gen_Model/RoboRio Controls/Spline_Path_Following'
+ * '<S20>'  : 'Code_Gen_Model/RoboRio Controls/Steer_Module_Offset_Adjustments'
  * '<S21>'  : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive'
  * '<S22>'  : 'Code_Gen_Model/RoboRio Controls/Teleop'
  * '<S23>'  : 'Code_Gen_Model/RoboRio Controls/Test'
@@ -1597,30 +1610,31 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S369>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
  * '<S370>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
  * '<S371>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Previous game state was not Teleop'
- * '<S372>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
- * '<S373>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
- * '<S374>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
- * '<S375>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
- * '<S376>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
- * '<S377>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
- * '<S378>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
- * '<S379>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
- * '<S380>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
- * '<S381>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
- * '<S382>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase'
- * '<S383>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase1'
- * '<S384>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase10'
- * '<S385>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase11'
- * '<S386>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase12'
- * '<S387>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase2'
- * '<S388>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase3'
- * '<S389>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase4'
- * '<S390>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase5'
- * '<S391>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase6'
- * '<S392>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase7'
- * '<S393>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase8'
- * '<S394>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase9'
- * '<S395>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Reefscape_Chart'
+ * '<S372>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Saturation Dynamic'
+ * '<S373>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
+ * '<S374>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
+ * '<S375>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
+ * '<S376>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
+ * '<S377>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
+ * '<S378>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
+ * '<S379>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
+ * '<S380>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
+ * '<S381>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
+ * '<S382>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
+ * '<S383>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase'
+ * '<S384>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase1'
+ * '<S385>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase10'
+ * '<S386>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase11'
+ * '<S387>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase12'
+ * '<S388>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase2'
+ * '<S389>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase3'
+ * '<S390>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase4'
+ * '<S391>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase5'
+ * '<S392>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase6'
+ * '<S393>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase7'
+ * '<S394>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase8'
+ * '<S395>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase9'
+ * '<S396>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Reefscape_Chart'
  */
 #endif                                 /* RTW_HEADER_Code_Gen_Model_h_ */
 
