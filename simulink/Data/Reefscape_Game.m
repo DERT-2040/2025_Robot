@@ -149,5 +149,15 @@ Coral_Arm_Lower_Limit_Out = angle_var2*180/pi;  % convert from radians to degree
 
 clear arm_length arm_pivot_offset_x arm_pivot_offset_y m b k angle_var height_var index height_var2 angle_var2
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APRIL TAG TRACKING TARGETS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Limelight_Tag_X_Offset = 0;
+Limelight_Tag_Y_Offset = 0;
+Limelight_Tag_Angle_Offset = 0;
+
+AT_Reef_Target_X = 29/39.37008;
+AT_Reef_Target_Left_Y = 5.5/39.37008;
+AT_Reef_Target_Right_Y = -7.5/39.37008;
 

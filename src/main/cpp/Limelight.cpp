@@ -30,11 +30,17 @@ void Limelight::PreStepCallback() {
     //Updates Pose
     CameraOneLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-one");
     CameraTwoLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-two");
-   
-    // Limelight Tag Scores
-    int CameraOneLLScore = 0;
-    int CameraTwoLLScore = 0;
-    
+
+    //Local distance to tag
+    std::vector<double> CameraOneRobotPose = LimelightHelpers::getTargetPose_RobotSpace("limelight-one");
+    double cameraOne_Tag_x = CameraOneRobotPose.at(2);
+    double cameraOne_Tag_y = CameraOneRobotPose.at(0);
+    double cameraOne_Tag_angle = CameraOneRobotPose.at(4);
+
+    Code_Gen_Model_U.Limelight_Tag_x = cameraOne_Tag_x;
+    Code_Gen_Model_U.Limelight_Tag_y = cameraOne_Tag_y;
+    Code_Gen_Model_U.Limelight_Tag_angle = cameraOne_Tag_angle;
+
     // Limelight Values for Scoring & Selection
     double CameraOneLLAvgTagArea = CameraOneLLMeasurement.avgTagArea;
     double CameraOneLLAvgTagDist = CameraOneLLMeasurement.avgTagDist;
@@ -43,6 +49,10 @@ void Limelight::PreStepCallback() {
     double CameraTwoLLAvgTagArea = CameraTwoLLMeasurement.avgTagArea;
     double CameraTwoLLAvgTagDist = CameraTwoLLMeasurement.avgTagDist;
     double CameraTwoLLTagCount = CameraTwoLLMeasurement.tagCount;
+
+    // Limelight Tag Scores
+    int CameraOneLLScore = 0;
+    int CameraTwoLLScore = 0;
 
     // Pass Into Simulink
     Code_Gen_Model_U.Num_Tags_Detected = CameraOneLLTagCount + CameraTwoLLTagCount;

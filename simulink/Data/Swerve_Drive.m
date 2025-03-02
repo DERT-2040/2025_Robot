@@ -24,6 +24,9 @@ clear temp_x temp_y
 % Steering Relative Gain
 Steering_Relative_Gain = 5;
 
+% Steering April Tag Error Gain
+Steering_AT_Error_Angle_Gain = 0.1;
+
 % Boost Trigger
 Boost_Trigger_High_Speed = 5.0; % 3.658; % m/s
 Boost_Trigger_Low_Speed = 1.5; % m/s

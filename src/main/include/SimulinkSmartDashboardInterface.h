@@ -18,30 +18,9 @@ public:
     void GameStateChangeCallback();
 private:
         // Parameters
-        nt::NetworkTableEntry __AT_Target_Tag_11_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_11_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_11_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_12_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_12_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_12_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_13_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_13_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_13_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_14_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_14_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_14_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_15_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_15_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_15_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_16_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_16_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_16_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_5_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_5_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_5_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_6_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_6_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_6_Y__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_Left_Y__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_Right_Y__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_X__Entry;
         nt::NetworkTableEntry __AT_XY_Control_Gain__Entry;
         nt::NetworkTableEntry __Algae_Eject_Time__Entry;
         nt::NetworkTableEntry __Algae_Hold_DC__Entry;
@@ -118,6 +97,9 @@ private:
         nt::NetworkTableEntry __Gyro_Calibration_Reset_Degree__Entry;
         nt::NetworkTableEntry __Gyro_Calibration_Reset_Flag__Entry;
         nt::NetworkTableEntry __KF_Enable__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_Angle_Offset__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_X_Offset__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_Y_Offset__Entry;
         nt::NetworkTableEntry __Odometry_IC_X__Entry;
         nt::NetworkTableEntry __Odometry_IC_Y__Entry;
         nt::NetworkTableEntry __Odometry_Reset_IC__Entry;
@@ -127,6 +109,7 @@ private:
         nt::NetworkTableEntry __Spline_Pose_Num_Before_End_Reduce_Speed__Entry;
         nt::NetworkTableEntry __Spline_Stop_Radius__Entry;
         nt::NetworkTableEntry __Spline_Velocity_Multiplier_TEST__Entry;
+        nt::NetworkTableEntry __Steering_AT_Error_Angle_Gain__Entry;
         nt::NetworkTableEntry __Steering_Absolute_Cmd_Approach_Zero_Error_Thresh__Entry;
         nt::NetworkTableEntry __Steering_Absolute_Cmd_Approach_Zero_Final_Thresh__Entry;
         nt::NetworkTableEntry __Steering_Absolute_Cmd_NonZero_Error_Thresh__Entry;
@@ -174,12 +157,6 @@ private:
         nt::NetworkTableEntry __Twist_Deadzone_pos__Entry;
  
         // Inports
-        nt::NetworkTableEntry __AT_Tag_11_Found__Entry;
-        nt::NetworkTableEntry __AT_Tag_12_Found__Entry;
-        nt::NetworkTableEntry __AT_Tag_13_Found__Entry;
-        nt::NetworkTableEntry __AT_Tag_14_Found__Entry;
-        nt::NetworkTableEntry __AT_Tag_15_Found__Entry;
-        nt::NetworkTableEntry __AT_Tag_16_Found__Entry;
         nt::NetworkTableEntry __Algae_Limit_Switch__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Speed__Entry;
@@ -263,6 +240,9 @@ private:
         nt::NetworkTableEntry __Joystick_Right_Z__Entry;
         nt::NetworkTableEntry __Limelight_Est_Pose_X__Entry;
         nt::NetworkTableEntry __Limelight_Est_Pose_Y__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_angle__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_x__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_y__Entry;
         nt::NetworkTableEntry __Num_Tags_Detected__Entry;
         // Outports
         nt::NetworkTableEntry __Algae_Wheel_Inside_DutyCycle__Entry;
@@ -285,12 +265,14 @@ private:
         nt::NetworkTableEntry __Swerve_Motors_Disabled__Entry;
  
         // Test Points
+        nt::NetworkTableEntry __AT_Error_Angle__Entry;
         nt::NetworkTableEntry __AT_Error_X__Entry;
         nt::NetworkTableEntry __AT_Error_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Angle__Entry;
+        nt::NetworkTableEntry __AT_Target_Enable__Entry;
         nt::NetworkTableEntry __Active_GameState__Entry;
-        nt::NetworkTableEntry __Align_Amp__Entry;
-        nt::NetworkTableEntry __Align_Speaker__Entry;
+        nt::NetworkTableEntry __Align_Left__Entry;
+        nt::NetworkTableEntry __Align_Processor__Entry;
+        nt::NetworkTableEntry __Align_Right__Entry;
         nt::NetworkTableEntry __BL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed_in__Entry;
@@ -358,6 +340,9 @@ private:
         nt::NetworkTableEntry __Is_Boosting__Entry;
         nt::NetworkTableEntry __KF_Position_X__Entry;
         nt::NetworkTableEntry __KF_Position_Y__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_Corrected_Angle__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_Corrected_X__Entry;
+        nt::NetworkTableEntry __Limelight_Tag_Corrected_Y__Entry;
         nt::NetworkTableEntry __Odom_Position_X__Entry;
         nt::NetworkTableEntry __Odom_Position_Y__Entry;
         nt::NetworkTableEntry __Odometry_X_global_TEAR_ft__Entry;
@@ -385,6 +370,7 @@ private:
         nt::NetworkTableEntry __Steering_Localized_PID__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd_SPF__Entry;
+        nt::NetworkTableEntry __Subtract__Entry;
         nt::NetworkTableEntry __Test_Mode__Entry;
         nt::NetworkTableEntry __Translation_Angle__Entry;
         nt::NetworkTableEntry __Translation_Angle_SPF__Entry;
@@ -392,5 +378,4 @@ private:
         nt::NetworkTableEntry __Translation_Speed_RL__Entry;
         nt::NetworkTableEntry __Translation_Speed_SPF__Entry;
         nt::NetworkTableEntry __Translation_Steering_Cmd__Entry;
-        nt::NetworkTableEntry __previous_call_was_for_speaker__Entry;
 };
