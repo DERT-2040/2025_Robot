@@ -293,6 +293,8 @@ private:
         nt::NetworkTableEntry __Coral_Arm_Angle_Desired_o__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Measured__Entry;
         nt::NetworkTableEntry __Coral_Pickup_Lower_Wait_State__Entry;
+        nt::NetworkTableEntry __Coral_Station_Left__Entry;
+        nt::NetworkTableEntry __Coral_Station_Right__Entry;
         nt::NetworkTableEntry __Coral_Wheel_DC__Entry;
         nt::NetworkTableEntry __DeadZone__Entry;
         nt::NetworkTableEntry __DeadZone1__Entry;
@@ -353,6 +355,7 @@ private:
         nt::NetworkTableEntry __Odometry_X_global_est_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_TEAR_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_est_ft__Entry;
+        nt::NetworkTableEntry __Processor__Entry;
         nt::NetworkTableEntry __Reefscape_Motors_Enable__Entry;
         nt::NetworkTableEntry __Robot_Reached_Destination__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;

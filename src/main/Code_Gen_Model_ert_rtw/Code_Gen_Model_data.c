@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.294
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar  1 23:19:10 2025
+ * C/C++ source code generated on : Sun Mar  2 09:25:58 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -23,20 +23,20 @@
 const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
   1.0,                                 /* '<S26>/Unary Minus' */
   1.0,                                 /* '<S42>/Unary Minus' */
-  -1.0,                                /* '<S223>/Cos5' */
-  1.2246467991473532E-16,              /* '<S223>/Sin5' */
-  -1.0,                                /* '<S244>/Cos5' */
-  1.2246467991473532E-16,              /* '<S244>/Sin5' */
-  -1.0,                                /* '<S265>/Cos5' */
-  1.2246467991473532E-16,              /* '<S265>/Sin5' */
-  -1.0,                                /* '<S286>/Cos5' */
-  1.2246467991473532E-16,              /* '<S286>/Sin5' */
-  -0.78539816339744828,                /* '<S296>/Atan1' */
-  0.78539816339744828,                 /* '<S296>/Add1' */
-  2.3561944901923448,                  /* '<S296>/Atan3' */
-  3.9269908169872414,                  /* '<S296>/Add2' */
-  -2.3561944901923448,                 /* '<S296>/Atan4' */
-  -0.78539816339744828                 /* '<S296>/Add3' */
+  -1.0,                                /* '<S226>/Cos5' */
+  1.2246467991473532E-16,              /* '<S226>/Sin5' */
+  -1.0,                                /* '<S247>/Cos5' */
+  1.2246467991473532E-16,              /* '<S247>/Sin5' */
+  -1.0,                                /* '<S268>/Cos5' */
+  1.2246467991473532E-16,              /* '<S268>/Sin5' */
+  -1.0,                                /* '<S289>/Cos5' */
+  1.2246467991473532E-16,              /* '<S289>/Sin5' */
+  -0.78539816339744828,                /* '<S299>/Atan1' */
+  0.78539816339744828,                 /* '<S299>/Add1' */
+  2.3561944901923448,                  /* '<S299>/Atan3' */
+  3.9269908169872414,                  /* '<S299>/Add2' */
+  -2.3561944901923448,                 /* '<S299>/Atan4' */
+  -0.78539816339744828                 /* '<S299>/Add3' */
 };
 
 /* Constant parameters (default storage) */
@@ -83,25 +83,25 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
     7.5716761776610646 },
 
   /* Expression: Steering_Mod_Str_Rel_out
-   * Referenced by: '<S362>/Modulation_Str_Y_Rel'
+   * Referenced by: '<S365>/Modulation_Str_Y_Rel'
    */
   { -1.0, -0.75, -0.55, -0.4, -0.27, -0.17, -0.1, -0.04, -0.015, -0.0, 0.0, 0.0,
     0.015, 0.04, 0.1, 0.17, 0.27, 0.4, 0.55, 0.75, 1.0 },
 
   /* Expression: Steering_Mod_Str_Rel_in
-   * Referenced by: '<S362>/Modulation_Str_Y_Rel'
+   * Referenced by: '<S365>/Modulation_Str_Y_Rel'
    */
   { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.25, -0.15, -0.05, 0.0, 0.05,
     0.15, 0.25, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
 
   /* Expression: Steering_Mod_Drv_out
-   * Referenced by: '<S363>/Modulation_Drv'
+   * Referenced by: '<S366>/Modulation_Drv'
    */
   { -1.0, -0.58, -0.31, -0.18, -0.14, -0.09, -0.06, -0.04, -0.01, -0.0, 0.0, 0.0,
     0.01, 0.04, 0.06, 0.09, 0.14, 0.18, 0.31, 0.58, 1.0 },
 
   /* Expression: Steering_Mod_Drv_in
-   * Referenced by: '<S363>/Modulation_Drv'
+   * Referenced by: '<S366>/Modulation_Drv'
    */
   { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.45, -0.4, -0.35, -0.3, 0.0, 0.3, 0.35,
     0.4, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
@@ -114,19 +114,19 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Scale_Factor)
    * Referenced by:
-   *   '<S214>/1-D Lookup Table'
-   *   '<S235>/1-D Lookup Table'
-   *   '<S256>/1-D Lookup Table'
-   *   '<S277>/1-D Lookup Table'
+   *   '<S217>/1-D Lookup Table'
+   *   '<S238>/1-D Lookup Table'
+   *   '<S259>/1-D Lookup Table'
+   *   '<S280>/1-D Lookup Table'
    */
   { 1.0, 1.0 },
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
-   *   '<S214>/1-D Lookup Table'
-   *   '<S235>/1-D Lookup Table'
-   *   '<S256>/1-D Lookup Table'
-   *   '<S277>/1-D Lookup Table'
+   *   '<S217>/1-D Lookup Table'
+   *   '<S238>/1-D Lookup Table'
+   *   '<S259>/1-D Lookup Table'
+   *   '<S280>/1-D Lookup Table'
    */
   { 0.0, 0.78539816339744828 },
 

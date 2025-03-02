@@ -31,7 +31,7 @@ void Limelight::PreStepCallback() {
     CameraOneLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-one");
     CameraTwoLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-two");
 
-    // Robot Pose Relative to tag
+    // Robot Pose Relative to Tag
     std::vector<double> CameraOneRobotPose = LimelightHelpers::getTargetPose_RobotSpace("limelight-one");
     size_t vectorLength = CameraOneRobotPose.size();
 

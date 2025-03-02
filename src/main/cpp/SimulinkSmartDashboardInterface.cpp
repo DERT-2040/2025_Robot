@@ -709,6 +709,8 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Coral_Arm_Angle_Desired_o__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired_o");
     __Coral_Arm_Angle_Measured__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Measured");
     __Coral_Pickup_Lower_Wait_State__Entry = NTtable_TPoint->GetEntry("Coral_Pickup_Lower_Wait_State");
+    __Coral_Station_Left__Entry = NTtable_TPoint->GetEntry("Coral_Station_Left");
+    __Coral_Station_Right__Entry = NTtable_TPoint->GetEntry("Coral_Station_Right");
     __Coral_Wheel_DC__Entry = NTtable_TPoint->GetEntry("Coral_Wheel_DC");
     __DeadZone__Entry = NTtable_TPoint->GetEntry("DeadZone");
     __DeadZone1__Entry = NTtable_TPoint->GetEntry("DeadZone1");
@@ -769,6 +771,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Odometry_X_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_X_global_est_ft");
     __Odometry_Y_global_TEAR_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_TEAR_ft");
     __Odometry_Y_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_est_ft");
+    __Processor__Entry = NTtable_TPoint->GetEntry("Processor");
     __Reefscape_Motors_Enable__Entry = NTtable_TPoint->GetEntry("Reefscape_Motors_Enable");
     __Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
@@ -937,6 +940,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Coral_Arm_Angle_Desired_o__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired_o);
     __Coral_Arm_Angle_Measured__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Measured);
     __Coral_Pickup_Lower_Wait_State__Entry.SetDouble(Code_Gen_Model_B.Coral_Pickup_Lower_Wait_State);
+    __Coral_Station_Left__Entry.SetDouble(Code_Gen_Model_B.Coral_Station_Left);
+    __Coral_Station_Right__Entry.SetDouble(Code_Gen_Model_B.Coral_Station_Right);
     __Coral_Wheel_DC__Entry.SetDouble(Code_Gen_Model_B.Coral_Wheel_DC);
     __DeadZone__Entry.SetDouble(Code_Gen_Model_B.DeadZone);
     __DeadZone1__Entry.SetDouble(Code_Gen_Model_B.DeadZone1);
@@ -997,6 +1002,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Odometry_X_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_X_global_est_ft);
     __Odometry_Y_global_TEAR_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_TEAR_ft);
     __Odometry_Y_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_est_ft);
+    __Processor__Entry.SetDouble(Code_Gen_Model_B.Processor);
     __Reefscape_Motors_Enable__Entry.SetDouble(Code_Gen_Model_B.Reefscape_Motors_Enable);
     __Robot_Reached_Destination__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
