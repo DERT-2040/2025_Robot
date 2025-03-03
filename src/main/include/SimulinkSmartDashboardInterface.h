@@ -58,7 +58,6 @@ private:
         nt::NetworkTableEntry __Coral_Motor_DC_Eject__Entry;
         nt::NetworkTableEntry __Coral_Motor_DC_Hold__Entry;
         nt::NetworkTableEntry __Coral_Motor_DC_Pickup__Entry;
-        nt::NetworkTableEntry __Distance_FL_y__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_D__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_D_FilterCoeff__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_D_LL__Entry;

@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.296
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  2 19:20:58 2025
+ * C/C++ source code generated on : Sun Mar  2 23:05:54 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -33,12 +33,14 @@ const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
   1.2246467991473532E-16,              /* '<S289>/Sin5' */
   0.0,                                 /* '<S370>/Atan1' */
   0.0,                                 /* '<S370>/Magnitude1' */
-  -0.78539816339744828,                /* '<S299>/Atan1' */
-  0.78539816339744828,                 /* '<S299>/Add1' */
-  2.3561944901923448,                  /* '<S299>/Atan3' */
-  3.9269908169872414,                  /* '<S299>/Add2' */
-  -2.3561944901923448,                 /* '<S299>/Atan4' */
-  -0.78539816339744828                 /* '<S299>/Add3' */
+  0.62436807884000667,                 /* '<S299>/Atan2' */
+  2.1951644056349031,                  /* '<S299>/Add' */
+  -0.62436807884000667,                /* '<S299>/Atan1' */
+  0.94642824795488989,                 /* '<S299>/Add1' */
+  2.5172245747497866,                  /* '<S299>/Atan3' */
+  4.0880209015446827,                  /* '<S299>/Add2' */
+  -2.5172245747497866,                 /* '<S299>/Atan4' */
+  -0.94642824795489                    /* '<S299>/Add3' */
 };
 
 /* Constant parameters (default storage) */

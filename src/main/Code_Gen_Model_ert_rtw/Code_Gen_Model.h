@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.296
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  2 19:20:58 2025
+ * C/C++ source code generated on : Sun Mar  2 23:05:54 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -296,6 +296,8 @@ typedef struct {
   const real_T Sin5_c;                 /* '<S289>/Sin5' */
   const real_T Atan1;                  /* '<S370>/Atan1' */
   const real_T Magnitude1;             /* '<S370>/Magnitude1' */
+  const real_T Atan2;                  /* '<S299>/Atan2' */
+  const real_T FL_Tangent_Angle;       /* '<S299>/Add' */
   const real_T Atan1_c;                /* '<S299>/Atan1' */
   const real_T FR_Tangent_Angle;       /* '<S299>/Add1' */
   const real_T Atan3;                  /* '<S299>/Atan3' */
@@ -348,7 +350,7 @@ typedef struct {
    *   '<S259>/1-D Lookup Table'
    *   '<S280>/1-D Lookup Table'
    */
-  real_T pooled30[2];
+  real_T pooled32[2];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
@@ -357,21 +359,21 @@ typedef struct {
    *   '<S259>/1-D Lookup Table'
    *   '<S280>/1-D Lookup Table'
    */
-  real_T pooled31[2];
+  real_T pooled33[2];
 
   /* Pooled Parameter (Expression: Elevator_Height_Lower_Limit_Out)
    * Referenced by:
    *   '<S9>/Range of Motion Protection Limit'
    *   '<S9>/Range of Motion Protection Limit1'
    */
-  real_T pooled32[96];
+  real_T pooled34[96];
 
   /* Pooled Parameter (Expression: Elevator_Height_Lower_Limit_Coral_Arm_Input)
    * Referenced by:
    *   '<S9>/Range of Motion Protection Limit'
    *   '<S9>/Range of Motion Protection Limit1'
    */
-  real_T pooled33[96];
+  real_T pooled35[96];
 
   /* Expression: Coral_Arm_DC_Upper_Limit_Out
    * Referenced by: '<S7>/1-D Lookup Table'
@@ -670,9 +672,6 @@ extern real_T Coral_Motor_DC_Hold;     /* Variable: Coral_Motor_DC_Hold
                                         */
 extern real_T Coral_Motor_DC_Pickup;   /* Variable: Coral_Motor_DC_Pickup
                                         * Referenced by: '<S361>/Reefscape_Chart'
-                                        */
-extern real_T Distance_FL_y;           /* Variable: Distance_FL_y
-                                        * Referenced by: '<S299>/Constant4'
                                         */
 extern real_T Drive_Motor_Control_D;   /* Variable: Drive_Motor_Control_D
                                         * Referenced by:
