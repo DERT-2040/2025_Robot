@@ -11,21 +11,25 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     auto NTtable_Outport = NTinst.GetTable("Simulink Top Level Ports");
     auto NTtable_TPoint = NTinst.GetTable("Simulink Test Points");
  
-    __AT_Reef_Target_Center_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Center_X");
-    NTinst.AddListener(__AT_Reef_Target_Center_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Center_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Reef_Target_Center_X__Entry.SetDouble(27);
- 
     __AT_Reef_Target_Center_Y__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Center_Y");
     NTinst.AddListener(__AT_Reef_Target_Center_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Center_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Reef_Target_Center_Y__Entry.SetDouble(-1);
+    __AT_Reef_Target_Center_Y__Entry.SetDouble(-2.5);
+ 
+    __AT_Reef_Target_L1_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_L1_X");
+    NTinst.AddListener(__AT_Reef_Target_L1_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_L1_X = event.GetValueEventData()->value.GetDouble();});
+    __AT_Reef_Target_L1_X__Entry.SetDouble(26.75);
+ 
+    __AT_Reef_Target_L2_L3_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_L2_L3_X");
+    NTinst.AddListener(__AT_Reef_Target_L2_L3_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_L2_L3_X = event.GetValueEventData()->value.GetDouble();});
+    __AT_Reef_Target_L2_L3_X__Entry.SetDouble(26.25);
+ 
+    __AT_Reef_Target_L4_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_L4_X");
+    NTinst.AddListener(__AT_Reef_Target_L4_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_L4_X = event.GetValueEventData()->value.GetDouble();});
+    __AT_Reef_Target_L4_X__Entry.SetDouble(27.25);
  
     __AT_Reef_Target_Left_Y__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Left_Y");
     NTinst.AddListener(__AT_Reef_Target_Left_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Left_Y = event.GetValueEventData()->value.GetDouble();});
     __AT_Reef_Target_Left_Y__Entry.SetDouble(5.5);
- 
-    __AT_Reef_Target_Poles_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Poles_X");
-    NTinst.AddListener(__AT_Reef_Target_Poles_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Poles_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Reef_Target_Poles_X__Entry.SetDouble(29);
  
     __AT_Reef_Target_Right_Y__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Right_Y");
     NTinst.AddListener(__AT_Reef_Target_Right_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Right_Y = event.GetValueEventData()->value.GetDouble();});
@@ -33,19 +37,19 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Steering_Error_Angle_Gain__Entry = NTtable_Tune->GetEntry("AT_Steering_Error_Angle_Gain");
     NTinst.AddListener(__AT_Steering_Error_Angle_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Error_Angle_Gain = event.GetValueEventData()->value.GetDouble();});
-    __AT_Steering_Error_Angle_Gain__Entry.SetDouble(0.1);
+    __AT_Steering_Error_Angle_Gain__Entry.SetDouble(0.05);
  
     __AT_Steering_Speed_Max__Entry = NTtable_Tune->GetEntry("AT_Steering_Speed_Max");
     NTinst.AddListener(__AT_Steering_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Speed_Max = event.GetValueEventData()->value.GetDouble();});
-    __AT_Steering_Speed_Max__Entry.SetDouble(0.2);
+    __AT_Steering_Speed_Max__Entry.SetDouble(0.4);
  
     __AT_Translation_Control_Gain__Entry = NTtable_Tune->GetEntry("AT_Translation_Control_Gain");
     NTinst.AddListener(__AT_Translation_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Control_Gain = event.GetValueEventData()->value.GetDouble();});
-    __AT_Translation_Control_Gain__Entry.SetDouble(0.25);
+    __AT_Translation_Control_Gain__Entry.SetDouble(0.2);
  
     __AT_Translation_Speed_Max__Entry = NTtable_Tune->GetEntry("AT_Translation_Speed_Max");
     NTinst.AddListener(__AT_Translation_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Speed_Max = event.GetValueEventData()->value.GetDouble();});
-    __AT_Translation_Speed_Max__Entry.SetDouble(1);
+    __AT_Translation_Speed_Max__Entry.SetDouble(0.5);
  
     __Algae_Eject_Time__Entry = NTtable_Tune->GetEntry("Algae_Eject_Time");
     NTinst.AddListener(__Algae_Eject_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Algae_Eject_Time = event.GetValueEventData()->value.GetDouble();});
@@ -273,7 +277,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_L4__Entry = NTtable_Tune->GetEntry("Elevator_Height_L4");
     NTinst.AddListener(__Elevator_Height_L4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L4 = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L4__Entry.SetDouble(26.125);
+    __Elevator_Height_L4__Entry.SetDouble(28);
  
     __Elevator_Height_Lower__Entry = NTtable_Tune->GetEntry("Elevator_Height_Lower");
     NTinst.AddListener(__Elevator_Height_Lower__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Lower = event.GetValueEventData()->value.GetDouble();});
@@ -349,15 +353,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Limelight_Tag_Angle_Offset__Entry = NTtable_Tune->GetEntry("Limelight_Tag_Angle_Offset");
     NTinst.AddListener(__Limelight_Tag_Angle_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Limelight_Tag_Angle_Offset = event.GetValueEventData()->value.GetDouble();});
-    __Limelight_Tag_Angle_Offset__Entry.SetDouble(0);
+    __Limelight_Tag_Angle_Offset__Entry.SetDouble(-0.2);
  
     __Limelight_Tag_X_Offset__Entry = NTtable_Tune->GetEntry("Limelight_Tag_X_Offset");
     NTinst.AddListener(__Limelight_Tag_X_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Limelight_Tag_X_Offset = event.GetValueEventData()->value.GetDouble();});
-    __Limelight_Tag_X_Offset__Entry.SetDouble(0);
+    __Limelight_Tag_X_Offset__Entry.SetDouble(-0.65);
  
     __Limelight_Tag_Y_Offset__Entry = NTtable_Tune->GetEntry("Limelight_Tag_Y_Offset");
     NTinst.AddListener(__Limelight_Tag_Y_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Limelight_Tag_Y_Offset = event.GetValueEventData()->value.GetDouble();});
-    __Limelight_Tag_Y_Offset__Entry.SetDouble(0);
+    __Limelight_Tag_Y_Offset__Entry.SetDouble(0.21);
  
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
@@ -685,10 +689,9 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Swerve_Motors_Disabled__Entry = NTtable_Outport->GetEntry("Swerve_Motors_Disabled");
  
 // Test Points
-    __AT_Error_Angle__Entry = NTtable_TPoint->GetEntry("AT_Error_Angle");
-    __AT_Error_X__Entry = NTtable_TPoint->GetEntry("AT_Error_X");
-    __AT_Error_Y__Entry = NTtable_TPoint->GetEntry("AT_Error_Y");
-    __AT_Target_Enable__Entry = NTtable_TPoint->GetEntry("AT_Target_Enable");
+    __AT_Relative_Enable__Entry = NTtable_TPoint->GetEntry("AT_Relative_Enable");
+    __AT_Relative_Error_Angle__Entry = NTtable_TPoint->GetEntry("AT_Relative_Error_Angle");
+    __AT_Relative_Error_Y__Entry = NTtable_TPoint->GetEntry("AT_Relative_Error_Y");
     __Active_GameState__Entry = NTtable_TPoint->GetEntry("Active_GameState");
     __Align_Center__Entry = NTtable_TPoint->GetEntry("Align_Center");
     __Align_Left__Entry = NTtable_TPoint->GetEntry("Align_Left");
@@ -774,6 +777,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Processor__Entry = NTtable_TPoint->GetEntry("Processor");
     __Reefscape_Motors_Enable__Entry = NTtable_TPoint->GetEntry("Reefscape_Motors_Enable");
     __Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
+    __Set_Level_Out__Entry = NTtable_TPoint->GetEntry("Set_Level_Out");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
     __Spline_Follow_Index__Entry = NTtable_TPoint->GetEntry("Spline_Follow_Index");
     __Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
@@ -916,10 +920,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Reset_Wheel_Offsets__Entry.SetDouble(Code_Gen_Model_Y.Reset_Wheel_Offsets);
     __Swerve_Motors_Disabled__Entry.SetDouble(Code_Gen_Model_Y.Swerve_Motors_Disabled);
     // Test Points
-    __AT_Error_Angle__Entry.SetDouble(Code_Gen_Model_B.AT_Error_Angle);
-    __AT_Error_X__Entry.SetDouble(Code_Gen_Model_B.AT_Error_X);
-    __AT_Error_Y__Entry.SetDouble(Code_Gen_Model_B.AT_Error_Y);
-    __AT_Target_Enable__Entry.SetDouble(Code_Gen_Model_B.AT_Target_Enable);
+    __AT_Relative_Enable__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Enable);
+    __AT_Relative_Error_Angle__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Angle);
+    __AT_Relative_Error_Y__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Y);
     __Active_GameState__Entry.SetDouble(Code_Gen_Model_B.Active_GameState);
     __Align_Center__Entry.SetDouble(Code_Gen_Model_B.Align_Center);
     __Align_Left__Entry.SetDouble(Code_Gen_Model_B.Align_Left);
@@ -1005,6 +1008,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Processor__Entry.SetDouble(Code_Gen_Model_B.Processor);
     __Reefscape_Motors_Enable__Entry.SetDouble(Code_Gen_Model_B.Reefscape_Motors_Enable);
     __Robot_Reached_Destination__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination);
+    __Set_Level_Out__Entry.SetDouble(Code_Gen_Model_B.Set_Level_Out);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
     __Spline_Follow_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Follow_Index);
     __Spline_Num_Poses__Entry.SetDouble(Code_Gen_Model_B.Spline_Num_Poses);

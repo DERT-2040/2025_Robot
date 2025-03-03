@@ -18,10 +18,11 @@ public:
     void GameStateChangeCallback();
 private:
         // Parameters
-        nt::NetworkTableEntry __AT_Reef_Target_Center_X__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_Center_Y__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_L1_X__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_L2_L3_X__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_L4_X__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_Left_Y__Entry;
-        nt::NetworkTableEntry __AT_Reef_Target_Poles_X__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_Right_Y__Entry;
         nt::NetworkTableEntry __AT_Steering_Error_Angle_Gain__Entry;
         nt::NetworkTableEntry __AT_Steering_Speed_Max__Entry;
@@ -269,10 +270,9 @@ private:
         nt::NetworkTableEntry __Swerve_Motors_Disabled__Entry;
  
         // Test Points
-        nt::NetworkTableEntry __AT_Error_Angle__Entry;
-        nt::NetworkTableEntry __AT_Error_X__Entry;
-        nt::NetworkTableEntry __AT_Error_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Enable__Entry;
+        nt::NetworkTableEntry __AT_Relative_Enable__Entry;
+        nt::NetworkTableEntry __AT_Relative_Error_Angle__Entry;
+        nt::NetworkTableEntry __AT_Relative_Error_Y__Entry;
         nt::NetworkTableEntry __Active_GameState__Entry;
         nt::NetworkTableEntry __Align_Center__Entry;
         nt::NetworkTableEntry __Align_Left__Entry;
@@ -358,6 +358,7 @@ private:
         nt::NetworkTableEntry __Processor__Entry;
         nt::NetworkTableEntry __Reefscape_Motors_Enable__Entry;
         nt::NetworkTableEntry __Robot_Reached_Destination__Entry;
+        nt::NetworkTableEntry __Set_Level_Out__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
         nt::NetworkTableEntry __Spline_Follow_Index__Entry;
         nt::NetworkTableEntry __Spline_Num_Poses__Entry;

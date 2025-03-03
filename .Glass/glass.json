@@ -1,0 +1,23 @@
+{
+  "NetworkTables": {
+    "transitory": {
+      "Simulink Tunable Params": {
+        "open": true
+      }
+    },
+    "types": {
+      "/FMSInfo": "FMSInfo"
+    }
+  },
+  "NetworkTables Info": {
+    "Connections": {
+      "open": true
+    },
+    "visible": true
+  },
+  "NetworkTables Settings": {
+    "mode": "Client (NT4)",
+    "serverTeam": "2040",
+    "visible": false
+  }
+}

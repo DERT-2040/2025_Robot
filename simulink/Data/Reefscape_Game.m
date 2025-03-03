@@ -21,7 +21,7 @@ Elevator_Height_Raise   = 9.0;
 Elevator_Height_L1      = 11;
 Elevator_Height_L2      = 5.25+2;
 Elevator_Height_L3      = 13.125+2;
-Elevator_Height_L4      = 26.125;
+Elevator_Height_L4      = 28; %26.125;
 
 Elevator_Height_Algae_Score = 2.5;
 Elevator_Height_Algae_Low   = 11;
@@ -50,6 +50,7 @@ Coral_Detect_Distance       = 60; % mm
 
 % Gamepad elevator and arm control gains
 Elevator_Height_Manual_Gain = 0.1;
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CORAL ARM
@@ -87,6 +88,7 @@ Coral_Arm_Neg90_DC = -0.03;
 % Gamepad elevator and arm control gains
 Coral_Arm_Manual_Gain       = 0.4;
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CORAL WHEEL
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -98,6 +100,7 @@ Coral_Motor_DC_Eject = -0.65;
 
 % Coral ejection time
 Coral_Eject_Time = 0.5; % seconds
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ALGAE WHEELS
@@ -111,9 +114,11 @@ Algae_Push_Out_DC = -0.3;
 % Algae ejection time
 Algae_Eject_Time = 1;  % seconds
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ELEVATOR & CORAL RANGE OF MOTION CHECKS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % elevator height lower limit vs. coral arm angle
 % define dimensions
 arm_length = 20.5;
@@ -149,18 +154,20 @@ Coral_Arm_Lower_Limit_Out = angle_var2*180/pi;  % convert from radians to degree
 
 clear arm_length arm_pivot_offset_x arm_pivot_offset_y m b k angle_var height_var index height_var2 angle_var2
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % APRIL TAG TRACKING TARGETS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Limelight_Tag_X_Offset = 0;     % inches
-Limelight_Tag_Y_Offset = 0;     % inches
-Limelight_Tag_Angle_Offset = 0; % degrees
+Limelight_Tag_X_Offset = -0.65;    % inches
+Limelight_Tag_Y_Offset = 0.21;     % inches
+Limelight_Tag_Angle_Offset = -0.2; % degrees
 
-AT_Reef_Target_Center_X = 27;   % inches, used for L1 scoring
-AT_Reef_Target_Poles_X = 29;    % inches, used for L1, L2, L4 scoring
+AT_Reef_Target_L1_X = 26.75;    % inches
+AT_Reef_Target_L2_L3_X = 26.25; % inches
+AT_Reef_Target_L4_X = 27.25;    % inches
 
 AT_Reef_Target_Left_Y = 5.5;    % inches
-AT_Reef_Target_Center_Y = -1.0; % inches
+AT_Reef_Target_Center_Y = -2.5; % inches
 AT_Reef_Target_Right_Y = -7.5;  % inches
 
