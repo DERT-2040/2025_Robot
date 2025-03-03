@@ -26,6 +26,34 @@ private:
         nt::NetworkTableEntry __AT_Reef_Target_Right_Y__Entry;
         nt::NetworkTableEntry __AT_Steering_Error_Angle_Gain__Entry;
         nt::NetworkTableEntry __AT_Steering_Speed_Max__Entry;
+        nt::NetworkTableEntry __AT_Tag_4_Coordinate_X__Entry;
+        nt::NetworkTableEntry __AT_Tag_4_Coordinate_Y__Entry;
+        nt::NetworkTableEntry __AT_Tag_7_Coordinate_X__Entry;
+        nt::NetworkTableEntry __AT_Tag_7_Coordinate_Y__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_11_Field_Angle__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_11_X__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_11_Y__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_12_Field_Angle__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_12_X__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_12_Y__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_13_Field_Angle__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_13_X__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_13_Y__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_14_Field_Angle__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_14_X__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_14_Y__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_15_Field_Angle__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_15_X__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_15_Y__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_16_Field_Angle__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_16_X__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_16_Y__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_5_Field_Angle__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_5_X__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_5_Y__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_6_Field_Angle__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_6_X__Entry;
+        nt::NetworkTableEntry __AT_Target_Tag_6_Y__Entry;
         nt::NetworkTableEntry __AT_Translation_Control_Gain__Entry;
         nt::NetworkTableEntry __AT_Translation_Speed_Max__Entry;
         nt::NetworkTableEntry __Algae_Eject_Time__Entry;
@@ -269,6 +297,9 @@ private:
         nt::NetworkTableEntry __Swerve_Motors_Disabled__Entry;
  
         // Test Points
+        nt::NetworkTableEntry __AT_Field_Error_X__Entry;
+        nt::NetworkTableEntry __AT_Field_Error_Y__Entry;
+        nt::NetworkTableEntry __AT_Field_Target_Angle__Entry;
         nt::NetworkTableEntry __AT_Relative_Enable__Entry;
         nt::NetworkTableEntry __AT_Relative_Error_Angle__Entry;
         nt::NetworkTableEntry __AT_Relative_Error_Y__Entry;
@@ -287,6 +318,12 @@ private:
         nt::NetworkTableEntry __Button_Disable_Wheels__Entry;
         nt::NetworkTableEntry __Button_Enable_Wheels__Entry;
         nt::NetworkTableEntry __Button_Reset_Wheel_Offsets__Entry;
+        nt::NetworkTableEntry __Cage_Left_Finish__Entry;
+        nt::NetworkTableEntry __Cage_Left_Start__Entry;
+        nt::NetworkTableEntry __Cage_Middle_Finish__Entry;
+        nt::NetworkTableEntry __Cage_Middle_Start__Entry;
+        nt::NetworkTableEntry __Cage_Right_Finish__Entry;
+        nt::NetworkTableEntry __Cage_Right_Start__Entry;
         nt::NetworkTableEntry __Coral_ArmAngle_Error__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Desired__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Desired_o__Entry;

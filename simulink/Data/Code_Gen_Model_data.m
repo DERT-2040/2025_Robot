@@ -33,6 +33,7 @@ TEST_Swerve_Mode_Steering = 0;
 Swerve_Drive
 Odometry_and_Kalman_Filter
 Spline_Path_Following
+April_Tag_Data
 Reefscape_Game
 
 
