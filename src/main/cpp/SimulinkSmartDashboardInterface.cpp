@@ -43,22 +43,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__AT_Steering_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Speed_Max = event.GetValueEventData()->value.GetDouble();});
     __AT_Steering_Speed_Max__Entry.SetDouble(0.4);
  
-    __AT_Tag_4_Coordinate_X__Entry = NTtable_Tune->GetEntry("AT_Tag_4_Coordinate_X");
-    NTinst.AddListener(__AT_Tag_4_Coordinate_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_4_Coordinate_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Tag_4_Coordinate_X__Entry.SetDouble(16.5793);
- 
-    __AT_Tag_4_Coordinate_Y__Entry = NTtable_Tune->GetEntry("AT_Tag_4_Coordinate_Y");
-    NTinst.AddListener(__AT_Tag_4_Coordinate_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_4_Coordinate_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Tag_4_Coordinate_Y__Entry.SetDouble(5.5479);
- 
-    __AT_Tag_7_Coordinate_X__Entry = NTtable_Tune->GetEntry("AT_Tag_7_Coordinate_X");
-    NTinst.AddListener(__AT_Tag_7_Coordinate_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_7_Coordinate_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Tag_7_Coordinate_X__Entry.SetDouble(-0.0381);
- 
-    __AT_Tag_7_Coordinate_Y__Entry = NTtable_Tune->GetEntry("AT_Tag_7_Coordinate_Y");
-    NTinst.AddListener(__AT_Tag_7_Coordinate_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_7_Coordinate_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Tag_7_Coordinate_Y__Entry.SetDouble(5.5479);
- 
     __AT_Target_Tag_11_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_11_Field_Angle");
     NTinst.AddListener(__AT_Target_Tag_11_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_11_Field_Angle = event.GetValueEventData()->value.GetDouble();});
     __AT_Target_Tag_11_Field_Angle__Entry.SetDouble(2.0944);
@@ -106,30 +90,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __AT_Target_Tag_14_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_14_Y");
     NTinst.AddListener(__AT_Target_Tag_14_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_14_Y = event.GetValueEventData()->value.GetDouble();});
     __AT_Target_Tag_14_Y__Entry.SetDouble(4.1051);
- 
-    __AT_Target_Tag_15_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_15_Field_Angle");
-    NTinst.AddListener(__AT_Target_Tag_15_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_15_Field_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_15_Field_Angle__Entry.SetDouble(2.0944);
- 
-    __AT_Target_Tag_15_X__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_15_X");
-    NTinst.AddListener(__AT_Target_Tag_15_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_15_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_15_X__Entry.SetDouble(4.0317);
- 
-    __AT_Target_Tag_15_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_15_Y");
-    NTinst.AddListener(__AT_Target_Tag_15_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_15_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_15_Y__Entry.SetDouble(5.5542);
- 
-    __AT_Target_Tag_16_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_16_Field_Angle");
-    NTinst.AddListener(__AT_Target_Tag_16_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_16_Field_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_16_Field_Angle__Entry.SetDouble(4.1888);
- 
-    __AT_Target_Tag_16_X__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_16_X");
-    NTinst.AddListener(__AT_Target_Tag_16_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_16_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_16_X__Entry.SetDouble(4.0317);
- 
-    __AT_Target_Tag_16_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_16_Y");
-    NTinst.AddListener(__AT_Target_Tag_16_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_16_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_16_Y__Entry.SetDouble(2.6574);
  
     __AT_Target_Tag_5_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_5_Field_Angle");
     NTinst.AddListener(__AT_Target_Tag_5_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_5_Field_Angle = event.GetValueEventData()->value.GetDouble();});

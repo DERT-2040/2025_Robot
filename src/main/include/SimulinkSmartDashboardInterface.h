@@ -26,10 +26,6 @@ private:
         nt::NetworkTableEntry __AT_Reef_Target_Right_Y__Entry;
         nt::NetworkTableEntry __AT_Steering_Error_Angle_Gain__Entry;
         nt::NetworkTableEntry __AT_Steering_Speed_Max__Entry;
-        nt::NetworkTableEntry __AT_Tag_4_Coordinate_X__Entry;
-        nt::NetworkTableEntry __AT_Tag_4_Coordinate_Y__Entry;
-        nt::NetworkTableEntry __AT_Tag_7_Coordinate_X__Entry;
-        nt::NetworkTableEntry __AT_Tag_7_Coordinate_Y__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_11_Field_Angle__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_11_X__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_11_Y__Entry;
@@ -42,12 +38,6 @@ private:
         nt::NetworkTableEntry __AT_Target_Tag_14_Field_Angle__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_14_X__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_14_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_15_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_15_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_15_Y__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_16_Field_Angle__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_16_X__Entry;
-        nt::NetworkTableEntry __AT_Target_Tag_16_Y__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_5_Field_Angle__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_5_X__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_5_Y__Entry;

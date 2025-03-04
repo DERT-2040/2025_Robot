@@ -94,26 +94,26 @@ AT_Target_Tag_14_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_14_Y = temp(2)*0.0254; % convert from inches to meters
 AT_Target_Tag_14_Field_Angle = angle;
 
-tag = 15;
-angle = AT_Data(tag,4)*pi/180;
-temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
-AT_Target_Tag_15_X = temp(1)*0.0254; % convert from inches to meters
-AT_Target_Tag_15_Y = temp(2)*0.0254; % convert from inches to meters
-AT_Target_Tag_15_Field_Angle = angle;
-
-tag = 16;
-angle = AT_Data(tag,4)*pi/180;
-temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
-AT_Target_Tag_16_X = temp(1)*0.0254; % convert from inches to meters
-AT_Target_Tag_16_Y = temp(2)*0.0254; % convert from inches to meters
-AT_Target_Tag_16_Field_Angle = angle;
+% tag = 15;
+% angle = AT_Data(tag,4)*pi/180;
+% temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
+% AT_Target_Tag_15_X = temp(1)*0.0254; % convert from inches to meters
+% AT_Target_Tag_15_Y = temp(2)*0.0254; % convert from inches to meters
+% AT_Target_Tag_15_Field_Angle = angle;
+% 
+% tag = 16;
+% angle = AT_Data(tag,4)*pi/180;
+% temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
+% AT_Target_Tag_16_X = temp(1)*0.0254; % convert from inches to meters
+% AT_Target_Tag_16_Y = temp(2)*0.0254; % convert from inches to meters
+% AT_Target_Tag_16_Field_Angle = angle;
 
 clear d_offset tag angle temp
 
 % Speaker X and Y Coordinates
-AT_Tag_4_Coordinate_X = AT_Data(4,1)*0.0254; % convert from inches to meters
-AT_Tag_4_Coordinate_Y = AT_Data(4,2)*0.0254; % convert from inches to meters
-AT_Tag_7_Coordinate_X = AT_Data(7,1)*0.0254; % convert from inches to meters
-AT_Tag_7_Coordinate_Y = AT_Data(7,2)*0.0254; % convert from inches to meters
+% AT_Tag_4_Coordinate_X = AT_Data(4,1)*0.0254; % convert from inches to meters
+% AT_Tag_4_Coordinate_Y = AT_Data(4,2)*0.0254; % convert from inches to meters
+% AT_Tag_7_Coordinate_X = AT_Data(7,1)*0.0254; % convert from inches to meters
+% AT_Tag_7_Coordinate_Y = AT_Data(7,2)*0.0254; % convert from inches to meters
 
 clear AT_Data
