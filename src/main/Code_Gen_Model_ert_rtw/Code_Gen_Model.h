@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.297
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar  3 17:39:13 2025
+ * C/C++ source code generated on : Mon Mar  3 18:20:25 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -103,14 +103,14 @@ typedef struct {
   real_T Odometry_X_global_TEAR_ft;    /* '<S147>/Subtract' */
   real_T Steer_Joystick_X;             /* '<S12>/Signal Copy4' */
   real_T AT_Field_Error_X;             /* '<S365>/Switch2' */
-  real_T AT_Field_Target_Angle;        /* '<S365>/Switch15' */
   real_T AT_Field_Error_Y;             /* '<S365>/Switch4' */
+  real_T AT_Relative_Error_Y;          /* '<S366>/Subtract1' */
   real_T DeadZone;                     /* '<S368>/Dead Zone' */
   real_T DeadZone1;                    /* '<S368>/Dead Zone1' */
-  real_T AT_Relative_Error_Y;          /* '<S366>/Subtract1' */
   real_T AT_Relative_Error_Angle;      /* '<S366>/Unary Minus' */
   real_T Steering_Abs_Gyro_Latch;      /* '<S377>/Switch8' */
   real_T Steering_Abs_Gyro;            /* '<S377>/Switch2' */
+  real_T AT_Field_Target_Angle;        /* '<S365>/Switch15' */
   real_T Steering_Abs_Angle;           /* '<S377>/Switch3' */
   real_T Elevator_Height_Desired_m;    /* '<S368>/Reefscape_Chart' */
   real_T Coral_Arm_Angle_Desired_o;    /* '<S368>/Reefscape_Chart' */
@@ -137,6 +137,9 @@ typedef struct {
   boolean_T Coral_Station_Left;        /* '<S72>/Compare' */
   boolean_T Coral_Station_Right;       /* '<S71>/Compare' */
   boolean_T Processor;                 /* '<S70>/Compare' */
+  boolean_T Cage_Left_Start;           /* '<S68>/Compare' */
+  boolean_T Cage_Middle_Start;         /* '<S69>/Compare' */
+  boolean_T Cage_Right_Start;          /* '<S77>/Compare' */
   boolean_T Gamepad_POV_Up;            /* '<S59>/Compare' */
   boolean_T Gamepad_POV_Down;          /* '<S61>/Compare' */
   boolean_T Gamepad_POV_Left;          /* '<S63>/Compare' */
@@ -148,9 +151,6 @@ typedef struct {
   boolean_T Robot_Reached_Destination; /* '<S19>/Merge7' */
   boolean_T Test_Mode;                 /* '<S16>/Merge10' */
   boolean_T Elevator_LowerPickup_Reset_tp;/* '<S16>/Merge21' */
-  boolean_T Cage_Left_Start;           /* '<S68>/Compare' */
-  boolean_T Cage_Middle_Start;         /* '<S69>/Compare' */
-  boolean_T Cage_Right_Start;          /* '<S77>/Compare' */
   boolean_T Cage_Left_Finish;          /* '<S78>/Compare' */
   boolean_T Cage_Middle_Finish;        /* '<S79>/Compare' */
   boolean_T Cage_Right_Finish;         /* '<S80>/Compare' */
@@ -222,7 +222,9 @@ typedef struct {
   real_T FixPtUnitDelay1_DSTATE_pc;    /* '<S35>/FixPt Unit Delay1' */
   real_T UnitDelay1_DSTATE_d;          /* '<S147>/Unit Delay1' */
   real_T UnitDelay_DSTATE_c;           /* '<S147>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_e;          /* '<S365>/Unit Delay1' */
+  real_T UnitDelay1_DSTATE_l;          /* '<S391>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_p;           /* '<S391>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_nr;         /* '<S366>/Unit Delay1' */
   real_T DelayInput1_DSTATE_c;         /* '<S398>/Delay Input1' */
   real_T DelayInput1_DSTATE_nr;        /* '<S399>/Delay Input1' */
   real_T DelayInput1_DSTATE_ez;        /* '<S403>/Delay Input1' */
@@ -233,13 +235,10 @@ typedef struct {
   real_T DelayInput1_DSTATE_o;         /* '<S409>/Delay Input1' */
   real_T DelayInput1_DSTATE_j;         /* '<S410>/Delay Input1' */
   real_T UnitDelay_DSTATE_kq;          /* '<S366>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_nr;         /* '<S366>/Unit Delay1' */
-  real_T UnitDelay1_DSTATE_l;          /* '<S391>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_p;           /* '<S391>/Unit Delay' */
-  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S395>/FixPt Unit Delay1' */
-  real_T DelayInput1_DSTATE_f;         /* '<S384>/Delay Input1' */
   real_T UnitDelay3_DSTATE;            /* '<S377>/Unit Delay3' */
+  real_T UnitDelay1_DSTATE_e;          /* '<S365>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_j;          /* '<S377>/Unit Delay1' */
+  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S395>/FixPt Unit Delay1' */
   real_T UnitDelay_DSTATE_gh;          /* '<S152>/Unit Delay' */
   real_T timer;                        /* '<S368>/Reefscape_Chart' */
   int32_T Selector4_DIMS1[2];          /* '<S173>/Selector4' */
@@ -257,10 +256,11 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_op;     /* '<S36>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_ir;       /* '<S23>/Unit Delay' */
   boolean_T DelayInput1_DSTATE_oy;     /* '<S407>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_fx;     /* '<S408>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_f;      /* '<S408>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o5;     /* '<S401>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_a;      /* '<S402>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_jp;     /* '<S385>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_ft;     /* '<S384>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_m;      /* '<S380>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_k;      /* '<S381>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_g;      /* '<S382>/Delay Input1' */
@@ -304,11 +304,9 @@ typedef struct {
   const real_T Sin5_e;                 /* '<S274>/Sin5' */
   const real_T Cos5_b;                 /* '<S295>/Cos5' */
   const real_T Sin5_c;                 /* '<S295>/Sin5' */
-  const real_T Atan1;                  /* '<S378>/Atan1' */
-  const real_T Magnitude1;             /* '<S378>/Magnitude1' */
   const real_T Atan2;                  /* '<S305>/Atan2' */
   const real_T FL_Tangent_Angle;       /* '<S305>/Add' */
-  const real_T Atan1_c;                /* '<S305>/Atan1' */
+  const real_T Atan1;                  /* '<S305>/Atan1' */
   const real_T FR_Tangent_Angle;       /* '<S305>/Add1' */
   const real_T Atan3;                  /* '<S305>/Atan3' */
   const real_T BL_Tangent_Angle;       /* '<S305>/Add2' */
@@ -1275,7 +1273,6 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S338>/Data Type Duplicate' : Unused code path elimination
  * Block '<S338>/Data Type Propagation' : Unused code path elimination
  * Block '<S334>/Scope' : Unused code path elimination
- * Block '<S365>/Logical Operator11' : Unused code path elimination
  * Block '<S365>/Logical Operator12' : Unused code path elimination
  * Block '<S365>/Logical Operator13' : Unused code path elimination
  * Block '<S365>/Logical Operator14' : Unused code path elimination
