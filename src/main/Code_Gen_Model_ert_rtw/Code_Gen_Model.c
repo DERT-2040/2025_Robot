@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.299
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar  4 00:02:04 2025
+ * C/C++ source code generated on : Tue Mar  4 08:31:45 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -63,10 +63,10 @@
 #define Code__IN_Elevator_Height_Bottom ((uint8_T)7U)
 
 /* Exported block parameters */
-real_T AT_CS_L_Angle_Blue = 5.3407;    /* Variable: AT_CS_L_Angle_Blue
+real_T AT_CS_L_Angle_Blue = -0.94248;  /* Variable: AT_CS_L_Angle_Blue
                                         * Referenced by: '<S365>/Constant14'
                                         */
-real_T AT_CS_L_Angle_Red = -0.94248;   /* Variable: AT_CS_L_Angle_Red
+real_T AT_CS_L_Angle_Red = 2.1991;     /* Variable: AT_CS_L_Angle_Red
                                         * Referenced by: '<S365>/Constant13'
                                         */
 real_T AT_CS_L_X_Blue = 1.1497;        /* Variable: AT_CS_L_X_Blue
@@ -84,7 +84,7 @@ real_T AT_CS_L_Y_Red = 1.0663;         /* Variable: AT_CS_L_Y_Red
 real_T AT_CS_R_Angle_Blue = 0.94248;   /* Variable: AT_CS_R_Angle_Blue
                                         * Referenced by: '<S365>/Constant12'
                                         */
-real_T AT_CS_R_Angle_Red = 0.94248;    /* Variable: AT_CS_R_Angle_Red
+real_T AT_CS_R_Angle_Red = -2.1991;    /* Variable: AT_CS_R_Angle_Red
                                         * Referenced by: '<S365>/Constant11'
                                         */
 real_T AT_CS_R_X_Blue = 1.1497;        /* Variable: AT_CS_R_X_Blue
@@ -102,9 +102,9 @@ real_T AT_CS_R_Y_Red = 6.9855;         /* Variable: AT_CS_R_Y_Red
 real_T AT_Cage_L_Finish_Angle_Blue = 0.0;/* Variable: AT_Cage_L_Finish_Angle_Blue
                                           * Referenced by: '<S365>/Constant55'
                                           */
-real_T AT_Cage_L_Finish_Angle_Red = 0.0;/* Variable: AT_Cage_L_Finish_Angle_Red
-                                         * Referenced by: '<S365>/Constant54'
-                                         */
+real_T AT_Cage_L_Finish_Angle_Red = -3.1416;/* Variable: AT_Cage_L_Finish_Angle_Red
+                                             * Referenced by: '<S365>/Constant54'
+                                             */
 real_T AT_Cage_L_Finish_X_Blue = 8.7681;/* Variable: AT_Cage_L_Finish_X_Blue
                                          * Referenced by: '<S365>/Constant39'
                                          */
@@ -120,9 +120,9 @@ real_T AT_Cage_L_Finish_Y_Red = 0.79229;/* Variable: AT_Cage_L_Finish_Y_Red
 real_T AT_Cage_L_Start_Angle_Blue = 0.0;/* Variable: AT_Cage_L_Start_Angle_Blue
                                          * Referenced by: '<S365>/Constant49'
                                          */
-real_T AT_Cage_L_Start_Angle_Red = 0.0;/* Variable: AT_Cage_L_Start_Angle_Red
-                                        * Referenced by: '<S365>/Constant48'
-                                        */
+real_T AT_Cage_L_Start_Angle_Red = -3.1416;/* Variable: AT_Cage_L_Start_Angle_Red
+                                            * Referenced by: '<S365>/Constant48'
+                                            */
 real_T AT_Cage_L_Start_X_Blue = 9.5301;/* Variable: AT_Cage_L_Start_X_Blue
                                         * Referenced by: '<S365>/Constant7'
                                         */
@@ -138,9 +138,9 @@ real_T AT_Cage_L_Start_Y_Red = 0.79229;/* Variable: AT_Cage_L_Start_Y_Red
 real_T AT_Cage_M_Finish_Angle_Blue = 0.0;/* Variable: AT_Cage_M_Finish_Angle_Blue
                                           * Referenced by: '<S365>/Constant53'
                                           */
-real_T AT_Cage_M_Finish_Angle_Red = 0.0;/* Variable: AT_Cage_M_Finish_Angle_Red
-                                         * Referenced by: '<S365>/Constant52'
-                                         */
+real_T AT_Cage_M_Finish_Angle_Red = -3.1416;/* Variable: AT_Cage_M_Finish_Angle_Red
+                                             * Referenced by: '<S365>/Constant52'
+                                             */
 real_T AT_Cage_M_Finish_X_Blue = 8.7681;/* Variable: AT_Cage_M_Finish_X_Blue
                                          * Referenced by: '<S365>/Constant34'
                                          */
@@ -156,9 +156,9 @@ real_T AT_Cage_M_Finish_Y_Red = 1.8829;/* Variable: AT_Cage_M_Finish_Y_Red
 real_T AT_Cage_M_Start_Angle_Blue = 0.0;/* Variable: AT_Cage_M_Start_Angle_Blue
                                          * Referenced by: '<S365>/Constant47'
                                          */
-real_T AT_Cage_M_Start_Angle_Red = 0.0;/* Variable: AT_Cage_M_Start_Angle_Red
-                                        * Referenced by: '<S365>/Constant46'
-                                        */
+real_T AT_Cage_M_Start_Angle_Red = -3.1416;/* Variable: AT_Cage_M_Start_Angle_Red
+                                            * Referenced by: '<S365>/Constant46'
+                                            */
 real_T AT_Cage_M_Start_X_Blue = 9.5301;/* Variable: AT_Cage_M_Start_X_Blue
                                         * Referenced by: '<S365>/Constant20'
                                         */
@@ -174,9 +174,9 @@ real_T AT_Cage_M_Start_Y_Red = 1.8829; /* Variable: AT_Cage_M_Start_Y_Red
 real_T AT_Cage_R_Finish_Angle_Blue = 0.0;/* Variable: AT_Cage_R_Finish_Angle_Blue
                                           * Referenced by: '<S365>/Constant51'
                                           */
-real_T AT_Cage_R_Finish_Angle_Red = 0.0;/* Variable: AT_Cage_R_Finish_Angle_Red
-                                         * Referenced by: '<S365>/Constant56'
-                                         */
+real_T AT_Cage_R_Finish_Angle_Red = -3.1416;/* Variable: AT_Cage_R_Finish_Angle_Red
+                                             * Referenced by: '<S365>/Constant56'
+                                             */
 real_T AT_Cage_R_Finish_X_Blue = 8.7681;/* Variable: AT_Cage_R_Finish_X_Blue
                                          * Referenced by: '<S365>/Constant36'
                                          */
@@ -192,9 +192,9 @@ real_T AT_Cage_R_Finish_Y_Red = 2.9735;/* Variable: AT_Cage_R_Finish_Y_Red
 real_T AT_Cage_R_Start_Angle_Blue = 0.0;/* Variable: AT_Cage_R_Start_Angle_Blue
                                          * Referenced by: '<S365>/Constant1'
                                          */
-real_T AT_Cage_R_Start_Angle_Red = 0.0;/* Variable: AT_Cage_R_Start_Angle_Red
-                                        * Referenced by: '<S365>/Constant50'
-                                        */
+real_T AT_Cage_R_Start_Angle_Red = -3.1416;/* Variable: AT_Cage_R_Start_Angle_Red
+                                            * Referenced by: '<S365>/Constant50'
+                                            */
 real_T AT_Cage_R_Start_X_Blue = 9.5301;/* Variable: AT_Cage_R_Start_X_Blue
                                         * Referenced by: '<S365>/Constant29'
                                         */
@@ -207,7 +207,7 @@ real_T AT_Cage_R_Start_Y_Blue = 5.079; /* Variable: AT_Cage_R_Start_Y_Blue
 real_T AT_Cage_R_Start_Y_Red = 2.9735; /* Variable: AT_Cage_R_Start_Y_Red
                                         * Referenced by: '<S365>/Constant16'
                                         */
-real_T AT_Processor_Angle_Blue = 4.7124;/* Variable: AT_Processor_Angle_Blue
+real_T AT_Processor_Angle_Blue = 1.5708;/* Variable: AT_Processor_Angle_Blue
                                          * Referenced by: '<S365>/Constant10'
                                          */
 real_T AT_Processor_Angle_Red = -1.5708;/* Variable: AT_Processor_Angle_Red

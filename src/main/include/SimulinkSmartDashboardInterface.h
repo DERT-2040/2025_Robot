@@ -215,6 +215,7 @@ private:
         nt::NetworkTableEntry __Translation_Twist_Gain__Entry;
         nt::NetworkTableEntry __Twist_Deadzone_neg__Entry;
         nt::NetworkTableEntry __Twist_Deadzone_pos__Entry;
+        nt::NetworkTableEntry __angle_offset__Entry;
  
         // Inports
         nt::NetworkTableEntry __Algae_Limit_Switch__Entry;

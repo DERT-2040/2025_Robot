@@ -73,53 +73,61 @@ AT_Data = [...
 % CORAL STATIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 d_offset = 20; % inches
+angle_offset = 0;   % use 0 for robot front facing away from tag, use pi for robot front facing tag
 
 tag = 13;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
+temp_angle = angle - angle_offset;
 AT_CS_L_X_Blue = temp(1)*0.0254; % convert from inches to meters
 AT_CS_L_Y_Blue = temp(2)*0.0254; % convert from inches to meters
-AT_CS_L_Angle_Blue = angle;
+AT_CS_L_Angle_Blue = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)  
 
 tag = 1;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
+temp_angle = angle - angle_offset;
 AT_CS_L_X_Red = temp(1)*0.0254; % convert from inches to meters
 AT_CS_L_Y_Red = temp(2)*0.0254; % convert from inches to meters
-AT_CS_L_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
+AT_CS_L_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)  
 
 tag = 12;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
+temp_angle = angle - angle_offset;
 AT_CS_R_X_Blue = temp(1)*0.0254; % convert from inches to meters
 AT_CS_R_Y_Blue = temp(2)*0.0254; % convert from inches to meters
-AT_CS_R_Angle_Blue = angle;
+AT_CS_R_Angle_Blue = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)  
 
 tag = 2;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
+temp_angle = angle - angle_offset;
 AT_CS_R_X_Red = temp(1)*0.0254; % convert from inches to meters
 AT_CS_R_Y_Red = temp(2)*0.0254; % convert from inches to meters
-AT_CS_R_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
+AT_CS_R_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % PROCESSORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 d_offset = 25; % inches
+angle_offset = pi;   % use 0 for robot front facing away from tag, use pi for robot front facing tag
 
 tag = 3;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
+temp_angle = angle - angle_offset;
 AT_Processor_X_Blue = temp(1)*0.0254; % convert from inches to meters
 AT_Processor_Y_Blue = temp(2)*0.0254; % convert from inches to meters
-AT_Processor_Angle_Blue = angle;
+AT_Processor_Angle_Blue = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 16;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
+temp_angle = angle - angle_offset;
 AT_Processor_X_Red = temp(1)*0.0254; % convert from inches to meters
 AT_Processor_Y_Red = temp(2)*0.0254; % convert from inches to meters
-AT_Processor_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
+AT_Processor_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAGES
@@ -127,7 +135,7 @@ AT_Processor_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
 cage_offset_middle = 1.26;
 cage_offset_left = cage_offset_middle + 42.9375;
 cage_offset_right = cage_offset_middle - 42.9375;
-
+angle_offset = 0;   % use 0 for robot front facing away from tag, use pi for robot front facing tag
 
 % start offset
 d_offset = 10; % inches
@@ -135,44 +143,50 @@ d_offset = 10; % inches
 tag = 4;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_left];
+temp_angle = angle - angle_offset;
 AT_Cage_L_Start_X_Blue = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_L_Start_Y_Blue = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_L_Start_Angle_Blue = angle;
+AT_Cage_L_Start_Angle_Blue = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 15;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_left];
+temp_angle = angle - angle_offset;
 AT_Cage_L_Start_X_Red = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_L_Start_Y_Red = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_L_Start_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
+AT_Cage_L_Start_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 4;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_middle];
+temp_angle = angle - angle_offset;
 AT_Cage_M_Start_X_Blue = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_M_Start_Y_Blue = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_M_Start_Angle_Blue = angle;
+AT_Cage_M_Start_Angle_Blue = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 15;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_middle];
+temp_angle = angle - angle_offset;
 AT_Cage_M_Start_X_Red = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_M_Start_Y_Red = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_M_Start_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
+AT_Cage_M_Start_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 4;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_right];
+temp_angle = angle - angle_offset;
 AT_Cage_R_Start_X_Blue = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_R_Start_Y_Blue = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_R_Start_Angle_Blue = angle;
+AT_Cage_R_Start_Angle_Blue = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 15;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_right];
+temp_angle = angle - angle_offset;
 AT_Cage_R_Start_X_Red = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_R_Start_Y_Red = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_R_Start_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
+AT_Cage_R_Start_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 
 % finish offset
@@ -181,47 +195,53 @@ d_offset = -20; % inches
 tag = 4;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_left];
+temp_angle = angle - angle_offset;
 AT_Cage_L_Finish_X_Blue = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_L_Finish_Y_Blue = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_L_Finish_Angle_Blue = angle;
+AT_Cage_L_Finish_Angle_Blue = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 15;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_left];
+temp_angle = angle - angle_offset;
 AT_Cage_L_Finish_X_Red = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_L_Finish_Y_Red = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_L_Finish_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
+AT_Cage_L_Finish_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 4;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_middle];
+temp_angle = angle - angle_offset;
 AT_Cage_M_Finish_X_Blue = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_M_Finish_Y_Blue = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_M_Finish_Angle_Blue = angle;
+AT_Cage_M_Finish_Angle_Blue = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 15;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_middle];
+temp_angle = angle - angle_offset;
 AT_Cage_M_Finish_X_Red = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_M_Finish_Y_Red = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_M_Finish_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
+AT_Cage_M_Finish_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 4;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_right];
+temp_angle = angle - angle_offset;
 AT_Cage_R_Finish_X_Blue = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_R_Finish_Y_Blue = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_R_Finish_Angle_Blue = angle;
+AT_Cage_R_Finish_Angle_Blue = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 tag = 15;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; cage_offset_right];
+temp_angle = angle - angle_offset;
 AT_Cage_R_Finish_X_Red = temp(1)*0.0254; % convert from inches to meters
 AT_Cage_R_Finish_Y_Red = temp(2)*0.0254; % convert from inches to meters
-AT_Cage_R_Finish_Angle_Red = angle - pi;  % subtract pi radians for Red Alliance
+AT_Cage_R_Finish_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 
-clear AT_Data clear d_offset tag angle temp 
+clear AT_Data clear d_offset tag angle temp temp_angle
 clear cage_offset_middle cage_offset_left cage_offset_right
 
 

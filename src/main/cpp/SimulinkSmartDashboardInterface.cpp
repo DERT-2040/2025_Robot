@@ -13,11 +13,11 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_CS_L_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_L_Angle_Blue");
     NTinst.AddListener(__AT_CS_L_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_L_Angle_Blue__Entry.SetDouble(5.3407);
+    __AT_CS_L_Angle_Blue__Entry.SetDouble(-0.94248);
  
     __AT_CS_L_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_CS_L_Angle_Red");
     NTinst.AddListener(__AT_CS_L_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_L_Angle_Red__Entry.SetDouble(-0.94248);
+    __AT_CS_L_Angle_Red__Entry.SetDouble(2.1991);
  
     __AT_CS_L_X_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_L_X_Blue");
     NTinst.AddListener(__AT_CS_L_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_X_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -41,7 +41,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_CS_R_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_CS_R_Angle_Red");
     NTinst.AddListener(__AT_CS_R_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_R_Angle_Red__Entry.SetDouble(0.94248);
+    __AT_CS_R_Angle_Red__Entry.SetDouble(-2.1991);
  
     __AT_CS_R_X_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_R_X_Blue");
     NTinst.AddListener(__AT_CS_R_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_X_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -65,7 +65,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Cage_L_Finish_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_Angle_Red");
     NTinst.AddListener(__AT_Cage_L_Finish_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Finish_Angle_Red__Entry.SetDouble(0);
+    __AT_Cage_L_Finish_Angle_Red__Entry.SetDouble(-3.1416);
  
     __AT_Cage_L_Finish_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_X_Blue");
     NTinst.AddListener(__AT_Cage_L_Finish_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_X_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -89,7 +89,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Cage_L_Start_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_Angle_Red");
     NTinst.AddListener(__AT_Cage_L_Start_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Start_Angle_Red__Entry.SetDouble(0);
+    __AT_Cage_L_Start_Angle_Red__Entry.SetDouble(-3.1416);
  
     __AT_Cage_L_Start_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_X_Blue");
     NTinst.AddListener(__AT_Cage_L_Start_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_X_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -113,7 +113,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Cage_M_Finish_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_Angle_Red");
     NTinst.AddListener(__AT_Cage_M_Finish_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Finish_Angle_Red__Entry.SetDouble(0);
+    __AT_Cage_M_Finish_Angle_Red__Entry.SetDouble(-3.1416);
  
     __AT_Cage_M_Finish_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_X_Blue");
     NTinst.AddListener(__AT_Cage_M_Finish_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_X_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -137,7 +137,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Cage_M_Start_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_Angle_Red");
     NTinst.AddListener(__AT_Cage_M_Start_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Start_Angle_Red__Entry.SetDouble(0);
+    __AT_Cage_M_Start_Angle_Red__Entry.SetDouble(-3.1416);
  
     __AT_Cage_M_Start_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_X_Blue");
     NTinst.AddListener(__AT_Cage_M_Start_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_X_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -161,7 +161,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Cage_R_Finish_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_Angle_Red");
     NTinst.AddListener(__AT_Cage_R_Finish_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Finish_Angle_Red__Entry.SetDouble(0);
+    __AT_Cage_R_Finish_Angle_Red__Entry.SetDouble(-3.1416);
  
     __AT_Cage_R_Finish_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_X_Blue");
     NTinst.AddListener(__AT_Cage_R_Finish_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_X_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -185,7 +185,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Cage_R_Start_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_Angle_Red");
     NTinst.AddListener(__AT_Cage_R_Start_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Start_Angle_Red__Entry.SetDouble(0);
+    __AT_Cage_R_Start_Angle_Red__Entry.SetDouble(-3.1416);
  
     __AT_Cage_R_Start_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_X_Blue");
     NTinst.AddListener(__AT_Cage_R_Start_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_X_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -205,7 +205,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Processor_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Processor_Angle_Blue");
     NTinst.AddListener(__AT_Processor_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Processor_Angle_Blue__Entry.SetDouble(4.7124);
+    __AT_Processor_Angle_Blue__Entry.SetDouble(1.5708);
  
     __AT_Processor_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Processor_Angle_Red");
     NTinst.AddListener(__AT_Processor_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Angle_Red = event.GetValueEventData()->value.GetDouble();});
@@ -798,6 +798,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Twist_Deadzone_pos__Entry = NTtable_Tune->GetEntry("Twist_Deadzone_pos");
     NTinst.AddListener(__Twist_Deadzone_pos__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Twist_Deadzone_pos = event.GetValueEventData()->value.GetDouble();});
     __Twist_Deadzone_pos__Entry.SetDouble(0.01);
+ 
+    __angle_offset__Entry = NTtable_Tune->GetEntry("angle_offset");
+    NTinst.AddListener(__angle_offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {angle_offset = event.GetValueEventData()->value.GetDouble();});
+    __angle_offset__Entry.SetDouble(0);
  
 // Inports
     __Algae_Limit_Switch__Entry = NTtable_Inport->GetEntry("Algae_Limit_Switch");
