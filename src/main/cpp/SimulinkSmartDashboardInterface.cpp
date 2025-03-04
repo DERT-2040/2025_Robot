@@ -11,6 +11,222 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     auto NTtable_Outport = NTinst.GetTable("Simulink Top Level Ports");
     auto NTtable_TPoint = NTinst.GetTable("Simulink Test Points");
  
+    __AT_CS_L_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_L_Angle_Blue");
+    NTinst.AddListener(__AT_CS_L_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_L_Angle_Blue__Entry.SetDouble(5.3407);
+ 
+    __AT_CS_L_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_CS_L_Angle_Red");
+    NTinst.AddListener(__AT_CS_L_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Angle_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_L_Angle_Red__Entry.SetDouble(-0.94248);
+ 
+    __AT_CS_L_X_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_L_X_Blue");
+    NTinst.AddListener(__AT_CS_L_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_X_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_L_X_Blue__Entry.SetDouble(1.1497);
+ 
+    __AT_CS_L_X_Red__Entry = NTtable_Tune->GetEntry("AT_CS_L_X_Red");
+    NTinst.AddListener(__AT_CS_L_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_X_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_L_X_Red__Entry.SetDouble(16.3986);
+ 
+    __AT_CS_L_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_L_Y_Blue");
+    NTinst.AddListener(__AT_CS_L_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Y_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_L_Y_Blue__Entry.SetDouble(6.9855);
+ 
+    __AT_CS_L_Y_Red__Entry = NTtable_Tune->GetEntry("AT_CS_L_Y_Red");
+    NTinst.AddListener(__AT_CS_L_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Y_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_L_Y_Red__Entry.SetDouble(1.0663);
+ 
+    __AT_CS_R_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_R_Angle_Blue");
+    NTinst.AddListener(__AT_CS_R_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_R_Angle_Blue__Entry.SetDouble(0.94248);
+ 
+    __AT_CS_R_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_CS_R_Angle_Red");
+    NTinst.AddListener(__AT_CS_R_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_Angle_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_R_Angle_Red__Entry.SetDouble(0.94248);
+ 
+    __AT_CS_R_X_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_R_X_Blue");
+    NTinst.AddListener(__AT_CS_R_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_X_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_R_X_Blue__Entry.SetDouble(1.1497);
+ 
+    __AT_CS_R_X_Red__Entry = NTtable_Tune->GetEntry("AT_CS_R_X_Red");
+    NTinst.AddListener(__AT_CS_R_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_X_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_R_X_Red__Entry.SetDouble(16.3986);
+ 
+    __AT_CS_R_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_R_Y_Blue");
+    NTinst.AddListener(__AT_CS_R_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_Y_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_R_Y_Blue__Entry.SetDouble(1.0663);
+ 
+    __AT_CS_R_Y_Red__Entry = NTtable_Tune->GetEntry("AT_CS_R_Y_Red");
+    NTinst.AddListener(__AT_CS_R_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_Y_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_CS_R_Y_Red__Entry.SetDouble(6.9855);
+ 
+    __AT_Cage_L_Finish_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_Angle_Blue");
+    NTinst.AddListener(__AT_Cage_L_Finish_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Finish_Angle_Blue__Entry.SetDouble(0);
+ 
+    __AT_Cage_L_Finish_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_Angle_Red");
+    NTinst.AddListener(__AT_Cage_L_Finish_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_Angle_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Finish_Angle_Red__Entry.SetDouble(0);
+ 
+    __AT_Cage_L_Finish_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_X_Blue");
+    NTinst.AddListener(__AT_Cage_L_Finish_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_X_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Finish_X_Blue__Entry.SetDouble(8.7681);
+ 
+    __AT_Cage_L_Finish_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_X_Red");
+    NTinst.AddListener(__AT_Cage_L_Finish_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_X_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Finish_X_Red__Entry.SetDouble(8.7803);
+ 
+    __AT_Cage_L_Finish_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_Y_Blue");
+    NTinst.AddListener(__AT_Cage_L_Finish_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_Y_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Finish_Y_Blue__Entry.SetDouble(7.2603);
+ 
+    __AT_Cage_L_Finish_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_Y_Red");
+    NTinst.AddListener(__AT_Cage_L_Finish_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_Y_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Finish_Y_Red__Entry.SetDouble(0.79229);
+ 
+    __AT_Cage_L_Start_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_Angle_Blue");
+    NTinst.AddListener(__AT_Cage_L_Start_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Start_Angle_Blue__Entry.SetDouble(0);
+ 
+    __AT_Cage_L_Start_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_Angle_Red");
+    NTinst.AddListener(__AT_Cage_L_Start_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_Angle_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Start_Angle_Red__Entry.SetDouble(0);
+ 
+    __AT_Cage_L_Start_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_X_Blue");
+    NTinst.AddListener(__AT_Cage_L_Start_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_X_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Start_X_Blue__Entry.SetDouble(9.5301);
+ 
+    __AT_Cage_L_Start_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_X_Red");
+    NTinst.AddListener(__AT_Cage_L_Start_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_X_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Start_X_Red__Entry.SetDouble(8.0183);
+ 
+    __AT_Cage_L_Start_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_Y_Blue");
+    NTinst.AddListener(__AT_Cage_L_Start_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_Y_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Start_Y_Blue__Entry.SetDouble(7.2603);
+ 
+    __AT_Cage_L_Start_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_Y_Red");
+    NTinst.AddListener(__AT_Cage_L_Start_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_Y_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_L_Start_Y_Red__Entry.SetDouble(0.79229);
+ 
+    __AT_Cage_M_Finish_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_Angle_Blue");
+    NTinst.AddListener(__AT_Cage_M_Finish_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Finish_Angle_Blue__Entry.SetDouble(0);
+ 
+    __AT_Cage_M_Finish_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_Angle_Red");
+    NTinst.AddListener(__AT_Cage_M_Finish_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_Angle_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Finish_Angle_Red__Entry.SetDouble(0);
+ 
+    __AT_Cage_M_Finish_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_X_Blue");
+    NTinst.AddListener(__AT_Cage_M_Finish_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_X_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Finish_X_Blue__Entry.SetDouble(8.7681);
+ 
+    __AT_Cage_M_Finish_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_X_Red");
+    NTinst.AddListener(__AT_Cage_M_Finish_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_X_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Finish_X_Red__Entry.SetDouble(8.7803);
+ 
+    __AT_Cage_M_Finish_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_Y_Blue");
+    NTinst.AddListener(__AT_Cage_M_Finish_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_Y_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Finish_Y_Blue__Entry.SetDouble(6.1697);
+ 
+    __AT_Cage_M_Finish_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_Y_Red");
+    NTinst.AddListener(__AT_Cage_M_Finish_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_Y_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Finish_Y_Red__Entry.SetDouble(1.8829);
+ 
+    __AT_Cage_M_Start_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_Angle_Blue");
+    NTinst.AddListener(__AT_Cage_M_Start_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Start_Angle_Blue__Entry.SetDouble(0);
+ 
+    __AT_Cage_M_Start_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_Angle_Red");
+    NTinst.AddListener(__AT_Cage_M_Start_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_Angle_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Start_Angle_Red__Entry.SetDouble(0);
+ 
+    __AT_Cage_M_Start_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_X_Blue");
+    NTinst.AddListener(__AT_Cage_M_Start_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_X_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Start_X_Blue__Entry.SetDouble(9.5301);
+ 
+    __AT_Cage_M_Start_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_X_Red");
+    NTinst.AddListener(__AT_Cage_M_Start_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_X_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Start_X_Red__Entry.SetDouble(8.0183);
+ 
+    __AT_Cage_M_Start_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_Y_Blue");
+    NTinst.AddListener(__AT_Cage_M_Start_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_Y_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Start_Y_Blue__Entry.SetDouble(6.1697);
+ 
+    __AT_Cage_M_Start_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_Y_Red");
+    NTinst.AddListener(__AT_Cage_M_Start_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_Y_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_M_Start_Y_Red__Entry.SetDouble(1.8829);
+ 
+    __AT_Cage_R_Finish_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_Angle_Blue");
+    NTinst.AddListener(__AT_Cage_R_Finish_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Finish_Angle_Blue__Entry.SetDouble(0);
+ 
+    __AT_Cage_R_Finish_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_Angle_Red");
+    NTinst.AddListener(__AT_Cage_R_Finish_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_Angle_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Finish_Angle_Red__Entry.SetDouble(0);
+ 
+    __AT_Cage_R_Finish_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_X_Blue");
+    NTinst.AddListener(__AT_Cage_R_Finish_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_X_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Finish_X_Blue__Entry.SetDouble(8.7681);
+ 
+    __AT_Cage_R_Finish_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_X_Red");
+    NTinst.AddListener(__AT_Cage_R_Finish_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_X_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Finish_X_Red__Entry.SetDouble(8.7803);
+ 
+    __AT_Cage_R_Finish_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_Y_Blue");
+    NTinst.AddListener(__AT_Cage_R_Finish_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_Y_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Finish_Y_Blue__Entry.SetDouble(5.079);
+ 
+    __AT_Cage_R_Finish_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_Y_Red");
+    NTinst.AddListener(__AT_Cage_R_Finish_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_Y_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Finish_Y_Red__Entry.SetDouble(2.9735);
+ 
+    __AT_Cage_R_Start_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_Angle_Blue");
+    NTinst.AddListener(__AT_Cage_R_Start_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Start_Angle_Blue__Entry.SetDouble(0);
+ 
+    __AT_Cage_R_Start_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_Angle_Red");
+    NTinst.AddListener(__AT_Cage_R_Start_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_Angle_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Start_Angle_Red__Entry.SetDouble(0);
+ 
+    __AT_Cage_R_Start_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_X_Blue");
+    NTinst.AddListener(__AT_Cage_R_Start_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_X_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Start_X_Blue__Entry.SetDouble(9.5301);
+ 
+    __AT_Cage_R_Start_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_X_Red");
+    NTinst.AddListener(__AT_Cage_R_Start_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_X_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Start_X_Red__Entry.SetDouble(8.0183);
+ 
+    __AT_Cage_R_Start_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_Y_Blue");
+    NTinst.AddListener(__AT_Cage_R_Start_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_Y_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Start_Y_Blue__Entry.SetDouble(5.079);
+ 
+    __AT_Cage_R_Start_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_Y_Red");
+    NTinst.AddListener(__AT_Cage_R_Start_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_Y_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Cage_R_Start_Y_Red__Entry.SetDouble(2.9735);
+ 
+    __AT_Processor_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Processor_Angle_Blue");
+    NTinst.AddListener(__AT_Processor_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Processor_Angle_Blue__Entry.SetDouble(4.7124);
+ 
+    __AT_Processor_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Processor_Angle_Red");
+    NTinst.AddListener(__AT_Processor_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Angle_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Processor_Angle_Red__Entry.SetDouble(-1.5708);
+ 
+    __AT_Processor_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Processor_X_Blue");
+    NTinst.AddListener(__AT_Processor_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_X_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Processor_X_Blue__Entry.SetDouble(11.5608);
+ 
+    __AT_Processor_X_Red__Entry = NTtable_Tune->GetEntry("AT_Processor_X_Red");
+    NTinst.AddListener(__AT_Processor_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_X_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Processor_X_Red__Entry.SetDouble(5.9875);
+ 
+    __AT_Processor_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Processor_Y_Blue");
+    NTinst.AddListener(__AT_Processor_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Y_Blue = event.GetValueEventData()->value.GetDouble();});
+    __AT_Processor_Y_Blue__Entry.SetDouble(7.4206);
+ 
+    __AT_Processor_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Processor_Y_Red");
+    NTinst.AddListener(__AT_Processor_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Y_Red = event.GetValueEventData()->value.GetDouble();});
+    __AT_Processor_Y_Red__Entry.SetDouble(0.63119);
+ 
     __AT_Reef_Target_Center_Y__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Center_Y");
     NTinst.AddListener(__AT_Reef_Target_Center_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Center_Y = event.GetValueEventData()->value.GetDouble();});
     __AT_Reef_Target_Center_Y__Entry.SetDouble(-2.5);
@@ -25,7 +241,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Reef_Target_L4_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_L4_X");
     NTinst.AddListener(__AT_Reef_Target_L4_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_L4_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Reef_Target_L4_X__Entry.SetDouble(27.25);
+    __AT_Reef_Target_L4_X__Entry.SetDouble(27.5);
  
     __AT_Reef_Target_Left_Y__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Left_Y");
     NTinst.AddListener(__AT_Reef_Target_Left_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Left_Y = event.GetValueEventData()->value.GetDouble();});
@@ -43,85 +259,21 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__AT_Steering_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Speed_Max = event.GetValueEventData()->value.GetDouble();});
     __AT_Steering_Speed_Max__Entry.SetDouble(0.4);
  
-    __AT_Target_Tag_11_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_11_Field_Angle");
-    NTinst.AddListener(__AT_Target_Tag_11_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_11_Field_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_11_Field_Angle__Entry.SetDouble(2.0944);
+    __AT_Translation_Control_Gain_Field__Entry = NTtable_Tune->GetEntry("AT_Translation_Control_Gain_Field");
+    NTinst.AddListener(__AT_Translation_Control_Gain_Field__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Control_Gain_Field = event.GetValueEventData()->value.GetDouble();});
+    __AT_Translation_Control_Gain_Field__Entry.SetDouble(10);
  
-    __AT_Target_Tag_11_X__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_11_X");
-    NTinst.AddListener(__AT_Target_Tag_11_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_11_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_11_X__Entry.SetDouble(12.5143);
+    __AT_Translation_Control_Gain_Relative__Entry = NTtable_Tune->GetEntry("AT_Translation_Control_Gain_Relative");
+    NTinst.AddListener(__AT_Translation_Control_Gain_Relative__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Control_Gain_Relative = event.GetValueEventData()->value.GetDouble();});
+    __AT_Translation_Control_Gain_Relative__Entry.SetDouble(0.2);
  
-    __AT_Target_Tag_11_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_11_Y");
-    NTinst.AddListener(__AT_Target_Tag_11_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_11_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_11_Y__Entry.SetDouble(2.6574);
+    __AT_Translation_Speed_Max_Field__Entry = NTtable_Tune->GetEntry("AT_Translation_Speed_Max_Field");
+    NTinst.AddListener(__AT_Translation_Speed_Max_Field__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Speed_Max_Field = event.GetValueEventData()->value.GetDouble();});
+    __AT_Translation_Speed_Max_Field__Entry.SetDouble(5);
  
-    __AT_Target_Tag_12_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_12_Field_Angle");
-    NTinst.AddListener(__AT_Target_Tag_12_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_12_Field_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_12_Field_Angle__Entry.SetDouble(-2.0944);
- 
-    __AT_Target_Tag_12_X__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_12_X");
-    NTinst.AddListener(__AT_Target_Tag_12_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_12_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_12_X__Entry.SetDouble(12.5143);
- 
-    __AT_Target_Tag_12_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_12_Y");
-    NTinst.AddListener(__AT_Target_Tag_12_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_12_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_12_Y__Entry.SetDouble(5.5542);
- 
-    __AT_Target_Tag_13_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_13_Field_Angle");
-    NTinst.AddListener(__AT_Target_Tag_13_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_13_Field_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_13_Field_Angle__Entry.SetDouble(0);
- 
-    __AT_Target_Tag_13_X__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_13_X");
-    NTinst.AddListener(__AT_Target_Tag_13_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_13_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_13_X__Entry.SetDouble(10.001);
- 
-    __AT_Target_Tag_13_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_13_Y");
-    NTinst.AddListener(__AT_Target_Tag_13_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_13_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_13_Y__Entry.SetDouble(4.1051);
- 
-    __AT_Target_Tag_14_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_14_Field_Angle");
-    NTinst.AddListener(__AT_Target_Tag_14_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_14_Field_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_14_Field_Angle__Entry.SetDouble(0);
- 
-    __AT_Target_Tag_14_X__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_14_X");
-    NTinst.AddListener(__AT_Target_Tag_14_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_14_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_14_X__Entry.SetDouble(6.54);
- 
-    __AT_Target_Tag_14_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_14_Y");
-    NTinst.AddListener(__AT_Target_Tag_14_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_14_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_14_Y__Entry.SetDouble(4.1051);
- 
-    __AT_Target_Tag_5_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_5_Field_Angle");
-    NTinst.AddListener(__AT_Target_Tag_5_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_5_Field_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_5_Field_Angle__Entry.SetDouble(1.5708);
- 
-    __AT_Target_Tag_5_X__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_5_X");
-    NTinst.AddListener(__AT_Target_Tag_5_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_5_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_5_X__Entry.SetDouble(14.7008);
- 
-    __AT_Target_Tag_5_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_5_Y");
-    NTinst.AddListener(__AT_Target_Tag_5_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_5_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_5_Y__Entry.SetDouble(7.2898);
- 
-    __AT_Target_Tag_6_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_6_Field_Angle");
-    NTinst.AddListener(__AT_Target_Tag_6_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_6_Field_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_6_Field_Angle__Entry.SetDouble(4.7124);
- 
-    __AT_Target_Tag_6_X__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_6_X");
-    NTinst.AddListener(__AT_Target_Tag_6_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_6_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_6_X__Entry.SetDouble(1.8415);
- 
-    __AT_Target_Tag_6_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_6_Y");
-    NTinst.AddListener(__AT_Target_Tag_6_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_6_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_6_Y__Entry.SetDouble(7.2898);
- 
-    __AT_Translation_Control_Gain__Entry = NTtable_Tune->GetEntry("AT_Translation_Control_Gain");
-    NTinst.AddListener(__AT_Translation_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Control_Gain = event.GetValueEventData()->value.GetDouble();});
-    __AT_Translation_Control_Gain__Entry.SetDouble(0.2);
- 
-    __AT_Translation_Speed_Max__Entry = NTtable_Tune->GetEntry("AT_Translation_Speed_Max");
-    NTinst.AddListener(__AT_Translation_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Speed_Max = event.GetValueEventData()->value.GetDouble();});
-    __AT_Translation_Speed_Max__Entry.SetDouble(0.5);
+    __AT_Translation_Speed_Max_Relative__Entry = NTtable_Tune->GetEntry("AT_Translation_Speed_Max_Relative");
+    NTinst.AddListener(__AT_Translation_Speed_Max_Relative__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Speed_Max_Relative = event.GetValueEventData()->value.GetDouble();});
+    __AT_Translation_Speed_Max_Relative__Entry.SetDouble(0.5);
  
     __Algae_Eject_Time__Entry = NTtable_Tune->GetEntry("Algae_Eject_Time");
     NTinst.AddListener(__Algae_Eject_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Algae_Eject_Time = event.GetValueEventData()->value.GetDouble();});
@@ -217,7 +369,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Coral_Arm_Manual_Gain__Entry = NTtable_Tune->GetEntry("Coral_Arm_Manual_Gain");
     NTinst.AddListener(__Coral_Arm_Manual_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Manual_Gain = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Manual_Gain__Entry.SetDouble(0.4);
+    __Coral_Arm_Manual_Gain__Entry.SetDouble(1);
  
     __Coral_Arm_Neg90_DC__Entry = NTtable_Tune->GetEntry("Coral_Arm_Neg90_DC");
     NTinst.AddListener(__Coral_Arm_Neg90_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Neg90_DC = event.GetValueEventData()->value.GetDouble();});
@@ -233,7 +385,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Coral_Motor_DC_Eject__Entry = NTtable_Tune->GetEntry("Coral_Motor_DC_Eject");
     NTinst.AddListener(__Coral_Motor_DC_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Motor_DC_Eject = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Motor_DC_Eject__Entry.SetDouble(-0.65);
+    __Coral_Motor_DC_Eject__Entry.SetDouble(-0.4);
  
     __Coral_Motor_DC_Hold__Entry = NTtable_Tune->GetEntry("Coral_Motor_DC_Hold");
     NTinst.AddListener(__Coral_Motor_DC_Hold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Motor_DC_Hold = event.GetValueEventData()->value.GetDouble();});

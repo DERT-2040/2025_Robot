@@ -86,7 +86,7 @@ Elevator_Height_Coral_Arm_Low_Thresh = 8.5;  % inch
 Coral_Arm_Neg90_DC = -0.03;
 
 % Gamepad elevator and arm control gains
-Coral_Arm_Manual_Gain       = 0.4;
+Coral_Arm_Manual_Gain       = 1.0;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,7 +96,7 @@ Coral_Arm_Manual_Gain       = 0.4;
 % Coral Wheel Duty Cycles
 Coral_Motor_DC_Pickup = 0.1;
 Coral_Motor_DC_Hold = 0.01;
-Coral_Motor_DC_Eject = -0.65;
+Coral_Motor_DC_Eject = -0.40;
 
 % Coral ejection time
 Coral_Eject_Time = 0.5; % seconds
@@ -154,20 +154,4 @@ Coral_Arm_Lower_Limit_Out = angle_var2*180/pi;  % convert from radians to degree
 
 clear arm_length arm_pivot_offset_x arm_pivot_offset_y m b k angle_var height_var index height_var2 angle_var2
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% APRIL TAG TRACKING TARGETS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Limelight_Tag_X_Offset = -0.65;    % inches
-Limelight_Tag_Y_Offset = 0.21;     % inches
-Limelight_Tag_Angle_Offset = -0.2; % degrees
-
-AT_Reef_Target_L1_X = 26.75;    % inches
-AT_Reef_Target_L2_L3_X = 26.25; % inches
-AT_Reef_Target_L4_X = 27.25;    % inches
-
-AT_Reef_Target_Left_Y = 5.5;    % inches
-AT_Reef_Target_Center_Y = -2.5; % inches
-AT_Reef_Target_Right_Y = -7.5;  % inches
 

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.297
+ * Model version                  : 2.299
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar  3 18:20:25 2025
+ * C/C++ source code generated on : Tue Mar  4 00:02:04 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -104,9 +104,9 @@ typedef struct {
   real_T Steer_Joystick_X;             /* '<S12>/Signal Copy4' */
   real_T AT_Field_Error_X;             /* '<S365>/Switch2' */
   real_T AT_Field_Error_Y;             /* '<S365>/Switch4' */
-  real_T AT_Relative_Error_Y;          /* '<S366>/Subtract1' */
   real_T DeadZone;                     /* '<S368>/Dead Zone' */
   real_T DeadZone1;                    /* '<S368>/Dead Zone1' */
+  real_T AT_Relative_Error_Y;          /* '<S366>/Subtract1' */
   real_T AT_Relative_Error_Angle;      /* '<S366>/Unary Minus' */
   real_T Steering_Abs_Gyro_Latch;      /* '<S377>/Switch8' */
   real_T Steering_Abs_Gyro;            /* '<S377>/Switch2' */
@@ -140,6 +140,9 @@ typedef struct {
   boolean_T Cage_Left_Start;           /* '<S68>/Compare' */
   boolean_T Cage_Middle_Start;         /* '<S69>/Compare' */
   boolean_T Cage_Right_Start;          /* '<S77>/Compare' */
+  boolean_T Cage_Left_Finish;          /* '<S78>/Compare' */
+  boolean_T Cage_Middle_Finish;        /* '<S79>/Compare' */
+  boolean_T Cage_Right_Finish;         /* '<S80>/Compare' */
   boolean_T Gamepad_POV_Up;            /* '<S59>/Compare' */
   boolean_T Gamepad_POV_Down;          /* '<S61>/Compare' */
   boolean_T Gamepad_POV_Left;          /* '<S63>/Compare' */
@@ -151,9 +154,6 @@ typedef struct {
   boolean_T Robot_Reached_Destination; /* '<S19>/Merge7' */
   boolean_T Test_Mode;                 /* '<S16>/Merge10' */
   boolean_T Elevator_LowerPickup_Reset_tp;/* '<S16>/Merge21' */
-  boolean_T Cage_Left_Finish;          /* '<S78>/Compare' */
-  boolean_T Cage_Middle_Finish;        /* '<S79>/Compare' */
-  boolean_T Cage_Right_Finish;         /* '<S80>/Compare' */
   boolean_T FixPtRelationalOperator;   /* '<S398>/FixPt Relational Operator' */
   boolean_T FixPtRelationalOperator_n; /* '<S399>/FixPt Relational Operator' */
   boolean_T FixPtRelationalOperator_k; /* '<S403>/FixPt Relational Operator' */
@@ -224,7 +224,6 @@ typedef struct {
   real_T UnitDelay_DSTATE_c;           /* '<S147>/Unit Delay' */
   real_T UnitDelay1_DSTATE_l;          /* '<S391>/Unit Delay1' */
   real_T UnitDelay_DSTATE_p;           /* '<S391>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_nr;         /* '<S366>/Unit Delay1' */
   real_T DelayInput1_DSTATE_c;         /* '<S398>/Delay Input1' */
   real_T DelayInput1_DSTATE_nr;        /* '<S399>/Delay Input1' */
   real_T DelayInput1_DSTATE_ez;        /* '<S403>/Delay Input1' */
@@ -234,11 +233,12 @@ typedef struct {
   real_T DelayInput1_DSTATE_p;         /* '<S406>/Delay Input1' */
   real_T DelayInput1_DSTATE_o;         /* '<S409>/Delay Input1' */
   real_T DelayInput1_DSTATE_j;         /* '<S410>/Delay Input1' */
+  real_T UnitDelay1_DSTATE_nr;         /* '<S366>/Unit Delay1' */
   real_T UnitDelay_DSTATE_kq;          /* '<S366>/Unit Delay' */
+  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S395>/FixPt Unit Delay1' */
   real_T UnitDelay3_DSTATE;            /* '<S377>/Unit Delay3' */
   real_T UnitDelay1_DSTATE_e;          /* '<S365>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_j;          /* '<S377>/Unit Delay1' */
-  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S395>/FixPt Unit Delay1' */
   real_T UnitDelay_DSTATE_gh;          /* '<S152>/Unit Delay' */
   real_T timer;                        /* '<S368>/Reefscape_Chart' */
   int32_T Selector4_DIMS1[2];          /* '<S173>/Selector4' */
@@ -551,6 +551,168 @@ extern const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP;
  * these parameters and exports their symbols.
  *
  */
+extern real_T AT_CS_L_Angle_Blue;      /* Variable: AT_CS_L_Angle_Blue
+                                        * Referenced by: '<S365>/Constant14'
+                                        */
+extern real_T AT_CS_L_Angle_Red;       /* Variable: AT_CS_L_Angle_Red
+                                        * Referenced by: '<S365>/Constant13'
+                                        */
+extern real_T AT_CS_L_X_Blue;          /* Variable: AT_CS_L_X_Blue
+                                        * Referenced by: '<S365>/Constant9'
+                                        */
+extern real_T AT_CS_L_X_Red;           /* Variable: AT_CS_L_X_Red
+                                        * Referenced by: '<S365>/Constant5'
+                                        */
+extern real_T AT_CS_L_Y_Blue;          /* Variable: AT_CS_L_Y_Blue
+                                        * Referenced by: '<S365>/Constant28'
+                                        */
+extern real_T AT_CS_L_Y_Red;           /* Variable: AT_CS_L_Y_Red
+                                        * Referenced by: '<S365>/Constant27'
+                                        */
+extern real_T AT_CS_R_Angle_Blue;      /* Variable: AT_CS_R_Angle_Blue
+                                        * Referenced by: '<S365>/Constant12'
+                                        */
+extern real_T AT_CS_R_Angle_Red;       /* Variable: AT_CS_R_Angle_Red
+                                        * Referenced by: '<S365>/Constant11'
+                                        */
+extern real_T AT_CS_R_X_Blue;          /* Variable: AT_CS_R_X_Blue
+                                        * Referenced by: '<S365>/Constant4'
+                                        */
+extern real_T AT_CS_R_X_Red;           /* Variable: AT_CS_R_X_Red
+                                        * Referenced by: '<S365>/Constant17'
+                                        */
+extern real_T AT_CS_R_Y_Blue;          /* Variable: AT_CS_R_Y_Blue
+                                        * Referenced by: '<S365>/Constant26'
+                                        */
+extern real_T AT_CS_R_Y_Red;           /* Variable: AT_CS_R_Y_Red
+                                        * Referenced by: '<S365>/Constant3'
+                                        */
+extern real_T AT_Cage_L_Finish_Angle_Blue;/* Variable: AT_Cage_L_Finish_Angle_Blue
+                                           * Referenced by: '<S365>/Constant55'
+                                           */
+extern real_T AT_Cage_L_Finish_Angle_Red;/* Variable: AT_Cage_L_Finish_Angle_Red
+                                          * Referenced by: '<S365>/Constant54'
+                                          */
+extern real_T AT_Cage_L_Finish_X_Blue; /* Variable: AT_Cage_L_Finish_X_Blue
+                                        * Referenced by: '<S365>/Constant39'
+                                        */
+extern real_T AT_Cage_L_Finish_X_Red;  /* Variable: AT_Cage_L_Finish_X_Red
+                                        * Referenced by: '<S365>/Constant2'
+                                        */
+extern real_T AT_Cage_L_Finish_Y_Blue; /* Variable: AT_Cage_L_Finish_Y_Blue
+                                        * Referenced by: '<S365>/Constant43'
+                                        */
+extern real_T AT_Cage_L_Finish_Y_Red;  /* Variable: AT_Cage_L_Finish_Y_Red
+                                        * Referenced by: '<S365>/Constant42'
+                                        */
+extern real_T AT_Cage_L_Start_Angle_Blue;/* Variable: AT_Cage_L_Start_Angle_Blue
+                                          * Referenced by: '<S365>/Constant49'
+                                          */
+extern real_T AT_Cage_L_Start_Angle_Red;/* Variable: AT_Cage_L_Start_Angle_Red
+                                         * Referenced by: '<S365>/Constant48'
+                                         */
+extern real_T AT_Cage_L_Start_X_Blue;  /* Variable: AT_Cage_L_Start_X_Blue
+                                        * Referenced by: '<S365>/Constant7'
+                                        */
+extern real_T AT_Cage_L_Start_X_Red;   /* Variable: AT_Cage_L_Start_X_Red
+                                        * Referenced by: '<S365>/Constant15'
+                                        */
+extern real_T AT_Cage_L_Start_Y_Blue;  /* Variable: AT_Cage_L_Start_Y_Blue
+                                        * Referenced by: '<S365>/Constant32'
+                                        */
+extern real_T AT_Cage_L_Start_Y_Red;   /* Variable: AT_Cage_L_Start_Y_Red
+                                        * Referenced by: '<S365>/Constant25'
+                                        */
+extern real_T AT_Cage_M_Finish_Angle_Blue;/* Variable: AT_Cage_M_Finish_Angle_Blue
+                                           * Referenced by: '<S365>/Constant53'
+                                           */
+extern real_T AT_Cage_M_Finish_Angle_Red;/* Variable: AT_Cage_M_Finish_Angle_Red
+                                          * Referenced by: '<S365>/Constant52'
+                                          */
+extern real_T AT_Cage_M_Finish_X_Blue; /* Variable: AT_Cage_M_Finish_X_Blue
+                                        * Referenced by: '<S365>/Constant34'
+                                        */
+extern real_T AT_Cage_M_Finish_X_Red;  /* Variable: AT_Cage_M_Finish_X_Red
+                                        * Referenced by: '<S365>/Constant35'
+                                        */
+extern real_T AT_Cage_M_Finish_Y_Blue; /* Variable: AT_Cage_M_Finish_Y_Blue
+                                        * Referenced by: '<S365>/Constant41'
+                                        */
+extern real_T AT_Cage_M_Finish_Y_Red;  /* Variable: AT_Cage_M_Finish_Y_Red
+                                        * Referenced by: '<S365>/Constant44'
+                                        */
+extern real_T AT_Cage_M_Start_Angle_Blue;/* Variable: AT_Cage_M_Start_Angle_Blue
+                                          * Referenced by: '<S365>/Constant47'
+                                          */
+extern real_T AT_Cage_M_Start_Angle_Red;/* Variable: AT_Cage_M_Start_Angle_Red
+                                         * Referenced by: '<S365>/Constant46'
+                                         */
+extern real_T AT_Cage_M_Start_X_Blue;  /* Variable: AT_Cage_M_Start_X_Blue
+                                        * Referenced by: '<S365>/Constant20'
+                                        */
+extern real_T AT_Cage_M_Start_X_Red;   /* Variable: AT_Cage_M_Start_X_Red
+                                        * Referenced by: '<S365>/Constant24'
+                                        */
+extern real_T AT_Cage_M_Start_Y_Blue;  /* Variable: AT_Cage_M_Start_Y_Blue
+                                        * Referenced by: '<S365>/Constant22'
+                                        */
+extern real_T AT_Cage_M_Start_Y_Red;   /* Variable: AT_Cage_M_Start_Y_Red
+                                        * Referenced by: '<S365>/Constant33'
+                                        */
+extern real_T AT_Cage_R_Finish_Angle_Blue;/* Variable: AT_Cage_R_Finish_Angle_Blue
+                                           * Referenced by: '<S365>/Constant51'
+                                           */
+extern real_T AT_Cage_R_Finish_Angle_Red;/* Variable: AT_Cage_R_Finish_Angle_Red
+                                          * Referenced by: '<S365>/Constant56'
+                                          */
+extern real_T AT_Cage_R_Finish_X_Blue; /* Variable: AT_Cage_R_Finish_X_Blue
+                                        * Referenced by: '<S365>/Constant36'
+                                        */
+extern real_T AT_Cage_R_Finish_X_Red;  /* Variable: AT_Cage_R_Finish_X_Red
+                                        * Referenced by: '<S365>/Constant38'
+                                        */
+extern real_T AT_Cage_R_Finish_Y_Blue; /* Variable: AT_Cage_R_Finish_Y_Blue
+                                        * Referenced by: '<S365>/Constant45'
+                                        */
+extern real_T AT_Cage_R_Finish_Y_Red;  /* Variable: AT_Cage_R_Finish_Y_Red
+                                        * Referenced by: '<S365>/Constant40'
+                                        */
+extern real_T AT_Cage_R_Start_Angle_Blue;/* Variable: AT_Cage_R_Start_Angle_Blue
+                                          * Referenced by: '<S365>/Constant1'
+                                          */
+extern real_T AT_Cage_R_Start_Angle_Red;/* Variable: AT_Cage_R_Start_Angle_Red
+                                         * Referenced by: '<S365>/Constant50'
+                                         */
+extern real_T AT_Cage_R_Start_X_Blue;  /* Variable: AT_Cage_R_Start_X_Blue
+                                        * Referenced by: '<S365>/Constant29'
+                                        */
+extern real_T AT_Cage_R_Start_X_Red;   /* Variable: AT_Cage_R_Start_X_Red
+                                        * Referenced by: '<S365>/Constant31'
+                                        */
+extern real_T AT_Cage_R_Start_Y_Blue;  /* Variable: AT_Cage_R_Start_Y_Blue
+                                        * Referenced by: '<S365>/Constant6'
+                                        */
+extern real_T AT_Cage_R_Start_Y_Red;   /* Variable: AT_Cage_R_Start_Y_Red
+                                        * Referenced by: '<S365>/Constant16'
+                                        */
+extern real_T AT_Processor_Angle_Blue; /* Variable: AT_Processor_Angle_Blue
+                                        * Referenced by: '<S365>/Constant10'
+                                        */
+extern real_T AT_Processor_Angle_Red;  /* Variable: AT_Processor_Angle_Red
+                                        * Referenced by: '<S365>/Constant8'
+                                        */
+extern real_T AT_Processor_X_Blue;     /* Variable: AT_Processor_X_Blue
+                                        * Referenced by: '<S365>/Constant18'
+                                        */
+extern real_T AT_Processor_X_Red;      /* Variable: AT_Processor_X_Red
+                                        * Referenced by: '<S365>/Constant19'
+                                        */
+extern real_T AT_Processor_Y_Blue;     /* Variable: AT_Processor_Y_Blue
+                                        * Referenced by: '<S365>/Constant21'
+                                        */
+extern real_T AT_Processor_Y_Red;      /* Variable: AT_Processor_Y_Red
+                                        * Referenced by: '<S365>/Constant23'
+                                        */
 extern real_T AT_Reef_Target_Center_Y; /* Variable: AT_Reef_Target_Center_Y
                                         * Referenced by: '<S366>/Constant3'
                                         */
@@ -575,70 +737,22 @@ extern real_T AT_Steering_Error_Angle_Gain;/* Variable: AT_Steering_Error_Angle_
 extern real_T AT_Steering_Speed_Max;   /* Variable: AT_Steering_Speed_Max
                                         * Referenced by: '<S377>/Constant10'
                                         */
-extern real_T AT_Target_Tag_11_Field_Angle;/* Variable: AT_Target_Tag_11_Field_Angle
-                                            * Referenced by: '<S365>/Constant12'
-                                            */
-extern real_T AT_Target_Tag_11_X;      /* Variable: AT_Target_Tag_11_X
-                                        * Referenced by: '<S365>/Constant4'
-                                        */
-extern real_T AT_Target_Tag_11_Y;      /* Variable: AT_Target_Tag_11_Y
-                                        * Referenced by: '<S365>/Constant26'
-                                        */
-extern real_T AT_Target_Tag_12_Field_Angle;/* Variable: AT_Target_Tag_12_Field_Angle
-                                            * Referenced by: '<S365>/Constant11'
-                                            */
-extern real_T AT_Target_Tag_12_X;      /* Variable: AT_Target_Tag_12_X
-                                        * Referenced by: '<S365>/Constant17'
-                                        */
-extern real_T AT_Target_Tag_12_Y;      /* Variable: AT_Target_Tag_12_Y
-                                        * Referenced by: '<S365>/Constant3'
-                                        */
-extern real_T AT_Target_Tag_13_Field_Angle;/* Variable: AT_Target_Tag_13_Field_Angle
-                                            * Referenced by: '<S365>/Constant10'
-                                            */
-extern real_T AT_Target_Tag_13_X;      /* Variable: AT_Target_Tag_13_X
-                                        * Referenced by: '<S365>/Constant18'
-                                        */
-extern real_T AT_Target_Tag_13_Y;      /* Variable: AT_Target_Tag_13_Y
-                                        * Referenced by: '<S365>/Constant21'
-                                        */
-extern real_T AT_Target_Tag_14_Field_Angle;/* Variable: AT_Target_Tag_14_Field_Angle
-                                            * Referenced by: '<S365>/Constant8'
-                                            */
-extern real_T AT_Target_Tag_14_X;      /* Variable: AT_Target_Tag_14_X
-                                        * Referenced by: '<S365>/Constant19'
-                                        */
-extern real_T AT_Target_Tag_14_Y;      /* Variable: AT_Target_Tag_14_Y
-                                        * Referenced by: '<S365>/Constant23'
-                                        */
-extern real_T AT_Target_Tag_5_Field_Angle;/* Variable: AT_Target_Tag_5_Field_Angle
-                                           * Referenced by: '<S365>/Constant14'
-                                           */
-extern real_T AT_Target_Tag_5_X;       /* Variable: AT_Target_Tag_5_X
-                                        * Referenced by: '<S365>/Constant9'
-                                        */
-extern real_T AT_Target_Tag_5_Y;       /* Variable: AT_Target_Tag_5_Y
-                                        * Referenced by: '<S365>/Constant28'
-                                        */
-extern real_T AT_Target_Tag_6_Field_Angle;/* Variable: AT_Target_Tag_6_Field_Angle
-                                           * Referenced by: '<S365>/Constant13'
-                                           */
-extern real_T AT_Target_Tag_6_X;       /* Variable: AT_Target_Tag_6_X
-                                        * Referenced by: '<S365>/Constant5'
-                                        */
-extern real_T AT_Target_Tag_6_Y;       /* Variable: AT_Target_Tag_6_Y
-                                        * Referenced by: '<S365>/Constant27'
-                                        */
-extern real_T AT_Translation_Control_Gain;/* Variable: AT_Translation_Control_Gain
-                                           * Referenced by:
-                                           *   '<S378>/Gain1'
-                                           *   '<S378>/Gain2'
-                                           */
-extern real_T AT_Translation_Speed_Max;/* Variable: AT_Translation_Speed_Max
-                                        * Referenced by:
-                                        *   '<S378>/Constant5'
-                                        *   '<S378>/Constant8'
-                                        */
+extern real_T AT_Translation_Control_Gain_Field;
+                                  /* Variable: AT_Translation_Control_Gain_Field
+                                   * Referenced by: '<S378>/Gain2'
+                                   */
+extern real_T AT_Translation_Control_Gain_Relative;
+                               /* Variable: AT_Translation_Control_Gain_Relative
+                                * Referenced by: '<S378>/Gain1'
+                                */
+extern real_T AT_Translation_Speed_Max_Field;
+                                     /* Variable: AT_Translation_Speed_Max_Field
+                                      * Referenced by: '<S378>/Constant5'
+                                      */
+extern real_T AT_Translation_Speed_Max_Relative;
+                                  /* Variable: AT_Translation_Speed_Max_Relative
+                                   * Referenced by: '<S378>/Constant8'
+                                   */
 extern real_T Algae_Eject_Time;        /* Variable: Algae_Eject_Time
                                         * Referenced by: '<S368>/Reefscape_Chart'
                                         */
@@ -1273,18 +1387,6 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S338>/Data Type Duplicate' : Unused code path elimination
  * Block '<S338>/Data Type Propagation' : Unused code path elimination
  * Block '<S334>/Scope' : Unused code path elimination
- * Block '<S365>/Logical Operator12' : Unused code path elimination
- * Block '<S365>/Logical Operator13' : Unused code path elimination
- * Block '<S365>/Logical Operator14' : Unused code path elimination
- * Block '<S365>/Logical Operator15' : Unused code path elimination
- * Block '<S365>/Logical Operator16' : Unused code path elimination
- * Block '<S365>/Logical Operator17' : Unused code path elimination
- * Block '<S365>/Logical Operator18' : Unused code path elimination
- * Block '<S365>/Logical Operator19' : Unused code path elimination
- * Block '<S365>/Logical Operator20' : Unused code path elimination
- * Block '<S365>/Logical Operator7' : Unused code path elimination
- * Block '<S365>/Logical Operator8' : Unused code path elimination
- * Block '<S365>/Logical Operator9' : Unused code path elimination
  * Block '<S366>/Logical Operator10' : Unused code path elimination
  * Block '<S387>/Data Type Duplicate' : Unused code path elimination
  * Block '<S387>/Data Type Propagation' : Unused code path elimination
