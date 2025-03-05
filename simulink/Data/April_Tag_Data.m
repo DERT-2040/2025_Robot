@@ -9,10 +9,12 @@ Limelight_Tag_Angle_Offset = -0.2; % degrees
 AT_Reef_Target_L1_X = 26.75;    % inches
 AT_Reef_Target_L2_L3_X = 26.25; % inches
 AT_Reef_Target_L4_X = 27.50;    % inches
+AT_Reef_Target_Algae_X = 19;    % inches
 
 AT_Reef_Target_Left_Y = 5.5;    % inches
 AT_Reef_Target_Center_Y = -2.5; % inches
 AT_Reef_Target_Right_Y = -7.5;  % inches
+AT_Reef_Target_Algae_Y = 4.5;   % inches
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -241,7 +243,7 @@ AT_Cage_R_Finish_Y_Red = temp(2)*0.0254; % convert from inches to meters
 AT_Cage_R_Finish_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between +/- pi radians (180 degrees)
 
 
-clear AT_Data clear d_offset tag angle temp temp_angle
+clear AT_Data clear d_offset angle_offset tag angle temp temp_angle
 clear cage_offset_middle cage_offset_left cage_offset_right
 
 

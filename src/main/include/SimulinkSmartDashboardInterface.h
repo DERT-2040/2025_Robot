@@ -72,6 +72,8 @@ private:
         nt::NetworkTableEntry __AT_Processor_X_Red__Entry;
         nt::NetworkTableEntry __AT_Processor_Y_Blue__Entry;
         nt::NetworkTableEntry __AT_Processor_Y_Red__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_Algae_X__Entry;
+        nt::NetworkTableEntry __AT_Reef_Target_Algae_Y__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_Center_Y__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_L1_X__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_L2_L3_X__Entry;
@@ -92,12 +94,15 @@ private:
         nt::NetworkTableEntry __Boost_Trigger_High_Speed__Entry;
         nt::NetworkTableEntry __Boost_Trigger_Increasing_Limit__Entry;
         nt::NetworkTableEntry __Boost_Trigger_Low_Speed__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Angle_Coral_Score_Lower_Rate__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Error_Threshold__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L1__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L2__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L3__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_L4__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Angle_L4_Eject__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Neg_Threshold__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Angle_Pos_Threshold__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Start__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Start_Thresh__Entry;
         nt::NetworkTableEntry __Coral_Arm_Angle_Up__Entry;
@@ -109,6 +114,7 @@ private:
         nt::NetworkTableEntry __Coral_Arm_Int_UL__Entry;
         nt::NetworkTableEntry __Coral_Arm_Manual_Gain__Entry;
         nt::NetworkTableEntry __Coral_Arm_Neg90_DC__Entry;
+        nt::NetworkTableEntry __Coral_Arm_Pos90_DC__Entry;
         nt::NetworkTableEntry __Coral_Detect_Distance__Entry;
         nt::NetworkTableEntry __Coral_Eject_Time__Entry;
         nt::NetworkTableEntry __Coral_Motor_DC_Eject__Entry;
@@ -135,6 +141,7 @@ private:
         nt::NetworkTableEntry __Elevator_Height_Algae_Score__Entry;
         nt::NetworkTableEntry __Elevator_Height_Bottom__Entry;
         nt::NetworkTableEntry __Elevator_Height_Coral_Arm_Low_Thresh__Entry;
+        nt::NetworkTableEntry __Elevator_Height_Coral_Score_Lower_Rate__Entry;
         nt::NetworkTableEntry __Elevator_Height_Error_Threshold__Entry;
         nt::NetworkTableEntry __Elevator_Height_L1__Entry;
         nt::NetworkTableEntry __Elevator_Height_L2__Entry;
@@ -215,7 +222,6 @@ private:
         nt::NetworkTableEntry __Translation_Twist_Gain__Entry;
         nt::NetworkTableEntry __Twist_Deadzone_neg__Entry;
         nt::NetworkTableEntry __Twist_Deadzone_pos__Entry;
-        nt::NetworkTableEntry __angle_offset__Entry;
  
         // Inports
         nt::NetworkTableEntry __Algae_Limit_Switch__Entry;
@@ -423,7 +429,8 @@ private:
         nt::NetworkTableEntry __Processor__Entry;
         nt::NetworkTableEntry __Reefscape_Motors_Enable__Entry;
         nt::NetworkTableEntry __Robot_Reached_Destination__Entry;
-        nt::NetworkTableEntry __Set_Level_Out__Entry;
+        nt::NetworkTableEntry __Set_Algae_Level__Entry;
+        nt::NetworkTableEntry __Set_Coral_Level__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
         nt::NetworkTableEntry __Spline_Follow_Index__Entry;
         nt::NetworkTableEntry __Spline_Num_Poses__Entry;

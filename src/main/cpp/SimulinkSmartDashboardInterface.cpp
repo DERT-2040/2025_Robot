@@ -227,6 +227,14 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__AT_Processor_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Y_Red = event.GetValueEventData()->value.GetDouble();});
     __AT_Processor_Y_Red__Entry.SetDouble(0.63119);
  
+    __AT_Reef_Target_Algae_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Algae_X");
+    NTinst.AddListener(__AT_Reef_Target_Algae_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Algae_X = event.GetValueEventData()->value.GetDouble();});
+    __AT_Reef_Target_Algae_X__Entry.SetDouble(19);
+ 
+    __AT_Reef_Target_Algae_Y__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Algae_Y");
+    NTinst.AddListener(__AT_Reef_Target_Algae_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Algae_Y = event.GetValueEventData()->value.GetDouble();});
+    __AT_Reef_Target_Algae_Y__Entry.SetDouble(4.5);
+ 
     __AT_Reef_Target_Center_Y__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Center_Y");
     NTinst.AddListener(__AT_Reef_Target_Center_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Center_Y = event.GetValueEventData()->value.GetDouble();});
     __AT_Reef_Target_Center_Y__Entry.SetDouble(-2.5);
@@ -307,6 +315,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Boost_Trigger_Low_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Low_Speed = event.GetValueEventData()->value.GetDouble();});
     __Boost_Trigger_Low_Speed__Entry.SetDouble(1.5);
  
+    __Coral_Arm_Angle_Coral_Score_Lower_Rate__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Coral_Score_Lower_Rate");
+    NTinst.AddListener(__Coral_Arm_Angle_Coral_Score_Lower_Rate__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Coral_Score_Lower_Rate = event.GetValueEventData()->value.GetDouble();});
+    __Coral_Arm_Angle_Coral_Score_Lower_Rate__Entry.SetDouble(-1);
+ 
     __Coral_Arm_Angle_Error_Threshold__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Error_Threshold");
     NTinst.AddListener(__Coral_Arm_Angle_Error_Threshold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Error_Threshold = event.GetValueEventData()->value.GetDouble();});
     __Coral_Arm_Angle_Error_Threshold__Entry.SetDouble(3);
@@ -327,9 +339,17 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Coral_Arm_Angle_L4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L4 = event.GetValueEventData()->value.GetDouble();});
     __Coral_Arm_Angle_L4__Entry.SetDouble(50);
  
+    __Coral_Arm_Angle_L4_Eject__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_L4_Eject");
+    NTinst.AddListener(__Coral_Arm_Angle_L4_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L4_Eject = event.GetValueEventData()->value.GetDouble();});
+    __Coral_Arm_Angle_L4_Eject__Entry.SetDouble(25);
+ 
     __Coral_Arm_Angle_Neg_Threshold__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Neg_Threshold");
     NTinst.AddListener(__Coral_Arm_Angle_Neg_Threshold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Neg_Threshold = event.GetValueEventData()->value.GetDouble();});
     __Coral_Arm_Angle_Neg_Threshold__Entry.SetDouble(-88);
+ 
+    __Coral_Arm_Angle_Pos_Threshold__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Pos_Threshold");
+    NTinst.AddListener(__Coral_Arm_Angle_Pos_Threshold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Pos_Threshold = event.GetValueEventData()->value.GetDouble();});
+    __Coral_Arm_Angle_Pos_Threshold__Entry.SetDouble(110);
  
     __Coral_Arm_Angle_Start__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Start");
     NTinst.AddListener(__Coral_Arm_Angle_Start__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Start = event.GetValueEventData()->value.GetDouble();});
@@ -374,6 +394,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Coral_Arm_Neg90_DC__Entry = NTtable_Tune->GetEntry("Coral_Arm_Neg90_DC");
     NTinst.AddListener(__Coral_Arm_Neg90_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Neg90_DC = event.GetValueEventData()->value.GetDouble();});
     __Coral_Arm_Neg90_DC__Entry.SetDouble(-0.03);
+ 
+    __Coral_Arm_Pos90_DC__Entry = NTtable_Tune->GetEntry("Coral_Arm_Pos90_DC");
+    NTinst.AddListener(__Coral_Arm_Pos90_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Pos90_DC = event.GetValueEventData()->value.GetDouble();});
+    __Coral_Arm_Pos90_DC__Entry.SetDouble(0.03);
  
     __Coral_Detect_Distance__Entry = NTtable_Tune->GetEntry("Coral_Detect_Distance");
     NTinst.AddListener(__Coral_Detect_Distance__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Detect_Distance = event.GetValueEventData()->value.GetDouble();});
@@ -461,11 +485,11 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_Algae_High__Entry = NTtable_Tune->GetEntry("Elevator_Height_Algae_High");
     NTinst.AddListener(__Elevator_Height_Algae_High__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Algae_High = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Algae_High__Entry.SetDouble(19);
+    __Elevator_Height_Algae_High__Entry.SetDouble(19.5);
  
     __Elevator_Height_Algae_Low__Entry = NTtable_Tune->GetEntry("Elevator_Height_Algae_Low");
     NTinst.AddListener(__Elevator_Height_Algae_Low__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Algae_Low = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Algae_Low__Entry.SetDouble(11);
+    __Elevator_Height_Algae_Low__Entry.SetDouble(11.5);
  
     __Elevator_Height_Algae_Score__Entry = NTtable_Tune->GetEntry("Elevator_Height_Algae_Score");
     NTinst.AddListener(__Elevator_Height_Algae_Score__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Algae_Score = event.GetValueEventData()->value.GetDouble();});
@@ -478,6 +502,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Elevator_Height_Coral_Arm_Low_Thresh__Entry = NTtable_Tune->GetEntry("Elevator_Height_Coral_Arm_Low_Thresh");
     NTinst.AddListener(__Elevator_Height_Coral_Arm_Low_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Coral_Arm_Low_Thresh = event.GetValueEventData()->value.GetDouble();});
     __Elevator_Height_Coral_Arm_Low_Thresh__Entry.SetDouble(8.5);
+ 
+    __Elevator_Height_Coral_Score_Lower_Rate__Entry = NTtable_Tune->GetEntry("Elevator_Height_Coral_Score_Lower_Rate");
+    NTinst.AddListener(__Elevator_Height_Coral_Score_Lower_Rate__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Coral_Score_Lower_Rate = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Height_Coral_Score_Lower_Rate__Entry.SetDouble(-0.1);
  
     __Elevator_Height_Error_Threshold__Entry = NTtable_Tune->GetEntry("Elevator_Height_Error_Threshold");
     NTinst.AddListener(__Elevator_Height_Error_Threshold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Error_Threshold = event.GetValueEventData()->value.GetDouble();});
@@ -553,7 +581,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Total_LL__Entry = NTtable_Tune->GetEntry("Elevator_Total_LL");
     NTinst.AddListener(__Elevator_Total_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_LL = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Total_LL__Entry.SetDouble(-0.25);
+    __Elevator_Total_LL__Entry.SetDouble(-0.5);
  
     __Elevator_Total_UL__Entry = NTtable_Tune->GetEntry("Elevator_Total_UL");
     NTinst.AddListener(__Elevator_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_UL = event.GetValueEventData()->value.GetDouble();});
@@ -789,7 +817,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Translation_Twist_Gain__Entry = NTtable_Tune->GetEntry("Translation_Twist_Gain");
     NTinst.AddListener(__Translation_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Twist_Gain = event.GetValueEventData()->value.GetDouble();});
-    __Translation_Twist_Gain__Entry.SetDouble(0.5);
+    __Translation_Twist_Gain__Entry.SetDouble(-0.5);
  
     __Twist_Deadzone_neg__Entry = NTtable_Tune->GetEntry("Twist_Deadzone_neg");
     NTinst.AddListener(__Twist_Deadzone_neg__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Twist_Deadzone_neg = event.GetValueEventData()->value.GetDouble();});
@@ -798,10 +826,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Twist_Deadzone_pos__Entry = NTtable_Tune->GetEntry("Twist_Deadzone_pos");
     NTinst.AddListener(__Twist_Deadzone_pos__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Twist_Deadzone_pos = event.GetValueEventData()->value.GetDouble();});
     __Twist_Deadzone_pos__Entry.SetDouble(0.01);
- 
-    __angle_offset__Entry = NTtable_Tune->GetEntry("angle_offset");
-    NTinst.AddListener(__angle_offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {angle_offset = event.GetValueEventData()->value.GetDouble();});
-    __angle_offset__Entry.SetDouble(0);
  
 // Inports
     __Algae_Limit_Switch__Entry = NTtable_Inport->GetEntry("Algae_Limit_Switch");
@@ -1010,7 +1034,8 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Processor__Entry = NTtable_TPoint->GetEntry("Processor");
     __Reefscape_Motors_Enable__Entry = NTtable_TPoint->GetEntry("Reefscape_Motors_Enable");
     __Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
-    __Set_Level_Out__Entry = NTtable_TPoint->GetEntry("Set_Level_Out");
+    __Set_Algae_Level__Entry = NTtable_TPoint->GetEntry("Set_Algae_Level");
+    __Set_Coral_Level__Entry = NTtable_TPoint->GetEntry("Set_Coral_Level");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
     __Spline_Follow_Index__Entry = NTtable_TPoint->GetEntry("Spline_Follow_Index");
     __Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
@@ -1250,7 +1275,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Processor__Entry.SetDouble(Code_Gen_Model_B.Processor);
     __Reefscape_Motors_Enable__Entry.SetDouble(Code_Gen_Model_B.Reefscape_Motors_Enable);
     __Robot_Reached_Destination__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination);
-    __Set_Level_Out__Entry.SetDouble(Code_Gen_Model_B.Set_Level_Out);
+    __Set_Algae_Level__Entry.SetDouble(Code_Gen_Model_B.Set_Algae_Level);
+    __Set_Coral_Level__Entry.SetDouble(Code_Gen_Model_B.Set_Coral_Level);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
     __Spline_Follow_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Follow_Index);
     __Spline_Num_Poses__Entry.SetDouble(Code_Gen_Model_B.Spline_Num_Poses);

@@ -24,8 +24,8 @@ Elevator_Height_L3      = 13.125+2;
 Elevator_Height_L4      = 28; %26.125;
 
 Elevator_Height_Algae_Score = 2.5;
-Elevator_Height_Algae_Low   = 11;
-Elevator_Height_Algae_High  = 19;
+Elevator_Height_Algae_Low   = 11.5;
+Elevator_Height_Algae_High  = 19.5;
 
 % Closed loop control for elevator height
 Elevator_Gain_Prop = 0.3;  % DC/inch
@@ -34,7 +34,7 @@ Elevator_Int_IC = 0;
 Elevator_Int_UL = 0.1;
 Elevator_Int_LL = -0.1;
 Elevator_Total_UL = 1;    % DC
-Elevator_Total_LL = -0.25;      % DC
+Elevator_Total_LL = -0.50;      % DC
 Elevator_Hold_at_Top_DC = 0.1;  % DC
 Elevator_Bottom_DC = -0.04;     % DC
 Elevator_Error_Bottom_Disable = 3; % inches
@@ -47,9 +47,6 @@ Elevator_LowerPickup_Time = 0.5;  % seconds
 
 % Coral Time Of Flight (TOF) detection threshold to start lowering elevator
 Coral_Detect_Distance       = 60; % mm
-
-% Gamepad elevator and arm control gains
-Elevator_Height_Manual_Gain = 0.1;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,11 +79,26 @@ Coral_Arm_Angle_Error_Threshold = 3;    % degrees
 
 % Thresholds to bypass closed loop control and set a duty cycle
 Coral_Arm_Angle_Neg_Threshold = -88;  % deg
+Coral_Arm_Angle_Pos_Threshold = 110;   %80;   % deg
 Elevator_Height_Coral_Arm_Low_Thresh = 8.5;  % inch
 Coral_Arm_Neg90_DC = -0.03;
+Coral_Arm_Pos90_DC = 0.03;
 
-% Gamepad elevator and arm control gains
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CORAL SCORING PARAMETERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Manual control
+Elevator_Height_Manual_Gain = 0.1;
 Coral_Arm_Manual_Gain       = 1.0;
+
+% Levels 2 and 3
+Elevator_Height_Coral_Score_Lower_Rate = -0.1;  % inches/loop
+
+% Level 4
+Coral_Arm_Angle_Coral_Score_Lower_Rate = -1.0;  % degrees/loop
+Coral_Arm_Angle_L4_Eject = 25;  % degrees
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

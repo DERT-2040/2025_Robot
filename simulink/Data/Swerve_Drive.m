@@ -33,7 +33,7 @@ Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Sp
 
 % Joystick Twist Axis Gains
 Steering_Twist_Gain = -0.5;
-Translation_Twist_Gain = 0.5;
+Translation_Twist_Gain = -0.5;
 Twist_Deadzone_pos = 0.01;
 Twist_Deadzone_neg = -Twist_Deadzone_pos;
 
