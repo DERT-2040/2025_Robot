@@ -66,6 +66,10 @@ private:
         nt::NetworkTableEntry __AT_Cage_R_Start_X_Red__Entry;
         nt::NetworkTableEntry __AT_Cage_R_Start_Y_Blue__Entry;
         nt::NetworkTableEntry __AT_Cage_R_Start_Y_Red__Entry;
+        nt::NetworkTableEntry __AT_Integral_Enable_Error_Angle__Entry;
+        nt::NetworkTableEntry __AT_Integral_Enable_Error_XY__Entry;
+        nt::NetworkTableEntry __AT_Max_Error_Angle__Entry;
+        nt::NetworkTableEntry __AT_Max_Error_XY__Entry;
         nt::NetworkTableEntry __AT_Processor_Angle_Blue__Entry;
         nt::NetworkTableEntry __AT_Processor_Angle_Red__Entry;
         nt::NetworkTableEntry __AT_Processor_X_Blue__Entry;
@@ -335,8 +339,10 @@ private:
         nt::NetworkTableEntry __AT_Field_Error_X__Entry;
         nt::NetworkTableEntry __AT_Field_Error_Y__Entry;
         nt::NetworkTableEntry __AT_Field_Target_Angle__Entry;
+        nt::NetworkTableEntry __AT_On_Target__Entry;
         nt::NetworkTableEntry __AT_Relative_Enable__Entry;
         nt::NetworkTableEntry __AT_Relative_Error_Angle__Entry;
+        nt::NetworkTableEntry __AT_Relative_Error_X__Entry;
         nt::NetworkTableEntry __AT_Relative_Error_Y__Entry;
         nt::NetworkTableEntry __Active_GameState__Entry;
         nt::NetworkTableEntry __Align_Center__Entry;
@@ -450,6 +456,7 @@ private:
         nt::NetworkTableEntry __Steering_Localized_PID__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd_SPF__Entry;
+        nt::NetworkTableEntry __Swerve_Drive_Integral_Enable__Entry;
         nt::NetworkTableEntry __Test_Mode__Entry;
         nt::NetworkTableEntry __Translation_Angle__Entry;
         nt::NetworkTableEntry __Translation_Angle_SPF__Entry;

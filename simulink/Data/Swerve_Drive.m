@@ -38,7 +38,7 @@ Twist_Deadzone_pos = 0.01;
 Twist_Deadzone_neg = -Twist_Deadzone_pos;
 
 % April Tag Steering - Relative
-AT_Steering_Error_Angle_Gain = 0.05;
+AT_Steering_Error_Angle_Gain = 0.07;
 AT_Steering_Speed_Max = 0.4;
 
 % April tag Translation - Relative
@@ -100,9 +100,9 @@ clear FrontBack LeftRight
 Drive_Motor_Control_FF= 1/Drive_Motor_Max_Speed;  % 1 DC / Max Speed RPM;
 Drive_Motor_Control_P = 0.000005;
 
-Drive_Motor_Control_I = 0.0000002*0;
+Drive_Motor_Control_I = 0.000001;
 
-Drive_Motor_Control_I_UL = 0; % 0.1
+Drive_Motor_Control_I_UL = 0.03;
 Drive_Motor_Control_I_LL = -Drive_Motor_Control_I_UL;
 
 Drive_Motor_Control_D = 0.000002/t_sample;
