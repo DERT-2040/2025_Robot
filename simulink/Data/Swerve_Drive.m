@@ -38,8 +38,12 @@ Twist_Deadzone_pos = 0.01;
 Twist_Deadzone_neg = -Twist_Deadzone_pos;
 
 % April Tag Steering - Relative
-AT_Steering_Error_Angle_Gain = 0.07;
-AT_Steering_Speed_Max = 0.4;
+AT_Steering_Error_Angle_Gain_P = 0.10;
+AT_Steering_Error_Angle_Gain_I = 0;
+AT_Steering_Speed_Int_UL = 0;
+AT_Steering_Speed_Int_LL = -AT_Steering_Speed_Int_UL;
+AT_Steering_Speed_UL = 0.4;
+AT_Steering_Speed_LL = -AT_Steering_Speed_UL;
 
 % April tag Translation - Relative
 AT_Translation_Control_Gain_Relative = 0.20;  % meter/second per inch of position error

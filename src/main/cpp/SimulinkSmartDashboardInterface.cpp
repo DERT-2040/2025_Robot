@@ -205,7 +205,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Integral_Enable_Error_Angle__Entry = NTtable_Tune->GetEntry("AT_Integral_Enable_Error_Angle");
     NTinst.AddListener(__AT_Integral_Enable_Error_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Integral_Enable_Error_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Integral_Enable_Error_Angle__Entry.SetDouble(3);
+    __AT_Integral_Enable_Error_Angle__Entry.SetDouble(5);
  
     __AT_Integral_Enable_Error_XY__Entry = NTtable_Tune->GetEntry("AT_Integral_Enable_Error_XY");
     NTinst.AddListener(__AT_Integral_Enable_Error_XY__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Integral_Enable_Error_XY = event.GetValueEventData()->value.GetDouble();});
@@ -218,6 +218,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __AT_Max_Error_XY__Entry = NTtable_Tune->GetEntry("AT_Max_Error_XY");
     NTinst.AddListener(__AT_Max_Error_XY__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Max_Error_XY = event.GetValueEventData()->value.GetDouble();});
     __AT_Max_Error_XY__Entry.SetDouble(0.3);
+ 
+    __AT_On_Target_Time__Entry = NTtable_Tune->GetEntry("AT_On_Target_Time");
+    NTinst.AddListener(__AT_On_Target_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_On_Target_Time = event.GetValueEventData()->value.GetDouble();});
+    __AT_On_Target_Time__Entry.SetDouble(0.5);
  
     __AT_Processor_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Processor_Angle_Blue");
     NTinst.AddListener(__AT_Processor_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -265,7 +269,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Reef_Target_L4_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_L4_X");
     NTinst.AddListener(__AT_Reef_Target_L4_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_L4_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Reef_Target_L4_X__Entry.SetDouble(27.5);
+    __AT_Reef_Target_L4_X__Entry.SetDouble(27.75);
  
     __AT_Reef_Target_Left_Y__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Left_Y");
     NTinst.AddListener(__AT_Reef_Target_Left_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Left_Y = event.GetValueEventData()->value.GetDouble();});
@@ -275,13 +279,29 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__AT_Reef_Target_Right_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Right_Y = event.GetValueEventData()->value.GetDouble();});
     __AT_Reef_Target_Right_Y__Entry.SetDouble(-7.5);
  
-    __AT_Steering_Error_Angle_Gain__Entry = NTtable_Tune->GetEntry("AT_Steering_Error_Angle_Gain");
-    NTinst.AddListener(__AT_Steering_Error_Angle_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Error_Angle_Gain = event.GetValueEventData()->value.GetDouble();});
-    __AT_Steering_Error_Angle_Gain__Entry.SetDouble(0.07);
+    __AT_Steering_Error_Angle_Gain_I__Entry = NTtable_Tune->GetEntry("AT_Steering_Error_Angle_Gain_I");
+    NTinst.AddListener(__AT_Steering_Error_Angle_Gain_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Error_Angle_Gain_I = event.GetValueEventData()->value.GetDouble();});
+    __AT_Steering_Error_Angle_Gain_I__Entry.SetDouble(0);
  
-    __AT_Steering_Speed_Max__Entry = NTtable_Tune->GetEntry("AT_Steering_Speed_Max");
-    NTinst.AddListener(__AT_Steering_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Speed_Max = event.GetValueEventData()->value.GetDouble();});
-    __AT_Steering_Speed_Max__Entry.SetDouble(0.4);
+    __AT_Steering_Error_Angle_Gain_P__Entry = NTtable_Tune->GetEntry("AT_Steering_Error_Angle_Gain_P");
+    NTinst.AddListener(__AT_Steering_Error_Angle_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Error_Angle_Gain_P = event.GetValueEventData()->value.GetDouble();});
+    __AT_Steering_Error_Angle_Gain_P__Entry.SetDouble(0.1);
+ 
+    __AT_Steering_Speed_Int_LL__Entry = NTtable_Tune->GetEntry("AT_Steering_Speed_Int_LL");
+    NTinst.AddListener(__AT_Steering_Speed_Int_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Speed_Int_LL = event.GetValueEventData()->value.GetDouble();});
+    __AT_Steering_Speed_Int_LL__Entry.SetDouble(0);
+ 
+    __AT_Steering_Speed_Int_UL__Entry = NTtable_Tune->GetEntry("AT_Steering_Speed_Int_UL");
+    NTinst.AddListener(__AT_Steering_Speed_Int_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Speed_Int_UL = event.GetValueEventData()->value.GetDouble();});
+    __AT_Steering_Speed_Int_UL__Entry.SetDouble(0);
+ 
+    __AT_Steering_Speed_LL__Entry = NTtable_Tune->GetEntry("AT_Steering_Speed_LL");
+    NTinst.AddListener(__AT_Steering_Speed_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Speed_LL = event.GetValueEventData()->value.GetDouble();});
+    __AT_Steering_Speed_LL__Entry.SetDouble(-0.4);
+ 
+    __AT_Steering_Speed_UL__Entry = NTtable_Tune->GetEntry("AT_Steering_Speed_UL");
+    NTinst.AddListener(__AT_Steering_Speed_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Speed_UL = event.GetValueEventData()->value.GetDouble();});
+    __AT_Steering_Speed_UL__Entry.SetDouble(0.4);
  
     __AT_Translation_Control_Gain_Field__Entry = NTtable_Tune->GetEntry("AT_Translation_Control_Gain_Field");
     NTinst.AddListener(__AT_Translation_Control_Gain_Field__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Control_Gain_Field = event.GetValueEventData()->value.GetDouble();});

@@ -8,7 +8,7 @@ Limelight_Tag_Angle_Offset = -0.2; % degrees
 
 AT_Reef_Target_L1_X = 26.75;    % inches
 AT_Reef_Target_L2_L3_X = 26.25; % inches
-AT_Reef_Target_L4_X = 27.50;    % inches
+AT_Reef_Target_L4_X = 27.75;    % inches
 AT_Reef_Target_Algae_X = 19;    % inches
 
 AT_Reef_Target_Left_Y = 5.5;    % inches
@@ -20,7 +20,9 @@ AT_Max_Error_XY = 0.3;          % inches
 AT_Max_Error_Angle = 0.5;       % degrees
 
 AT_Integral_Enable_Error_XY = 2.0;     % inches
-AT_Integral_Enable_Error_Angle = 3.0;  % degrees
+AT_Integral_Enable_Error_Angle = 5.0;  % degrees
+
+AT_On_Target_Time = 0.5;     % seconds
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % April Tag locations, dimensions in inches

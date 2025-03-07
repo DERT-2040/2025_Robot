@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.305
+ * Model version                  : 2.307
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar  5 22:10:25 2025
+ * C/C++ source code generated on : Thu Mar  6 21:31:50 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -157,13 +157,13 @@ typedef struct {
   boolean_T Robot_Reached_Destination; /* '<S19>/Merge7' */
   boolean_T Test_Mode;                 /* '<S16>/Merge10' */
   boolean_T Elevator_LowerPickup_Reset_tp;/* '<S16>/Merge21' */
-  boolean_T FixPtRelationalOperator;   /* '<S411>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_n; /* '<S412>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_k; /* '<S416>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_d; /* '<S417>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_m; /* '<S421>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_ji;/* '<S414>/FixPt Relational Operator' */
-  boolean_T FixPtRelationalOperator_ml;/* '<S415>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator;   /* '<S413>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_n; /* '<S414>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_k; /* '<S418>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_d; /* '<S419>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_m; /* '<S423>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_ji;/* '<S416>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_ml;/* '<S417>/FixPt Relational Operator' */
   boolean_T AT_Relative_Enable;        /* '<S368>/Logical Operator1' */
   boolean_T AT_On_Target;              /* '<S368>/Logical Operator' */
   boolean_T Steering_Abs_Angle_Active; /* '<S390>/AND6' */
@@ -226,32 +226,34 @@ typedef struct {
   real_T FixPtUnitDelay1_DSTATE_pc;    /* '<S37>/FixPt Unit Delay1' */
   real_T UnitDelay1_DSTATE_d;          /* '<S149>/Unit Delay1' */
   real_T UnitDelay_DSTATE_c;           /* '<S149>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_l;          /* '<S404>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_p;           /* '<S404>/Unit Delay' */
-  real_T DelayInput1_DSTATE_c;         /* '<S411>/Delay Input1' */
-  real_T DelayInput1_DSTATE_nr;        /* '<S412>/Delay Input1' */
-  real_T DelayInput1_DSTATE_ez;        /* '<S416>/Delay Input1' */
-  real_T DelayInput1_DSTATE_nh;        /* '<S417>/Delay Input1' */
-  real_T DelayInput1_DSTATE_i;         /* '<S418>/Delay Input1' */
-  real_T DelayInput1_DSTATE_cp;        /* '<S413>/Delay Input1' */
-  real_T DelayInput1_DSTATE_p;         /* '<S419>/Delay Input1' */
-  real_T DelayInput1_DSTATE_o;         /* '<S422>/Delay Input1' */
-  real_T DelayInput1_DSTATE_j;         /* '<S423>/Delay Input1' */
+  real_T UnitDelay1_DSTATE_l;          /* '<S406>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_p;           /* '<S406>/Unit Delay' */
+  real_T DelayInput1_DSTATE_c;         /* '<S413>/Delay Input1' */
+  real_T DelayInput1_DSTATE_nr;        /* '<S414>/Delay Input1' */
+  real_T DelayInput1_DSTATE_ez;        /* '<S418>/Delay Input1' */
+  real_T DelayInput1_DSTATE_nh;        /* '<S419>/Delay Input1' */
+  real_T DelayInput1_DSTATE_i;         /* '<S420>/Delay Input1' */
+  real_T DelayInput1_DSTATE_cp;        /* '<S415>/Delay Input1' */
+  real_T DelayInput1_DSTATE_p;         /* '<S421>/Delay Input1' */
+  real_T DelayInput1_DSTATE_o;         /* '<S424>/Delay Input1' */
+  real_T DelayInput1_DSTATE_j;         /* '<S425>/Delay Input1' */
   real_T UnitDelay_DSTATE_kq;          /* '<S368>/Unit Delay' */
   real_T UnitDelay1_DSTATE_nr;         /* '<S368>/Unit Delay1' */
-  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S408>/FixPt Unit Delay1' */
+  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S410>/FixPt Unit Delay1' */
+  real_T UnitDelay_DSTATE_kr;          /* '<S399>/Unit Delay' */
   real_T UnitDelay3_DSTATE;            /* '<S390>/Unit Delay3' */
   real_T UnitDelay1_DSTATE_e1;         /* '<S367>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_j2;         /* '<S390>/Unit Delay1' */
   real_T UnitDelay_DSTATE_gh;          /* '<S154>/Unit Delay' */
   real_T timer;                        /* '<S370>/Reefscape_Chart' */
+  real_T timer_robot_target;           /* '<S370>/Reefscape_Chart' */
   int32_T Selector4_DIMS1[2];          /* '<S175>/Selector4' */
   uint8_T FixPtUnitDelay2_DSTATE;      /* '<S317>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_p;    /* '<S334>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_c;    /* '<S327>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_o;    /* '<S53>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_j;    /* '<S37>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S408>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S410>/FixPt Unit Delay2' */
   boolean_T DelayInput1_DSTATE_b;      /* '<S56>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o1;     /* '<S57>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_mph;      /* '<S1>/Unit Delay' */
@@ -259,10 +261,12 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_be;     /* '<S54>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_op;     /* '<S38>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_ir;       /* '<S23>/Unit Delay' */
-  boolean_T DelayInput1_DSTATE_oy;     /* '<S420>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_f;      /* '<S421>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_o5;     /* '<S414>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_a;      /* '<S415>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_oy;     /* '<S422>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_f;      /* '<S423>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_o5;     /* '<S416>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_a;      /* '<S417>/Delay Input1' */
+  boolean_T UnitDelay_DSTATE_irb;      /* '<S22>/Unit Delay' */
+  boolean_T DelayInput1_DSTATE_is;     /* '<S401>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_jp;     /* '<S398>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_ft;     /* '<S397>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_m;      /* '<S393>/Delay Input1' */
@@ -285,6 +289,7 @@ typedef struct {
   uint8_T is_Set_Level;                /* '<S370>/Reefscape_Chart' */
   uint8_T is_Coral_Score_Position;     /* '<S370>/Reefscape_Chart' */
   uint8_T is_Algae_Wheels;             /* '<S370>/Reefscape_Chart' */
+  uint8_T is_AT_On_Target_Timer;       /* '<S370>/Reefscape_Chart' */
   uint8_T is_active_c9_Code_Gen_Model; /* '<S18>/Chart' */
   uint8_T is_c9_Code_Gen_Model;        /* '<S18>/Chart' */
   boolean_T icLoad;                    /* '<S86>/MemoryX' */
@@ -716,6 +721,9 @@ extern real_T AT_Max_Error_XY;         /* Variable: AT_Max_Error_XY
                                         *   '<S378>/Constant'
                                         *   '<S379>/Constant'
                                         */
+extern real_T AT_On_Target_Time;       /* Variable: AT_On_Target_Time
+                                        * Referenced by: '<S370>/Reefscape_Chart'
+                                        */
 extern real_T AT_Processor_Angle_Blue; /* Variable: AT_Processor_Angle_Blue
                                         * Referenced by: '<S367>/Constant10'
                                         */
@@ -758,11 +766,29 @@ extern real_T AT_Reef_Target_Left_Y;   /* Variable: AT_Reef_Target_Left_Y
 extern real_T AT_Reef_Target_Right_Y;  /* Variable: AT_Reef_Target_Right_Y
                                         * Referenced by: '<S368>/Constant2'
                                         */
-extern real_T AT_Steering_Error_Angle_Gain;/* Variable: AT_Steering_Error_Angle_Gain
-                                            * Referenced by: '<S390>/Constant4'
-                                            */
-extern real_T AT_Steering_Speed_Max;   /* Variable: AT_Steering_Speed_Max
-                                        * Referenced by: '<S390>/Constant10'
+extern real_T AT_Steering_Error_Angle_Gain_I;
+                                     /* Variable: AT_Steering_Error_Angle_Gain_I
+                                      * Referenced by: '<S399>/Gain2'
+                                      */
+extern real_T AT_Steering_Error_Angle_Gain_P;
+                                     /* Variable: AT_Steering_Error_Angle_Gain_P
+                                      * Referenced by: '<S399>/Gain1'
+                                      */
+extern real_T AT_Steering_Speed_Int_LL;/* Variable: AT_Steering_Speed_Int_LL
+                                        * Referenced by: '<S399>/Saturation1'
+                                        */
+extern real_T AT_Steering_Speed_Int_UL;/* Variable: AT_Steering_Speed_Int_UL
+                                        * Referenced by: '<S399>/Saturation1'
+                                        */
+extern real_T AT_Steering_Speed_LL;    /* Variable: AT_Steering_Speed_LL
+                                        * Referenced by:
+                                        *   '<S399>/Constant1'
+                                        *   '<S399>/Saturation2'
+                                        */
+extern real_T AT_Steering_Speed_UL;    /* Variable: AT_Steering_Speed_UL
+                                        * Referenced by:
+                                        *   '<S399>/Constant'
+                                        *   '<S399>/Saturation2'
                                         */
 extern real_T AT_Translation_Control_Gain_Field;
                                   /* Variable: AT_Translation_Control_Gain_Field
@@ -794,19 +820,19 @@ extern real_T Algae_Push_Out_DC;       /* Variable: Algae_Push_Out_DC
                                         */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
-                                      * Referenced by: '<S405>/Constant1'
+                                      * Referenced by: '<S407>/Constant1'
                                       */
 extern real_T Boost_Trigger_High_Speed;/* Variable: Boost_Trigger_High_Speed
                                         * Referenced by:
-                                        *   '<S401>/Constant'
-                                        *   '<S401>/Saturation'
+                                        *   '<S403>/Constant'
+                                        *   '<S403>/Saturation'
                                         */
 extern real_T Boost_Trigger_Increasing_Limit;
                                      /* Variable: Boost_Trigger_Increasing_Limit
-                                      * Referenced by: '<S405>/Constant3'
+                                      * Referenced by: '<S407>/Constant3'
                                       */
 extern real_T Boost_Trigger_Low_Speed; /* Variable: Boost_Trigger_Low_Speed
-                                        * Referenced by: '<S401>/Constant1'
+                                        * Referenced by: '<S403>/Constant1'
                                         */
 extern real_T Coral_Arm_Angle_Coral_Score_Lower_Rate;
                              /* Variable: Coral_Arm_Angle_Coral_Score_Lower_Rate
@@ -1435,11 +1461,11 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S340>/Data Type Propagation' : Unused code path elimination
  * Block '<S336>/Scope' : Unused code path elimination
  * Block '<S368>/Logical Operator10' : Unused code path elimination
- * Block '<S400>/Data Type Duplicate' : Unused code path elimination
- * Block '<S400>/Data Type Propagation' : Unused code path elimination
- * Block '<S407>/Data Type Duplicate' : Unused code path elimination
- * Block '<S407>/Data Type Propagation' : Unused code path elimination
- * Block '<S408>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S402>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S402>/Data Type Propagation' : Unused code path elimination
+ * Block '<S409>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S409>/Data Type Propagation' : Unused code path elimination
+ * Block '<S410>/FixPt Data Type Duplicate1' : Unused code path elimination
  * Block '<S129>/Conversion' : Eliminate redundant data type conversion
  * Block '<S130>/Conversion' : Eliminate redundant data type conversion
  * Block '<S132>/Conversion' : Eliminate redundant data type conversion
@@ -1876,32 +1902,34 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S396>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase3'
  * '<S397>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
  * '<S398>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
- * '<S399>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Previous game state was not Teleop'
- * '<S400>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Saturation Dynamic'
- * '<S401>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
- * '<S402>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
- * '<S403>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
- * '<S404>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
- * '<S405>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
- * '<S406>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
- * '<S407>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
- * '<S408>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
- * '<S409>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
- * '<S410>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
- * '<S411>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase'
- * '<S412>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase1'
- * '<S413>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase10'
- * '<S414>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase11'
- * '<S415>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase12'
- * '<S416>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase2'
- * '<S417>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase3'
- * '<S418>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase4'
- * '<S419>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase5'
- * '<S420>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase6'
- * '<S421>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase7'
- * '<S422>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase8'
- * '<S423>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase9'
- * '<S424>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Reefscape_Chart'
+ * '<S399>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/PI and Integral Enable'
+ * '<S400>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Previous game state was not Teleop'
+ * '<S401>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/PI and Integral Enable/Detect Increase'
+ * '<S402>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/PI and Integral Enable/Saturation Dynamic'
+ * '<S403>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
+ * '<S404>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
+ * '<S405>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
+ * '<S406>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
+ * '<S407>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
+ * '<S408>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
+ * '<S409>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
+ * '<S410>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
+ * '<S411>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
+ * '<S412>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
+ * '<S413>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase'
+ * '<S414>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase1'
+ * '<S415>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase10'
+ * '<S416>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase11'
+ * '<S417>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase12'
+ * '<S418>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase2'
+ * '<S419>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase3'
+ * '<S420>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase4'
+ * '<S421>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase5'
+ * '<S422>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase6'
+ * '<S423>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase7'
+ * '<S424>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase8'
+ * '<S425>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase9'
+ * '<S426>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Reefscape_Chart'
  */
 #endif                                 /* RTW_HEADER_Code_Gen_Model_h_ */
 

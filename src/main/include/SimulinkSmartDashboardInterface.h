@@ -70,6 +70,7 @@ private:
         nt::NetworkTableEntry __AT_Integral_Enable_Error_XY__Entry;
         nt::NetworkTableEntry __AT_Max_Error_Angle__Entry;
         nt::NetworkTableEntry __AT_Max_Error_XY__Entry;
+        nt::NetworkTableEntry __AT_On_Target_Time__Entry;
         nt::NetworkTableEntry __AT_Processor_Angle_Blue__Entry;
         nt::NetworkTableEntry __AT_Processor_Angle_Red__Entry;
         nt::NetworkTableEntry __AT_Processor_X_Blue__Entry;
@@ -84,8 +85,12 @@ private:
         nt::NetworkTableEntry __AT_Reef_Target_L4_X__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_Left_Y__Entry;
         nt::NetworkTableEntry __AT_Reef_Target_Right_Y__Entry;
-        nt::NetworkTableEntry __AT_Steering_Error_Angle_Gain__Entry;
-        nt::NetworkTableEntry __AT_Steering_Speed_Max__Entry;
+        nt::NetworkTableEntry __AT_Steering_Error_Angle_Gain_I__Entry;
+        nt::NetworkTableEntry __AT_Steering_Error_Angle_Gain_P__Entry;
+        nt::NetworkTableEntry __AT_Steering_Speed_Int_LL__Entry;
+        nt::NetworkTableEntry __AT_Steering_Speed_Int_UL__Entry;
+        nt::NetworkTableEntry __AT_Steering_Speed_LL__Entry;
+        nt::NetworkTableEntry __AT_Steering_Speed_UL__Entry;
         nt::NetworkTableEntry __AT_Translation_Control_Gain_Field__Entry;
         nt::NetworkTableEntry __AT_Translation_Control_Gain_Relative__Entry;
         nt::NetworkTableEntry __AT_Translation_Speed_Max_Field__Entry;
