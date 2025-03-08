@@ -55,8 +55,6 @@ public:
     void setDutyCycleCallback();
     ctre::phoenix6::hardware::TalonFX talonController;
     ctre::phoenix6::controls::DutyCycleOut dutyCycleControl;
-    std::optional<ctre::phoenix6::StatusSignal<units::angle::turn_t>> positionSignal;
-    std::optional<ctre::phoenix6::StatusSignal<units::angular_velocity::turns_per_second_t>> velocitySignal;
     KrakenTalonCreateInfo finalCreateInfo{};
 private:
     void initalizeTalon(KrakenTalonCreateInfo createInfo);

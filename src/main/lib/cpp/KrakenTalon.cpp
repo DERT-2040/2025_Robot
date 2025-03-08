@@ -34,12 +34,6 @@ void KrakenTalon::initalizeTalon(KrakenTalonCreateInfo createInfo)
     currentLimitsConfig.SupplyCurrentLimitEnable = true;
     talonConfigurator.Apply(currentLimitsConfig);
 
-    // Initialize Signal Objects
-    if(createInfo.getPositionCallback != nullptr)
-        *positionSignal = talonController.GetPosition();
-    if(createInfo.getVelocityCallback != nullptr)
-        *velocitySignal = talonController.GetVelocity();
-
     // Initialize Duty Cycle Output Communication
     dutyCycleControl.WithEnableFOC(createInfo.enableFOC);
 
@@ -50,13 +44,13 @@ void KrakenTalon::initalizeTalon(KrakenTalonCreateInfo createInfo)
 // Get Motor Encoder Position
 void KrakenTalon::getPositionCallback()
 {  
-    *finalCreateInfo.getPositionCallback = positionSignal->GetValueAsDouble();
+    *finalCreateInfo.getPositionCallback = talonController.GetPosition().GetValueAsDouble();
 }
 
 // Get Motor Encoder Velocity
 void KrakenTalon::getVelocityCallback()
 {  
-    *finalCreateInfo.getVelocityCallback = velocitySignal->GetValueAsDouble()*60;  // Multiply by 60 for Rev/Sec to Rev/Min
+    *finalCreateInfo.getVelocityCallback = talonController.GetVelocity().GetValueAsDouble()*60;  // Multiply by 60 for Rev/Sec to Rev/Min
 }
 
 // Set Motor Duty Cycle

@@ -81,8 +81,8 @@ AT_Data = [...
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % CORAL STATIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-d_offset = 20; % inches
-angle_offset = 0;   % use 0 for robot front facing away from tag, use pi for robot front facing tag
+d_offset = 15; % inches
+angle_offset = pi;   % use pi for robot front facing away from tag, use 0 for robot front facing tag
 
 tag = 13;
 angle = AT_Data(tag,4)*pi/180;
@@ -119,8 +119,8 @@ AT_CS_R_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to between
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % PROCESSORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-d_offset = 25; % inches
-angle_offset = pi;   % use 0 for robot front facing away from tag, use pi for robot front facing tag
+d_offset = 23; % inches
+angle_offset = 0;   % use 0 for robot front facing away from tag, use pi for robot front facing tag
 
 tag = 3;
 angle = AT_Data(tag,4)*pi/180;
@@ -144,7 +144,7 @@ AT_Processor_Angle_Red = mod(temp_angle + pi, 2*pi) - pi;  % convert angle to be
 cage_offset_middle = 1.26;
 cage_offset_left = cage_offset_middle + 42.9375;
 cage_offset_right = cage_offset_middle - 42.9375;
-angle_offset = 0;   % use 0 for robot front facing away from tag, use pi for robot front facing tag
+angle_offset = pi;   % use 0 for robot front facing away from tag, use pi for robot front facing tag
 
 % start offset
 d_offset = 10; % inches

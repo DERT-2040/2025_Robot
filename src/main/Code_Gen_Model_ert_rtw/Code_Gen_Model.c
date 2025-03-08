@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.307
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar  6 21:31:50 2025
+ * C/C++ source code generated on : Fri Mar  7 22:38:34 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -67,48 +67,48 @@
 #define Code__IN_Elevator_Height_Bottom ((uint8_T)7U)
 
 /* Exported block parameters */
-real_T AT_CS_L_Angle_Blue = -0.94248;  /* Variable: AT_CS_L_Angle_Blue
+real_T AT_CS_L_Angle_Blue = 2.1991;    /* Variable: AT_CS_L_Angle_Blue
                                         * Referenced by: '<S367>/Constant14'
                                         */
-real_T AT_CS_L_Angle_Red = 2.1991;     /* Variable: AT_CS_L_Angle_Red
+real_T AT_CS_L_Angle_Red = -0.94248;   /* Variable: AT_CS_L_Angle_Red
                                         * Referenced by: '<S367>/Constant13'
                                         */
-real_T AT_CS_L_X_Blue = 1.1497;        /* Variable: AT_CS_L_X_Blue
+real_T AT_CS_L_X_Blue = 1.0751;        /* Variable: AT_CS_L_X_Blue
                                         * Referenced by: '<S367>/Constant9'
                                         */
-real_T AT_CS_L_X_Red = 16.3986;        /* Variable: AT_CS_L_X_Red
+real_T AT_CS_L_X_Red = 16.4733;        /* Variable: AT_CS_L_X_Red
                                         * Referenced by: '<S367>/Constant5'
                                         */
-real_T AT_CS_L_Y_Blue = 6.9855;        /* Variable: AT_CS_L_Y_Blue
+real_T AT_CS_L_Y_Blue = 7.0882;        /* Variable: AT_CS_L_Y_Blue
                                         * Referenced by: '<S367>/Constant28'
                                         */
-real_T AT_CS_L_Y_Red = 1.0663;         /* Variable: AT_CS_L_Y_Red
+real_T AT_CS_L_Y_Red = 0.96356;        /* Variable: AT_CS_L_Y_Red
                                         * Referenced by: '<S367>/Constant27'
                                         */
-real_T AT_CS_R_Angle_Blue = 0.94248;   /* Variable: AT_CS_R_Angle_Blue
+real_T AT_CS_R_Angle_Blue = -2.1991;   /* Variable: AT_CS_R_Angle_Blue
                                         * Referenced by: '<S367>/Constant12'
                                         */
-real_T AT_CS_R_Angle_Red = -2.1991;    /* Variable: AT_CS_R_Angle_Red
+real_T AT_CS_R_Angle_Red = 0.94248;    /* Variable: AT_CS_R_Angle_Red
                                         * Referenced by: '<S367>/Constant11'
                                         */
-real_T AT_CS_R_X_Blue = 1.1497;        /* Variable: AT_CS_R_X_Blue
+real_T AT_CS_R_X_Blue = 1.0751;        /* Variable: AT_CS_R_X_Blue
                                         * Referenced by: '<S367>/Constant4'
                                         */
-real_T AT_CS_R_X_Red = 16.3986;        /* Variable: AT_CS_R_X_Red
+real_T AT_CS_R_X_Red = 16.4733;        /* Variable: AT_CS_R_X_Red
                                         * Referenced by: '<S367>/Constant17'
                                         */
-real_T AT_CS_R_Y_Blue = 1.0663;        /* Variable: AT_CS_R_Y_Blue
+real_T AT_CS_R_Y_Blue = 0.96356;       /* Variable: AT_CS_R_Y_Blue
                                         * Referenced by: '<S367>/Constant26'
                                         */
-real_T AT_CS_R_Y_Red = 6.9855;         /* Variable: AT_CS_R_Y_Red
+real_T AT_CS_R_Y_Red = 7.0882;         /* Variable: AT_CS_R_Y_Red
                                         * Referenced by: '<S367>/Constant3'
                                         */
-real_T AT_Cage_L_Finish_Angle_Blue = 0.0;/* Variable: AT_Cage_L_Finish_Angle_Blue
-                                          * Referenced by: '<S367>/Constant55'
-                                          */
-real_T AT_Cage_L_Finish_Angle_Red = -3.1416;/* Variable: AT_Cage_L_Finish_Angle_Red
-                                             * Referenced by: '<S367>/Constant54'
-                                             */
+real_T AT_Cage_L_Finish_Angle_Blue = -3.1416;/* Variable: AT_Cage_L_Finish_Angle_Blue
+                                              * Referenced by: '<S367>/Constant55'
+                                              */
+real_T AT_Cage_L_Finish_Angle_Red = 0.0;/* Variable: AT_Cage_L_Finish_Angle_Red
+                                         * Referenced by: '<S367>/Constant54'
+                                         */
 real_T AT_Cage_L_Finish_X_Blue = 8.7681;/* Variable: AT_Cage_L_Finish_X_Blue
                                          * Referenced by: '<S367>/Constant39'
                                          */
@@ -121,12 +121,12 @@ real_T AT_Cage_L_Finish_Y_Blue = 7.2603;/* Variable: AT_Cage_L_Finish_Y_Blue
 real_T AT_Cage_L_Finish_Y_Red = 0.79229;/* Variable: AT_Cage_L_Finish_Y_Red
                                          * Referenced by: '<S367>/Constant42'
                                          */
-real_T AT_Cage_L_Start_Angle_Blue = 0.0;/* Variable: AT_Cage_L_Start_Angle_Blue
-                                         * Referenced by: '<S367>/Constant49'
-                                         */
-real_T AT_Cage_L_Start_Angle_Red = -3.1416;/* Variable: AT_Cage_L_Start_Angle_Red
-                                            * Referenced by: '<S367>/Constant48'
-                                            */
+real_T AT_Cage_L_Start_Angle_Blue = -3.1416;/* Variable: AT_Cage_L_Start_Angle_Blue
+                                             * Referenced by: '<S367>/Constant49'
+                                             */
+real_T AT_Cage_L_Start_Angle_Red = 0.0;/* Variable: AT_Cage_L_Start_Angle_Red
+                                        * Referenced by: '<S367>/Constant48'
+                                        */
 real_T AT_Cage_L_Start_X_Blue = 9.5301;/* Variable: AT_Cage_L_Start_X_Blue
                                         * Referenced by: '<S367>/Constant7'
                                         */
@@ -139,12 +139,12 @@ real_T AT_Cage_L_Start_Y_Blue = 7.2603;/* Variable: AT_Cage_L_Start_Y_Blue
 real_T AT_Cage_L_Start_Y_Red = 0.79229;/* Variable: AT_Cage_L_Start_Y_Red
                                         * Referenced by: '<S367>/Constant25'
                                         */
-real_T AT_Cage_M_Finish_Angle_Blue = 0.0;/* Variable: AT_Cage_M_Finish_Angle_Blue
-                                          * Referenced by: '<S367>/Constant53'
-                                          */
-real_T AT_Cage_M_Finish_Angle_Red = -3.1416;/* Variable: AT_Cage_M_Finish_Angle_Red
-                                             * Referenced by: '<S367>/Constant52'
-                                             */
+real_T AT_Cage_M_Finish_Angle_Blue = -3.1416;/* Variable: AT_Cage_M_Finish_Angle_Blue
+                                              * Referenced by: '<S367>/Constant53'
+                                              */
+real_T AT_Cage_M_Finish_Angle_Red = 0.0;/* Variable: AT_Cage_M_Finish_Angle_Red
+                                         * Referenced by: '<S367>/Constant52'
+                                         */
 real_T AT_Cage_M_Finish_X_Blue = 8.7681;/* Variable: AT_Cage_M_Finish_X_Blue
                                          * Referenced by: '<S367>/Constant34'
                                          */
@@ -157,12 +157,12 @@ real_T AT_Cage_M_Finish_Y_Blue = 6.1697;/* Variable: AT_Cage_M_Finish_Y_Blue
 real_T AT_Cage_M_Finish_Y_Red = 1.8829;/* Variable: AT_Cage_M_Finish_Y_Red
                                         * Referenced by: '<S367>/Constant44'
                                         */
-real_T AT_Cage_M_Start_Angle_Blue = 0.0;/* Variable: AT_Cage_M_Start_Angle_Blue
-                                         * Referenced by: '<S367>/Constant47'
-                                         */
-real_T AT_Cage_M_Start_Angle_Red = -3.1416;/* Variable: AT_Cage_M_Start_Angle_Red
-                                            * Referenced by: '<S367>/Constant46'
-                                            */
+real_T AT_Cage_M_Start_Angle_Blue = -3.1416;/* Variable: AT_Cage_M_Start_Angle_Blue
+                                             * Referenced by: '<S367>/Constant47'
+                                             */
+real_T AT_Cage_M_Start_Angle_Red = 0.0;/* Variable: AT_Cage_M_Start_Angle_Red
+                                        * Referenced by: '<S367>/Constant46'
+                                        */
 real_T AT_Cage_M_Start_X_Blue = 9.5301;/* Variable: AT_Cage_M_Start_X_Blue
                                         * Referenced by: '<S367>/Constant20'
                                         */
@@ -175,12 +175,12 @@ real_T AT_Cage_M_Start_Y_Blue = 6.1697;/* Variable: AT_Cage_M_Start_Y_Blue
 real_T AT_Cage_M_Start_Y_Red = 1.8829; /* Variable: AT_Cage_M_Start_Y_Red
                                         * Referenced by: '<S367>/Constant33'
                                         */
-real_T AT_Cage_R_Finish_Angle_Blue = 0.0;/* Variable: AT_Cage_R_Finish_Angle_Blue
-                                          * Referenced by: '<S367>/Constant51'
-                                          */
-real_T AT_Cage_R_Finish_Angle_Red = -3.1416;/* Variable: AT_Cage_R_Finish_Angle_Red
-                                             * Referenced by: '<S367>/Constant56'
-                                             */
+real_T AT_Cage_R_Finish_Angle_Blue = -3.1416;/* Variable: AT_Cage_R_Finish_Angle_Blue
+                                              * Referenced by: '<S367>/Constant51'
+                                              */
+real_T AT_Cage_R_Finish_Angle_Red = 0.0;/* Variable: AT_Cage_R_Finish_Angle_Red
+                                         * Referenced by: '<S367>/Constant56'
+                                         */
 real_T AT_Cage_R_Finish_X_Blue = 8.7681;/* Variable: AT_Cage_R_Finish_X_Blue
                                          * Referenced by: '<S367>/Constant36'
                                          */
@@ -193,12 +193,12 @@ real_T AT_Cage_R_Finish_Y_Blue = 5.079;/* Variable: AT_Cage_R_Finish_Y_Blue
 real_T AT_Cage_R_Finish_Y_Red = 2.9735;/* Variable: AT_Cage_R_Finish_Y_Red
                                         * Referenced by: '<S367>/Constant40'
                                         */
-real_T AT_Cage_R_Start_Angle_Blue = 0.0;/* Variable: AT_Cage_R_Start_Angle_Blue
-                                         * Referenced by: '<S367>/Constant1'
-                                         */
-real_T AT_Cage_R_Start_Angle_Red = -3.1416;/* Variable: AT_Cage_R_Start_Angle_Red
-                                            * Referenced by: '<S367>/Constant50'
-                                            */
+real_T AT_Cage_R_Start_Angle_Blue = -3.1416;/* Variable: AT_Cage_R_Start_Angle_Blue
+                                             * Referenced by: '<S367>/Constant1'
+                                             */
+real_T AT_Cage_R_Start_Angle_Red = 0.0;/* Variable: AT_Cage_R_Start_Angle_Red
+                                        * Referenced by: '<S367>/Constant50'
+                                        */
 real_T AT_Cage_R_Start_X_Blue = 9.5301;/* Variable: AT_Cage_R_Start_X_Blue
                                         * Referenced by: '<S367>/Constant29'
                                         */
@@ -231,22 +231,22 @@ real_T AT_Max_Error_XY = 0.3;          /* Variable: AT_Max_Error_XY
 real_T AT_On_Target_Time = 0.5;        /* Variable: AT_On_Target_Time
                                         * Referenced by: '<S370>/Reefscape_Chart'
                                         */
-real_T AT_Processor_Angle_Blue = 1.5708;/* Variable: AT_Processor_Angle_Blue
-                                         * Referenced by: '<S367>/Constant10'
-                                         */
-real_T AT_Processor_Angle_Red = -1.5708;/* Variable: AT_Processor_Angle_Red
-                                         * Referenced by: '<S367>/Constant8'
-                                         */
+real_T AT_Processor_Angle_Blue = -1.5708;/* Variable: AT_Processor_Angle_Blue
+                                          * Referenced by: '<S367>/Constant10'
+                                          */
+real_T AT_Processor_Angle_Red = 1.5708;/* Variable: AT_Processor_Angle_Red
+                                        * Referenced by: '<S367>/Constant8'
+                                        */
 real_T AT_Processor_X_Blue = 11.5608;  /* Variable: AT_Processor_X_Blue
                                         * Referenced by: '<S367>/Constant18'
                                         */
 real_T AT_Processor_X_Red = 5.9875;    /* Variable: AT_Processor_X_Red
                                         * Referenced by: '<S367>/Constant19'
                                         */
-real_T AT_Processor_Y_Blue = 7.4206;   /* Variable: AT_Processor_Y_Blue
+real_T AT_Processor_Y_Blue = 7.4714;   /* Variable: AT_Processor_Y_Blue
                                         * Referenced by: '<S367>/Constant21'
                                         */
-real_T AT_Processor_Y_Red = 0.63119;   /* Variable: AT_Processor_Y_Red
+real_T AT_Processor_Y_Red = 0.58039;   /* Variable: AT_Processor_Y_Red
                                         * Referenced by: '<S367>/Constant23'
                                         */
 real_T AT_Reef_Target_Algae_X = 19.0;  /* Variable: AT_Reef_Target_Algae_X
@@ -305,7 +305,7 @@ real_T AT_Translation_Control_Gain_Relative = 0.2;
                                /* Variable: AT_Translation_Control_Gain_Relative
                                 * Referenced by: '<S391>/Gain1'
                                 */
-real_T AT_Translation_Speed_Max_Field = 5.0;
+real_T AT_Translation_Speed_Max_Field = 1.0;
                                      /* Variable: AT_Translation_Speed_Max_Field
                                       * Referenced by: '<S391>/Constant5'
                                       */
@@ -522,7 +522,7 @@ real_T Elevator_Height_Algae_High = 19.5;/* Variable: Elevator_Height_Algae_High
 real_T Elevator_Height_Algae_Low = 11.5;/* Variable: Elevator_Height_Algae_Low
                                          * Referenced by: '<S370>/Reefscape_Chart'
                                          */
-real_T Elevator_Height_Algae_Score = 2.5;/* Variable: Elevator_Height_Algae_Score
+real_T Elevator_Height_Algae_Score = 2.0;/* Variable: Elevator_Height_Algae_Score
                                           * Referenced by: '<S370>/Reefscape_Chart'
                                           */
 real_T Elevator_Height_Bottom = 0.0;   /* Variable: Elevator_Height_Bottom
@@ -2712,23 +2712,23 @@ void Code_Gen_Model_step(void)
 
   /* RelationalOperator: '<S74>/Compare' incorporates:
    *  Constant: '<S74>/Constant'
-   *  Inport: '<Root>/Joystick_Right_B2'
+   *  Inport: '<Root>/Joystick_Right_B3'
    */
-  Code_Gen_Model_B.Coral_Station_Left = (Code_Gen_Model_U.Joystick_Right_B2 !=
+  Code_Gen_Model_B.Coral_Station_Left = (Code_Gen_Model_U.Joystick_Right_B3 !=
     0.0);
 
   /* RelationalOperator: '<S73>/Compare' incorporates:
    *  Constant: '<S73>/Constant'
-   *  Inport: '<Root>/Joystick_Right_B3'
+   *  Inport: '<Root>/Joystick_Right_B4'
    */
-  Code_Gen_Model_B.Coral_Station_Right = (Code_Gen_Model_U.Joystick_Right_B3 !=
+  Code_Gen_Model_B.Coral_Station_Right = (Code_Gen_Model_U.Joystick_Right_B4 !=
     0.0);
 
   /* RelationalOperator: '<S72>/Compare' incorporates:
    *  Constant: '<S72>/Constant'
-   *  Inport: '<Root>/Joystick_Right_B4'
+   *  Inport: '<Root>/Joystick_Right_B2'
    */
-  Code_Gen_Model_B.Processor = (Code_Gen_Model_U.Joystick_Right_B4 != 0.0);
+  Code_Gen_Model_B.Processor = (Code_Gen_Model_U.Joystick_Right_B2 != 0.0);
 
   /* RelationalOperator: '<S70>/Compare' incorporates:
    *  Constant: '<S70>/Constant'

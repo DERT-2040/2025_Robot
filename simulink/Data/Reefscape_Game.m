@@ -23,7 +23,7 @@ Elevator_Height_L2      = 5.25+2;
 Elevator_Height_L3      = 13.125+2;
 Elevator_Height_L4      = 28; %26.125;
 
-Elevator_Height_Algae_Score = 2.5;
+Elevator_Height_Algae_Score = 2.0;
 Elevator_Height_Algae_Low   = 11.5;
 Elevator_Height_Algae_High  = 19.5;
 
