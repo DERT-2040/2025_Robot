@@ -56,21 +56,14 @@ AT_Translation_Speed_Max_Field = 5.0;  % meter/second
 
 %% Wheel Gear Ratio
 gear_ratio = 6.12;  % L1 gear ratio = 8.14,  L3 gear ratio = 6.12
-wheel_diameter = 0.101600203;
+wheel_diameter = 3.80*0.0254;
 Wheel_Speed_to_Motor_Speed = 60*gear_ratio/(wheel_diameter*pi); % (rev/min)/(m/sec)
 
 Drive_Motor_Max_Speed = 6200; % rpm  (also used below for PID feedforward gain)
 Drive_Wheel_Max_Speed = Drive_Motor_Max_Speed/Wheel_Speed_to_Motor_Speed; % m/sec
 
-% Ran a test without the adjustment factor with the following results
-%   physical measurement = 177.33 feet
-%   odometry estimate    = 186.44 feet
-adjustment_factor = 0.951;  % 177.33/186.44
-% set the above factor to 1.0 for simulation (don't forget to change it back!)
-% adjustment_factor = 1.0;
-
 % used for odometry
-Motor_Rev_to_Wheel_Distance = wheel_diameter*pi/gear_ratio*adjustment_factor; % m/rev
+Motor_Rev_to_Wheel_Distance = wheel_diameter*pi/gear_ratio; % m/rev
 
 clear gear_ratio wheel_diameter adjustment_factor
 
