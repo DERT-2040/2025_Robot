@@ -35,5 +35,7 @@ Odometry_and_Kalman_Filter
 Spline_Path_Following
 April_Tag_Data
 Reefscape_Game
+Reefscape_Auto_Control
+Reefscape_Auto_Paths
 
 
