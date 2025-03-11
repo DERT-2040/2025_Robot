@@ -23,7 +23,6 @@ Path_Blue_Left_A = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Blue
 % Start:  Reef Face I-J
@@ -39,7 +38,6 @@ Path_Blue_Left_B = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Blue
 % Start:  Coral Left
@@ -55,7 +53,6 @@ Path_Blue_Left_C = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Blue
 % Start:  Reef Face L-K
@@ -71,7 +68,6 @@ Path_Blue_Left_D = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Blue
 % Start:  Starting Line on Right
@@ -87,7 +83,6 @@ Path_Blue_Right_A = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Blue
 % Start:  Reef Face E-F
@@ -103,7 +98,6 @@ Path_Blue_Right_B = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Blue
 % Start:  Coral Right
@@ -119,7 +113,6 @@ Path_Blue_Right_C = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Blue
 % Start:  Reef Face C-D
@@ -135,14 +128,13 @@ Path_Blue_Right_D = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Blue
 % Start:  Starting Line on Center
 % Finish: Reef Face G-H
 Path_Blue_Center_A = [
-    7.533,  3.981,  0.5, -180    *D2R;
-    6.225,  3.981,  0,   -180    *D2R;
+    7.533,  width/2,  0.5, -180    *D2R;
+    6.225,  width/2,  0,   -180    *D2R;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -151,23 +143,21 @@ Path_Blue_Center_A = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 2;
 
 % Blue
 % Start:  Reef Face G-H
 % Finish: Starting Line on Center
 Path_Blue_Center_B = [
-    6.225,  3.981,  0.5, -180    *D2R;
+    6.225,  width/2,  0.5, -180    *D2R;
     7.046,  4.112,  1,  -180    *D2R;
-    7.504,  4.969,  1,  -90;
-    7.504,  6.705,  0,  0;
+    7.504,  4.969,  1,  -90    *D2R;
+    7.504,  6.705,  0,  0    *D2R;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Red
 % Start:  Starting Line on Right
@@ -183,7 +173,6 @@ Path_Red_Right_A = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Red
 % Start:  Reef Face E-F
@@ -199,7 +188,6 @@ Path_Red_Right_B = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Red
 % Start:  Coral Right
@@ -215,7 +203,6 @@ Path_Red_Right_C = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
 
 % Red
 % Start:  Reef Face E-F
@@ -231,19 +218,132 @@ Path_Red_Right_D = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
-Spline_Num_Poses = 4;
+
+% Red
+% Start:  Starting Line on Left
+% Finish: Reef Face E-F
+Path_Red_Left_A = [
+    length-Path_Blue_Right_A(1,1),  Path_Blue_Right_A(1,2),  Path_Blue_Right_A(1,3),  -(Path_Blue_Right_A(1,4)+pi);
+    length-Path_Blue_Right_A(2,1),  Path_Blue_Right_A(2,2),  Path_Blue_Right_A(2,3),  -(Path_Blue_Right_A(2,4)+pi);
+    length-Path_Blue_Right_A(3,1),  Path_Blue_Right_A(3,2),  Path_Blue_Right_A(3,3),  -(Path_Blue_Right_A(3,4)+pi);
+    length-Path_Blue_Right_A(4,1),  Path_Blue_Right_A(4,2),  Path_Blue_Right_A(4,3),  -(Path_Blue_Right_A(4,4)+pi);
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Red
+% Start:  Reef Face E-F
+% Finish: Coral Left
+Path_Red_Left_B = [
+    length-Path_Blue_Right_B(1,1),  Path_Blue_Right_B(1,2),  Path_Blue_Right_B(1,3),  -(Path_Blue_Right_B(1,4)+pi);
+    length-Path_Blue_Right_B(2,1),  Path_Blue_Right_B(2,2),  Path_Blue_Right_B(2,3),  -(Path_Blue_Right_B(2,4)+pi);
+    length-Path_Blue_Right_B(3,1),  Path_Blue_Right_B(3,2),  Path_Blue_Right_B(3,3),  -(Path_Blue_Right_B(3,4)+pi);
+    length-Path_Blue_Right_B(4,1),  Path_Blue_Right_B(4,2),  Path_Blue_Right_B(4,3),  -(Path_Blue_Right_B(4,4)+pi);
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Red
+% Start:  Coral Left
+% Finish: Reef Face E-F
+Path_Red_Left_C = [
+    length-Path_Blue_Right_C(1,1),  Path_Blue_Right_C(1,2),  Path_Blue_Right_C(1,3),  -(Path_Blue_Right_C(1,4)+pi);
+    length-Path_Blue_Right_C(2,1),  Path_Blue_Right_C(2,2),  Path_Blue_Right_C(2,3),  -(Path_Blue_Right_C(2,4)+pi);
+    length-Path_Blue_Right_C(3,1),  Path_Blue_Right_C(3,2),  Path_Blue_Right_C(3,3),  -(Path_Blue_Right_C(3,4)+pi);
+    length-Path_Blue_Right_C(4,1),  Path_Blue_Right_C(4,2),  Path_Blue_Right_C(4,3),  -(Path_Blue_Right_C(4,4)+pi);
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Red
+% Start:  Reef Face E-F
+% Finish: Coral Left
+Path_Red_Left_D = [
+    length-Path_Blue_Right_D(1,1),  Path_Blue_Right_D(1,2),  Path_Blue_Right_D(1,3),  -(Path_Blue_Right_D(1,4)+pi);
+    length-Path_Blue_Right_D(2,1),  Path_Blue_Right_D(2,2),  Path_Blue_Right_D(2,3),  -(Path_Blue_Right_D(2,4)+pi);
+    length-Path_Blue_Right_D(3,1),  Path_Blue_Right_D(3,2),  Path_Blue_Right_D(3,3),  -(Path_Blue_Right_D(3,4)+pi);
+    length-Path_Blue_Right_D(4,1),  Path_Blue_Right_D(4,2),  Path_Blue_Right_D(4,3),  -(Path_Blue_Right_D(4,4)+pi);
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Red
+% Start:  Starting Line on Center
+% Finish: Reef Face G-H
+Path_Red_Center_A = [
+    length-Path_Blue_Center_A(1,1),  Path_Blue_Center_A(1,2),  Path_Blue_Center_A(1,3),  0;
+    length-Path_Blue_Center_A(2,1),  Path_Blue_Center_A(2,2),  Path_Blue_Center_A(2,3),  0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Red
+% Start:  Reef Face G-H
+% Finish: Starting Line on Center
+Path_Red_Center_B = [
+    length-Path_Blue_Center_B(1,1),  width-Path_Blue_Center_B(1,2),  Path_Blue_Center_B(1,3),  -(Path_Blue_Center_B(1,4)+pi);
+    length-Path_Blue_Center_B(2,1),  width-Path_Blue_Center_B(2,2),  Path_Blue_Center_B(2,3),  -(Path_Blue_Center_B(2,4)+pi);
+    length-Path_Blue_Center_B(3,1),  width-Path_Blue_Center_B(3,2),  Path_Blue_Center_B(3,3),  -(Path_Blue_Center_B(3,4)+pi);
+    length-Path_Blue_Center_B(4,1),  width-Path_Blue_Center_B(4,2),  Path_Blue_Center_B(4,3),  -(Path_Blue_Center_B(4,4)+pi);
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
 
 %% Run simulation
 
+% Create figure
 figure(1), clf
 subplot(2,1,1)
 hold on
+
+% Field
+plot([0 0]*0.0254,[0 317.5]*0.0254,'k','LineWidth',3)
+plot([0 297.7*2+95.9]*0.0254,[0 0]*0.0254,'k','LineWidth',3)
+plot([0 297.7*2+95.9]*0.0254,[317.5 317.5]*0.0254,'k','LineWidth',3)
+plot([297.7*2+95.9, 297.7*2+95.9]*0.0254,[0 317.5]*0.0254,'k','LineWidth',3)
+
+plot([0, 65.276]*0.0254,[47.745, 0]*0.0254,'b','LineWidth',3)
+plot([0, 65.276]*0.0254,[317.5-47.745, 317.5]*0.0254,'b','LineWidth',3)
+plot([297.679*2 + 95.894 - 65.276, 297.679*2 + 95.894]*0.0254,[0, 47.745]*0.0254,'r','LineWidth',3)
+plot([297.679*2 + 95.894 - 65.276, 297.679*2 + 95.894]*0.0254,[317.5, 317.5 - 47.745]*0.0254,'r','LineWidth',3)
+
+plot([297.679, 297.679]*0.0254,[0, 317.5]*0.0254,'b','LineWidth',3)
+plot([297.679+95.894, 297.679+95.894]*0.0254,[0, 317.5]*0.0254,'r','LineWidth',3)
+plot([297.679+47.947, 297.679+47.947]*0.0254,[0, 317.5]*0.0254,'k','LineWidth',3)
+
+plot([144 144 177 209 209 177 144]*0.0254,[139 177 196 177 139 120 139]*0.0254,'b','LineWidth',3)
+plot((297.7*2+95.9)*0.0254-[144 144 177 209 209 177 144]*0.0254,[139 177 196 177 139 120 139]*0.0254,'r','LineWidth',3)
+
+axis([-20*0.0254, (297.7*2+95.9+20)*0.0254, -20*0.0254, (317.5+20)*0.0254])
+axis equal
+
 subplot(2,2,3)
 hold on
 subplot(2,2,4)
 hold on
 
-for k = 9:10
+
+for k = 1:20
 
     % Define data used by simulation
     if k == 1
@@ -287,6 +387,24 @@ for k = 9:10
         Spline_Num_Poses = 4;
     elseif  k == 14
         Spline_Ref_Poses = Path_Red_Right_D;
+        Spline_Num_Poses = 4;
+    elseif  k == 15
+        Spline_Ref_Poses = Path_Red_Left_A;
+        Spline_Num_Poses = 4;
+    elseif  k == 16
+        Spline_Ref_Poses = Path_Red_Left_B;
+        Spline_Num_Poses = 4;
+    elseif  k == 17
+        Spline_Ref_Poses = Path_Red_Left_C;
+        Spline_Num_Poses = 4;
+    elseif  k == 18
+        Spline_Ref_Poses = Path_Red_Left_D;
+        Spline_Num_Poses = 4;
+    elseif  k == 19
+        Spline_Ref_Poses = Path_Red_Center_A;
+        Spline_Num_Poses = 2;
+    elseif  k == 20
+        Spline_Ref_Poses = Path_Red_Center_B;
         Spline_Num_Poses = 4;
     end
 
