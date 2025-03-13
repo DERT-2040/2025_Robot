@@ -170,6 +170,36 @@ namespace Constants
                                                                              14, // CAN ID
                                                                              &Code_Gen_Model_Y.Algae_Wheel_Inside_DutyCycle);                                                                             
 
+        // Winch motor controller configuration
+        static constexpr NeoSparkCreateInfo winchMotorCreateInfo{
+            -1,   // canID
+            false,// isReversed
+            20,   // smartCurrentLimit
+            20,   // secondaryCurrentLimit
+            0.01, // openLoopRampRate (seconds)
+            true  // includeSensor
+        };      
+        static NeoSparkCreateInfo motorWinch = NeoSparkCreateInfo::modifyInfo(winchMotorCreateInfo,
+                                                                             15, // CAN ID
+                                                                             &Code_Gen_Model_Y.Winch_DutyCycle,
+                                                                             nullptr,
+                                                                             &Code_Gen_Model_U.Winch_Revs);
+
+        // Actuator motor controller configuration
+        static constexpr NeoSparkCreateInfo actuatorMotorCreateInfo{
+            -1,   // canID
+            false,// isReversed
+            80,   // smartCurrentLimit
+            80,   // secondaryCurrentLimit
+            0.01, // openLoopRampRate (seconds)
+            true  // includeSensor
+        };      
+        static NeoSparkCreateInfo motorActuator = NeoSparkCreateInfo::modifyInfo(actuatorMotorCreateInfo,
+                                                                             16, // CAN ID
+                                                                             &Code_Gen_Model_Y.Actuator_DutyCycle,
+                                                                             nullptr,
+                                                                             &Code_Gen_Model_U.Actuator_Revs);
+
         // These values correspond to the RoboRIO Digital Input/Output (DIO) ports
         static constexpr int bottomLimitSwitchID = 0;
         static constexpr int topLimitSwitchID = 1;

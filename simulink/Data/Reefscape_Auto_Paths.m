@@ -3,7 +3,7 @@ D2R = pi/180;
 
 % Field Size 317 in. x 691 in.
 width = 317 * 0.0254;
-length = 691 * .0254;
+length = 691 * 0.0254;
 
 % [x, y, velocity, angle]
 
@@ -353,3 +353,10 @@ All_Paths_Num_Poses = [
     nnz(Path_Red_Center_A(:,1));
     nnz(Path_Red_Center_B(:,1))];
 
+clear D2R width length
+clear Path_Blue_Left_A Path_Blue_Left_B Path_Blue_Left_C Path_Blue_Left_D 
+clear Path_Blue_Right_A Path_Blue_Right_B Path_Blue_Right_C Path_Blue_Right_D
+clear Path_Blue_Center_A Path_Blue_Center_B 
+clear Path_Red_Right_A Path_Red_Right_B Path_Red_Right_C Path_Red_Right_D
+clear Path_Red_Left_A Path_Red_Left_B Path_Red_Left_C Path_Red_Left_D
+clear Path_Red_Center_A Path_Red_Center_B

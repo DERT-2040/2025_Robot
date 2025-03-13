@@ -61,7 +61,9 @@ private:
       ReefscapeGameNameSpace::motorCoralArm,
       ReefscapeGameNameSpace::motorCoralWheel,
       ReefscapeGameNameSpace::motorAlgaeWheelOutside,
-      ReefscapeGameNameSpace::motorAlgaeWheelInside
+      ReefscapeGameNameSpace::motorAlgaeWheelInside,
+      ReefscapeGameNameSpace::motorWinch,
+      ReefscapeGameNameSpace::motorActuator
     }
   };
 

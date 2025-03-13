@@ -10,7 +10,6 @@ clear elevator_sprocket_diameter elevator_gear_ratio
 
 % ELevator heights (inches)
 Elevator_Height_Bottom  = 0;
-Elevator_Height_Top     = 28;
 Elevator_Height_Top_Reset = 28.125;
 Elevator_Height_PickupLower_Reset = 6.8;
 
@@ -26,6 +25,8 @@ Elevator_Height_L4      = 28; %26.125;
 Elevator_Height_Algae_Score = 2.0;
 Elevator_Height_Algae_Low   = 11.5;
 Elevator_Height_Algae_High  = 19.5;
+
+Elevator_Height_End_Game = 10;
 
 % Closed loop control for elevator height
 Elevator_Gain_Prop = 0.3;  % DC/inch
@@ -137,7 +138,8 @@ Winch_Spool_DC = 0;
 Winch_Hold_DC = 0;
 Winch_Rev_Target = 10;
 
-Actuator_Cmd_Gain = 2*0.02;  %inch/loop
+Actuator_MotorRev_to_Inch = 0.23625;
+Actuator_Cmd_Gain = 3*0.02;  %inch/loop
 Actuator_Desired_Max = 6; % inches
 
 Actuator_P_Gain = 0;
