@@ -879,6 +879,14 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Steering_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Twist_Gain = event.GetValueEventData()->value.GetDouble();});
     __Steering_Twist_Gain__Entry.SetDouble(-0.5);
  
+    __TEST_CANdle_Flag__Entry = NTtable_Tune->GetEntry("TEST_CANdle_Flag");
+    NTinst.AddListener(__TEST_CANdle_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_CANdle_Flag = event.GetValueEventData()->value.GetDouble();});
+    __TEST_CANdle_Flag__Entry.SetDouble(0);
+ 
+    __TEST_CANdle_LED_ID__Entry = NTtable_Tune->GetEntry("TEST_CANdle_LED_ID");
+    NTinst.AddListener(__TEST_CANdle_LED_ID__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_CANdle_LED_ID = event.GetValueEventData()->value.GetDouble();});
+    __TEST_CANdle_LED_ID__Entry.SetDouble(0);
+ 
     __TEST_Swerve_Mode_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Swerve_Mode_Override_Flag");
     NTinst.AddListener(__TEST_Swerve_Mode_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Swerve_Mode_Override_Flag = event.GetValueEventData()->value.GetDouble();});
     __TEST_Swerve_Mode_Override_Flag__Entry.SetDouble(0);
@@ -1038,6 +1046,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __BackLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Steer_DutyCycle");
     __BackRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Drive_DutyCycle");
     __BackRight_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Steer_DutyCycle");
+    __CANdle_LED_ID__Entry = NTtable_Outport->GetEntry("CANdle_LED_ID");
     __Coral_Arm_DutyCycle__Entry = NTtable_Outport->GetEntry("Coral_Arm_DutyCycle");
     __Coral_Wheel_DutyCycle__Entry = NTtable_Outport->GetEntry("Coral_Wheel_DutyCycle");
     __Disable_Wheels__Entry = NTtable_Outport->GetEntry("Disable_Wheels");
@@ -1056,7 +1065,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __AT_Field_Error_X__Entry = NTtable_TPoint->GetEntry("AT_Field_Error_X");
     __AT_Field_Error_Y__Entry = NTtable_TPoint->GetEntry("AT_Field_Error_Y");
     __AT_Field_Target_Angle__Entry = NTtable_TPoint->GetEntry("AT_Field_Target_Angle");
-    __AT_On_Target__Entry = NTtable_TPoint->GetEntry("AT_On_Target");
     __AT_Relative_Error_Angle__Entry = NTtable_TPoint->GetEntry("AT_Relative_Error_Angle");
     __AT_Relative_Error_Enable__Entry = NTtable_TPoint->GetEntry("AT_Relative_Error_Enable");
     __AT_Relative_Error_Error_X__Entry = NTtable_TPoint->GetEntry("AT_Relative_Error_Error_X");
@@ -1210,6 +1218,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Steering_Rel_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd");
     __Steering_Rel_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd_SPF");
     __Swerve_Drive_Integral_Enable__Entry = NTtable_TPoint->GetEntry("Swerve_Drive_Integral_Enable");
+    __Teleop_AT_On_Target__Entry = NTtable_TPoint->GetEntry("Teleop_AT_On_Target");
     __Test_Mode__Entry = NTtable_TPoint->GetEntry("Test_Mode");
     __Translation_Angle__Entry = NTtable_TPoint->GetEntry("Translation_Angle");
     __Translation_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Angle_SPF");
@@ -1328,6 +1337,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __BackLeft_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
     __BackRight_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackRight_Drive_DutyCycle);
     __BackRight_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
+    __CANdle_LED_ID__Entry.SetDouble(Code_Gen_Model_Y.CANdle_LED_ID);
     __Coral_Arm_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Coral_Arm_DutyCycle);
     __Coral_Wheel_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Coral_Wheel_DutyCycle);
     __Disable_Wheels__Entry.SetDouble(Code_Gen_Model_Y.Disable_Wheels);
@@ -1345,7 +1355,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __AT_Field_Error_X__Entry.SetDouble(Code_Gen_Model_B.AT_Field_Error_X);
     __AT_Field_Error_Y__Entry.SetDouble(Code_Gen_Model_B.AT_Field_Error_Y);
     __AT_Field_Target_Angle__Entry.SetDouble(Code_Gen_Model_B.AT_Field_Target_Angle);
-    __AT_On_Target__Entry.SetDouble(Code_Gen_Model_B.AT_On_Target);
     __AT_Relative_Error_Angle__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Angle);
     __AT_Relative_Error_Enable__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Enable);
     __AT_Relative_Error_Error_X__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Error_X);
@@ -1499,6 +1508,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Steering_Rel_Cmd__Entry.SetDouble(Code_Gen_Model_B.Steering_Rel_Cmd);
     __Steering_Rel_Cmd_SPF__Entry.SetDouble(Code_Gen_Model_B.Steering_Rel_Cmd_SPF);
     __Swerve_Drive_Integral_Enable__Entry.SetDouble(Code_Gen_Model_B.Swerve_Drive_Integral_Enable);
+    __Teleop_AT_On_Target__Entry.SetDouble(Code_Gen_Model_B.Teleop_AT_On_Target);
     __Test_Mode__Entry.SetDouble(Code_Gen_Model_B.Test_Mode);
     __Translation_Angle__Entry.SetDouble(Code_Gen_Model_B.Translation_Angle);
     __Translation_Angle_SPF__Entry.SetDouble(Code_Gen_Model_B.Translation_Angle_SPF);

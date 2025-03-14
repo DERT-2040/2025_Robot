@@ -235,6 +235,8 @@ private:
         nt::NetworkTableEntry __Steering_Relative_Cmd_Rate_Limit_Inc__Entry;
         nt::NetworkTableEntry __Steering_Relative_Gain__Entry;
         nt::NetworkTableEntry __Steering_Twist_Gain__Entry;
+        nt::NetworkTableEntry __TEST_CANdle_Flag__Entry;
+        nt::NetworkTableEntry __TEST_CANdle_LED_ID__Entry;
         nt::NetworkTableEntry __TEST_Swerve_Mode_Override_Flag__Entry;
         nt::NetworkTableEntry __TEST_Swerve_Mode_Steering__Entry;
         nt::NetworkTableEntry __TEST_Swerve_Mode_Translation__Entry;
@@ -349,6 +351,7 @@ private:
         nt::NetworkTableEntry __BackLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry __BackRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __BackRight_Steer_DutyCycle__Entry;
+        nt::NetworkTableEntry __CANdle_LED_ID__Entry;
         nt::NetworkTableEntry __Coral_Arm_DutyCycle__Entry;
         nt::NetworkTableEntry __Coral_Wheel_DutyCycle__Entry;
         nt::NetworkTableEntry __Disable_Wheels__Entry;
@@ -367,7 +370,6 @@ private:
         nt::NetworkTableEntry __AT_Field_Error_X__Entry;
         nt::NetworkTableEntry __AT_Field_Error_Y__Entry;
         nt::NetworkTableEntry __AT_Field_Target_Angle__Entry;
-        nt::NetworkTableEntry __AT_On_Target__Entry;
         nt::NetworkTableEntry __AT_Relative_Error_Angle__Entry;
         nt::NetworkTableEntry __AT_Relative_Error_Enable__Entry;
         nt::NetworkTableEntry __AT_Relative_Error_Error_X__Entry;
@@ -521,6 +523,7 @@ private:
         nt::NetworkTableEntry __Steering_Rel_Cmd__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd_SPF__Entry;
         nt::NetworkTableEntry __Swerve_Drive_Integral_Enable__Entry;
+        nt::NetworkTableEntry __Teleop_AT_On_Target__Entry;
         nt::NetworkTableEntry __Test_Mode__Entry;
         nt::NetworkTableEntry __Translation_Angle__Entry;
         nt::NetworkTableEntry __Translation_Angle_SPF__Entry;

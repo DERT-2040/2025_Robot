@@ -29,6 +29,10 @@ TEST_Swerve_Mode_Override_Flag = 0;
 TEST_Swerve_Mode_Translation = 0; 
 TEST_Swerve_Mode_Steering = 0;
 
+% Test Mode for CANdle
+TEST_CANdle_Flag = 0;   % change to non-zero to enable the below ID value
+TEST_CANdle_LED_ID = 0; % ID value used in C++ code to change the light pattern
+
 %% Run data scripts
 Swerve_Drive
 Odometry_and_Kalman_Filter
