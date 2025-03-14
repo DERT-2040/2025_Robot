@@ -21,25 +21,8 @@ Limelight::Limelight() {
 
 void Limelight::PreStepCallback() {
     // Check if Limelight One is Connected
-    if(IsCameraOneConnected == false && nt::NetworkTableInstance::GetDefault().GetTable("limelight-one") == nullptr)
-    {
-        CameraOneDisconnectedAlert.Set(true);
-    }
-    else
-    {
-        IsCameraOneConnected = true;
-        CameraOneDisconnectedAlert.Set(false);
-    }
-
-    if(IsCameraTwoConnected == false && nt::NetworkTableInstance::GetDefault().GetTable("limelight-two") == nullptr)
-    {
-        CameraTwoDisconnectedAlert.Set(true);
-    }
-    else
-    {
-        IsCameraTwoConnected = true;
-        CameraTwoDisconnectedAlert.Set(false);
-    }
+    CameraOneDisconnectedAlert.Set(!nt::NetworkTableInstance::GetDefault().GetTable("limelight-one")->ContainsKey("cl"));
+    CameraTwoDisconnectedAlert.Set(!nt::NetworkTableInstance::GetDefault().GetTable("limelight-two")->ContainsKey("cl"));
 
     auto adjustedGyro = m_Pigeon2.GetRotation2d().Degrees().value() + Gyro_Offset;
 

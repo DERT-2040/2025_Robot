@@ -55,10 +55,6 @@ class Limelight : public Component {
     LimelightHelpers::PoseEstimate CameraOneLLMeasurement;
     LimelightHelpers::PoseEstimate CameraTwoLLMeasurement;
 
-    // Limelight Connected Status
-    bool IsCameraOneConnected = false;
-    bool IsCameraTwoConnected = false;
-
     // Limelight Alerts
     frc::Alert CameraOneDisconnectedAlert {"Limelight One Disconnecred", frc::Alert::AlertType::kError};
     frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};
