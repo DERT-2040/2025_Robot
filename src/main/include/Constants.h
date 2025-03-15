@@ -5,6 +5,7 @@
 #include "lib/include/NeoSpark.h"
 #include "lib/include/KrakenTalon.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
+#include "frc/AddressableLED.h"
 
 namespace Constants
 {
@@ -212,5 +213,16 @@ namespace Constants
         // IP address of the roboRIO into a web browser followed by :5812
         static constexpr uint8_t Coral_TOF_ID = 0;
         
+    };
+
+    namespace CANdle
+    {
+        static constexpr int LEDoffset = 0;
+        static constexpr int LEDCount = 158;
+        static frc::AddressableLED::LEDData StrobeColorOne {86, 5, 145}; //r, g, b
+        static frc::AddressableLED::LEDData StrobeColorTwo {176, 0, 0};//r, g, b
+
+        static constexpr int CANdleID = 0;
+        static std::string CANdleNetworkName = "rio";
     };
 };

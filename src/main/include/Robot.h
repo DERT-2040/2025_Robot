@@ -14,6 +14,7 @@
 #include "include/FMSInfo.h"
 #include "include/Limelight.h"
 #include "include/ReefscapeGame.h"
+#include "include/CANdle.h"
 // For each component also add content in this file at the bottom of the private area
 
 //frc
@@ -152,4 +153,9 @@ private:
    * Component that supports the ReefscapeGame inputs and outputs
    */
   ReefscapeGame m_ReefscapeGame;
+
+  /**
+   * Candle Object
+   */
+  CANdle m_CANdle;
 };
