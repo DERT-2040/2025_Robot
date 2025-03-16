@@ -69,7 +69,7 @@ private:
 
   // Limit Switches
   frc::DigitalInput bottomLimitSwitch {ReefscapeGameNameSpace::bottomLimitSwitchID};
-  frc::DigitalInput topLimitSwitch {ReefscapeGameNameSpace::topLimitSwitchID};
+             //frc::DigitalInput topLimitSwitch {ReefscapeGameNameSpace::topLimitSwitchID};
   frc::DigitalInput coralLimitSwitch {ReefscapeGameNameSpace::coralLimitSwitchID};
   frc::DigitalInput algaeLimitSwitch {ReefscapeGameNameSpace::algaeLimitSwitchID};
 

@@ -10,23 +10,23 @@ clear elevator_sprocket_diameter elevator_gear_ratio
 
 % ELevator heights (inches)
 Elevator_Height_Bottom  = 0;
-Elevator_Height_Top_Reset = 28.125;
-Elevator_Height_PickupLower_Reset = 6.8;
+Elevator_Height_Top_Reset = 30;
+Elevator_Height_PickupLower_Reset = 7.875;
 
-Elevator_Height_Prepare = 12.0;
-Elevator_Height_Lower   = 6.0;
-Elevator_Height_Raise   = 9.0;
+Elevator_Height_Prepare = 10.5;
+Elevator_Height_Lower   = 7.5;
+Elevator_Height_Raise   = 9.6;
 
 Elevator_Height_L1      = 11;
 Elevator_Height_L2      = 5.25+2;
 Elevator_Height_L3      = 13.125+2;
-Elevator_Height_L4      = 28; %26.125;
+Elevator_Height_L4      = 27;
 
 Elevator_Height_Algae_Score = 2.0;
 Elevator_Height_Algae_Low   = 11.5;
 Elevator_Height_Algae_High  = 19.5;
 
-Elevator_Height_End_Game = 10;
+Elevator_Height_End_Game = 15;
 
 % Closed loop control for elevator height
 Elevator_Gain_Prop = 0.3;  % DC/inch
@@ -47,7 +47,7 @@ Elevator_Height_Error_Threshold = 1.00; % inches
 Elevator_LowerPickup_Time = 0.5;  % seconds
 
 % Coral Time Of Flight (TOF) detection threshold to start lowering elevator
-Coral_Detect_Distance       = 60; % mm
+Coral_Detect_Distance       = 120; % mm
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,8 +79,8 @@ Coral_Arm_DC_Inc_RL = 1/0.3*0.02;  % duty cycle per loop
 Coral_Arm_Angle_Error_Threshold = 3;    % degrees
 
 % Thresholds to bypass closed loop control and set a duty cycle
-Coral_Arm_Angle_Neg_Threshold = -88;  % deg
-Coral_Arm_Angle_Pos_Threshold = 110;   %80;   % deg
+Coral_Arm_Angle_Neg_Threshold = -86;  % deg
+Coral_Arm_Angle_Pos_Threshold = 80;   % deg
 Elevator_Height_Coral_Arm_Low_Thresh = 8.5;  % inch
 Coral_Arm_Neg90_DC = -0.03;
 Coral_Arm_Pos90_DC = 0.03;

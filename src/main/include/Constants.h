@@ -203,11 +203,11 @@ namespace Constants
 
         // These values correspond to the RoboRIO Digital Input/Output (DIO) ports
         static constexpr int bottomLimitSwitchID = 0;
-        static constexpr int topLimitSwitchID = 1;
-        static constexpr int coralLimitSwitchID = 2;
+                 //static constexpr int topLimitSwitchID = 1;
+        static constexpr int coralLimitSwitchID = 1;
         static constexpr int algaeLimitSwitchID = 3;
         static constexpr int coralThroughBoreEncoderID = 4;
-        static constexpr int coralThroughBoreEncoderOffset = 80.8; // degrees
+        static constexpr int coralThroughBoreEncoderOffset = -281.5; // degrees
 
         // The Playing with Fusion configuration interface tool may be accessed by typing in the
         // IP address of the roboRIO into a web browser followed by :5812
@@ -222,7 +222,7 @@ namespace Constants
         static frc::AddressableLED::LEDData StrobeColorOne {86, 5, 145}; //r, g, b
         static frc::AddressableLED::LEDData StrobeColorTwo {176, 0, 0};//r, g, b
 
-        static constexpr int CANdleID = 0;
-        static std::string CANdleNetworkName = "rio";
+        static constexpr int CANdleID = 1;
+        static std::string CANdleNetworkName = "uno";
     };
 };

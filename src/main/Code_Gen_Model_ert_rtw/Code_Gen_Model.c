@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.333
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 14 17:17:09 2025
+ * C/C++ source code generated on : Sat Mar 15 21:25:30 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -498,11 +498,11 @@ real_T Coral_Arm_Angle_L4_Eject_Teleop = 40.0;
                                      *   '<S420>/Reefscape_Chart'
                                      *   '<S30>/Reefscape_Chart'
                                      */
-real_T Coral_Arm_Angle_Neg_Threshold = -88.0;
+real_T Coral_Arm_Angle_Neg_Threshold = -86.0;
                                       /* Variable: Coral_Arm_Angle_Neg_Threshold
                                        * Referenced by: '<S69>/Constant'
                                        */
-real_T Coral_Arm_Angle_Pos_Threshold = 110.0;
+real_T Coral_Arm_Angle_Pos_Threshold = 80.0;
                                       /* Variable: Coral_Arm_Angle_Pos_Threshold
                                        * Referenced by:
                                        *   '<S70>/Constant'
@@ -552,7 +552,7 @@ real_T Coral_Arm_Neg90_DC = -0.03;     /* Variable: Coral_Arm_Neg90_DC
 real_T Coral_Arm_Pos90_DC = 0.03;      /* Variable: Coral_Arm_Pos90_DC
                                         * Referenced by: '<S8>/Constant1'
                                         */
-real_T Coral_Detect_Distance = 60.0;   /* Variable: Coral_Detect_Distance
+real_T Coral_Detect_Distance = 120.0;  /* Variable: Coral_Detect_Distance
                                         * Referenced by:
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
@@ -698,7 +698,7 @@ real_T Elevator_Height_Coral_Score_Lower_Rate = -0.1;
                               *   '<S420>/Reefscape_Chart'
                               *   '<S30>/Reefscape_Chart'
                               */
-real_T Elevator_Height_End_Game = 10.0;/* Variable: Elevator_Height_End_Game
+real_T Elevator_Height_End_Game = 15.0;/* Variable: Elevator_Height_End_Game
                                         * Referenced by:
                                         *   '<S12>/Constant5'
                                         *   '<S420>/Reefscape_Chart'
@@ -736,12 +736,12 @@ real_T Elevator_Height_L3_Eject = 9.125;/* Variable: Elevator_Height_L3_Eject
                                          *   '<S420>/Reefscape_Chart'
                                          *   '<S30>/Reefscape_Chart'
                                          */
-real_T Elevator_Height_L4 = 28.0;      /* Variable: Elevator_Height_L4
+real_T Elevator_Height_L4 = 27.0;      /* Variable: Elevator_Height_L4
                                         * Referenced by:
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
                                         */
-real_T Elevator_Height_Lower = 6.0;    /* Variable: Elevator_Height_Lower
+real_T Elevator_Height_Lower = 7.5;    /* Variable: Elevator_Height_Lower
                                         * Referenced by:
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
@@ -751,25 +751,25 @@ real_T Elevator_Height_Manual_Gain = 0.1;/* Variable: Elevator_Height_Manual_Gai
                                           *   '<S420>/Reefscape_Chart'
                                           *   '<S30>/Reefscape_Chart'
                                           */
-real_T Elevator_Height_PickupLower_Reset = 6.8;
+real_T Elevator_Height_PickupLower_Reset = 7.875;
                                   /* Variable: Elevator_Height_PickupLower_Reset
                                    * Referenced by: '<S11>/Constant2'
                                    */
-real_T Elevator_Height_Prepare = 12.0; /* Variable: Elevator_Height_Prepare
+real_T Elevator_Height_Prepare = 10.5; /* Variable: Elevator_Height_Prepare
                                         * Referenced by:
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
                                         */
-real_T Elevator_Height_Raise = 9.0;    /* Variable: Elevator_Height_Raise
+real_T Elevator_Height_Raise = 9.6;    /* Variable: Elevator_Height_Raise
                                         * Referenced by:
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
                                         */
-real_T Elevator_Height_Top_Reset = 28.125;/* Variable: Elevator_Height_Top_Reset
-                                           * Referenced by:
-                                           *   '<S11>/Constant1'
-                                           *   '<S11>/Constant3'
-                                           */
+real_T Elevator_Height_Top_Reset = 30.0;/* Variable: Elevator_Height_Top_Reset
+                                         * Referenced by:
+                                         *   '<S11>/Constant1'
+                                         *   '<S11>/Constant3'
+                                         */
 real_T Elevator_Hold_at_Top_DC = 0.1;  /* Variable: Elevator_Hold_at_Top_DC
                                         * Referenced by: '<S10>/Constant1'
                                         */
