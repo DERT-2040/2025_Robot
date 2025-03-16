@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.333
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 15 21:25:30 2025
+ * C/C++ source code generated on : Sun Mar 16 03:20:12 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -257,7 +257,7 @@ real_T AT_Integral_Enable_Error_XY = 2.0;/* Variable: AT_Integral_Enable_Error_X
                                           *   '<S42>/Constant'
                                           *   '<S43>/Constant'
                                           */
-real_T AT_Max_Error_Angle = 1.0;       /* Variable: AT_Max_Error_Angle
+real_T AT_Max_Error_Angle = 0.5;       /* Variable: AT_Max_Error_Angle
                                         * Referenced by:
                                         *   '<S430>/Constant'
                                         *   '<S41>/Constant'
@@ -292,42 +292,42 @@ real_T AT_Processor_Y_Blue = 7.4714;   /* Variable: AT_Processor_Y_Blue
 real_T AT_Processor_Y_Red = 0.58039;   /* Variable: AT_Processor_Y_Red
                                         * Referenced by: '<S417>/Constant23'
                                         */
-real_T AT_Reef_Target_Algae_X = 19.0;  /* Variable: AT_Reef_Target_Algae_X
+real_T AT_Reef_Target_Algae_X = 18.0;  /* Variable: AT_Reef_Target_Algae_X
                                         * Referenced by:
                                         *   '<S418>/Constant7'
                                         *   '<S27>/Constant7'
                                         */
-real_T AT_Reef_Target_Algae_Y = 4.5;   /* Variable: AT_Reef_Target_Algae_Y
+real_T AT_Reef_Target_Algae_Y = 2.5;   /* Variable: AT_Reef_Target_Algae_Y
                                         * Referenced by:
                                         *   '<S418>/Constant6'
                                         *   '<S27>/Constant6'
                                         */
-real_T AT_Reef_Target_Center_Y = -2.5; /* Variable: AT_Reef_Target_Center_Y
+real_T AT_Reef_Target_Center_Y = -4.5; /* Variable: AT_Reef_Target_Center_Y
                                         * Referenced by:
                                         *   '<S418>/Constant3'
                                         *   '<S27>/Constant3'
                                         */
-real_T AT_Reef_Target_L1_X = 26.75;    /* Variable: AT_Reef_Target_L1_X
+real_T AT_Reef_Target_L1_X = 25.75;    /* Variable: AT_Reef_Target_L1_X
                                         * Referenced by:
                                         *   '<S418>/Constant4'
                                         *   '<S27>/Constant4'
                                         */
-real_T AT_Reef_Target_L2_L3_X = 26.25; /* Variable: AT_Reef_Target_L2_L3_X
+real_T AT_Reef_Target_L2_L3_X = 25.25; /* Variable: AT_Reef_Target_L2_L3_X
                                         * Referenced by:
                                         *   '<S418>/Constant'
                                         *   '<S27>/Constant'
                                         */
-real_T AT_Reef_Target_L4_X = 27.75;    /* Variable: AT_Reef_Target_L4_X
+real_T AT_Reef_Target_L4_X = 26.75;    /* Variable: AT_Reef_Target_L4_X
                                         * Referenced by:
                                         *   '<S418>/Constant5'
                                         *   '<S27>/Constant5'
                                         */
-real_T AT_Reef_Target_Left_Y = 5.5;    /* Variable: AT_Reef_Target_Left_Y
+real_T AT_Reef_Target_Left_Y = 3.5;    /* Variable: AT_Reef_Target_Left_Y
                                         * Referenced by:
                                         *   '<S418>/Constant1'
                                         *   '<S27>/Constant1'
                                         */
-real_T AT_Reef_Target_Right_Y = -7.5;  /* Variable: AT_Reef_Target_Right_Y
+real_T AT_Reef_Target_Right_Y = -9.5;  /* Variable: AT_Reef_Target_Right_Y
                                         * Referenced by:
                                         *   '<S418>/Constant2'
                                         *   '<S27>/Constant2'
@@ -552,7 +552,7 @@ real_T Coral_Arm_Neg90_DC = -0.03;     /* Variable: Coral_Arm_Neg90_DC
 real_T Coral_Arm_Pos90_DC = 0.03;      /* Variable: Coral_Arm_Pos90_DC
                                         * Referenced by: '<S8>/Constant1'
                                         */
-real_T Coral_Detect_Distance = 120.0;  /* Variable: Coral_Detect_Distance
+real_T Coral_Detect_Distance = 150.0;  /* Variable: Coral_Detect_Distance
                                         * Referenced by:
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
@@ -668,17 +668,17 @@ real_T Elevator_Gain_Int = 0.02;       /* Variable: Elevator_Gain_Int
 real_T Elevator_Gain_Prop = 0.3;       /* Variable: Elevator_Gain_Prop
                                         * Referenced by: '<S89>/Gain1'
                                         */
-real_T Elevator_Height_Algae_High = 19.5;/* Variable: Elevator_Height_Algae_High
+real_T Elevator_Height_Algae_High = 20.5;/* Variable: Elevator_Height_Algae_High
                                           * Referenced by:
                                           *   '<S420>/Reefscape_Chart'
                                           *   '<S30>/Reefscape_Chart'
                                           */
-real_T Elevator_Height_Algae_Low = 11.5;/* Variable: Elevator_Height_Algae_Low
+real_T Elevator_Height_Algae_Low = 12.5;/* Variable: Elevator_Height_Algae_Low
                                          * Referenced by:
                                          *   '<S420>/Reefscape_Chart'
                                          *   '<S30>/Reefscape_Chart'
                                          */
-real_T Elevator_Height_Algae_Score = 2.0;/* Variable: Elevator_Height_Algae_Score
+real_T Elevator_Height_Algae_Score = 3.5;/* Variable: Elevator_Height_Algae_Score
                                           * Referenced by:
                                           *   '<S420>/Reefscape_Chart'
                                           *   '<S30>/Reefscape_Chart'
@@ -711,7 +711,7 @@ real_T Elevator_Height_Error_Threshold = 1.0;
                                      *   '<S420>/Reefscape_Chart'
                                      *   '<S30>/Reefscape_Chart'
                                      */
-real_T Elevator_Height_L1 = 11.0;      /* Variable: Elevator_Height_L1
+real_T Elevator_Height_L1 = 12.0;      /* Variable: Elevator_Height_L1
                                         * Referenced by:
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
@@ -726,17 +726,17 @@ real_T Elevator_Height_L2_Eject = 1.25;/* Variable: Elevator_Height_L2_Eject
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
                                         */
-real_T Elevator_Height_L3 = 15.125;    /* Variable: Elevator_Height_L3
+real_T Elevator_Height_L3 = 15.25;     /* Variable: Elevator_Height_L3
                                         * Referenced by:
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
                                         */
-real_T Elevator_Height_L3_Eject = 9.125;/* Variable: Elevator_Height_L3_Eject
-                                         * Referenced by:
-                                         *   '<S420>/Reefscape_Chart'
-                                         *   '<S30>/Reefscape_Chart'
-                                         */
-real_T Elevator_Height_L4 = 27.0;      /* Variable: Elevator_Height_L4
+real_T Elevator_Height_L3_Eject = 9.25;/* Variable: Elevator_Height_L3_Eject
+                                        * Referenced by:
+                                        *   '<S420>/Reefscape_Chart'
+                                        *   '<S30>/Reefscape_Chart'
+                                        */
+real_T Elevator_Height_L4 = 27.5;      /* Variable: Elevator_Height_L4
                                         * Referenced by:
                                         *   '<S420>/Reefscape_Chart'
                                         *   '<S30>/Reefscape_Chart'
@@ -814,13 +814,13 @@ real_T KF_Enable = 1.0;                /* Variable: KF_Enable
                                         *   '<S16>/Constant1'
                                         *   '<S16>/Constant2'
                                         */
-real_T Limelight_Tag_Angle_Offset = -0.2;/* Variable: Limelight_Tag_Angle_Offset
+real_T Limelight_Tag_Angle_Offset = 1.35;/* Variable: Limelight_Tag_Angle_Offset
                                           * Referenced by: '<S17>/Constant2'
                                           */
-real_T Limelight_Tag_X_Offset = -0.65; /* Variable: Limelight_Tag_X_Offset
+real_T Limelight_Tag_X_Offset = 0.51;  /* Variable: Limelight_Tag_X_Offset
                                         * Referenced by: '<S17>/Constant'
                                         */
-real_T Limelight_Tag_Y_Offset = 0.21;  /* Variable: Limelight_Tag_Y_Offset
+real_T Limelight_Tag_Y_Offset = 0.24;  /* Variable: Limelight_Tag_Y_Offset
                                         * Referenced by: '<S17>/Constant1'
                                         */
 real_T Odometry_IC_X = 0.0;            /* Variable: Odometry_IC_X
@@ -1121,7 +1121,7 @@ static void Code_Gen_M_Coral_Score_Position(const boolean_T *Compare, const
   *FixPtRelationalOperator_o);
 static void Code_Elevator_Height_Bottom_pre(const boolean_T *Compare_f);
 static void Code_Gen_Model_End_Game_Climb(const boolean_T *Compare_f);
-static void enter_internal_c2_Code_Gen_Mode(real_T *Algae_Wheel_Inside_DC_c,
+static void enter_internal_c4_Code_Gen_Mode(real_T *Algae_Wheel_Inside_DC_c,
   real_T *Algae_Wheel_Outside_DC_p);
 static void enter_internal_Coral_Score_Po_f(const boolean_T
   *FixPtRelationalOperator, const boolean_T *FixPtRelationalOperator_n, const
@@ -1149,7 +1149,7 @@ static void Code_Gen_Coral_Score_Position_m(const boolean_T *Compare, const
   *FixPtRelationalOperator_k, const boolean_T *FixPtRelationalOperator_d);
 static void Co_Elevator_Height_Bottom_pre_j(const boolean_T *Compare_f);
 static void Code_Gen_Model_End_Game_Climb_f(const boolean_T *Compare_f);
-static void enter_internal_c4_Code_Gen_Mode(const uint8_T *Prev_Active_GameState,
+static void enter_internal_c6_Code_Gen_Mode(const uint8_T *Prev_Active_GameState,
   const real_T *UnitDelay1, real_T *Algae_Wheel_Inside_DC, real_T
   *Algae_Wheel_Outside_DC);
 
@@ -2697,7 +2697,7 @@ static void Code_Gen_Model_End_Game_Climb(const boolean_T *Compare_f)
 }
 
 /* Function for Chart: '<S30>/Reefscape_Chart' */
-static void enter_internal_c2_Code_Gen_Mode(real_T *Algae_Wheel_Inside_DC_c,
+static void enter_internal_c4_Code_Gen_Mode(real_T *Algae_Wheel_Inside_DC_c,
   real_T *Algae_Wheel_Outside_DC_p)
 {
   Code_Gen_Model_DW.is_Elevator_CoralArm_CoralWhe_o =
@@ -3849,7 +3849,7 @@ static void Code_Gen_Model_End_Game_Climb_f(const boolean_T *Compare_f)
 }
 
 /* Function for Chart: '<S420>/Reefscape_Chart' */
-static void enter_internal_c4_Code_Gen_Mode(const uint8_T *Prev_Active_GameState,
+static void enter_internal_c6_Code_Gen_Mode(const uint8_T *Prev_Active_GameState,
   const real_T *UnitDelay1, real_T *Algae_Wheel_Inside_DC, real_T
   *Algae_Wheel_Outside_DC)
 {
@@ -5276,7 +5276,7 @@ void Code_Gen_Model_step(void)
       Code_Gen_Model_DW.timer_n = 0.0;
       Code_Gen_Model_B.Translation_Speed_g = 0.0;
       Code_Gen_Model_B.Translation_Angle_l = 0.0;
-      Code_Gen_Model_DW.is_active_c2_Code_Gen_Model = 0U;
+      Code_Gen_Model_DW.is_active_c4_Code_Gen_Model = 0U;
       Code_Gen_Model_DW.is_Elevator_CoralArm_CoralWhe_o =
         Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
       Code_Gen_Model_DW.is_Set_Level_d = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
@@ -5763,11 +5763,11 @@ void Code_Gen_Model_step(void)
      *
      *  Store in Global RAM
      */
-    if (Code_Gen_Model_DW.is_active_c2_Code_Gen_Model == 0U) {
-      Code_Gen_Model_DW.is_active_c2_Code_Gen_Model = 1U;
+    if (Code_Gen_Model_DW.is_active_c4_Code_Gen_Model == 0U) {
+      Code_Gen_Model_DW.is_active_c4_Code_Gen_Model = 1U;
 
       /* SignalConversion generated from: '<S2>/Algae_Wheel_Outside_DutyCycle' */
-      enter_internal_c2_Code_Gen_Mode(&rtb_Algae_Wheel_Inside_DutyCycl,
+      enter_internal_c4_Code_Gen_Mode(&rtb_Algae_Wheel_Inside_DutyCycl,
         &rtb_Algae_Wheel_Outside_DutyCyc);
     } else {
       switch (Code_Gen_Model_DW.is_Elevator_CoralArm_CoralWhe_o) {
@@ -6623,7 +6623,7 @@ void Code_Gen_Model_step(void)
        *  Chart: '<S420>/Reefscape_Chart'
        *  SignalConversion generated from: '<S24>/Algae_Wheel_Inside_DutyCycle'
        */
-      Code_Gen_Model_DW.is_active_c4_Code_Gen_Model = 0U;
+      Code_Gen_Model_DW.is_active_c6_Code_Gen_Model = 0U;
       Code_Gen_Model_DW.is_Elevator_CoralArm_CoralWheel =
         Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
       Code_Gen_Model_DW.is_Set_Level = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
@@ -7455,14 +7455,14 @@ void Code_Gen_Model_step(void)
      *
      *  Store in Global RAM
      */
-    if (Code_Gen_Model_DW.is_active_c4_Code_Gen_Model == 0U) {
-      Code_Gen_Model_DW.is_active_c4_Code_Gen_Model = 1U;
+    if (Code_Gen_Model_DW.is_active_c6_Code_Gen_Model == 0U) {
+      Code_Gen_Model_DW.is_active_c6_Code_Gen_Model = 1U;
 
       /* SignalConversion generated from: '<S24>/Algae_Wheel_Inside_DutyCycle' incorporates:
        *  UnitDelay: '<S1>/Unit Delay1'
        *  UnitDelay: '<S20>/Unit Delay'
        */
-      enter_internal_c4_Code_Gen_Mode(&Code_Gen_Model_B.Active_GameState,
+      enter_internal_c6_Code_Gen_Mode(&Code_Gen_Model_B.Active_GameState,
         &Code_Gen_Model_DW.UnitDelay1_DSTATE_b, &rtb_Algae_Wheel_Inside_DutyCycl,
         &rtb_Add_o5);
     } else {

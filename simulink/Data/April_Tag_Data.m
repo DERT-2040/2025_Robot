@@ -2,22 +2,22 @@
 % APRIL TAG TRACKING TARGETS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Limelight_Tag_X_Offset = -0.65;    % inches
-Limelight_Tag_Y_Offset = 0.21;     % inches
-Limelight_Tag_Angle_Offset = -0.2; % degrees
+Limelight_Tag_X_Offset = 0.51;    % inches
+Limelight_Tag_Y_Offset = 0.24;     % inches
+Limelight_Tag_Angle_Offset = 1.35; % degrees
 
-AT_Reef_Target_L1_X = 26.75;    % inches
-AT_Reef_Target_L2_L3_X = 26.25; % inches
-AT_Reef_Target_L4_X = 27.75;    % inches
-AT_Reef_Target_Algae_X = 19;    % inches
+AT_Reef_Target_L1_X = 25.75;    % inches
+AT_Reef_Target_L2_L3_X = 25.25; % inches
+AT_Reef_Target_L4_X = 26.75;    % inches
+AT_Reef_Target_Algae_X = 18;    % inches
 
-AT_Reef_Target_Left_Y = 5.5;    % inches
-AT_Reef_Target_Center_Y = -2.5; % inches
-AT_Reef_Target_Right_Y = -7.5;  % inches
-AT_Reef_Target_Algae_Y = 4.5;   % inches
+AT_Reef_Target_Left_Y = 3.5;    % inches
+AT_Reef_Target_Center_Y = -4.5; % inches
+AT_Reef_Target_Right_Y = -9.5;  % inches
+AT_Reef_Target_Algae_Y = 2.5;   % inches
 
 AT_Max_Error_XY = 0.5;          % inches
-AT_Max_Error_Angle = 1.0;       % degrees
+AT_Max_Error_Angle = 0.5;       % degrees
 
 AT_Integral_Enable_Error_XY = 2.0;     % inches
 AT_Integral_Enable_Error_Angle = 5.0;  % degrees

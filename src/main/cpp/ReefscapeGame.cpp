@@ -3,6 +3,7 @@
 ReefscapeGame::ReefscapeGame()
 {
     coralArmAngle.SetInverted(true);
+    coralTimeOfFlightSensor.SetRangeOfInterest(9,9,11,11);
 }
 
 void ReefscapeGame::PreStepCallback()

@@ -17,14 +17,15 @@ Elevator_Height_Prepare = 10.5;
 Elevator_Height_Lower   = 7.5;
 Elevator_Height_Raise   = 9.6;
 
-Elevator_Height_L1      = 11;
-Elevator_Height_L2      = 5.25+2;
-Elevator_Height_L3      = 13.125+2;
-Elevator_Height_L4      = 27;
+Elevator_Height_L1      = 12;
+Elevator_Height_L2      = 7.25;
+Elevator_Height_L3      = 15.25;
+Elevator_Height_L4      = 27.5;
 
-Elevator_Height_Algae_Score = 2.0;
-Elevator_Height_Algae_Low   = 11.5;
-Elevator_Height_Algae_High  = 19.5;
+
+Elevator_Height_Algae_Score = 3.5;
+Elevator_Height_Algae_Low   = 12.5;
+Elevator_Height_Algae_High  = 20.5;
 
 Elevator_Height_End_Game = 15;
 
@@ -47,7 +48,7 @@ Elevator_Height_Error_Threshold = 1.00; % inches
 Elevator_LowerPickup_Time = 0.5;  % seconds
 
 % Coral Time Of Flight (TOF) detection threshold to start lowering elevator
-Coral_Detect_Distance       = 120; % mm
+Coral_Detect_Distance       = 150; % mm
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,7 +59,7 @@ Coral_Detect_Distance       = 120; % mm
 Coral_Arm_Angle_L1      = -15;
 Coral_Arm_Angle_L2      = 50;
 Coral_Arm_Angle_L3      = 50;
-Coral_Arm_Angle_L4      = 50;
+Coral_Arm_Angle_L4      = 55;
 Coral_Arm_Angle_Up      = 85;
 Coral_Arm_Angle_Start   = -15;
 Coral_Arm_Angle_Start_Thresh = -75;  % angle must be greater than this value to proceed to the next state for elevator movement

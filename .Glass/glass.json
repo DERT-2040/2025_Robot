@@ -1,7 +1,7 @@
 {
   "NetworkTables": {
     "transitory": {
-      "Simulink Top Level Ports": {
+      "Simulink Tunable Params": {
         "open": true
       }
     },

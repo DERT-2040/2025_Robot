@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.333
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 15 21:25:30 2025
+ * C/C++ source code generated on : Sun Mar 16 03:20:12 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -359,7 +359,7 @@ typedef struct {
   int8_T If_ActiveSubsystem_h;         /* '<S208>/If' */
   int8_T If_ActiveSubsystem_o;         /* '<S211>/If' */
   int8_T If_ActiveSubsystem_d;         /* '<S213>/If' */
-  uint8_T is_active_c4_Code_Gen_Model; /* '<S420>/Reefscape_Chart' */
+  uint8_T is_active_c6_Code_Gen_Model; /* '<S420>/Reefscape_Chart' */
   uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S420>/Reefscape_Chart' */
   uint8_T is_Set_Level;                /* '<S420>/Reefscape_Chart' */
   uint8_T is_Coral_Eject;              /* '<S420>/Reefscape_Chart' */
@@ -378,7 +378,7 @@ typedef struct {
   uint8_T is_Path_to_Reef_1;           /* '<S26>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_2;           /* '<S26>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_3;           /* '<S26>/Reefscape_Auto_Steps' */
-  uint8_T is_active_c2_Code_Gen_Model; /* '<S30>/Reefscape_Chart' */
+  uint8_T is_active_c4_Code_Gen_Model; /* '<S30>/Reefscape_Chart' */
   uint8_T is_Elevator_CoralArm_CoralWhe_o;/* '<S30>/Reefscape_Chart' */
   uint8_T is_Set_Level_d;              /* '<S30>/Reefscape_Chart' */
   uint8_T is_Coral_Eject_n;            /* '<S30>/Reefscape_Chart' */
