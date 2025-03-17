@@ -454,10 +454,12 @@ private:
         nt::NetworkTableEntry __Face_Right_Driver__Entry;
         nt::NetworkTableEntry __Face_Toward_Driver__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_af__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_dp__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_e__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_i__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_j__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_ji__Entry;
+        nt::NetworkTableEntry __FixPtRelationalOperator_l__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_lp__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_m__Entry;
         nt::NetworkTableEntry __FixPtRelationalOperator_ml__Entry;
@@ -533,7 +535,9 @@ private:
         nt::NetworkTableEntry __Translation_Speed_SPF__Entry;
         nt::NetworkTableEntry __Translation_Speed_g__Entry;
         nt::NetworkTableEntry __Translation_Steering_Cmd__Entry;
+        nt::NetworkTableEntry __UnitDelay__Entry;
         nt::NetworkTableEntry __UnitDelay1_d__Entry;
+        nt::NetworkTableEntry __UnitDelay_b__Entry;
         nt::NetworkTableEntry __WhileIterator__Entry;
         nt::NetworkTableEntry __Winch_Cmd__Entry;
 };

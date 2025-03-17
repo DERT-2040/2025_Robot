@@ -2,12 +2,12 @@
 % APRIL TAG TRACKING TARGETS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Limelight_Tag_X_Offset = 0.51;    % inches
-Limelight_Tag_Y_Offset = 0.24;     % inches
-Limelight_Tag_Angle_Offset = 1.35; % degrees
+Limelight_Tag_X_Offset = -0.28;  % inches
+Limelight_Tag_Y_Offset = -0.28;  % inches
+Limelight_Tag_Angle_Offset = 0;  % degrees
 
 AT_Reef_Target_L1_X = 25.75;    % inches
-AT_Reef_Target_L2_L3_X = 25.25; % inches
+AT_Reef_Target_L2_L3_X = 24; % inches
 AT_Reef_Target_L4_X = 26.75;    % inches
 AT_Reef_Target_Algae_X = 18;    % inches
 

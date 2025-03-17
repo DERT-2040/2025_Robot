@@ -123,8 +123,8 @@ namespace Constants
         static constexpr NeoSparkCreateInfo coralArmMotorCreateInfo{
             -1,   // canID
             true, // isReversed
-            20,   // smartCurrentLimit
-            20,   // secondaryCurrentLimit
+            12,   // smartCurrentLimit
+            12,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
             false // includeSensor
         };

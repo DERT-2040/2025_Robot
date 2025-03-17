@@ -2,12 +2,12 @@
 
 Limelight::Limelight() {
     LimelightHelpers::setCameraPose_RobotSpace("limelight-one", 
-        8.0/39.37008,   // Forward offset (meters)
-        9.75/39.37008,  // Side offset (meters)
+        7.8/39.37008,   // Forward offset (meters)
+        9.4/39.37008,   // Side offset (meters)
         12.5/39.37008,  // Height offset (meters)
         0.0,            // Roll (degrees)
         9.0,            // Pitch (degrees)
-        24.0            // Yaw (degrees)
+        22.2            // Yaw (degrees)
     );
     LimelightHelpers::setCameraPose_RobotSpace("limelight-two", 
         0.5,    // Forward offset (meters)

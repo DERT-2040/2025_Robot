@@ -18,8 +18,8 @@ Elevator_Height_Lower   = 7.5;
 Elevator_Height_Raise   = 9.6;
 
 Elevator_Height_L1      = 12;
-Elevator_Height_L2      = 7.25;
-Elevator_Height_L3      = 15.25;
+Elevator_Height_L2      = 5.5;
+Elevator_Height_L3      = 13.5;
 Elevator_Height_L4      = 27.5;
 
 
@@ -57,9 +57,9 @@ Coral_Detect_Distance       = 150; % mm
 
 % Coral arm angles (degrees)
 Coral_Arm_Angle_L1      = -15;
-Coral_Arm_Angle_L2      = 50;
-Coral_Arm_Angle_L3      = 50;
-Coral_Arm_Angle_L4      = 55;
+Coral_Arm_Angle_L2      = 60;
+Coral_Arm_Angle_L3      = 60;
+Coral_Arm_Angle_L4      = 57;
 Coral_Arm_Angle_Up      = 85;
 Coral_Arm_Angle_Start   = -15;
 Coral_Arm_Angle_Start_Thresh = -75;  % angle must be greater than this value to proceed to the next state for elevator movement

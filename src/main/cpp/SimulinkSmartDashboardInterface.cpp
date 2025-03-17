@@ -265,7 +265,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Reef_Target_L2_L3_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_L2_L3_X");
     NTinst.AddListener(__AT_Reef_Target_L2_L3_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_L2_L3_X = event.GetValueEventData()->value.GetDouble();});
-    __AT_Reef_Target_L2_L3_X__Entry.SetDouble(25.25);
+    __AT_Reef_Target_L2_L3_X__Entry.SetDouble(24);
  
     __AT_Reef_Target_L4_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_L4_X");
     NTinst.AddListener(__AT_Reef_Target_L4_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_L4_X = event.GetValueEventData()->value.GetDouble();});
@@ -417,15 +417,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Coral_Arm_Angle_L2__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_L2");
     NTinst.AddListener(__Coral_Arm_Angle_L2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L2 = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Angle_L2__Entry.SetDouble(50);
+    __Coral_Arm_Angle_L2__Entry.SetDouble(60);
  
     __Coral_Arm_Angle_L3__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_L3");
     NTinst.AddListener(__Coral_Arm_Angle_L3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L3 = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Angle_L3__Entry.SetDouble(50);
+    __Coral_Arm_Angle_L3__Entry.SetDouble(60);
  
     __Coral_Arm_Angle_L4__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_L4");
     NTinst.AddListener(__Coral_Arm_Angle_L4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L4 = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Angle_L4__Entry.SetDouble(50);
+    __Coral_Arm_Angle_L4__Entry.SetDouble(57);
  
     __Coral_Arm_Angle_L4_Eject_Auto__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_L4_Eject_Auto");
     NTinst.AddListener(__Coral_Arm_Angle_L4_Eject_Auto__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_L4_Eject_Auto = event.GetValueEventData()->value.GetDouble();});
@@ -613,19 +613,19 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_L2__Entry = NTtable_Tune->GetEntry("Elevator_Height_L2");
     NTinst.AddListener(__Elevator_Height_L2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L2 = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L2__Entry.SetDouble(7.25);
+    __Elevator_Height_L2__Entry.SetDouble(5.5);
  
     __Elevator_Height_L2_Eject__Entry = NTtable_Tune->GetEntry("Elevator_Height_L2_Eject");
     NTinst.AddListener(__Elevator_Height_L2_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L2_Eject = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L2_Eject__Entry.SetDouble(1.25);
+    __Elevator_Height_L2_Eject__Entry.SetDouble(-0.5);
  
     __Elevator_Height_L3__Entry = NTtable_Tune->GetEntry("Elevator_Height_L3");
     NTinst.AddListener(__Elevator_Height_L3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L3 = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L3__Entry.SetDouble(15.25);
+    __Elevator_Height_L3__Entry.SetDouble(13.5);
  
     __Elevator_Height_L3_Eject__Entry = NTtable_Tune->GetEntry("Elevator_Height_L3_Eject");
     NTinst.AddListener(__Elevator_Height_L3_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L3_Eject = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L3_Eject__Entry.SetDouble(9.25);
+    __Elevator_Height_L3_Eject__Entry.SetDouble(7.5);
  
     __Elevator_Height_L4__Entry = NTtable_Tune->GetEntry("Elevator_Height_L4");
     NTinst.AddListener(__Elevator_Height_L4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L4 = event.GetValueEventData()->value.GetDouble();});
@@ -701,15 +701,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Limelight_Tag_Angle_Offset__Entry = NTtable_Tune->GetEntry("Limelight_Tag_Angle_Offset");
     NTinst.AddListener(__Limelight_Tag_Angle_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Limelight_Tag_Angle_Offset = event.GetValueEventData()->value.GetDouble();});
-    __Limelight_Tag_Angle_Offset__Entry.SetDouble(1.35);
+    __Limelight_Tag_Angle_Offset__Entry.SetDouble(0);
  
     __Limelight_Tag_X_Offset__Entry = NTtable_Tune->GetEntry("Limelight_Tag_X_Offset");
     NTinst.AddListener(__Limelight_Tag_X_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Limelight_Tag_X_Offset = event.GetValueEventData()->value.GetDouble();});
-    __Limelight_Tag_X_Offset__Entry.SetDouble(0.51);
+    __Limelight_Tag_X_Offset__Entry.SetDouble(-0.28);
  
     __Limelight_Tag_Y_Offset__Entry = NTtable_Tune->GetEntry("Limelight_Tag_Y_Offset");
     NTinst.AddListener(__Limelight_Tag_Y_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Limelight_Tag_Y_Offset = event.GetValueEventData()->value.GetDouble();});
-    __Limelight_Tag_Y_Offset__Entry.SetDouble(0.24);
+    __Limelight_Tag_Y_Offset__Entry.SetDouble(-0.28);
  
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
@@ -1149,10 +1149,12 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Face_Right_Driver__Entry = NTtable_TPoint->GetEntry("Face_Right_Driver");
     __Face_Toward_Driver__Entry = NTtable_TPoint->GetEntry("Face_Toward_Driver");
     __FixPtRelationalOperator_af__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_af");
+    __FixPtRelationalOperator_dp__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_dp");
     __FixPtRelationalOperator_e__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_e");
     __FixPtRelationalOperator_i__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_i");
     __FixPtRelationalOperator_j__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_j");
     __FixPtRelationalOperator_ji__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_ji");
+    __FixPtRelationalOperator_l__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_l");
     __FixPtRelationalOperator_lp__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_lp");
     __FixPtRelationalOperator_m__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_m");
     __FixPtRelationalOperator_ml__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_ml");
@@ -1228,7 +1230,9 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Translation_Speed_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Speed_SPF");
     __Translation_Speed_g__Entry = NTtable_TPoint->GetEntry("Translation_Speed_g");
     __Translation_Steering_Cmd__Entry = NTtable_TPoint->GetEntry("Translation_Steering_Cmd");
+    __UnitDelay__Entry = NTtable_TPoint->GetEntry("UnitDelay");
     __UnitDelay1_d__Entry = NTtable_TPoint->GetEntry("UnitDelay1_d");
+    __UnitDelay_b__Entry = NTtable_TPoint->GetEntry("UnitDelay_b");
     __WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
     __Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
 }
@@ -1439,10 +1443,12 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Face_Right_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Right_Driver);
     __Face_Toward_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Toward_Driver);
     __FixPtRelationalOperator_af__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_af);
+    __FixPtRelationalOperator_dp__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_dp);
     __FixPtRelationalOperator_e__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_e);
     __FixPtRelationalOperator_i__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_i);
     __FixPtRelationalOperator_j__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_j);
     __FixPtRelationalOperator_ji__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_ji);
+    __FixPtRelationalOperator_l__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_l);
     __FixPtRelationalOperator_lp__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_lp);
     __FixPtRelationalOperator_m__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_m);
     __FixPtRelationalOperator_ml__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_ml);
@@ -1518,7 +1524,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Translation_Speed_SPF__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_SPF);
     __Translation_Speed_g__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_g);
     __Translation_Steering_Cmd__Entry.SetDouble(Code_Gen_Model_B.Translation_Steering_Cmd);
+    __UnitDelay__Entry.SetDouble(Code_Gen_Model_B.UnitDelay);
     __UnitDelay1_d__Entry.SetDouble(Code_Gen_Model_B.UnitDelay1_d);
+    __UnitDelay_b__Entry.SetDouble(Code_Gen_Model_B.UnitDelay_b);
     __WhileIterator__Entry.SetDouble(Code_Gen_Model_B.WhileIterator);
     __Winch_Cmd__Entry.SetDouble(Code_Gen_Model_B.Winch_Cmd);
 }
