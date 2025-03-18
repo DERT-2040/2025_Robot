@@ -205,8 +205,8 @@ namespace Constants
         static constexpr int bottomLimitSwitchID = 0;
                  //static constexpr int topLimitSwitchID = 1;
         static constexpr int coralLimitSwitchID = 1;
-        static constexpr int algaeLimitSwitchID = 3;
-        static constexpr int coralThroughBoreEncoderID = 4;
+        static constexpr int algaeLimitSwitchID = 2;
+        static constexpr int coralThroughBoreEncoderID = 3;
         static constexpr int coralThroughBoreEncoderOffset = -281.5; // degrees
 
         // The Playing with Fusion configuration interface tool may be accessed by typing in the

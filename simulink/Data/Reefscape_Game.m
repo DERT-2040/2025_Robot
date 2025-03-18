@@ -13,7 +13,7 @@ Elevator_Height_Bottom  = 0;
 Elevator_Height_Top_Reset = 30;
 Elevator_Height_PickupLower_Reset = 7.875;
 
-Elevator_Height_Prepare = 10.5;
+Elevator_Height_Prepare = 11.5;
 Elevator_Height_Lower   = 7.5;
 Elevator_Height_Raise   = 9.6;
 
@@ -39,7 +39,7 @@ Elevator_Total_UL = 1;    % DC
 Elevator_Total_LL = -0.50;      % DC
 Elevator_Hold_at_Top_DC = 0.1;  % DC
 Elevator_Bottom_DC = -0.04;     % DC
-Elevator_Error_Bottom_Disable = 3; % inches
+Elevator_Error_Bottom_Disable = 1; % inches
 Elevator_Error_Increase = 0.0;  % inches, increase error to force elevator up when we want to go lower but are not able to because of coral arm angle
 Elevator_DC_Inc_RL = 1/0.3*0.02;  % duty cycle per loop
 
@@ -139,16 +139,8 @@ Winch_Spool_DC = 0;
 Winch_Hold_DC = 0;
 Winch_Rev_Target = 10;
 
-Actuator_MotorRev_to_Inch = 0.23625;
-Actuator_Cmd_Gain = 3*0.02;  %inch/loop
-Actuator_Desired_Max = 6; % inches
+Actuator_DC = 0.3;
 
-Actuator_P_Gain = 0;
-Actuator_I_Gain = 0;
-Actuator_Int_UL = 0.1;
-Actuator_Int_LL = -Actuator_Int_UL;
-Actuator_Total_UL = 0.3;
-Actuator_Total_LL = -Actuator_Int_UL;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ELEVATOR & CORAL RANGE OF MOTION CHECKS

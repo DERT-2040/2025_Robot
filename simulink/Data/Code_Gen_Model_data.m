@@ -20,7 +20,7 @@ Not_Tunable_List = {'t_sample',...
 t_sample = 0.020;
 
 % gyro calibration
-Gyro_Calibration_Reset_Degree = 0; % degrees
+Gyro_Calibration_Reset_Degree = 180; % degrees
 Gyro_Calibration_Reset_Flag = 0;  % when this value increases then reset to the degree value above
 
 % Test Mode for swerve drive
