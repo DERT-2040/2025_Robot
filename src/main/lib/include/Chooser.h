@@ -4,6 +4,7 @@
 #include <vector>
 #include <utility>
 #include <string>
+#include <functional>
 
 // frc
 #include <frc/smartdashboard/SendableChooser.h>
@@ -16,7 +17,7 @@ public:
     Chooser(std::string ChooserName, std::vector<std::pair<std::string, int>> chooserMap, double* simulinkPointer);
 
     double GetSelectedKey();
-    void UpdateSelectedKeyPointer();
+    double GetSelectedKey(std::string currentSelection);
 
 private:
     void InitChooser(std::string ChooserName, std::vector<std::pair<std::string, int>> chooserMap);
