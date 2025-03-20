@@ -3,7 +3,7 @@
 // Limelight
 #include "LimelightHelpers.h"
 
-// Other
+// Local
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 #include "lib/include/Component.h"
 
@@ -11,6 +11,10 @@
 #include "include/Constants.h"
 #include <ctre/phoenix6/Pigeon2.hpp>
 #include "include/IMU.h"
+
+//wpilib
+#include <networktables/NetworkTable.h>
+#include <frc/Alert.h>
 
 class Limelight : public Component {
     public: 
@@ -50,5 +54,9 @@ class Limelight : public Component {
     // Limelight Data Objects
     LimelightHelpers::PoseEstimate CameraOneLLMeasurement;
     LimelightHelpers::PoseEstimate CameraTwoLLMeasurement;
+
+    // Limelight Alerts
+    frc::Alert CameraOneDisconnectedAlert {"Limelight One Disconnecred", frc::Alert::AlertType::kError};
+    frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};
  
 };
