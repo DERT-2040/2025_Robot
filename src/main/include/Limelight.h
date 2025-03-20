@@ -56,7 +56,7 @@ class Limelight : public Component {
     LimelightHelpers::PoseEstimate CameraTwoLLMeasurement;
 
     // Limelight Alerts
-    frc::Alert CameraOneDisconnectedAlert {"Limelight One Disconnecred", frc::Alert::AlertType::kError};
+    frc::Alert CameraOneDisconnectedAlert {"ALARM PANIC", "Limelight One Disconnecred", frc::Alert::AlertType::kError};
     //frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};
  
 };

@@ -9,6 +9,12 @@ Chooser::Chooser(std::string ChooserName, std::vector<std::pair<std::string, int
 {
     InitChooser(ChooserName, chooserMap);
     chooserSelectedKeyPointer = simulinkPointer;
+
+    m_chooser.OnChange(
+        [&](std::string currentSelection){
+            *chooserSelectedKeyPointer = GetSelectedKey(currentSelection);
+        }
+    );
 }
 
 void Chooser::InitChooser(std::string ChooserName, std::vector<std::pair<std::string, int>> chooserMap)
@@ -29,9 +35,8 @@ void Chooser::InitChooser(std::string ChooserName, std::vector<std::pair<std::st
 /**
  * warning: the defulat value if the current selected is not found is -1
  */
-double Chooser::GetSelectedKey()
+double Chooser::GetSelectedKey(std::string currentSelection)
 {
-    std::string currentSelection = m_chooser.GetSelected();
     for(size_t pos = 0; pos < chooserMap.size(); pos++)
     {
         std::pair<std::string, int> pairAtPos = chooserMap.at(pos);
@@ -41,7 +46,8 @@ double Chooser::GetSelectedKey()
     return -1;
 }
 
-void Chooser::UpdateSelectedKeyPointer()
+double Chooser::GetSelectedKey()
 {
-    *chooserSelectedKeyPointer = GetSelectedKey();
+    std::string currentSelection = m_chooser.GetSelected();
+    return GetSelectedKey(currentSelection);
 }
