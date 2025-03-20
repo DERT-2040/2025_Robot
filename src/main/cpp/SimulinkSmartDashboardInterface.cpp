@@ -305,7 +305,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Actuator_DC__Entry = NTtable_Tune->GetEntry("Actuator_DC");
     NTinst.AddListener(__Actuator_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Actuator_DC = event.GetValueEventData()->value.GetDouble();});
-    __Actuator_DC__Entry.SetDouble(0.3);
+    __Actuator_DC__Entry.SetDouble(0.5);
+ 
+    __Actuator_Rev_Startup_Range__Entry = NTtable_Tune->GetEntry("Actuator_Rev_Startup_Range");
+    NTinst.AddListener(__Actuator_Rev_Startup_Range__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Actuator_Rev_Startup_Range = event.GetValueEventData()->value.GetDouble();});
+    __Actuator_Rev_Startup_Range__Entry.SetDouble(10);
+ 
+    __Actuator_Rev_Target__Entry = NTtable_Tune->GetEntry("Actuator_Rev_Target");
+    NTinst.AddListener(__Actuator_Rev_Target__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Actuator_Rev_Target = event.GetValueEventData()->value.GetDouble();});
+    __Actuator_Rev_Target__Entry.SetDouble(90);
  
     __Algae_Eject_Time__Entry = NTtable_Tune->GetEntry("Algae_Eject_Time");
     NTinst.AddListener(__Algae_Eject_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Algae_Eject_Time = event.GetValueEventData()->value.GetDouble();});
@@ -905,15 +913,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Winch_Hold_DC__Entry = NTtable_Tune->GetEntry("Winch_Hold_DC");
     NTinst.AddListener(__Winch_Hold_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Winch_Hold_DC = event.GetValueEventData()->value.GetDouble();});
-    __Winch_Hold_DC__Entry.SetDouble(0);
+    __Winch_Hold_DC__Entry.SetDouble(0.05);
  
     __Winch_Rev_Target__Entry = NTtable_Tune->GetEntry("Winch_Rev_Target");
     NTinst.AddListener(__Winch_Rev_Target__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Winch_Rev_Target = event.GetValueEventData()->value.GetDouble();});
-    __Winch_Rev_Target__Entry.SetDouble(10);
+    __Winch_Rev_Target__Entry.SetDouble(30);
  
     __Winch_Spool_DC__Entry = NTtable_Tune->GetEntry("Winch_Spool_DC");
     NTinst.AddListener(__Winch_Spool_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Winch_Spool_DC = event.GetValueEventData()->value.GetDouble();});
-    __Winch_Spool_DC__Entry.SetDouble(0);
+    __Winch_Spool_DC__Entry.SetDouble(0.2);
  
 // Inports
     __Actuator_Revs__Entry = NTtable_Inport->GetEntry("Actuator_Revs");
@@ -1068,8 +1076,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Cage_Middle_Start__Entry = NTtable_TPoint->GetEntry("Cage_Middle_Start");
     __Cage_Right_Finish__Entry = NTtable_TPoint->GetEntry("Cage_Right_Finish");
     __Cage_Right_Start__Entry = NTtable_TPoint->GetEntry("Cage_Right_Start");
-    __Compare__Entry = NTtable_TPoint->GetEntry("Compare");
-    __Compare_f__Entry = NTtable_TPoint->GetEntry("Compare_f");
     __Coral_ArmAngle_Error__Entry = NTtable_TPoint->GetEntry("Coral_ArmAngle_Error");
     __Coral_Arm_Angle_Desired__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired");
     __Coral_Arm_Angle_Desired_f__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired_f");
@@ -1082,8 +1088,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Coral_Station_Right__Entry = NTtable_TPoint->GetEntry("Coral_Station_Right");
     __Coral_Wheel_DC__Entry = NTtable_TPoint->GetEntry("Coral_Wheel_DC");
     __Coral_Wheel_DC_a__Entry = NTtable_TPoint->GetEntry("Coral_Wheel_DC_a");
-    __DeadZone__Entry = NTtable_TPoint->GetEntry("DeadZone");
-    __DeadZone1__Entry = NTtable_TPoint->GetEntry("DeadZone1");
     __Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     __Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     __Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
@@ -1114,28 +1118,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Face_Left_Driver__Entry = NTtable_TPoint->GetEntry("Face_Left_Driver");
     __Face_Right_Driver__Entry = NTtable_TPoint->GetEntry("Face_Right_Driver");
     __Face_Toward_Driver__Entry = NTtable_TPoint->GetEntry("Face_Toward_Driver");
-    __FixPtRelationalOperator__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator");
-    __FixPtRelationalOperator_a__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_a");
-    __FixPtRelationalOperator_af__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_af");
-    __FixPtRelationalOperator_d__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_d");
-    __FixPtRelationalOperator_dd__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_dd");
-    __FixPtRelationalOperator_dp__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_dp");
-    __FixPtRelationalOperator_e__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_e");
-    __FixPtRelationalOperator_i__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_i");
-    __FixPtRelationalOperator_j__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_j");
-    __FixPtRelationalOperator_ji__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_ji");
-    __FixPtRelationalOperator_k__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_k");
-    __FixPtRelationalOperator_l__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_l");
-    __FixPtRelationalOperator_lp__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_lp");
-    __FixPtRelationalOperator_m__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_m");
-    __FixPtRelationalOperator_ml__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_ml");
-    __FixPtRelationalOperator_n__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_n");
-    __FixPtRelationalOperator_ne__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_ne");
-    __FixPtRelationalOperator_nw__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_nw");
-    __FixPtRelationalOperator_o__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_o");
-    __FixPtRelationalOperator_oe__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_oe");
-    __FixPtRelationalOperator_oi__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_oi");
-    __FixPtRelationalOperator_p4__Entry = NTtable_TPoint->GetEntry("FixPtRelationalOperator_p4");
     __Gamepad_B4_Y_out__Entry = NTtable_TPoint->GetEntry("Gamepad_B4_Y_out");
     __Gamepad_Back_out__Entry = NTtable_TPoint->GetEntry("Gamepad_Back_out");
     __Gamepad_LT_out__Entry = NTtable_TPoint->GetEntry("Gamepad_LT_out");
@@ -1178,9 +1160,8 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Spline_Out_Of_Bounds__Entry = NTtable_TPoint->GetEntry("Spline_Out_Of_Bounds");
     __Spline_Target_X__Entry = NTtable_TPoint->GetEntry("Spline_Target_X");
     __Spline_Target_Y__Entry = NTtable_TPoint->GetEntry("Spline_Target_Y");
-    __State_ID__Entry = NTtable_TPoint->GetEntry("State_ID");
-    __State_ID_d__Entry = NTtable_TPoint->GetEntry("State_ID_d");
-    __State_ID_merge__Entry = NTtable_TPoint->GetEntry("State_ID_merge");
+    __State_ID_Auto__Entry = NTtable_TPoint->GetEntry("State_ID_Auto");
+    __State_ID_Teleop__Entry = NTtable_TPoint->GetEntry("State_ID_Teleop");
     __Steer_Joystick_X__Entry = NTtable_TPoint->GetEntry("Steer_Joystick_X");
     __Steer_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Steer_Joystick_Y");
     __Steer_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Steer_Joystick_Z");
@@ -1195,6 +1176,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Steering_Rel_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd");
     __Steering_Rel_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd_SPF");
     __Swerve_Drive_Integral_Enable__Entry = NTtable_TPoint->GetEntry("Swerve_Drive_Integral_Enable");
+    __Switch9__Entry = NTtable_TPoint->GetEntry("Switch9");
     __Teleop_AT_On_Target__Entry = NTtable_TPoint->GetEntry("Teleop_AT_On_Target");
     __Test_Mode__Entry = NTtable_TPoint->GetEntry("Test_Mode");
     __Translation_Angle__Entry = NTtable_TPoint->GetEntry("Translation_Angle");
@@ -1205,9 +1187,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Translation_Speed_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Speed_SPF");
     __Translation_Speed_k__Entry = NTtable_TPoint->GetEntry("Translation_Speed_k");
     __Translation_Steering_Cmd__Entry = NTtable_TPoint->GetEntry("Translation_Steering_Cmd");
-    __UnitDelay__Entry = NTtable_TPoint->GetEntry("UnitDelay");
-    __UnitDelay1_d__Entry = NTtable_TPoint->GetEntry("UnitDelay1_d");
-    __UnitDelay_b__Entry = NTtable_TPoint->GetEntry("UnitDelay_b");
+    __UnitDelay1__Entry = NTtable_TPoint->GetEntry("UnitDelay1");
     __WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
     __Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
 }
@@ -1369,8 +1349,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Cage_Middle_Start__Entry.SetDouble(Code_Gen_Model_B.Cage_Middle_Start);
     __Cage_Right_Finish__Entry.SetDouble(Code_Gen_Model_B.Cage_Right_Finish);
     __Cage_Right_Start__Entry.SetDouble(Code_Gen_Model_B.Cage_Right_Start);
-    __Compare__Entry.SetDouble(Code_Gen_Model_B.Compare);
-    __Compare_f__Entry.SetDouble(Code_Gen_Model_B.Compare_f);
     __Coral_ArmAngle_Error__Entry.SetDouble(Code_Gen_Model_B.Coral_ArmAngle_Error);
     __Coral_Arm_Angle_Desired__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired);
     __Coral_Arm_Angle_Desired_f__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired_f);
@@ -1383,8 +1361,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Coral_Station_Right__Entry.SetDouble(Code_Gen_Model_B.Coral_Station_Right);
     __Coral_Wheel_DC__Entry.SetDouble(Code_Gen_Model_B.Coral_Wheel_DC);
     __Coral_Wheel_DC_a__Entry.SetDouble(Code_Gen_Model_B.Coral_Wheel_DC_a);
-    __DeadZone__Entry.SetDouble(Code_Gen_Model_B.DeadZone);
-    __DeadZone1__Entry.SetDouble(Code_Gen_Model_B.DeadZone1);
     __Drive_Joystick_X__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_X);
     __Drive_Joystick_Y__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Y);
     __Drive_Joystick_Z__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Z);
@@ -1415,28 +1391,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Face_Left_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Left_Driver);
     __Face_Right_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Right_Driver);
     __Face_Toward_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Toward_Driver);
-    __FixPtRelationalOperator__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator);
-    __FixPtRelationalOperator_a__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_a);
-    __FixPtRelationalOperator_af__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_af);
-    __FixPtRelationalOperator_d__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_d);
-    __FixPtRelationalOperator_dd__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_dd);
-    __FixPtRelationalOperator_dp__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_dp);
-    __FixPtRelationalOperator_e__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_e);
-    __FixPtRelationalOperator_i__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_i);
-    __FixPtRelationalOperator_j__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_j);
-    __FixPtRelationalOperator_ji__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_ji);
-    __FixPtRelationalOperator_k__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_k);
-    __FixPtRelationalOperator_l__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_l);
-    __FixPtRelationalOperator_lp__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_lp);
-    __FixPtRelationalOperator_m__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_m);
-    __FixPtRelationalOperator_ml__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_ml);
-    __FixPtRelationalOperator_n__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_n);
-    __FixPtRelationalOperator_ne__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_ne);
-    __FixPtRelationalOperator_nw__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_nw);
-    __FixPtRelationalOperator_o__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_o);
-    __FixPtRelationalOperator_oe__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_oe);
-    __FixPtRelationalOperator_oi__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_oi);
-    __FixPtRelationalOperator_p4__Entry.SetDouble(Code_Gen_Model_B.FixPtRelationalOperator_p4);
     __Gamepad_B4_Y_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_B4_Y_out);
     __Gamepad_Back_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_Back_out);
     __Gamepad_LT_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_LT_out);
@@ -1479,9 +1433,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Spline_Out_Of_Bounds__Entry.SetDouble(Code_Gen_Model_B.Spline_Out_Of_Bounds);
     __Spline_Target_X__Entry.SetDouble(Code_Gen_Model_B.Spline_Target_X);
     __Spline_Target_Y__Entry.SetDouble(Code_Gen_Model_B.Spline_Target_Y);
-    __State_ID__Entry.SetDouble(Code_Gen_Model_B.State_ID);
-    __State_ID_d__Entry.SetDouble(Code_Gen_Model_B.State_ID_d);
-    __State_ID_merge__Entry.SetDouble(Code_Gen_Model_B.State_ID_merge);
+    __State_ID_Auto__Entry.SetDouble(Code_Gen_Model_B.State_ID_Auto);
+    __State_ID_Teleop__Entry.SetDouble(Code_Gen_Model_B.State_ID_Teleop);
     __Steer_Joystick_X__Entry.SetDouble(Code_Gen_Model_B.Steer_Joystick_X);
     __Steer_Joystick_Y__Entry.SetDouble(Code_Gen_Model_B.Steer_Joystick_Y);
     __Steer_Joystick_Z__Entry.SetDouble(Code_Gen_Model_B.Steer_Joystick_Z);
@@ -1496,6 +1449,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Steering_Rel_Cmd__Entry.SetDouble(Code_Gen_Model_B.Steering_Rel_Cmd);
     __Steering_Rel_Cmd_SPF__Entry.SetDouble(Code_Gen_Model_B.Steering_Rel_Cmd_SPF);
     __Swerve_Drive_Integral_Enable__Entry.SetDouble(Code_Gen_Model_B.Swerve_Drive_Integral_Enable);
+    __Switch9__Entry.SetDouble(Code_Gen_Model_B.Switch9);
     __Teleop_AT_On_Target__Entry.SetDouble(Code_Gen_Model_B.Teleop_AT_On_Target);
     __Test_Mode__Entry.SetDouble(Code_Gen_Model_B.Test_Mode);
     __Translation_Angle__Entry.SetDouble(Code_Gen_Model_B.Translation_Angle);
@@ -1506,9 +1460,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Translation_Speed_SPF__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_SPF);
     __Translation_Speed_k__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_k);
     __Translation_Steering_Cmd__Entry.SetDouble(Code_Gen_Model_B.Translation_Steering_Cmd);
-    __UnitDelay__Entry.SetDouble(Code_Gen_Model_B.UnitDelay);
-    __UnitDelay1_d__Entry.SetDouble(Code_Gen_Model_B.UnitDelay1_d);
-    __UnitDelay_b__Entry.SetDouble(Code_Gen_Model_B.UnitDelay_b);
+    __UnitDelay1__Entry.SetDouble(Code_Gen_Model_B.UnitDelay1);
     __WhileIterator__Entry.SetDouble(Code_Gen_Model_B.WhileIterator);
     __Winch_Cmd__Entry.SetDouble(Code_Gen_Model_B.Winch_Cmd);
 }

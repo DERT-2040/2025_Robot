@@ -175,8 +175,8 @@ namespace Constants
         static constexpr NeoSparkCreateInfo winchMotorCreateInfo{
             -1,   // canID
             false,// isReversed
-            40,   // smartCurrentLimit
-            40,   // secondaryCurrentLimit
+            15,   // smartCurrentLimit
+            15,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
             true  // includeSensor
         };      
@@ -207,7 +207,7 @@ namespace Constants
         static constexpr int coralLimitSwitchID = 1;
         static constexpr int algaeLimitSwitchID = 2;
         static constexpr int coralThroughBoreEncoderID = 3;
-        static constexpr int coralThroughBoreEncoderOffset = -281.5; // degrees
+        static constexpr int coralThroughBoreEncoderOffset = -164.3; // degrees
 
         // The Playing with Fusion configuration interface tool may be accessed by typing in the
         // IP address of the roboRIO into a web browser followed by :5812
