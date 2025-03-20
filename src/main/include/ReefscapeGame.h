@@ -17,6 +17,7 @@
 #include <TimeOfFlight.h>
 //etc
 #include <frc/smartdashboard/SmartDashboard.h>
+#include "lib/include/Chooser.h"
 
 namespace ReefscapeGameNameSpace = Constants::ReefscapeGame;
 
@@ -79,5 +80,15 @@ private:
   // REV Through Bore Encoder
   // Initializes a duty cycle encoder on a DIO pin to return a value of 360 degrees for a full rotation with an offset angle
   frc::DutyCycleEncoder coralArmAngle{ReefscapeGameNameSpace::coralThroughBoreEncoderID, 360, ReefscapeGameNameSpace::coralThroughBoreEncoderOffset};
+
+  Chooser Auto_Path_Starting_Position_Chooser {
+    "Auto Path Starting Position",
+    {
+        {"Left", 1},
+        {"Center", 2},
+        {"Right", 3}
+    },
+    &Auto_Starting_Position //Simulink parameter name
+  };
 
 };

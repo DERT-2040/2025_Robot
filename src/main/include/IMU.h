@@ -4,7 +4,6 @@
 #include "lib/include/Component.h"
 #include "include/Constants.h"
 
-#include "lib/include/Chooser.h"
 //crte
 #include <ctre/phoenix6/Pigeon2.hpp>
 //Simulink
@@ -48,14 +47,4 @@ public:
     */
     ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, static_cast<std::string>(kIMU::k_Pigeon2_Device_Name)};
 
-
-    Chooser m_Chooser {
-        "Auto Selection",
-        {
-            {"Choice 1", 0},
-            {"Choice 2", 1},
-            {"Choice 3", 2}
-        },
-        &Code_Gen_Model_U.Gyro_Angle //example simulink output
-    };
 };

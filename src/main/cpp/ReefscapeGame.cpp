@@ -22,6 +22,9 @@ void ReefscapeGame::PreStepCallback()
 
     // Time of Flight sensors
     Code_Gen_Model_U.Coral_TOF_Distance = coralTimeOfFlightSensor.GetRange();
+
+    // Chooser for Network Tables
+    Auto_Path_Starting_Position_Chooser.UpdateSelectedKeyPointer();
 }
 
 void ReefscapeGame::PostStepCallback()

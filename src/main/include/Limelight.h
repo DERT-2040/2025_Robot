@@ -57,6 +57,6 @@ class Limelight : public Component {
 
     // Limelight Alerts
     frc::Alert CameraOneDisconnectedAlert {"Limelight One Disconnecred", frc::Alert::AlertType::kError};
-    frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};
+    //frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};
  
 };
