@@ -38,6 +38,21 @@ Path_Blue_Left_B = [
     0,0,0,0];
 
 % Blue
+% Start:  Reef Face I-J
+% Finish: Coral Left
+Path_Blue_Left_B_end_early = [
+    5.418,  5.613,  0.5, -120    *D2R;
+    4.739,  6.453,  2,   -120    *D2R;
+    2.485,  6.074,  2,   -54     *D2R;
+    1.668,  6.453,  0,   -54     *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Blue
 % Start:  Coral Left
 % Finish: Reef Face L-K
 Path_Blue_Left_C = [
@@ -90,6 +105,21 @@ Path_Blue_Right_B = [
     Path_Blue_Left_B(2,1),  width-Path_Blue_Left_B(2,2),  Path_Blue_Left_B(2,3),  -Path_Blue_Left_B(2,4);
     Path_Blue_Left_B(3,1),  width-Path_Blue_Left_B(3,2),  Path_Blue_Left_B(3,3),  -Path_Blue_Left_B(3,4);
     Path_Blue_Left_B(4,1),  width-Path_Blue_Left_B(4,2),  Path_Blue_Left_B(4,3),  -Path_Blue_Left_B(4,4);
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Blue
+% Start:  Reef Face E-F
+% Finish: Coral Right
+Path_Blue_Right_B_end_early = [
+    Path_Blue_Left_B_end_early(1,1),  width-Path_Blue_Left_B_end_early(1,2),  Path_Blue_Left_B_end_early(1,3),  -Path_Blue_Left_B_end_early(1,4);
+    Path_Blue_Left_B_end_early(2,1),  width-Path_Blue_Left_B_end_early(2,2),  Path_Blue_Left_B_end_early(2,3),  -Path_Blue_Left_B_end_early(2,4);
+    Path_Blue_Left_B_end_early(3,1),  width-Path_Blue_Left_B_end_early(3,2),  Path_Blue_Left_B_end_early(3,3),  -Path_Blue_Left_B_end_early(3,4);
+    Path_Blue_Left_B_end_early(4,1),  width-Path_Blue_Left_B_end_early(4,2),  Path_Blue_Left_B_end_early(4,3),  -Path_Blue_Left_B_end_early(4,4);
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -188,6 +218,22 @@ Path_Red_Right_B = [
     0,0,0,0];
 
 % Red
+% Start:  Reef Face E-F
+% Finish: Coral Right
+Path_Red_Right_B_end_early = [
+    length-Path_Blue_Left_B_end_early(1,1),  Path_Blue_Left_B_end_early(1,2),  Path_Blue_Left_B_end_early(1,3),  -(Path_Blue_Left_B_end_early(1,4)+pi);
+    length-Path_Blue_Left_B_end_early(2,1),  Path_Blue_Left_B_end_early(2,2),  Path_Blue_Left_B_end_early(2,3),  -(Path_Blue_Left_B_end_early(2,4)+pi);
+    length-Path_Blue_Left_B_end_early(3,1),  Path_Blue_Left_B_end_early(3,2),  Path_Blue_Left_B_end_early(3,3),  -(Path_Blue_Left_B_end_early(3,4)+pi);
+    length-Path_Blue_Left_B_end_early(4,1),  Path_Blue_Left_B_end_early(4,2),  Path_Blue_Left_B_end_early(4,3),  -(Path_Blue_Left_B_end_early(4,4)+pi);
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+
+% Red
 % Start:  Coral Right
 % Finish: Reef Face E-F
 Path_Red_Right_C = [
@@ -246,6 +292,22 @@ Path_Red_Left_B = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
+
+% Red
+% Start:  Reef Face E-F
+% Finish: Coral Left
+Path_Red_Left_B_end_early = [
+    length-Path_Blue_Right_B_end_early(1,1),  Path_Blue_Right_B_end_early(1,2),  Path_Blue_Right_B_end_early(1,3),  -(Path_Blue_Right_B_end_early(1,4)+pi);
+    length-Path_Blue_Right_B_end_early(2,1),  Path_Blue_Right_B_end_early(2,2),  Path_Blue_Right_B_end_early(2,3),  -(Path_Blue_Right_B_end_early(2,4)+pi);
+    length-Path_Blue_Right_B_end_early(3,1),  Path_Blue_Right_B_end_early(3,2),  Path_Blue_Right_B_end_early(3,3),  -(Path_Blue_Right_B_end_early(3,4)+pi);
+    length-Path_Blue_Right_B_end_early(4,1),  Path_Blue_Right_B_end_early(4,2),  Path_Blue_Right_B_end_early(4,3),  -(Path_Blue_Right_B_end_early(4,4)+pi);
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
 
 % Red
 % Start:  Coral Left
@@ -328,7 +390,11 @@ All_Paths_Ref_Poses = cat(3, ...
     Path_Red_Left_C, ...
     Path_Red_Left_D, ...
     Path_Red_Center_A, ...
-    Path_Red_Center_B);
+    Path_Red_Center_B, ...
+    Path_Blue_Left_B_end_early, ...
+    Path_Blue_Right_B_end_early, ...
+    Path_Red_Right_B_end_early, ...
+    Path_Red_Left_B_end_early);
 
 % collect the number of poses in each path
 All_Paths_Num_Poses = [
@@ -351,7 +417,12 @@ All_Paths_Num_Poses = [
     nnz(Path_Red_Right_C(:,1));
     nnz(Path_Red_Right_D(:,1));
     nnz(Path_Red_Center_A(:,1));
-    nnz(Path_Red_Center_B(:,1))];
+    nnz(Path_Red_Center_B(:,1));
+    nnz(Path_Blue_Left_B_end_early(:,1));
+    nnz(Path_Blue_Right_B_end_early(:,1));
+    nnz(Path_Red_Right_B_end_early(:,1));
+    nnz(Path_Red_Left_B_end_early(:,1));    
+    ];
 
 clear D2R width length
 clear Path_Blue_Left_A Path_Blue_Left_B Path_Blue_Left_C Path_Blue_Left_D 
@@ -359,4 +430,5 @@ clear Path_Blue_Right_A Path_Blue_Right_B Path_Blue_Right_C Path_Blue_Right_D
 clear Path_Blue_Center_A Path_Blue_Center_B 
 clear Path_Red_Right_A Path_Red_Right_B Path_Red_Right_C Path_Red_Right_D
 clear Path_Red_Left_A Path_Red_Left_B Path_Red_Left_C Path_Red_Left_D
+clear Path_Blue_Left_B_end_early Path_Blue_Right_B_end_early Path_Red_Right_B_end_early Path_Red_Left_B_end_early
 clear Path_Red_Center_A Path_Red_Center_B

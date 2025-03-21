@@ -499,7 +499,7 @@ private:
         nt::NetworkTableEntry __Steering_Rel_Cmd__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd_SPF__Entry;
         nt::NetworkTableEntry __Swerve_Drive_Integral_Enable__Entry;
-        nt::NetworkTableEntry __Switch9__Entry;
+        nt::NetworkTableEntry __Switch14__Entry;
         nt::NetworkTableEntry __Teleop_AT_On_Target__Entry;
         nt::NetworkTableEntry __Test_Mode__Entry;
         nt::NetworkTableEntry __Translation_Angle__Entry;

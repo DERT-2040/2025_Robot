@@ -1176,7 +1176,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Steering_Rel_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd");
     __Steering_Rel_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd_SPF");
     __Swerve_Drive_Integral_Enable__Entry = NTtable_TPoint->GetEntry("Swerve_Drive_Integral_Enable");
-    __Switch9__Entry = NTtable_TPoint->GetEntry("Switch9");
+    __Switch14__Entry = NTtable_TPoint->GetEntry("Switch14");
     __Teleop_AT_On_Target__Entry = NTtable_TPoint->GetEntry("Teleop_AT_On_Target");
     __Test_Mode__Entry = NTtable_TPoint->GetEntry("Test_Mode");
     __Translation_Angle__Entry = NTtable_TPoint->GetEntry("Translation_Angle");
@@ -1449,7 +1449,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Steering_Rel_Cmd__Entry.SetDouble(Code_Gen_Model_B.Steering_Rel_Cmd);
     __Steering_Rel_Cmd_SPF__Entry.SetDouble(Code_Gen_Model_B.Steering_Rel_Cmd_SPF);
     __Swerve_Drive_Integral_Enable__Entry.SetDouble(Code_Gen_Model_B.Swerve_Drive_Integral_Enable);
-    __Switch9__Entry.SetDouble(Code_Gen_Model_B.Switch9);
+    __Switch14__Entry.SetDouble(Code_Gen_Model_B.Switch14);
     __Teleop_AT_On_Target__Entry.SetDouble(Code_Gen_Model_B.Teleop_AT_On_Target);
     __Test_Mode__Entry.SetDouble(Code_Gen_Model_B.Test_Mode);
     __Translation_Angle__Entry.SetDouble(Code_Gen_Model_B.Translation_Angle);
