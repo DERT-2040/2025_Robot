@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.358
+ * Model version                  : 2.359
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar 20 20:51:23 2025
+ * C/C++ source code generated on : Thu Mar 20 21:22:13 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1149,6 +1149,7 @@ static void Code_Gen_Elevator_Height_Bottom(boolean_T rtu_Gamepad_Start,
   boolean_T rtu_Gamepad_Back, boolean_T rtu_Gamepad_RB, boolean_T
   rtu_Gamepad_POV_Up, boolean_T rtu_Gamepad_POV_Down, boolean_T
   rtu_Gamepad_POV_Left, boolean_T rtu_Gamepad_POV_Right, real_T
+  rtu_Gamepad_Stick_Left_Y, real_T rtu_Gamepad_Stick_Right_Y, real_T
   rtu_Coral_Arm_Angle_Measured, boolean_T rtu_Algae_Limit_Switch, real_T
   *rty_State_ID, real_T *rty_Elevator_Height_Desired, real_T
   *rty_Coral_Arm_Angle_Desired, real_T *rty_Coral_Wheel_DC, uint8_T
@@ -1732,6 +1733,10 @@ static void Code_Gen_Model_Coral_Eject(boolean_T rtu_Gamepad_Start, boolean_T
       /* case IN_Stop: */
       *rty_State_ID = 3.7;
       *rty_Coral_Wheel_DC = 0.0;
+      *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+        Elevator_Height_Manual_Gain;
+      *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+        Coral_Arm_Manual_Gain;
       break;
     }
   }
@@ -2257,6 +2262,7 @@ static void Code_Gen_Elevator_Height_Bottom(boolean_T rtu_Gamepad_Start,
   boolean_T rtu_Gamepad_Back, boolean_T rtu_Gamepad_RB, boolean_T
   rtu_Gamepad_POV_Up, boolean_T rtu_Gamepad_POV_Down, boolean_T
   rtu_Gamepad_POV_Left, boolean_T rtu_Gamepad_POV_Right, real_T
+  rtu_Gamepad_Stick_Left_Y, real_T rtu_Gamepad_Stick_Right_Y, real_T
   rtu_Coral_Arm_Angle_Measured, boolean_T rtu_Algae_Limit_Switch, real_T
   *rty_State_ID, real_T *rty_Elevator_Height_Desired, real_T
   *rty_Coral_Arm_Angle_Desired, real_T *rty_Coral_Wheel_DC, uint8_T
@@ -2321,22 +2327,27 @@ static void Code_Gen_Elevator_Height_Bottom(boolean_T rtu_Gamepad_Start,
     *rty_Coral_Arm_Angle_Desired = Coral_Arm_Angle_Up;
     *rty_Coral_Wheel_DC = 0.0;
     *rty_Set_Algae_Level = 3U;
-  } else if (localDW->is_Elevator_Height_Bottom == Code_Gen_Model_IN_Coral_Eject)
-  {
-    *rty_Coral_Wheel_DC = Coral_Motor_DC_Eject;
-    if (localDW->timer >= Coral_Eject_Time) {
-      localDW->is_Elevator_Height_Bottom = Code_Gen_Mod_IN_Coral_Motor_Off;
-      *rty_Coral_Wheel_DC = 0.0;
-    } else {
-      localDW->timer += 0.02;
-    }
   } else {
-    /* case IN_Coral_Motor_Off: */
-    *rty_Coral_Wheel_DC = 0.0;
-    if (rtu_Gamepad_RB) {
-      localDW->is_Elevator_Height_Bottom = Code_Gen_Model_IN_Coral_Eject;
+    *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+      Elevator_Height_Manual_Gain;
+    *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+      Coral_Arm_Manual_Gain;
+    if (localDW->is_Elevator_Height_Bottom == Code_Gen_Model_IN_Coral_Eject) {
       *rty_Coral_Wheel_DC = Coral_Motor_DC_Eject;
-      localDW->timer = 0.0;
+      if (localDW->timer >= Coral_Eject_Time) {
+        localDW->is_Elevator_Height_Bottom = Code_Gen_Mod_IN_Coral_Motor_Off;
+        *rty_Coral_Wheel_DC = 0.0;
+      } else {
+        localDW->timer += 0.02;
+      }
+    } else {
+      /* case IN_Coral_Motor_Off: */
+      *rty_Coral_Wheel_DC = 0.0;
+      if (rtu_Gamepad_RB) {
+        localDW->is_Elevator_Height_Bottom = Code_Gen_Model_IN_Coral_Eject;
+        *rty_Coral_Wheel_DC = Coral_Motor_DC_Eject;
+        localDW->timer = 0.0;
+      }
     }
   }
 }
@@ -2710,7 +2721,8 @@ static void Co_Elevator_CoralArm_CoralWheel(uint8_T rtu_GameState, boolean_T
    case Code__IN_Elevator_Height_Bottom:
     Code_Gen_Elevator_Height_Bottom(rtu_Gamepad_Start, rtu_Gamepad_Back,
       rtu_Gamepad_RB, rtu_Gamepad_POV_Up, rtu_Gamepad_POV_Down,
-      rtu_Gamepad_POV_Left, rtu_Gamepad_POV_Right, rtu_Coral_Arm_Angle_Measured,
+      rtu_Gamepad_POV_Left, rtu_Gamepad_POV_Right, rtu_Gamepad_Stick_Left_Y,
+      rtu_Gamepad_Stick_Right_Y, rtu_Coral_Arm_Angle_Measured,
       rtu_Algae_Limit_Switch, rty_State_ID, rty_Elevator_Height_Desired,
       rty_Coral_Arm_Angle_Desired, rty_Coral_Wheel_DC, rty_Set_Algae_Level,
       localDW);
