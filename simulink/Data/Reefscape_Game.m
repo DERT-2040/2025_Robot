@@ -39,7 +39,7 @@ Elevator_Total_UL = 1;    % DC
 Elevator_Total_LL = -0.50;      % DC
 Elevator_Hold_at_Top_DC = 0.1;  % DC
 Elevator_Bottom_DC = -0.04;     % DC
-Elevator_Error_Bottom_Disable = 30; % inches
+Elevator_Error_Bottom_Disable = 3; % inches
 Elevator_Error_Increase = 0.0;  % inches, increase error to force elevator up when we want to go lower but are not able to because of coral arm angle
 Elevator_DC_Inc_RL = 1/0.3*0.02;  % duty cycle per loop
 

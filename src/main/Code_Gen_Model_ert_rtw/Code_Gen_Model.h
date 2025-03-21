@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.360
+ * Model version                  : 2.361
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar 20 21:54:11 2025
+ * C/C++ source code generated on : Fri Mar 21 06:54:07 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -42,7 +42,7 @@
 typedef struct {
   real_T timer;                        /* '<S29>/Reefscape_Chart' */
   real_T timer_robot_target;           /* '<S29>/Reefscape_Chart' */
-  uint8_T is_active_c4_Code_Gen_Model; /* '<S29>/Reefscape_Chart' */
+  uint8_T is_active_c2_Code_Gen_Model; /* '<S29>/Reefscape_Chart' */
   uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S29>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_High;        /* '<S29>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_Low;         /* '<S29>/Reefscape_Chart' */
@@ -1348,6 +1348,7 @@ extern real_T Elevator_MotorRev_to_Inch;/* Variable: Elevator_MotorRev_to_Inch
                                          */
 extern real_T Elevator_Total_LL;       /* Variable: Elevator_Total_LL
                                         * Referenced by:
+                                        *   '<S10>/Constant8'
                                         *   '<S89>/Constant1'
                                         *   '<S89>/Saturation2'
                                         */

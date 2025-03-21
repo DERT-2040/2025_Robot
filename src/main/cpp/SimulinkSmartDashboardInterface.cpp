@@ -537,7 +537,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Error_Bottom_Disable__Entry = NTtable_Tune->GetEntry("Elevator_Error_Bottom_Disable");
     NTinst.AddListener(__Elevator_Error_Bottom_Disable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Error_Bottom_Disable = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Error_Bottom_Disable__Entry.SetDouble(30);
+    __Elevator_Error_Bottom_Disable__Entry.SetDouble(3);
  
     __Elevator_Error_Increase__Entry = NTtable_Tune->GetEntry("Elevator_Error_Increase");
     NTinst.AddListener(__Elevator_Error_Increase__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Error_Increase = event.GetValueEventData()->value.GetDouble();});
