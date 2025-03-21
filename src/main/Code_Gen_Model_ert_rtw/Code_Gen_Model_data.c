@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.353
+ * Model version                  : 2.357
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 19 22:19:14 2025
+ * C/C++ source code generated on : Thu Mar 20 17:43:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -304,7 +304,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   /* Expression: Coral_Arm_DC_Upper_Limit_Out
    * Referenced by: '<S8>/1-D Lookup Table'
    */
-  { 0.8, 0.7, 0.4 },
+  { 0.4, 0.35, 0.2 },
 
   /* Expression: Coral_Arm_DC_Upper_Limit_Angle_In
    * Referenced by: '<S8>/1-D Lookup Table'
@@ -314,7 +314,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   /* Expression: Coral_Arm_DC_Lower_Limit_Out
    * Referenced by: '<S8>/1-D Lookup Table1'
    */
-  { -0.2, -0.5 },
+  { -0.1, -0.25 },
 
   /* Expression: Coral_Arm_DC_Lower_Limit_Angle_In
    * Referenced by: '<S8>/1-D Lookup Table1'

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.353
+ * Model version                  : 2.357
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 19 22:19:14 2025
+ * C/C++ source code generated on : Thu Mar 20 17:43:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -42,18 +42,19 @@
 typedef struct {
   real_T timer;                        /* '<S29>/Reefscape_Chart' */
   real_T timer_robot_target;           /* '<S29>/Reefscape_Chart' */
-  uint8_T is_active_c5_Code_Gen_Model; /* '<S29>/Reefscape_Chart' */
+  uint8_T is_active_c4_Code_Gen_Model; /* '<S29>/Reefscape_Chart' */
   uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S29>/Reefscape_Chart' */
   uint8_T is_Coral;                    /* '<S29>/Reefscape_Chart' */
   uint8_T is_Coral_Eject;              /* '<S29>/Reefscape_Chart' */
   uint8_T is_Level_2;                  /* '<S29>/Reefscape_Chart' */
   uint8_T is_Level_3;                  /* '<S29>/Reefscape_Chart' */
+  uint8_T is_Level_4_Auto;             /* '<S29>/Reefscape_Chart' */
   uint8_T is_Level_4_Teleop;           /* '<S29>/Reefscape_Chart' */
   uint8_T is_Coral_Score_Position;     /* '<S29>/Reefscape_Chart' */
   uint8_T is_Actions;                  /* '<S29>/Reefscape_Chart' */
   uint8_T is_Set_Level;                /* '<S29>/Reefscape_Chart' */
   uint8_T is_Elevator_Height_Bottom;   /* '<S29>/Reefscape_Chart' */
-  uint8_T is_Set_Level_a;              /* '<S29>/Reefscape_Chart' */
+  uint8_T is_Set_Level_c;              /* '<S29>/Reefscape_Chart' */
   uint8_T is_Algae_Wheels;             /* '<S29>/Reefscape_Chart' */
   uint8_T is_AT_On_Target_Timer;       /* '<S29>/Reefscape_Chart' */
   boolean_T Set_L1;                    /* '<S29>/Reefscape_Chart' */

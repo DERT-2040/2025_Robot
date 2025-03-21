@@ -433,15 +433,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Coral_Arm_DC_Inc_RL__Entry = NTtable_Tune->GetEntry("Coral_Arm_DC_Inc_RL");
     NTinst.AddListener(__Coral_Arm_DC_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_DC_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_DC_Inc_RL__Entry.SetDouble(0.066667);
+    __Coral_Arm_DC_Inc_RL__Entry.SetDouble(0.033333);
  
     __Coral_Arm_Gain_Int__Entry = NTtable_Tune->GetEntry("Coral_Arm_Gain_Int");
     NTinst.AddListener(__Coral_Arm_Gain_Int__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Gain_Int = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Gain_Int__Entry.SetDouble(0.001);
+    __Coral_Arm_Gain_Int__Entry.SetDouble(0.0005);
  
     __Coral_Arm_Gain_Prop__Entry = NTtable_Tune->GetEntry("Coral_Arm_Gain_Prop");
     NTinst.AddListener(__Coral_Arm_Gain_Prop__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Gain_Prop = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Gain_Prop__Entry.SetDouble(0.01);
+    __Coral_Arm_Gain_Prop__Entry.SetDouble(0.005);
  
     __Coral_Arm_Int_IC__Entry = NTtable_Tune->GetEntry("Coral_Arm_Int_IC");
     NTinst.AddListener(__Coral_Arm_Int_IC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Int_IC = event.GetValueEventData()->value.GetDouble();});
@@ -449,11 +449,11 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Coral_Arm_Int_LL__Entry = NTtable_Tune->GetEntry("Coral_Arm_Int_LL");
     NTinst.AddListener(__Coral_Arm_Int_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Int_LL = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Int_LL__Entry.SetDouble(-0.05);
+    __Coral_Arm_Int_LL__Entry.SetDouble(-0.025);
  
     __Coral_Arm_Int_UL__Entry = NTtable_Tune->GetEntry("Coral_Arm_Int_UL");
     NTinst.AddListener(__Coral_Arm_Int_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Int_UL = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Int_UL__Entry.SetDouble(0.05);
+    __Coral_Arm_Int_UL__Entry.SetDouble(0.025);
  
     __Coral_Arm_Manual_Gain__Entry = NTtable_Tune->GetEntry("Coral_Arm_Manual_Gain");
     NTinst.AddListener(__Coral_Arm_Manual_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Manual_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -537,7 +537,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Error_Bottom_Disable__Entry = NTtable_Tune->GetEntry("Elevator_Error_Bottom_Disable");
     NTinst.AddListener(__Elevator_Error_Bottom_Disable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Error_Bottom_Disable = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Error_Bottom_Disable__Entry.SetDouble(1);
+    __Elevator_Error_Bottom_Disable__Entry.SetDouble(30);
  
     __Elevator_Error_Increase__Entry = NTtable_Tune->GetEntry("Elevator_Error_Increase");
     NTinst.AddListener(__Elevator_Error_Increase__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Error_Increase = event.GetValueEventData()->value.GetDouble();});
@@ -913,7 +913,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Winch_Hold_DC__Entry = NTtable_Tune->GetEntry("Winch_Hold_DC");
     NTinst.AddListener(__Winch_Hold_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Winch_Hold_DC = event.GetValueEventData()->value.GetDouble();});
-    __Winch_Hold_DC__Entry.SetDouble(0.05);
+    __Winch_Hold_DC__Entry.SetDouble(0.3);
  
     __Winch_Rev_Target__Entry = NTtable_Tune->GetEntry("Winch_Rev_Target");
     NTinst.AddListener(__Winch_Rev_Target__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Winch_Rev_Target = event.GetValueEventData()->value.GetDouble();});
@@ -921,7 +921,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Winch_Spool_DC__Entry = NTtable_Tune->GetEntry("Winch_Spool_DC");
     NTinst.AddListener(__Winch_Spool_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Winch_Spool_DC = event.GetValueEventData()->value.GetDouble();});
-    __Winch_Spool_DC__Entry.SetDouble(0.2);
+    __Winch_Spool_DC__Entry.SetDouble(0.3);
  
 // Inports
     __Actuator_Revs__Entry = NTtable_Inport->GetEntry("Actuator_Revs");
