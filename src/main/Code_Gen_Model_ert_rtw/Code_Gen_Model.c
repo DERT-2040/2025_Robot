@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.357
+ * Model version                  : 2.358
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar 20 17:43:08 2025
+ * C/C++ source code generated on : Thu Mar 20 20:51:23 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1080,7 +1080,8 @@ RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M = &Code_Gen_Model_M_;
 static void Code_Gen_Mode_Algae_Pickup_High(boolean_T rtu_Gamepad_Start,
   boolean_T rtu_Gamepad_Back, boolean_T rtu_Gamepad_POV_Up, boolean_T
   rtu_Gamepad_POV_Down, boolean_T rtu_Gamepad_POV_Left, boolean_T
-  rtu_Gamepad_POV_Right, real_T rtu_Coral_Arm_Angle_Measured, boolean_T
+  rtu_Gamepad_POV_Right, real_T rtu_Gamepad_Stick_Left_Y, real_T
+  rtu_Gamepad_Stick_Right_Y, real_T rtu_Coral_Arm_Angle_Measured, boolean_T
   rtu_Algae_Limit_Switch, real_T *rty_State_ID, real_T
   *rty_Elevator_Height_Desired, real_T *rty_Coral_Arm_Angle_Desired, real_T
   *rty_Coral_Wheel_DC, uint8_T *rty_Set_Algae_Level,
@@ -1088,7 +1089,8 @@ static void Code_Gen_Mode_Algae_Pickup_High(boolean_T rtu_Gamepad_Start,
 static void Code_Gen_Model_Algae_Pickup_Low(boolean_T rtu_Gamepad_Start,
   boolean_T rtu_Gamepad_Back, boolean_T rtu_Gamepad_POV_Up, boolean_T
   rtu_Gamepad_POV_Down, boolean_T rtu_Gamepad_POV_Left, boolean_T
-  rtu_Gamepad_POV_Right, real_T rtu_Coral_Arm_Angle_Measured, boolean_T
+  rtu_Gamepad_POV_Right, real_T rtu_Gamepad_Stick_Left_Y, real_T
+  rtu_Gamepad_Stick_Right_Y, real_T rtu_Coral_Arm_Angle_Measured, boolean_T
   rtu_Algae_Limit_Switch, real_T *rty_State_ID, real_T
   *rty_Elevator_Height_Desired, real_T *rty_Coral_Arm_Angle_Desired, real_T
   *rty_Coral_Wheel_DC, uint8_T *rty_Set_Algae_Level,
@@ -1135,6 +1137,7 @@ static void Code_Gen_Model_Coral_Pickup(boolean_T rtu_Gamepad_B1_A, boolean_T
   boolean_T rtu_Gamepad_Start, boolean_T rtu_Gamepad_Back, boolean_T
   rtu_Gamepad_POV_Up, boolean_T rtu_Gamepad_POV_Down, boolean_T
   rtu_Gamepad_POV_Left, boolean_T rtu_Gamepad_POV_Right, real_T
+  rtu_Gamepad_Stick_Left_Y, real_T rtu_Gamepad_Stick_Right_Y, real_T
   rtu_Elevator_Height_Measured, real_T rtu_Coral_Arm_Angle_Measured, real_T
   rtu_Coral_TOF_Distance, boolean_T rtu_Coral_Limit_Switch, boolean_T
   rtu_Algae_Limit_Switch, real_T *rty_State_ID, real_T
@@ -1153,7 +1156,8 @@ static void Code_Gen_Elevator_Height_Bottom(boolean_T rtu_Gamepad_Start,
 static void Code_Elevator_Height_Bottom_pre(boolean_T rtu_Gamepad_Start,
   boolean_T rtu_Gamepad_Back, boolean_T rtu_Gamepad_POV_Up, boolean_T
   rtu_Gamepad_POV_Down, boolean_T rtu_Gamepad_POV_Left, boolean_T
-  rtu_Gamepad_POV_Right, real_T rtu_Elevator_Height_Measured, real_T
+  rtu_Gamepad_POV_Right, real_T rtu_Gamepad_Stick_Left_Y, real_T
+  rtu_Gamepad_Stick_Right_Y, real_T rtu_Elevator_Height_Measured, real_T
   rtu_Coral_Arm_Angle_Measured, boolean_T rtu_Algae_Limit_Switch, real_T
   *rty_State_ID, real_T *rty_Elevator_Height_Desired, real_T
   *rty_Coral_Arm_Angle_Desired, real_T *rty_Coral_Wheel_DC, uint8_T
@@ -1340,7 +1344,8 @@ uint32_T plook_u32u8_evencka(uint8_T u, uint8_T bp0, uint8_T bpSpace, uint32_T
 static void Code_Gen_Mode_Algae_Pickup_High(boolean_T rtu_Gamepad_Start,
   boolean_T rtu_Gamepad_Back, boolean_T rtu_Gamepad_POV_Up, boolean_T
   rtu_Gamepad_POV_Down, boolean_T rtu_Gamepad_POV_Left, boolean_T
-  rtu_Gamepad_POV_Right, real_T rtu_Coral_Arm_Angle_Measured, boolean_T
+  rtu_Gamepad_POV_Right, real_T rtu_Gamepad_Stick_Left_Y, real_T
+  rtu_Gamepad_Stick_Right_Y, real_T rtu_Coral_Arm_Angle_Measured, boolean_T
   rtu_Algae_Limit_Switch, real_T *rty_State_ID, real_T
   *rty_Elevator_Height_Desired, real_T *rty_Coral_Arm_Angle_Desired, real_T
   *rty_Coral_Wheel_DC, uint8_T *rty_Set_Algae_Level,
@@ -1405,6 +1410,11 @@ static void Code_Gen_Mode_Algae_Pickup_High(boolean_T rtu_Gamepad_Start,
     *rty_Coral_Arm_Angle_Desired = Coral_Arm_Angle_Up;
     *rty_Coral_Wheel_DC = 0.0;
     *rty_Set_Algae_Level = 3U;
+  } else {
+    *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+      Elevator_Height_Manual_Gain;
+    *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+      Coral_Arm_Manual_Gain;
   }
 }
 
@@ -1412,7 +1422,8 @@ static void Code_Gen_Mode_Algae_Pickup_High(boolean_T rtu_Gamepad_Start,
 static void Code_Gen_Model_Algae_Pickup_Low(boolean_T rtu_Gamepad_Start,
   boolean_T rtu_Gamepad_Back, boolean_T rtu_Gamepad_POV_Up, boolean_T
   rtu_Gamepad_POV_Down, boolean_T rtu_Gamepad_POV_Left, boolean_T
-  rtu_Gamepad_POV_Right, real_T rtu_Coral_Arm_Angle_Measured, boolean_T
+  rtu_Gamepad_POV_Right, real_T rtu_Gamepad_Stick_Left_Y, real_T
+  rtu_Gamepad_Stick_Right_Y, real_T rtu_Coral_Arm_Angle_Measured, boolean_T
   rtu_Algae_Limit_Switch, real_T *rty_State_ID, real_T
   *rty_Elevator_Height_Desired, real_T *rty_Coral_Arm_Angle_Desired, real_T
   *rty_Coral_Wheel_DC, uint8_T *rty_Set_Algae_Level,
@@ -1477,6 +1488,11 @@ static void Code_Gen_Model_Algae_Pickup_Low(boolean_T rtu_Gamepad_Start,
     *rty_Coral_Arm_Angle_Desired = Coral_Arm_Angle_Up;
     *rty_Coral_Wheel_DC = 0.0;
     *rty_Set_Algae_Level = 3U;
+  } else {
+    *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+      Elevator_Height_Manual_Gain;
+    *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+      Coral_Arm_Manual_Gain;
   }
 }
 
@@ -2082,6 +2098,7 @@ static void Code_Gen_Model_Coral_Pickup(boolean_T rtu_Gamepad_B1_A, boolean_T
   boolean_T rtu_Gamepad_Start, boolean_T rtu_Gamepad_Back, boolean_T
   rtu_Gamepad_POV_Up, boolean_T rtu_Gamepad_POV_Down, boolean_T
   rtu_Gamepad_POV_Left, boolean_T rtu_Gamepad_POV_Right, real_T
+  rtu_Gamepad_Stick_Left_Y, real_T rtu_Gamepad_Stick_Right_Y, real_T
   rtu_Elevator_Height_Measured, real_T rtu_Coral_Arm_Angle_Measured, real_T
   rtu_Coral_TOF_Distance, boolean_T rtu_Coral_Limit_Switch, boolean_T
   rtu_Algae_Limit_Switch, real_T *rty_State_ID, real_T
@@ -2161,6 +2178,11 @@ static void Code_Gen_Model_Coral_Pickup(boolean_T rtu_Gamepad_B1_A, boolean_T
         *rty_Coral_Wheel_DC = Coral_Motor_DC_Hold;
         *rty_Elevator_LowerPickup_Reset = false;
         localDW->timer = 0.0;
+      } else {
+        *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+          Elevator_Height_Manual_Gain;
+        *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+          Coral_Arm_Manual_Gain;
       }
       break;
 
@@ -2176,6 +2198,10 @@ static void Code_Gen_Model_Coral_Pickup(boolean_T rtu_Gamepad_B1_A, boolean_T
         *rty_Elevator_Height_Desired = Elevator_Height_Raise;
       } else {
         localDW->timer += 0.02;
+        *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+          Elevator_Height_Manual_Gain;
+        *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+          Coral_Arm_Manual_Gain;
       }
       break;
 
@@ -2191,6 +2217,11 @@ static void Code_Gen_Model_Coral_Pickup(boolean_T rtu_Gamepad_B1_A, boolean_T
         *rty_State_ID = 1.1;
         *rty_Elevator_Height_Desired = Elevator_Height_Lower;
         *rty_Coral_Wheel_DC = Coral_Motor_DC_Pickup;
+      } else {
+        *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+          Elevator_Height_Manual_Gain;
+        *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+          Coral_Arm_Manual_Gain;
       }
       break;
 
@@ -2204,6 +2235,11 @@ static void Code_Gen_Model_Coral_Pickup(boolean_T rtu_Gamepad_B1_A, boolean_T
         localDW->is_Elevator_CoralArm_CoralWheel = Code_Gen_Model_IN_Start_Angle;
         *rty_State_ID = 2.0;
         *rty_Coral_Arm_Angle_Desired = Coral_Arm_Angle_Start;
+      } else {
+        *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+          Elevator_Height_Manual_Gain;
+        *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+          Coral_Arm_Manual_Gain;
       }
       break;
     }
@@ -2309,7 +2345,8 @@ static void Code_Gen_Elevator_Height_Bottom(boolean_T rtu_Gamepad_Start,
 static void Code_Elevator_Height_Bottom_pre(boolean_T rtu_Gamepad_Start,
   boolean_T rtu_Gamepad_Back, boolean_T rtu_Gamepad_POV_Up, boolean_T
   rtu_Gamepad_POV_Down, boolean_T rtu_Gamepad_POV_Left, boolean_T
-  rtu_Gamepad_POV_Right, real_T rtu_Elevator_Height_Measured, real_T
+  rtu_Gamepad_POV_Right, real_T rtu_Gamepad_Stick_Left_Y, real_T
+  rtu_Gamepad_Stick_Right_Y, real_T rtu_Elevator_Height_Measured, real_T
   rtu_Coral_Arm_Angle_Measured, boolean_T rtu_Algae_Limit_Switch, real_T
   *rty_State_ID, real_T *rty_Elevator_Height_Desired, real_T
   *rty_Coral_Arm_Angle_Desired, real_T *rty_Coral_Wheel_DC, uint8_T
@@ -2369,6 +2406,11 @@ static void Code_Elevator_Height_Bottom_pre(boolean_T rtu_Gamepad_Start,
     *rty_Coral_Arm_Angle_Desired = Coral_Arm_Angle_Up;
     *rty_Coral_Wheel_DC = 0.0;
     *rty_Set_Algae_Level = 3U;
+  } else {
+    *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+      Elevator_Height_Manual_Gain;
+    *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+      Coral_Arm_Manual_Gain;
   }
 
   if (guard1) {
@@ -2558,19 +2600,19 @@ static void Co_Elevator_CoralArm_CoralWheel(uint8_T rtu_GameState, boolean_T
    case Code_Gen_M_IN_Algae_Pickup_High:
     Code_Gen_Mode_Algae_Pickup_High(rtu_Gamepad_Start, rtu_Gamepad_Back,
       rtu_Gamepad_POV_Up, rtu_Gamepad_POV_Down, rtu_Gamepad_POV_Left,
-      rtu_Gamepad_POV_Right, rtu_Coral_Arm_Angle_Measured,
-      rtu_Algae_Limit_Switch, rty_State_ID, rty_Elevator_Height_Desired,
-      rty_Coral_Arm_Angle_Desired, rty_Coral_Wheel_DC, rty_Set_Algae_Level,
-      localDW);
+      rtu_Gamepad_POV_Right, rtu_Gamepad_Stick_Left_Y, rtu_Gamepad_Stick_Right_Y,
+      rtu_Coral_Arm_Angle_Measured, rtu_Algae_Limit_Switch, rty_State_ID,
+      rty_Elevator_Height_Desired, rty_Coral_Arm_Angle_Desired,
+      rty_Coral_Wheel_DC, rty_Set_Algae_Level, localDW);
     break;
 
    case Code_Gen_Mo_IN_Algae_Pickup_Low:
     Code_Gen_Model_Algae_Pickup_Low(rtu_Gamepad_Start, rtu_Gamepad_Back,
       rtu_Gamepad_POV_Up, rtu_Gamepad_POV_Down, rtu_Gamepad_POV_Left,
-      rtu_Gamepad_POV_Right, rtu_Coral_Arm_Angle_Measured,
-      rtu_Algae_Limit_Switch, rty_State_ID, rty_Elevator_Height_Desired,
-      rty_Coral_Arm_Angle_Desired, rty_Coral_Wheel_DC, rty_Set_Algae_Level,
-      localDW);
+      rtu_Gamepad_POV_Right, rtu_Gamepad_Stick_Left_Y, rtu_Gamepad_Stick_Right_Y,
+      rtu_Coral_Arm_Angle_Measured, rtu_Algae_Limit_Switch, rty_State_ID,
+      rty_Elevator_Height_Desired, rty_Coral_Arm_Angle_Desired,
+      rty_Coral_Wheel_DC, rty_Set_Algae_Level, localDW);
     break;
 
    case Code_Gen_Model_IN_Algae_Score:
@@ -2630,6 +2672,11 @@ static void Co_Elevator_CoralArm_CoralWheel(uint8_T rtu_GameState, boolean_T
       *rty_Coral_Arm_Angle_Desired = Coral_Arm_Angle_Up;
       *rty_Coral_Wheel_DC = 0.0;
       *rty_Set_Algae_Level = 3U;
+    } else {
+      *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+        Elevator_Height_Manual_Gain;
+      *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+        Coral_Arm_Manual_Gain;
     }
     break;
 
@@ -2652,10 +2699,10 @@ static void Co_Elevator_CoralArm_CoralWheel(uint8_T rtu_GameState, boolean_T
     Code_Gen_Model_Coral_Pickup(rtu_Gamepad_B1_A, rtu_Gamepad_B2_B,
       rtu_Gamepad_B3_X, rtu_Gamepad_B4_Y, rtu_Gamepad_Start, rtu_Gamepad_Back,
       rtu_Gamepad_POV_Up, rtu_Gamepad_POV_Down, rtu_Gamepad_POV_Left,
-      rtu_Gamepad_POV_Right, rtu_Elevator_Height_Measured,
-      rtu_Coral_Arm_Angle_Measured, rtu_Coral_TOF_Distance,
-      rtu_Coral_Limit_Switch, rtu_Algae_Limit_Switch, rty_State_ID,
-      rty_Elevator_Height_Desired, rty_Coral_Arm_Angle_Desired,
+      rtu_Gamepad_POV_Right, rtu_Gamepad_Stick_Left_Y, rtu_Gamepad_Stick_Right_Y,
+      rtu_Elevator_Height_Measured, rtu_Coral_Arm_Angle_Measured,
+      rtu_Coral_TOF_Distance, rtu_Coral_Limit_Switch, rtu_Algae_Limit_Switch,
+      rty_State_ID, rty_Elevator_Height_Desired, rty_Coral_Arm_Angle_Desired,
       rty_Coral_Wheel_DC, rty_Elevator_LowerPickup_Reset,
       rty_Coral_Pickup_Lower_Wait_Sta, rty_Set_Algae_Level, localDW);
     break;
@@ -2672,10 +2719,11 @@ static void Co_Elevator_CoralArm_CoralWheel(uint8_T rtu_GameState, boolean_T
    case C_IN_Elevator_Height_Bottom_pre:
     Code_Elevator_Height_Bottom_pre(rtu_Gamepad_Start, rtu_Gamepad_Back,
       rtu_Gamepad_POV_Up, rtu_Gamepad_POV_Down, rtu_Gamepad_POV_Left,
-      rtu_Gamepad_POV_Right, rtu_Elevator_Height_Measured,
-      rtu_Coral_Arm_Angle_Measured, rtu_Algae_Limit_Switch, rty_State_ID,
-      rty_Elevator_Height_Desired, rty_Coral_Arm_Angle_Desired,
-      rty_Coral_Wheel_DC, rty_Set_Algae_Level, localDW);
+      rtu_Gamepad_POV_Right, rtu_Gamepad_Stick_Left_Y, rtu_Gamepad_Stick_Right_Y,
+      rtu_Elevator_Height_Measured, rtu_Coral_Arm_Angle_Measured,
+      rtu_Algae_Limit_Switch, rty_State_ID, rty_Elevator_Height_Desired,
+      rty_Coral_Arm_Angle_Desired, rty_Coral_Wheel_DC, rty_Set_Algae_Level,
+      localDW);
     break;
 
    case Code_Gen_Mode_IN_End_Game_Climb:
@@ -2735,6 +2783,11 @@ static void Co_Elevator_CoralArm_CoralWheel(uint8_T rtu_GameState, boolean_T
       *rty_Coral_Arm_Angle_Desired = Coral_Arm_Angle_Up;
       *rty_Coral_Wheel_DC = 0.0;
       *rty_Set_Algae_Level = 3U;
+    } else {
+      *rty_Elevator_Height_Desired += rtu_Gamepad_Stick_Right_Y *
+        Elevator_Height_Manual_Gain;
+      *rty_Coral_Arm_Angle_Desired += rtu_Gamepad_Stick_Left_Y *
+        Coral_Arm_Manual_Gain;
     }
     break;
 

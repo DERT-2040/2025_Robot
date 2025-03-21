@@ -257,6 +257,14 @@ for i = 1:length(ListOfTestPoints)
     CPPFileContents{end + 1} = append('    __', string(ListOfTestPoints(i)), '__Entry.SetDouble(Code_Gen_Model_B.', string(ListOfTestPoints(i)), ');');
 end
 
+CPPFileContents{end + 1} = '    // Tunable Parameters';
+for i = 1:length(Names)
+    if not(evalin('base',strcat('strcmp(class(', string(Names{i}), '), ''Simulink.Parameter'')')) )
+        continue
+    end
+    CPPFileContents{end + 1} = append('    __', string(Names{i}), '__Entry.SetDouble(', string(Names{i}), ');');
+end
+
 CPPFileContents{end + 1} = '}';
 CPPFileContents{end + 1} = 'void SimulinkSmartDashboardInterface::GameStateChangeCallback() {}';
 
