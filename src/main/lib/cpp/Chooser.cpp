@@ -19,6 +19,8 @@ Chooser::Chooser(std::string ChooserName, std::vector<std::pair<std::string, int
 
 void Chooser::InitChooser(std::string ChooserName, std::vector<std::pair<std::string, int>> chooserMap)
 {
+    this->chooserMap = chooserMap;
+
     if(chooserMap.size() == 0)
         throw std::runtime_error("Chooser Length must be greater than zero");
 
@@ -40,8 +42,11 @@ double Chooser::GetSelectedKey(std::string currentSelection)
     for(size_t pos = 0; pos < chooserMap.size(); pos++)
     {
         std::pair<std::string, int> pairAtPos = chooserMap.at(pos);
+
         if(pairAtPos.first == currentSelection)
+        {
             return pairAtPos.second;
+        }
     }
     return -1;
 }
