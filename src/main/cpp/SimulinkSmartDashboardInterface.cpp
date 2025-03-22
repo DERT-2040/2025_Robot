@@ -621,7 +621,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_Prepare__Entry = NTtable_Tune->GetEntry("Elevator_Height_Prepare");
     NTinst.AddListener(__Elevator_Height_Prepare__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Prepare = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Prepare__Entry.SetDouble(11.5);
+    __Elevator_Height_Prepare__Entry.SetDouble(14);
  
     __Elevator_Height_Raise__Entry = NTtable_Tune->GetEntry("Elevator_Height_Raise");
     NTinst.AddListener(__Elevator_Height_Raise__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Raise = event.GetValueEventData()->value.GetDouble();});

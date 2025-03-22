@@ -157,5 +157,5 @@ private:
   /**
    * Candle Object
    */
-  CANdle m_CANdle;
+  //CANdle m_CANdle;
 };

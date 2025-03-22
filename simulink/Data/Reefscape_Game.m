@@ -13,7 +13,7 @@ Elevator_Height_Bottom  = 0;
 Elevator_Height_Top_Reset = 30;
 Elevator_Height_PickupLower_Reset = 7.875;
 
-Elevator_Height_Prepare = 11.5;
+Elevator_Height_Prepare = 14;
 Elevator_Height_Lower   = 7.5;
 Elevator_Height_Raise   = 9.6;
 
