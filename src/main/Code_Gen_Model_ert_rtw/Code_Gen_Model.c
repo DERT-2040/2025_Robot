@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.361
+ * Model version                  : 2.362
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 21 15:40:52 2025
+ * C/C++ source code generated on : Fri Mar 21 22:01:49 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -2284,9 +2284,9 @@ static void Code_Gen_Model_Coral_Pickup(boolean_T rtu_Gamepad_B1_A, boolean_T
 
      case Code_IN_Coral_Pickup_Lower_Wait:
       *rty_State_ID = 1.2;
-      *rty_Elevator_LowerPickup_Reset = false;
       if ((localDW->timer >= Elevator_LowerPickup_Time) && ((((localDW->Set_L1) ||
              (localDW->Set_L2)) || (localDW->Set_L3)) || (localDW->Set_L4))) {
+        *rty_Elevator_LowerPickup_Reset = true;
         *rty_Coral_Pickup_Lower_Wait_Sta = false;
         localDW->is_Actions = Code_Gen__IN_Coral_Pickup_Raise;
         *rty_State_ID = 1.3;
