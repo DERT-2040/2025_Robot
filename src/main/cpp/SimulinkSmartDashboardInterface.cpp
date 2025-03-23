@@ -647,6 +647,14 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Elevator_Int_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Int_UL = event.GetValueEventData()->value.GetDouble();});
     __Elevator_Int_UL__Entry.SetDouble(0.1);
  
+    __Elevator_Limit_Switch_Debounce_F2T__Entry = NTtable_Tune->GetEntry("Elevator_Limit_Switch_Debounce_F2T");
+    NTinst.AddListener(__Elevator_Limit_Switch_Debounce_F2T__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Limit_Switch_Debounce_F2T = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Limit_Switch_Debounce_F2T__Entry.SetDouble(0.5);
+ 
+    __Elevator_Limit_Switch_Debounce_T2F__Entry = NTtable_Tune->GetEntry("Elevator_Limit_Switch_Debounce_T2F");
+    NTinst.AddListener(__Elevator_Limit_Switch_Debounce_T2F__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Limit_Switch_Debounce_T2F = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Limit_Switch_Debounce_T2F__Entry.SetDouble(0);
+ 
     __Elevator_LowerPickup_Time__Entry = NTtable_Tune->GetEntry("Elevator_LowerPickup_Time");
     NTinst.AddListener(__Elevator_LowerPickup_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_LowerPickup_Time = event.GetValueEventData()->value.GetDouble();});
     __Elevator_LowerPickup_Time__Entry.SetDouble(0.5);
@@ -1146,6 +1154,8 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Odometry_X_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_X_global_est_ft");
     __Odometry_Y_global_TEAR_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_TEAR_ft");
     __Odometry_Y_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_est_ft");
+    __Out__Entry = NTtable_TPoint->GetEntry("Out");
+    __Out_h__Entry = NTtable_TPoint->GetEntry("Out_h");
     __Path_ID__Entry = NTtable_TPoint->GetEntry("Path_ID");
     __Processor__Entry = NTtable_TPoint->GetEntry("Processor");
     __Reefscape_Motors_Enable_merge__Entry = NTtable_TPoint->GetEntry("Reefscape_Motors_Enable_merge");
@@ -1419,6 +1429,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Odometry_X_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_X_global_est_ft);
     __Odometry_Y_global_TEAR_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_TEAR_ft);
     __Odometry_Y_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_est_ft);
+    __Out__Entry.SetDouble(Code_Gen_Model_B.Out);
+    __Out_h__Entry.SetDouble(Code_Gen_Model_B.Out_h);
     __Path_ID__Entry.SetDouble(Code_Gen_Model_B.Path_ID);
     __Processor__Entry.SetDouble(Code_Gen_Model_B.Processor);
     __Reefscape_Motors_Enable_merge__Entry.SetDouble(Code_Gen_Model_B.Reefscape_Motors_Enable_merge);
@@ -1623,6 +1635,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Elevator_Int_IC__Entry.SetDouble(Elevator_Int_IC);
     __Elevator_Int_LL__Entry.SetDouble(Elevator_Int_LL);
     __Elevator_Int_UL__Entry.SetDouble(Elevator_Int_UL);
+    __Elevator_Limit_Switch_Debounce_F2T__Entry.SetDouble(Elevator_Limit_Switch_Debounce_F2T);
+    __Elevator_Limit_Switch_Debounce_T2F__Entry.SetDouble(Elevator_Limit_Switch_Debounce_T2F);
     __Elevator_LowerPickup_Time__Entry.SetDouble(Elevator_LowerPickup_Time);
     __Elevator_MotorRev_to_Inch__Entry.SetDouble(Elevator_MotorRev_to_Inch);
     __Elevator_Total_LL__Entry.SetDouble(Elevator_Total_LL);

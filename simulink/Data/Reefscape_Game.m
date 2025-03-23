@@ -47,6 +47,10 @@ Elevator_DC_Inc_RL = 1/0.3*0.02;  % duty cycle per loop
 Elevator_Height_Error_Threshold = 1.00; % inches
 Elevator_LowerPickup_Time = 0.5;  % seconds
 
+% Elevator limit switch debounce
+Elevator_Limit_Switch_Debounce_F2T = 0.5;   % sec
+Elevator_Limit_Switch_Debounce_T2F = 0;     % sec
+
 % Coral Time Of Flight (TOF) detection threshold to start lowering elevator
 Coral_Detect_Distance       = 150; % mm
 

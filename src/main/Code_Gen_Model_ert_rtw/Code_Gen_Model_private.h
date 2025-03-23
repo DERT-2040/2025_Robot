@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.363
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 22 07:07:33 2025
+ * C/C++ source code generated on : Sat Mar 22 22:34:01 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -35,6 +35,10 @@ extern real_T look1_binlcpw(real_T u0, const real_T bp0[], const real_T table[],
   uint32_T maxIndex);
 extern uint32_T plook_u32u8_evencka(uint8_T u, uint8_T bp0, uint8_T bpSpace,
   uint32_T maxIndex);
+extern void Code_Gen_Model_Debounce_Init(boolean_T *rty_Out);
+extern void Code_Gen_Model_Debounce(boolean_T rtu_In, boolean_T rtu_Init_Cond,
+  real_T rtu_Time_True, real_T rtu_Time_False, boolean_T *rty_Out,
+  DW_Debounce_Code_Gen_Model_T *localDW);
 extern void Code_Gen_M_Reefscape_Chart_Init(real_T *rty_State_ID, real_T
   *rty_Elevator_Height_Desired, real_T *rty_Coral_Arm_Angle_Desired, real_T
   *rty_Coral_Wheel_DC, real_T *rty_Algae_Wheel_Outside_DC, real_T

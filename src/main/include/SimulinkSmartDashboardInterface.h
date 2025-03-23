@@ -177,6 +177,8 @@ private:
         nt::NetworkTableEntry __Elevator_Int_IC__Entry;
         nt::NetworkTableEntry __Elevator_Int_LL__Entry;
         nt::NetworkTableEntry __Elevator_Int_UL__Entry;
+        nt::NetworkTableEntry __Elevator_Limit_Switch_Debounce_F2T__Entry;
+        nt::NetworkTableEntry __Elevator_Limit_Switch_Debounce_T2F__Entry;
         nt::NetworkTableEntry __Elevator_LowerPickup_Time__Entry;
         nt::NetworkTableEntry __Elevator_MotorRev_to_Inch__Entry;
         nt::NetworkTableEntry __Elevator_Total_LL__Entry;
@@ -469,6 +471,8 @@ private:
         nt::NetworkTableEntry __Odometry_X_global_est_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_TEAR_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_est_ft__Entry;
+        nt::NetworkTableEntry __Out__Entry;
+        nt::NetworkTableEntry __Out_h__Entry;
         nt::NetworkTableEntry __Path_ID__Entry;
         nt::NetworkTableEntry __Processor__Entry;
         nt::NetworkTableEntry __Reefscape_Motors_Enable_merge__Entry;
