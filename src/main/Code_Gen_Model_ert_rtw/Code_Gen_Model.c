@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.365
+ * Model version                  : 2.366
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 25 00:12:53 2025
+ * C/C++ source code generated on : Tue Mar 25 00:19:14 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -4922,7 +4922,7 @@ void Code_Gen_Model_step(void)
        *  UnitDelay: '<S61>/Delay Input1'
        *  UnitDelay: '<S62>/Delay Input1'
        *  UnitDelay: '<S65>/Delay Input1'
-       *  UnitDelay: '<S66>/Delay Input1'
+       *  UnitDelay: '<S67>/Delay Input1'
        *
        * Block description for '<S57>/Delay Input1':
        *
@@ -4944,7 +4944,7 @@ void Code_Gen_Model_step(void)
        *
        *  Store in Global RAM
        *
-       * Block description for '<S66>/Delay Input1':
+       * Block description for '<S67>/Delay Input1':
        *
        *  Store in Global RAM
        */
@@ -4952,7 +4952,7 @@ void Code_Gen_Model_step(void)
       Code_Gen_Model_DW.DelayInput1_DSTATE_ne = false;
       Code_Gen_Model_DW.DelayInput1_DSTATE_ff = false;
       Code_Gen_Model_DW.DelayInput1_DSTATE_ev = false;
-      Code_Gen_Model_DW.DelayInput1_DSTATE_os = false;
+      Code_Gen_Model_DW.DelayInput1_DSTATE_b2 = false;
       Code_Gen_Model_DW.DelayInput1_DSTATE_b3 = false;
       Code_Gen_Model_DW.DelayInput1_DSTATE_ae = false;
       Code_Gen_Model_DW.UnitDelay_DSTATE_i3 = false;
@@ -5496,7 +5496,7 @@ void Code_Gen_Model_step(void)
      *  UnitDelay: '<S61>/Delay Input1'
      *  UnitDelay: '<S62>/Delay Input1'
      *  UnitDelay: '<S65>/Delay Input1'
-     *  UnitDelay: '<S66>/Delay Input1'
+     *  UnitDelay: '<S67>/Delay Input1'
      *
      * Block description for '<S57>/Delay Input1':
      *
@@ -5518,7 +5518,7 @@ void Code_Gen_Model_step(void)
      *
      *  Store in Global RAM
      *
-     * Block description for '<S66>/Delay Input1':
+     * Block description for '<S67>/Delay Input1':
      *
      *  Store in Global RAM
      */
@@ -5528,9 +5528,9 @@ void Code_Gen_Model_step(void)
       Code_Gen_Model_B.Gamepad_Start_out) > ((int32_T)
       Code_Gen_Model_DW.DelayInput1_DSTATE_ff)), (((int32_T)
       Code_Gen_Model_B.Gamepad_Back_out) > ((int32_T)
-      Code_Gen_Model_DW.DelayInput1_DSTATE_ev)), false, (((int32_T)
+      Code_Gen_Model_DW.DelayInput1_DSTATE_ev)), false, false, (((int32_T)
       Code_Gen_Model_B.Gamepad_RT_out) > ((int32_T)
-      Code_Gen_Model_DW.DelayInput1_DSTATE_os)), false, false, (((int32_T)
+      Code_Gen_Model_DW.DelayInput1_DSTATE_b2)), false, (((int32_T)
       Code_Gen_Model_B.Gamepad_POV_Down_o) > ((int32_T)
       Code_Gen_Model_DW.DelayInput1_DSTATE_b3)), (((int32_T)
       Code_Gen_Model_B.Gamepad_POV_Left_d) > ((int32_T)
@@ -5956,22 +5956,22 @@ void Code_Gen_Model_step(void)
      */
     Code_Gen_Model_DW.DelayInput1_DSTATE_o1g = false;
 
-    /* Update for UnitDelay: '<S66>/Delay Input1'
+    /* Update for UnitDelay: '<S66>/Delay Input1' incorporates:
+     *  Constant: '<S28>/Constant12'
      *
      * Block description for '<S66>/Delay Input1':
      *
      *  Store in Global RAM
      */
-    Code_Gen_Model_DW.DelayInput1_DSTATE_os = Code_Gen_Model_B.Gamepad_RT_out;
+    Code_Gen_Model_DW.DelayInput1_DSTATE_os = false;
 
-    /* Update for UnitDelay: '<S67>/Delay Input1' incorporates:
-     *  Constant: '<S28>/Constant12'
+    /* Update for UnitDelay: '<S67>/Delay Input1'
      *
      * Block description for '<S67>/Delay Input1':
      *
      *  Store in Global RAM
      */
-    Code_Gen_Model_DW.DelayInput1_DSTATE_b2 = false;
+    Code_Gen_Model_DW.DelayInput1_DSTATE_b2 = Code_Gen_Model_B.Gamepad_RT_out;
 
     /* Update for UnitDelay: '<S64>/Delay Input1' incorporates:
      *  Constant: '<S28>/Constant13'
