@@ -1,3 +1,5 @@
+#include "lib/include/Component.h"
+
 #ifndef LIMELIGHTHELPERS_H
 #define LIMELIGHTHELPERS_H
 

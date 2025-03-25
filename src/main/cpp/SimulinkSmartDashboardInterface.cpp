@@ -3,8 +3,9 @@
 // Janelyn <3
 #include "include/SimulinkSmartDashboardInterface.h"
  
-SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
+SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface() : Component("Simulink Smart Dashboard Interface")
 {
+    SetPostStepOrder(-1, "Simulink Smart Dashboard Interface");
     nt::NetworkTableInstance NTinst = nt::NetworkTableInstance::GetDefault();
     auto NTtable_Tune = NTinst.GetTable("Simulink Tunable Params");
     auto NTtable_Inport = NTinst.GetTable("Simulink Top Level Ports");
@@ -1203,10 +1204,8 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
 }
  
 void SimulinkSmartDashboardInterface::PreStepCallback() {}
- 
-void SimulinkSmartDashboardInterface::PostStepCallback() {}
- 
-void SimulinkSmartDashboardInterface::SmartDashboardCallback()
+  
+void SimulinkSmartDashboardInterface::PostStepCallback()
 {
     // Inports
     __Actuator_Revs__Entry.SetDouble(Code_Gen_Model_U.Actuator_Revs);
@@ -1707,4 +1706,3 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Winch_Rev_Target__Entry.SetDouble(Winch_Rev_Target);
     __Winch_Spool_DC__Entry.SetDouble(Winch_Spool_DC);
 }
-void SimulinkSmartDashboardInterface::GameStateChangeCallback() {}

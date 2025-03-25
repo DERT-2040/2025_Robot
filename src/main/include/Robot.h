@@ -11,7 +11,6 @@
 #include "include/IMU.h"
 #include "include/SwerveDrive.h"
 #include "include/SimulinkSmartDashboardInterface.h"
-#include "include/FMSInfo.h"
 #include "include/Limelight.h"
 #include "include/ReefscapeGame.h"
 #include "include/CANdle.h"
@@ -19,6 +18,7 @@
 
 //frc
 #include <frc/TimedRobot.h>
+#include <frc/DriverStation.h>
 //std
 #include <iostream>
 
@@ -101,9 +101,9 @@ private:
   void GameInitValues();
 
    /**
-   * Updates all individal components SmartDashboard values and pushes those updates
+   * 
    */
-  void UpdateSmartDashboardValues();
+  void GameStateChange();
 
   /*
    * Below are the instances of the subsystems used by the robot
@@ -122,10 +122,12 @@ private:
    */
   IMU m_IMU;
   
+  #ifndef __LIMELIGHT__
   /**
    * Component Object for Limelight Vision
    */
   Limelight m_Limelight;
+  #endif
 
   /**
    * Component Object for all Swerve Drive objects such as sensors and motors
@@ -144,11 +146,6 @@ private:
    */
   SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  
   
-  /**
-   * Component that reads the field management system info from smart dashboard and puts it into simulink
-   */
-  FMSInfo m_FMSInfo;
-
   /**
    * Component that supports the ReefscapeGame inputs and outputs
    */

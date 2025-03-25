@@ -14,6 +14,7 @@ namespace HID = Constants::HID;
 class HIDs : public Component
 {
 public:
+    HIDs();
     /**
      * returns a reference to the m_Gamepad Object
     */
@@ -42,16 +43,6 @@ public:
      * Runs after the step function is called in the main loop
      */
     void PostStepCallback();
-    
-    /**
-     * Puts values to the SmartDashboard via the SD Callbacks function
-     */
-    void SmartDashboardCallback();
-    
-    /**
-     * Callback that triggers when the game state of the robot changes
-     */
-    void GameStateChangeCallback();
     
     /*
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X

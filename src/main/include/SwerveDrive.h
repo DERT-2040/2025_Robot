@@ -37,16 +37,6 @@ public:
      */
     void PostStepCallback();
     
-    /**
-     * See PostStep documentation in Robot.h
-     */
-    void ChangeGameStatesCallback();
-
-    /**
-     * Puts values to the SmartDashboard via the SD Callbacks function
-    */
-    void SmartDashboardCallback();
-    
     /*
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      * X X X X                 Class Specific Methods                  X X X X

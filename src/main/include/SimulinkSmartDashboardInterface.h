@@ -14,8 +14,6 @@ public:
     SimulinkSmartDashboardInterface();
     void PreStepCallback();
     void PostStepCallback();
-    void SmartDashboardCallback();
-    void GameStateChangeCallback();
 private:
         // Parameters
         nt::NetworkTableEntry __AT_CS_L_Angle_Blue__Entry;

@@ -1,6 +1,7 @@
 //local
 #include "include\HIDs.h"
 
+HIDs::HIDs() : Component("HIDs"){}
 
 void HIDs::PreStepCallback() {
     // Steer and Drive Joysticks
@@ -73,16 +74,6 @@ void HIDs::PreStepCallback() {
 }
 
 void HIDs::PostStepCallback()
-{
-
-}
-
-void HIDs::SmartDashboardCallback()
-{
-
-}
-
-void HIDs::GameStateChangeCallback()
 {
 
 }

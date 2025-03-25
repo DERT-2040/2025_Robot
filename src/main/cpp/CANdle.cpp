@@ -1,5 +1,9 @@
 #include "include/CANdle.h"
 
+#ifndef __CANdle__
+
+CANdle::CANdle() : Component("CANdle") {}
+
 void CANdle::PostStepCallback()
 {
     if(Code_Gen_Model_Y.CANdle_LED_ID == 0)
@@ -39,7 +43,4 @@ void CANdle::TwoColorStrobe(
 }
 
     void CANdle::PreStepCallback() {}
-    
-    void CANdle::SmartDashboardCallback() {}
-    
-    void CANdle::GameStateChangeCallback() {}
+#endif

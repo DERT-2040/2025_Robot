@@ -1,6 +1,8 @@
-#pragma once
-
 #include "lib/include/Component.h"
+
+#ifndef __CANdle__
+#define __CANdle__
+
 #include "ctre/phoenix/led/CANdle.h"
 #include "ctre/phoenix/led/SingleFadeAnimation.h"
 #include "ctre/phoenix/led/RgbFadeAnimation.h"
@@ -11,6 +13,7 @@
 class CANdle : public Component
 {
 public:
+    CANdle();
     /**
      * Runs before the step function is called in the main loop
      */
@@ -21,15 +24,6 @@ public:
      */
     void PostStepCallback();
     
-    /**
-     * Puts values to the SmartDashboard via the SD Callbacks function
-     */
-    void SmartDashboardCallback();
-    
-    /**
-     * Callback that triggers when the game state of the robot changes
-     */
-    void GameStateChangeCallback();
 private:
     void TwoColorStrobe(frc::AddressableLED::LEDData colorOne,
                         frc::AddressableLED::LEDData colorTwo,
@@ -45,3 +39,4 @@ private:
     ctre::phoenix::led::CANdle candle {Constants::CANdle::CANdleID, Constants::CANdle::CANdleNetworkName};
     ctre::phoenix::led::RgbFadeAnimation AmbientAnimation {.5, .5,};
 };
+#endif

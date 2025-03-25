@@ -1,6 +1,6 @@
 #include "include/ReefscapeGame.h"
 
-ReefscapeGame::ReefscapeGame()
+ReefscapeGame::ReefscapeGame() : Component("Reefscape Game")
 {
     coralArmAngle.SetInverted(true);
     coralTimeOfFlightSensor.SetRangeOfInterest(9,9,11,11);
@@ -29,6 +29,3 @@ void ReefscapeGame::PostStepCallback()
     // NEO Spark Max motor commands
     ReefscapeGameNeoSet.pullCommands();
 }
-
-void ReefscapeGame::SmartDashboardCallback(){}
-void ReefscapeGame::ChangeGameStatesCallback(){} 

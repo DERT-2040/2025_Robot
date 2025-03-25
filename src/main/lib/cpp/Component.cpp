@@ -1,28 +1,80 @@
 #include "lib/include/Component.h"
 
-std::vector<Component*> Component::AllCreatedComponents; 
+Component::FunctionMap Component::PreStepCallbacks;
+Component::FunctionMap Component::PostStepCallbacks;
 
-Component::Component()
+Component::Component(std::string componentName)
 {
-    AllCreatedComponents.push_back(this);
+    SetPreStepOrder(0, componentName);
+    SetPostStepOrder(0, componentName);
 }
 
-void Component::PreStepCallback()
+void Component::RunAllPreSteps()
 {
-    std::cout << "Pre Step Callback Undefined Virtural";
+    for (const auto& values : PreStepCallbacks)
+        values.func();
 }
 
-void Component::PostStepCallback()
+void Component::RunAllPostSteps()
 {
-    std::cout << "Post Step Callback Undefined Virtural";
+    for (const auto& values : PostStepCallbacks)
+        values.func();
 }
 
-void Component::SmartDashboardCallback()
+void Component::SetPreStepOrder(Values::K PreStepOrderWeight, std::string componentName)
 {
-    std::cout << "Smart Dashboard Callback Undefined Virtural";
+    this->PreStepOrderWeight = PreStepOrderWeight; 
+    Values newVal{PreStepFunc, PreStepOrderWeight, this, componentName};
+    AddFuncToMap(PreStepCallbacks, newVal);
+
 }
 
-void Component::GameStateChangeCallback()
+void Component::SetPostStepOrder(Values::K PostStepOrderWeight, std::string componentName)
 {
-    std::cout << "Game State Change Callback Undefined Virtural";
+    this->PostStepOrderWeight = PostStepOrderWeight; 
+    Values newVal{PostStepFunc, PostStepOrderWeight, this, componentName};
+    AddFuncToMap(PostStepCallbacks, newVal);
+}
+
+bool Component::compareByValue(const Values& a, const Values& b)
+{
+    return a.key > b.key;  // Sorting by the second (value) of the pair
+}
+
+
+void Component::AddFuncToMap(FunctionMap& map, Values NewValue)
+{
+    //remove any current entries
+    for(auto it = map.begin(); it != map.end(); it++)
+    {
+        if(it->name == NewValue.name)
+        {
+            std::cout << "test\n";
+            map.erase(it);
+            break;
+        }
+    }
+    map.push_back(NewValue);
+
+    std::sort(map.begin(), map.end(), compareByValue);
+}
+
+void Component::PrintOrderedList(FunctionMap map)
+{
+    auto it = map.begin();
+    for(size_t i = 0; i < map.size(); i++)
+    {
+        std::cout << (i+1) << ":\t" << (it+i)->name << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+
+void Component::PrintOrder()
+{
+    std::cout << "PreStep Order:" << std::endl;
+    PrintOrderedList(PreStepCallbacks);
+    
+    std::cout << "PostStep Order:" << std::endl;
+    PrintOrderedList(PostStepCallbacks);
 }
