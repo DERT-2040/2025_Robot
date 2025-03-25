@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.363
+ * Model version                  : 2.365
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 22 22:34:01 2025
+ * C/C++ source code generated on : Tue Mar 25 00:12:53 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -227,7 +227,7 @@ typedef struct {
   boolean_T Gamepad_B4_Y_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_Start_out;         /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_Back_out;          /* '<S28>/Reefscape_Auto_Steps' */
-  boolean_T Gamepad_LT_out;            /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Gamepad_RT_out;            /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_POV_Down_o;        /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_POV_Left_d;        /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Elevator_LowerPickup_Reset_g;/* '<S31>/Reefscape_Chart' */
@@ -984,6 +984,9 @@ extern real_T Algae_Push_Out_DC;       /* Variable: Algae_Push_Out_DC
 extern real_T Auto_Algae_Height_Time;  /* Variable: Auto_Algae_Height_Time
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
+extern real_T Auto_Backup_Time_Processor;/* Variable: Auto_Backup_Time_Processor
+                                          * Referenced by: '<S28>/Reefscape_Auto_Steps'
+                                          */
 extern real_T Auto_Backup_Time_Reef;   /* Variable: Auto_Backup_Time_Reef
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
@@ -997,6 +1000,9 @@ extern real_T Auto_Speed_Algae;        /* Variable: Auto_Speed_Algae
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
 extern real_T Auto_Speed_Coral;        /* Variable: Auto_Speed_Coral
+                                        * Referenced by: '<S28>/Reefscape_Auto_Steps'
+                                        */
+extern real_T Auto_Speed_Processor;    /* Variable: Auto_Speed_Processor
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
 extern real_T Auto_Speed_Reef;         /* Variable: Auto_Speed_Reef

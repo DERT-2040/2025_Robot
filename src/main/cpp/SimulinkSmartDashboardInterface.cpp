@@ -335,6 +335,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Auto_Algae_Height_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Algae_Height_Time = event.GetValueEventData()->value.GetDouble();});
     __Auto_Algae_Height_Time__Entry.SetDouble(0.5);
  
+    __Auto_Backup_Time_Processor__Entry = NTtable_Tune->GetEntry("Auto_Backup_Time_Processor");
+    NTinst.AddListener(__Auto_Backup_Time_Processor__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Backup_Time_Processor = event.GetValueEventData()->value.GetDouble();});
+    __Auto_Backup_Time_Processor__Entry.SetDouble(1);
+ 
     __Auto_Backup_Time_Reef__Entry = NTtable_Tune->GetEntry("Auto_Backup_Time_Reef");
     NTinst.AddListener(__Auto_Backup_Time_Reef__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Backup_Time_Reef = event.GetValueEventData()->value.GetDouble();});
     __Auto_Backup_Time_Reef__Entry.SetDouble(1);
@@ -354,6 +358,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Auto_Speed_Coral__Entry = NTtable_Tune->GetEntry("Auto_Speed_Coral");
     NTinst.AddListener(__Auto_Speed_Coral__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Coral = event.GetValueEventData()->value.GetDouble();});
     __Auto_Speed_Coral__Entry.SetDouble(0.5);
+ 
+    __Auto_Speed_Processor__Entry = NTtable_Tune->GetEntry("Auto_Speed_Processor");
+    NTinst.AddListener(__Auto_Speed_Processor__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Processor = event.GetValueEventData()->value.GetDouble();});
+    __Auto_Speed_Processor__Entry.SetDouble(0.5);
  
     __Auto_Speed_Reef__Entry = NTtable_Tune->GetEntry("Auto_Speed_Reef");
     NTinst.AddListener(__Auto_Speed_Reef__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Reef = event.GetValueEventData()->value.GetDouble();});
@@ -1128,13 +1136,13 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Face_Toward_Driver__Entry = NTtable_TPoint->GetEntry("Face_Toward_Driver");
     __Gamepad_B4_Y_out__Entry = NTtable_TPoint->GetEntry("Gamepad_B4_Y_out");
     __Gamepad_Back_out__Entry = NTtable_TPoint->GetEntry("Gamepad_Back_out");
-    __Gamepad_LT_out__Entry = NTtable_TPoint->GetEntry("Gamepad_LT_out");
     __Gamepad_POV_Down__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Down");
     __Gamepad_POV_Down_o__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Down_o");
     __Gamepad_POV_Left__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Left");
     __Gamepad_POV_Left_d__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Left_d");
     __Gamepad_POV_Right__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Right");
     __Gamepad_POV_Up__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Up");
+    __Gamepad_RT_out__Entry = NTtable_TPoint->GetEntry("Gamepad_RT_out");
     __Gamepad_Start_out__Entry = NTtable_TPoint->GetEntry("Gamepad_Start_out");
     __Gyro_Angle_Calibrated_deg__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Calibrated_deg");
     __Gyro_Angle_Field_rad__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Field_rad");
@@ -1403,13 +1411,13 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Face_Toward_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Toward_Driver);
     __Gamepad_B4_Y_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_B4_Y_out);
     __Gamepad_Back_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_Back_out);
-    __Gamepad_LT_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_LT_out);
     __Gamepad_POV_Down__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Down);
     __Gamepad_POV_Down_o__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Down_o);
     __Gamepad_POV_Left__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Left);
     __Gamepad_POV_Left_d__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Left_d);
     __Gamepad_POV_Right__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Right);
     __Gamepad_POV_Up__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Up);
+    __Gamepad_RT_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_RT_out);
     __Gamepad_Start_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_Start_out);
     __Gyro_Angle_Calibrated_deg__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Calibrated_deg);
     __Gyro_Angle_Field_rad__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Field_rad);
@@ -1557,11 +1565,13 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Algae_Pull_In_DC__Entry.SetDouble(Algae_Pull_In_DC);
     __Algae_Push_Out_DC__Entry.SetDouble(Algae_Push_Out_DC);
     __Auto_Algae_Height_Time__Entry.SetDouble(Auto_Algae_Height_Time);
+    __Auto_Backup_Time_Processor__Entry.SetDouble(Auto_Backup_Time_Processor);
     __Auto_Backup_Time_Reef__Entry.SetDouble(Auto_Backup_Time_Reef);
     __Auto_Path1_Delay_to_L4_Time__Entry.SetDouble(Auto_Path1_Delay_to_L4_Time);
     __Auto_Path2_Delay_to_L4_Time__Entry.SetDouble(Auto_Path2_Delay_to_L4_Time);
     __Auto_Speed_Algae__Entry.SetDouble(Auto_Speed_Algae);
     __Auto_Speed_Coral__Entry.SetDouble(Auto_Speed_Coral);
+    __Auto_Speed_Processor__Entry.SetDouble(Auto_Speed_Processor);
     __Auto_Speed_Reef__Entry.SetDouble(Auto_Speed_Reef);
     __Auto_Starting_Position__Entry.SetDouble(Auto_Starting_Position);
     __Boost_Trigger_Decreasing_Limit__Entry.SetDouble(Boost_Trigger_Decreasing_Limit);

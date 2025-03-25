@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.363
+ * Model version                  : 2.365
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 22 22:34:01 2025
+ * C/C++ source code generated on : Tue Mar 25 00:12:53 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -85,32 +85,34 @@
 #define Code_Gen_IN_Back_Up_from_Reef_1 ((uint8_T)1U)
 #define Code_Gen_IN_Back_Up_from_Reef_2 ((uint8_T)2U)
 #define Code_Gen_IN_Back_Up_from_Reef_3 ((uint8_T)3U)
+#define Code_Gen_M_IN_Path_to_Processor ((uint8_T)7U)
 #define Code_Gen_M_IN_Wait_for_Teleop_m ((uint8_T)16U)
 #define Code_Gen_Mod_IN_Score_at_Reef_1 ((uint8_T)11U)
 #define Code_Gen_Mod_IN_Score_at_Reef_2 ((uint8_T)12U)
 #define Code_Gen_Mod_IN_Score_at_Reef_3 ((uint8_T)13U)
-#define Code_Gen_Mod_IN_Wait_for_Teleop ((uint8_T)9U)
+#define Code_Gen_Mod_IN_Wait_for_Teleop ((uint8_T)11U)
 #define Code_Gen_Mode_IN_Left_and_Right ((uint8_T)2U)
 #define Code_Gen_Mode_IN_Path_to_Reef_1 ((uint8_T)8U)
 #define Code_Gen_Mode_IN_Path_to_Reef_2 ((uint8_T)9U)
 #define Code_Gen_Mode_IN_Path_to_Reef_3 ((uint8_T)10U)
 #define Code_Gen_Model_IN_Center       ((uint8_T)1U)
 #define Code_Gen_Model_IN_Drive        ((uint8_T)1U)
-#define Code_Gen_Model_IN_Path_to_Reef ((uint8_T)6U)
-#define Code_Gen_Model_IN_Score_at_Reef ((uint8_T)8U)
+#define Code_Gen_Model_IN_End_early    ((uint8_T)6U)
+#define Code_Gen_Model_IN_Path_to_Reef ((uint8_T)8U)
+#define Code_Gen_Model_IN_Score_at_Reef ((uint8_T)10U)
 #define Code_Gen_Model_IN_Set_L4       ((uint8_T)2U)
 #define Code_Gen_Model_IN_Set_L4_h     ((uint8_T)1U)
 #define Code_Gen_Model_IN_Timer_to_L4  ((uint8_T)2U)
-#define Code_Gen__IN_Path_to_Start_Line ((uint8_T)7U)
+#define Code_Gen__IN_Score_at_Processor ((uint8_T)9U)
 #define Code_IN_Adjust_Height_for_Algae ((uint8_T)1U)
 #define Code_IN_Path_to_Coral_Station_1 ((uint8_T)4U)
 #define Code_IN_Path_to_Coral_Station_2 ((uint8_T)6U)
 #define Code_IN_Path_to_Coral_Station_3 ((uint8_T)7U)
 #define Code_IN_Wait_at_Coral_Station_1 ((uint8_T)14U)
 #define Code_IN_Wait_at_Coral_Station_2 ((uint8_T)15U)
-#define IN_Back_Up_from_Reef_Coral_Sc_o ((uint8_T)3U)
 #define IN_Back_Up_from_Reef_Coral_Scor ((uint8_T)2U)
-#define IN_Drive_Backward_from_Collect_ ((uint8_T)4U)
+#define IN_Drive_Backward_from_Collect_ ((uint8_T)3U)
+#define IN_Drive_Backward_from_Processo ((uint8_T)4U)
 #define IN_Drive_Forward_and_Collect_Al ((uint8_T)5U)
 #define IN_Path_to_Coral_Station_1_end_ ((uint8_T)5U)
 
@@ -410,6 +412,9 @@ real_T Algae_Push_Out_DC = -0.3;       /* Variable: Algae_Push_Out_DC
 real_T Auto_Algae_Height_Time = 0.5;   /* Variable: Auto_Algae_Height_Time
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
+real_T Auto_Backup_Time_Processor = 1.0;/* Variable: Auto_Backup_Time_Processor
+                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
+                                         */
 real_T Auto_Backup_Time_Reef = 1.0;    /* Variable: Auto_Backup_Time_Reef
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
@@ -423,6 +428,9 @@ real_T Auto_Speed_Algae = 0.2;         /* Variable: Auto_Speed_Algae
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
 real_T Auto_Speed_Coral = 0.5;         /* Variable: Auto_Speed_Coral
+                                        * Referenced by: '<S28>/Reefscape_Auto_Steps'
+                                        */
+real_T Auto_Speed_Processor = 0.5;     /* Variable: Auto_Speed_Processor
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
 real_T Auto_Speed_Reef = 0.5;          /* Variable: Auto_Speed_Reef
@@ -4976,7 +4984,7 @@ void Code_Gen_Model_step(void)
       Code_Gen_Model_B.Gamepad_B4_Y_out = false;
       Code_Gen_Model_B.Gamepad_Start_out = false;
       Code_Gen_Model_B.Gamepad_Back_out = false;
-      Code_Gen_Model_B.Gamepad_LT_out = false;
+      Code_Gen_Model_B.Gamepad_RT_out = false;
       Code_Gen_Model_B.Gamepad_POV_Down_o = false;
       Code_Gen_Model_B.Gamepad_POV_Left_d = false;
       Code_Gen_Model_B.Spline_Enable = false;
@@ -5242,7 +5250,6 @@ void Code_Gen_Model_step(void)
           Code_Gen_Model_DW.is_Center = IN_Drive_Forward_and_Collect_Al;
           Code_Gen_Model_B.Auto_Step_ID = 105U;
           Code_Gen_Model_B.Translation_Speed_k = Auto_Speed_Algae;
-          Code_Gen_Model_B.Gamepad_LT_out = true;
           Code_Gen_Model_B.Align_Center_b = true;
           Code_Gen_Model_DW.timer = 0.0;
         } else {
@@ -5258,27 +5265,12 @@ void Code_Gen_Model_step(void)
         Code_Gen_Model_B.Translation_Speed_k = Auto_Speed_Reef;
         Code_Gen_Model_B.Translation_Angle_c = 3.1415926535897931;
         if (Code_Gen_Model_DW.timer >= Auto_Backup_Time_Reef) {
-          Code_Gen_Model_DW.is_Center = Code_IN_Adjust_Height_for_Algae;
-          Code_Gen_Model_B.Auto_Step_ID = 104U;
+          Code_Gen_Model_DW.is_Center = Code_Gen_Model_IN_End_early;
+          Code_Gen_Model_B.Auto_Step_ID = 120U;
           Code_Gen_Model_B.Translation_Speed_k = 0.0;
           Code_Gen_Model_B.Translation_Angle_c = 0.0;
-          Code_Gen_Model_B.Gamepad_POV_Left_d = true;
+          Code_Gen_Model_B.Gamepad_Back_out = true;
           Code_Gen_Model_DW.timer = 0.0;
-        } else {
-          Code_Gen_Model_DW.timer += 0.02;
-        }
-        break;
-
-       case IN_Back_Up_from_Reef_Coral_Sc_o:
-        Code_Gen_Model_B.Auto_Step_ID = 123U;
-
-        /* Merge: '<S20>/Merge7' */
-        Code_Gen_Model_B.Spline_Enable = false;
-        Code_Gen_Model_B.Translation_Speed_k = 0.0;
-        Code_Gen_Model_B.Translation_Angle_c = 0.0;
-        if (Code_Gen_Model_DW.timer >= Auto_Backup_Time_Reef) {
-          Code_Gen_Model_DW.is_Center = Code_Gen_Mod_IN_Wait_for_Teleop;
-          Code_Gen_Model_B.Auto_Step_ID = 108U;
         } else {
           Code_Gen_Model_DW.timer += 0.02;
         }
@@ -5292,13 +5284,31 @@ void Code_Gen_Model_step(void)
         Code_Gen_Model_B.Translation_Speed_k = Auto_Speed_Reef;
         Code_Gen_Model_B.Translation_Angle_c = 3.1415926535897931;
         if (Code_Gen_Model_DW.timer >= Auto_Backup_Time_Reef) {
-          Code_Gen_Model_DW.is_Center = Code_Gen__IN_Path_to_Start_Line;
+          Code_Gen_Model_DW.is_Center = Code_Gen_M_IN_Path_to_Processor;
           Code_Gen_Model_B.Auto_Step_ID = 107U;
 
           /* Merge: '<S20>/Merge7' */
           Code_Gen_Model_B.Spline_Enable = true;
           Code_Gen_Model_B.Path_ID = MultiportSwitch1;
           Code_Gen_Model_B.Gamepad_POV_Down_o = true;
+        } else {
+          Code_Gen_Model_DW.timer += 0.02;
+        }
+        break;
+
+       case IN_Drive_Backward_from_Processo:
+        Code_Gen_Model_B.Auto_Step_ID = 109U;
+
+        /* Merge: '<S20>/Merge7' */
+        Code_Gen_Model_B.Spline_Enable = false;
+        Code_Gen_Model_B.Translation_Speed_k = Auto_Speed_Processor;
+        Code_Gen_Model_B.Translation_Angle_c = 3.1415926535897931;
+        if (Code_Gen_Model_DW.timer >= Auto_Backup_Time_Processor) {
+          Code_Gen_Model_B.Gamepad_Back_out = false;
+          Code_Gen_Model_DW.is_Center = Code_Gen_Mod_IN_Wait_for_Teleop;
+          Code_Gen_Model_B.Auto_Step_ID = 110U;
+          Code_Gen_Model_B.Translation_Speed_k = 0.0;
+          Code_Gen_Model_B.Translation_Angle_c = 0.0;
         } else {
           Code_Gen_Model_DW.timer += 0.02;
         }
@@ -5312,7 +5322,6 @@ void Code_Gen_Model_step(void)
         Code_Gen_Model_B.Translation_Speed_k = Auto_Speed_Algae;
         Code_Gen_Model_B.Translation_Angle_c = 0.0;
         if (Compare_f) {
-          Code_Gen_Model_B.Gamepad_LT_out = false;
           Code_Gen_Model_B.Align_Center_b = false;
           Code_Gen_Model_DW.is_Center = IN_Drive_Backward_from_Collect_;
           Code_Gen_Model_B.Auto_Step_ID = 106U;
@@ -5321,6 +5330,40 @@ void Code_Gen_Model_step(void)
           Code_Gen_Model_DW.timer = 0.0;
         } else {
           Code_Gen_Model_DW.timer += 0.02;
+        }
+        break;
+
+       case Code_Gen_Model_IN_End_early:
+        Code_Gen_Model_B.Auto_Step_ID = 120U;
+
+        /* Merge: '<S20>/Merge7' */
+        Code_Gen_Model_B.Spline_Enable = false;
+        Code_Gen_Model_B.Translation_Speed_k = 0.0;
+        Code_Gen_Model_B.Translation_Angle_c = 0.0;
+        if (Code_Gen_Model_DW.timer >= Auto_Backup_Time_Reef) {
+          Code_Gen_Model_B.Gamepad_Back_out = false;
+          Code_Gen_Model_DW.is_Center = Code_Gen_Mod_IN_Wait_for_Teleop;
+          Code_Gen_Model_B.Auto_Step_ID = 110U;
+        } else {
+          Code_Gen_Model_DW.timer += 0.02;
+        }
+        break;
+
+       case Code_Gen_M_IN_Path_to_Processor:
+        Code_Gen_Model_B.Auto_Step_ID = 107U;
+
+        /* Merge: '<S20>/Merge7' */
+        Code_Gen_Model_B.Spline_Enable = true;
+        if (Code_Gen_Model_DW.UnitDelay_DSTATE_ll) {
+          Code_Gen_Model_B.Gamepad_POV_Down_o = false;
+          Code_Gen_Model_DW.is_Center = Code_Gen__IN_Score_at_Processor;
+          Code_Gen_Model_B.Auto_Step_ID = 108U;
+
+          /* Merge: '<S20>/Merge7' */
+          Code_Gen_Model_B.Spline_Enable = false;
+          Code_Gen_Model_B.Translation_Speed_k = 0.0;
+          Code_Gen_Model_B.Translation_Angle_c = 0.0;
+          Code_Gen_Model_B.Gamepad_RT_out = true;
         }
         break;
 
@@ -5358,20 +5401,21 @@ void Code_Gen_Model_step(void)
         }
         break;
 
-       case Code_Gen__IN_Path_to_Start_Line:
-        Code_Gen_Model_B.Auto_Step_ID = 107U;
+       case Code_Gen__IN_Score_at_Processor:
+        Code_Gen_Model_B.Auto_Step_ID = 108U;
 
         /* Merge: '<S20>/Merge7' */
-        Code_Gen_Model_B.Spline_Enable = true;
-        if (Code_Gen_Model_DW.UnitDelay_DSTATE_ll) {
-          Code_Gen_Model_B.Gamepad_POV_Down_o = false;
-          Code_Gen_Model_DW.is_Center = Code_Gen_Mod_IN_Wait_for_Teleop;
-          Code_Gen_Model_B.Auto_Step_ID = 108U;
-
-          /* Merge: '<S20>/Merge7' */
-          Code_Gen_Model_B.Spline_Enable = false;
-          Code_Gen_Model_B.Translation_Speed_k = 0.0;
-          Code_Gen_Model_B.Translation_Angle_c = 0.0;
+        Code_Gen_Model_B.Spline_Enable = false;
+        Code_Gen_Model_B.Translation_Speed_k = 0.0;
+        Code_Gen_Model_B.Translation_Angle_c = 0.0;
+        if (!Compare_f) {
+          Code_Gen_Model_B.Gamepad_RT_out = false;
+          Code_Gen_Model_DW.is_Center = IN_Drive_Backward_from_Processo;
+          Code_Gen_Model_B.Auto_Step_ID = 109U;
+          Code_Gen_Model_B.Translation_Speed_k = Auto_Speed_Processor;
+          Code_Gen_Model_B.Translation_Angle_c = 3.1415926535897931;
+          Code_Gen_Model_DW.timer = 0.0;
+          Code_Gen_Model_B.Gamepad_Back_out = true;
         }
         break;
 
@@ -5384,15 +5428,17 @@ void Code_Gen_Model_step(void)
         Code_Gen_Model_B.Translation_Angle_c = 0.0;
         if (Code_Gen_Model_B.UnitDelay1) {
           Code_Gen_Model_B.Align_Left_d = false;
-          Code_Gen_Model_DW.is_Center = IN_Back_Up_from_Reef_Coral_Sc_o;
-          Code_Gen_Model_B.Auto_Step_ID = 123U;
+          Code_Gen_Model_DW.is_Center = IN_Back_Up_from_Reef_Coral_Scor;
+          Code_Gen_Model_B.Auto_Step_ID = 103U;
+          Code_Gen_Model_B.Translation_Speed_k = Auto_Speed_Reef;
+          Code_Gen_Model_B.Translation_Angle_c = 3.1415926535897931;
           Code_Gen_Model_DW.timer = 0.0;
         }
         break;
 
        default:
         /* case IN_Wait_for_Teleop: */
-        Code_Gen_Model_B.Auto_Step_ID = 108U;
+        Code_Gen_Model_B.Auto_Step_ID = 110U;
 
         /* Merge: '<S20>/Merge7' */
         Code_Gen_Model_B.Spline_Enable = false;
@@ -5483,7 +5529,7 @@ void Code_Gen_Model_step(void)
       Code_Gen_Model_DW.DelayInput1_DSTATE_ff)), (((int32_T)
       Code_Gen_Model_B.Gamepad_Back_out) > ((int32_T)
       Code_Gen_Model_DW.DelayInput1_DSTATE_ev)), false, (((int32_T)
-      Code_Gen_Model_B.Gamepad_LT_out) > ((int32_T)
+      Code_Gen_Model_B.Gamepad_RT_out) > ((int32_T)
       Code_Gen_Model_DW.DelayInput1_DSTATE_os)), false, false, (((int32_T)
       Code_Gen_Model_B.Gamepad_POV_Down_o) > ((int32_T)
       Code_Gen_Model_DW.DelayInput1_DSTATE_b3)), (((int32_T)
@@ -5916,7 +5962,7 @@ void Code_Gen_Model_step(void)
      *
      *  Store in Global RAM
      */
-    Code_Gen_Model_DW.DelayInput1_DSTATE_os = Code_Gen_Model_B.Gamepad_LT_out;
+    Code_Gen_Model_DW.DelayInput1_DSTATE_os = Code_Gen_Model_B.Gamepad_RT_out;
 
     /* Update for UnitDelay: '<S67>/Delay Input1' incorporates:
      *  Constant: '<S28>/Constant12'

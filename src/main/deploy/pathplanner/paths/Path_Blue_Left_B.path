@@ -3,64 +3,73 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.418,
-        "y": 5.613
+        "x": 5.575,
+        "y": 5.806
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.421325648059663,
-        "y": 5.862977879151303
+        "x": 5.366987426415539,
+        "y": 5.944675049056308
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 4.739,
-        "y": 6.453
+        "x": 4.072,
+        "y": 6.241
       },
       "prevControl": {
-        "x": 5.0066206845096595,
-        "y": 6.348925289357355
+        "x": 4.358748334219777,
+        "y": 6.225907982409485
       },
       "nextControl": {
-        "x": 4.505998832114676,
-        "y": 6.543611565288737
+        "x": 3.7865119863013703,
+        "y": 6.256025684931507
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.95,
-        "y": 6.209
+        "x": 2.629,
+        "y": 6.512
       },
       "prevControl": {
-        "x": 2.1883956662835353,
-        "y": 6.133717158015725
+        "x": 2.8844366438356164,
+        "y": 6.496974315068493
       },
       "nextControl": {
-        "x": 1.711604333716465,
-        "y": 6.2842828419842744
+        "x": 2.3794314067062516,
+        "y": 6.526680505487867
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.209,
-        "y": 6.94
+        "x": 1.277,
+        "y": 6.857
       },
       "prevControl": {
-        "x": 1.384169209548201,
-        "y": 6.742046324241205
+        "x": 1.4769999999999996,
+        "y": 6.707
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": -98.0
+    },
+    {
+      "waypointRelativePos": 2,
+      "rotationDegrees": -76.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],

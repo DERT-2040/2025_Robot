@@ -99,11 +99,13 @@ private:
         nt::NetworkTableEntry __Algae_Pull_In_DC__Entry;
         nt::NetworkTableEntry __Algae_Push_Out_DC__Entry;
         nt::NetworkTableEntry __Auto_Algae_Height_Time__Entry;
+        nt::NetworkTableEntry __Auto_Backup_Time_Processor__Entry;
         nt::NetworkTableEntry __Auto_Backup_Time_Reef__Entry;
         nt::NetworkTableEntry __Auto_Path1_Delay_to_L4_Time__Entry;
         nt::NetworkTableEntry __Auto_Path2_Delay_to_L4_Time__Entry;
         nt::NetworkTableEntry __Auto_Speed_Algae__Entry;
         nt::NetworkTableEntry __Auto_Speed_Coral__Entry;
+        nt::NetworkTableEntry __Auto_Speed_Processor__Entry;
         nt::NetworkTableEntry __Auto_Speed_Reef__Entry;
         nt::NetworkTableEntry __Auto_Starting_Position__Entry;
         nt::NetworkTableEntry __Boost_Trigger_Decreasing_Limit__Entry;
@@ -445,13 +447,13 @@ private:
         nt::NetworkTableEntry __Face_Toward_Driver__Entry;
         nt::NetworkTableEntry __Gamepad_B4_Y_out__Entry;
         nt::NetworkTableEntry __Gamepad_Back_out__Entry;
-        nt::NetworkTableEntry __Gamepad_LT_out__Entry;
         nt::NetworkTableEntry __Gamepad_POV_Down__Entry;
         nt::NetworkTableEntry __Gamepad_POV_Down_o__Entry;
         nt::NetworkTableEntry __Gamepad_POV_Left__Entry;
         nt::NetworkTableEntry __Gamepad_POV_Left_d__Entry;
         nt::NetworkTableEntry __Gamepad_POV_Right__Entry;
         nt::NetworkTableEntry __Gamepad_POV_Up__Entry;
+        nt::NetworkTableEntry __Gamepad_RT_out__Entry;
         nt::NetworkTableEntry __Gamepad_Start_out__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Calibrated_deg__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Field_rad__Entry;
