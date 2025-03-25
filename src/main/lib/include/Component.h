@@ -24,10 +24,8 @@ protected:
     {
         typedef std::function<void()> F;
         typedef int K;
-        typedef Component* P;
         F func;
         K key;
-        P ptr;
         std::string name;
     };
     typedef std::vector<Values> FunctionMap;

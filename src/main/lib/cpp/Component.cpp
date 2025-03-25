@@ -24,7 +24,7 @@ void Component::RunAllPostSteps()
 void Component::SetPreStepOrder(Values::K PreStepOrderWeight, std::string componentName)
 {
     this->PreStepOrderWeight = PreStepOrderWeight; 
-    Values newVal{PreStepFunc, PreStepOrderWeight, this, componentName};
+    Values newVal{PreStepFunc, PreStepOrderWeight, componentName};
     AddFuncToMap(PreStepCallbacks, newVal);
 
 }
@@ -32,7 +32,7 @@ void Component::SetPreStepOrder(Values::K PreStepOrderWeight, std::string compon
 void Component::SetPostStepOrder(Values::K PostStepOrderWeight, std::string componentName)
 {
     this->PostStepOrderWeight = PostStepOrderWeight; 
-    Values newVal{PostStepFunc, PostStepOrderWeight, this, componentName};
+    Values newVal{PostStepFunc, PostStepOrderWeight, componentName};
     AddFuncToMap(PostStepCallbacks, newVal);
 }
 
