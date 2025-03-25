@@ -12,7 +12,6 @@ void Robot::RobotInit()
 {
   Code_Gen_Model_U.GameState = -1;
   Code_Gen_Model_initialize(); //code gen model init
-  Component::PrintOrder();
 }
 
 void Robot::RobotPeriodic() 
@@ -32,7 +31,7 @@ void Robot::RobotPeriodic()
 void Robot::AutonomousInit() { Code_Gen_Model_U.GameState = 1; GameStateChange();}
 void Robot::AutonomousPeriodic() {}
 
-void Robot::TeleopInit() {Code_Gen_Model_U.GameState = 2; GameStateChange();  Component::PrintOrder();
+void Robot::TeleopInit() {Code_Gen_Model_U.GameState = 2; GameStateChange();
 }
 void Robot::TeleopPeriodic() {}
 
