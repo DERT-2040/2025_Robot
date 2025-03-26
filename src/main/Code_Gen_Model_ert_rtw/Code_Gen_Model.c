@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.373
+ * Model version                  : 2.374
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 26 00:23:24 2025
+ * C/C++ source code generated on : Wed Mar 26 07:20:57 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -3284,7 +3284,7 @@ static void Co_Elevator_CoralArm_CoralWheel(uint8_T rtu_GameState, boolean_T
 
    case Code_Gen_Model_IN_Start:
     *rty_State_ID = 0.0;
-    if (((((rtu_GameState == 1) && (localDW->Set_L1)) || (localDW->Set_L2)) ||
+    if ((((rtu_Coral_Limit_Switch && (localDW->Set_L1)) || (localDW->Set_L2)) ||
          (localDW->Set_L3)) || (localDW->Set_L4)) {
       localDW->is_Set_Level_n = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
       localDW->is_Elevator_CoralArm_CoralWheel = Code_Gen_Model_IN_Coral;
@@ -3293,7 +3293,7 @@ static void Co_Elevator_CoralArm_CoralWheel(uint8_T rtu_GameState, boolean_T
         rtu_Gamepad_B3_X, rtu_Gamepad_B4_Y, rtu_Gamepad_Stick_Left_Y,
         rtu_Gamepad_Stick_Right_Y, rty_State_ID, rty_Elevator_Height_Desired,
         rty_Coral_Arm_Angle_Desired, rty_Set_Coral_Level, localDW);
-    } else if (rtu_GameState == 2) {
+    } else if (!rtu_Coral_Limit_Switch) {
       localDW->is_Set_Level_n = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
       localDW->is_Elevator_CoralArm_CoralWheel = Code__IN_Elevator_Height_Bottom;
       *rty_State_ID = 0.2;
