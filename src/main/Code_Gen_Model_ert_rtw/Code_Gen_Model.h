@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.371
+ * Model version                  : 2.373
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 25 23:10:08 2025
+ * C/C++ source code generated on : Wed Mar 26 00:23:24 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -231,6 +231,7 @@ typedef struct {
   boolean_T Gamepad_POV_Down_o;        /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_POV_Left_d;        /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_B1_A_out;          /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Gamepad_B3_X_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Elevator_LowerPickup_Reset_g;/* '<S31>/Reefscape_Chart' */
   boolean_T Coral_Pickup_Lower_Wait_State_m;/* '<S31>/Reefscape_Chart' */
   boolean_T Coral_Score_j;             /* '<S31>/Reefscape_Chart' */
@@ -384,6 +385,7 @@ typedef struct {
   uint8_T is_Path_to_Reef;             /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Left_and_Right;           /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_1;           /* '<S28>/Reefscape_Auto_Steps' */
+  uint8_T is_Drive;                    /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_2;           /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_2_v2;        /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_3;           /* '<S28>/Reefscape_Auto_Steps' */
@@ -994,6 +996,9 @@ extern real_T Auto_Backup_Time_Processor;/* Variable: Auto_Backup_Time_Processor
 extern real_T Auto_Backup_Time_Reef;   /* Variable: Auto_Backup_Time_Reef
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
+extern real_T Auto_Path1_Delay_to_L2_Time;/* Variable: Auto_Path1_Delay_to_L2_Time
+                                           * Referenced by: '<S28>/Reefscape_Auto_Steps'
+                                           */
 extern real_T Auto_Path1_Delay_to_L4_Time;/* Variable: Auto_Path1_Delay_to_L4_Time
                                            * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                            */

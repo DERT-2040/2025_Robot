@@ -101,6 +101,7 @@ private:
         nt::NetworkTableEntry __Auto_Algae_Height_Time__Entry;
         nt::NetworkTableEntry __Auto_Backup_Time_Processor__Entry;
         nt::NetworkTableEntry __Auto_Backup_Time_Reef__Entry;
+        nt::NetworkTableEntry __Auto_Path1_Delay_to_L2_Time__Entry;
         nt::NetworkTableEntry __Auto_Path1_Delay_to_L4_Time__Entry;
         nt::NetworkTableEntry __Auto_Path2_Delay_to_L4_Time__Entry;
         nt::NetworkTableEntry __Auto_Speed_Algae__Entry;
@@ -448,6 +449,7 @@ private:
         nt::NetworkTableEntry __Face_Right_Driver__Entry;
         nt::NetworkTableEntry __Face_Toward_Driver__Entry;
         nt::NetworkTableEntry __Gamepad_B1_A_out__Entry;
+        nt::NetworkTableEntry __Gamepad_B3_X_out__Entry;
         nt::NetworkTableEntry __Gamepad_B4_Y_out__Entry;
         nt::NetworkTableEntry __Gamepad_Back_out__Entry;
         nt::NetworkTableEntry __Gamepad_POV_Down__Entry;

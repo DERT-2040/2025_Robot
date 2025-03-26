@@ -343,13 +343,17 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Auto_Backup_Time_Reef__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Backup_Time_Reef = event.GetValueEventData()->value.GetDouble();});
     __Auto_Backup_Time_Reef__Entry.SetDouble(0.5);
  
+    __Auto_Path1_Delay_to_L2_Time__Entry = NTtable_Tune->GetEntry("Auto_Path1_Delay_to_L2_Time");
+    NTinst.AddListener(__Auto_Path1_Delay_to_L2_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path1_Delay_to_L2_Time = event.GetValueEventData()->value.GetDouble();});
+    __Auto_Path1_Delay_to_L2_Time__Entry.SetDouble(0.5);
+ 
     __Auto_Path1_Delay_to_L4_Time__Entry = NTtable_Tune->GetEntry("Auto_Path1_Delay_to_L4_Time");
     NTinst.AddListener(__Auto_Path1_Delay_to_L4_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path1_Delay_to_L4_Time = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Path1_Delay_to_L4_Time__Entry.SetDouble(0.5);
+    __Auto_Path1_Delay_to_L4_Time__Entry.SetDouble(1);
  
     __Auto_Path2_Delay_to_L4_Time__Entry = NTtable_Tune->GetEntry("Auto_Path2_Delay_to_L4_Time");
     NTinst.AddListener(__Auto_Path2_Delay_to_L4_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path2_Delay_to_L4_Time = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Path2_Delay_to_L4_Time__Entry.SetDouble(0.5);
+    __Auto_Path2_Delay_to_L4_Time__Entry.SetDouble(1);
  
     __Auto_Speed_Algae__Entry = NTtable_Tune->GetEntry("Auto_Speed_Algae");
     NTinst.AddListener(__Auto_Speed_Algae__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Algae = event.GetValueEventData()->value.GetDouble();});
@@ -1140,6 +1144,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Face_Right_Driver__Entry = NTtable_TPoint->GetEntry("Face_Right_Driver");
     __Face_Toward_Driver__Entry = NTtable_TPoint->GetEntry("Face_Toward_Driver");
     __Gamepad_B1_A_out__Entry = NTtable_TPoint->GetEntry("Gamepad_B1_A_out");
+    __Gamepad_B3_X_out__Entry = NTtable_TPoint->GetEntry("Gamepad_B3_X_out");
     __Gamepad_B4_Y_out__Entry = NTtable_TPoint->GetEntry("Gamepad_B4_Y_out");
     __Gamepad_Back_out__Entry = NTtable_TPoint->GetEntry("Gamepad_Back_out");
     __Gamepad_POV_Down__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Down");
@@ -1417,6 +1422,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Face_Right_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Right_Driver);
     __Face_Toward_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Toward_Driver);
     __Gamepad_B1_A_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_B1_A_out);
+    __Gamepad_B3_X_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_B3_X_out);
     __Gamepad_B4_Y_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_B4_Y_out);
     __Gamepad_Back_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_Back_out);
     __Gamepad_POV_Down__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Down);
@@ -1575,6 +1581,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Auto_Algae_Height_Time__Entry.SetDouble(Auto_Algae_Height_Time);
     __Auto_Backup_Time_Processor__Entry.SetDouble(Auto_Backup_Time_Processor);
     __Auto_Backup_Time_Reef__Entry.SetDouble(Auto_Backup_Time_Reef);
+    __Auto_Path1_Delay_to_L2_Time__Entry.SetDouble(Auto_Path1_Delay_to_L2_Time);
     __Auto_Path1_Delay_to_L4_Time__Entry.SetDouble(Auto_Path1_Delay_to_L4_Time);
     __Auto_Path2_Delay_to_L4_Time__Entry.SetDouble(Auto_Path2_Delay_to_L4_Time);
     __Auto_Speed_Algae__Entry.SetDouble(Auto_Speed_Algae);
