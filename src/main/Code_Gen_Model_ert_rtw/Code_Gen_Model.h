@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.366
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 25 00:19:14 2025
+ * C/C++ source code generated on : Tue Mar 25 21:42:43 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1399,6 +1399,11 @@ extern real_T KF_Enable;               /* Variable: KF_Enable
                                         * Referenced by:
                                         *   '<S18>/Constant1'
                                         *   '<S18>/Constant2'
+                                        */
+extern real_T L4_Switch_Time;          /* Variable: L4_Switch_Time
+                                        * Referenced by:
+                                        *   '<S424>/Reefscape_Chart'
+                                        *   '<S31>/Reefscape_Chart'
                                         */
 extern real_T Limelight_Tag_Angle_Offset;/* Variable: Limelight_Tag_Angle_Offset
                                           * Referenced by: '<S19>/Constant2'

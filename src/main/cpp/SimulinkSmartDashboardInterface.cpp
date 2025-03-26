@@ -353,7 +353,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Auto_Speed_Algae__Entry = NTtable_Tune->GetEntry("Auto_Speed_Algae");
     NTinst.AddListener(__Auto_Speed_Algae__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Algae = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Speed_Algae__Entry.SetDouble(0.2);
+    __Auto_Speed_Algae__Entry.SetDouble(0.5);
  
     __Auto_Speed_Coral__Entry = NTtable_Tune->GetEntry("Auto_Speed_Coral");
     NTinst.AddListener(__Auto_Speed_Coral__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Coral = event.GetValueEventData()->value.GetDouble();});
@@ -365,7 +365,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Auto_Speed_Reef__Entry = NTtable_Tune->GetEntry("Auto_Speed_Reef");
     NTinst.AddListener(__Auto_Speed_Reef__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Reef = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Speed_Reef__Entry.SetDouble(0.5);
+    __Auto_Speed_Reef__Entry.SetDouble(1);
  
     __Auto_Starting_Position__Entry = NTtable_Tune->GetEntry("Auto_Starting_Position");
     NTinst.AddListener(__Auto_Starting_Position__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Starting_Position = event.GetValueEventData()->value.GetDouble();});
@@ -389,7 +389,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Coral_Arm_Angle_Coral_Score_Lower_Rate__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Coral_Score_Lower_Rate");
     NTinst.AddListener(__Coral_Arm_Angle_Coral_Score_Lower_Rate__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Coral_Score_Lower_Rate = event.GetValueEventData()->value.GetDouble();});
-    __Coral_Arm_Angle_Coral_Score_Lower_Rate__Entry.SetDouble(-1);
+    __Coral_Arm_Angle_Coral_Score_Lower_Rate__Entry.SetDouble(-2);
  
     __Coral_Arm_Angle_Error_Threshold__Entry = NTtable_Tune->GetEntry("Coral_Arm_Angle_Error_Threshold");
     NTinst.AddListener(__Coral_Arm_Angle_Error_Threshold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Arm_Angle_Error_Threshold = event.GetValueEventData()->value.GetDouble();});
@@ -581,7 +581,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_Coral_Score_Lower_Rate__Entry = NTtable_Tune->GetEntry("Elevator_Height_Coral_Score_Lower_Rate");
     NTinst.AddListener(__Elevator_Height_Coral_Score_Lower_Rate__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Coral_Score_Lower_Rate = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Coral_Score_Lower_Rate__Entry.SetDouble(-0.1);
+    __Elevator_Height_Coral_Score_Lower_Rate__Entry.SetDouble(-0.2);
  
     __Elevator_Height_End_Game__Entry = NTtable_Tune->GetEntry("Elevator_Height_End_Game");
     NTinst.AddListener(__Elevator_Height_End_Game__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_End_Game = event.GetValueEventData()->value.GetDouble();});
@@ -690,6 +690,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __KF_Enable__Entry = NTtable_Tune->GetEntry("KF_Enable");
     NTinst.AddListener(__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
     __KF_Enable__Entry.SetDouble(1);
+ 
+    __L4_Switch_Time__Entry = NTtable_Tune->GetEntry("L4_Switch_Time");
+    NTinst.AddListener(__L4_Switch_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {L4_Switch_Time = event.GetValueEventData()->value.GetDouble();});
+    __L4_Switch_Time__Entry.SetDouble(0.1);
  
     __Limelight_Tag_Angle_Offset__Entry = NTtable_Tune->GetEntry("Limelight_Tag_Angle_Offset");
     NTinst.AddListener(__Limelight_Tag_Angle_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Limelight_Tag_Angle_Offset = event.GetValueEventData()->value.GetDouble();});
@@ -1654,6 +1658,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Gyro_Calibration_Reset_Degree__Entry.SetDouble(Gyro_Calibration_Reset_Degree);
     __Gyro_Calibration_Reset_Flag__Entry.SetDouble(Gyro_Calibration_Reset_Flag);
     __KF_Enable__Entry.SetDouble(KF_Enable);
+    __L4_Switch_Time__Entry.SetDouble(L4_Switch_Time);
     __Limelight_Tag_Angle_Offset__Entry.SetDouble(Limelight_Tag_Angle_Offset);
     __Limelight_Tag_X_Offset__Entry.SetDouble(Limelight_Tag_X_Offset);
     __Limelight_Tag_Y_Offset__Entry.SetDouble(Limelight_Tag_Y_Offset);

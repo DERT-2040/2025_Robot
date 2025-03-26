@@ -188,6 +188,7 @@ private:
         nt::NetworkTableEntry __Gyro_Calibration_Reset_Degree__Entry;
         nt::NetworkTableEntry __Gyro_Calibration_Reset_Flag__Entry;
         nt::NetworkTableEntry __KF_Enable__Entry;
+        nt::NetworkTableEntry __L4_Switch_Time__Entry;
         nt::NetworkTableEntry __Limelight_Tag_Angle_Offset__Entry;
         nt::NetworkTableEntry __Limelight_Tag_X_Offset__Entry;
         nt::NetworkTableEntry __Limelight_Tag_Y_Offset__Entry;

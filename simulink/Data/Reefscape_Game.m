@@ -100,14 +100,15 @@ Elevator_Height_Manual_Gain = 0.1;
 Coral_Arm_Manual_Gain       = 1.0;
 
 % Levels 2 and 3
-Elevator_Height_Coral_Score_Lower_Rate = -0.1;  % inches/loop
+Elevator_Height_Coral_Score_Lower_Rate = -0.2;  % inches/loop
 Elevator_Height_L2_Eject      = Elevator_Height_L2-6;
 Elevator_Height_L3_Eject      = Elevator_Height_L3-6;
 
 % Level 4
-Coral_Arm_Angle_Coral_Score_Lower_Rate = -1.0;  % degrees/loop
+Coral_Arm_Angle_Coral_Score_Lower_Rate = -2.0;  % degrees/loop
 Coral_Arm_Angle_L4_Eject_Teleop = 40;  % degrees
 Coral_Arm_Angle_L4_Eject_Auto = 25;  % degrees
+L4_Switch_Time = 0.1;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

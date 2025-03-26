@@ -7,7 +7,7 @@ Auto_Backup_Time_Processor = 1;
 Auto_Path1_Delay_to_L4_Time = 1;  % starting line to reef
 Auto_Path2_Delay_to_L4_Time = 1;  % coral station to reef
 
-Auto_Speed_Reef = 0.5;
+Auto_Speed_Reef = 1.0;
 Auto_Speed_Coral = 0.5;
-Auto_Speed_Algae = 0.2;
+Auto_Speed_Algae = 0.5;
 Auto_Speed_Processor = 0.5; 
