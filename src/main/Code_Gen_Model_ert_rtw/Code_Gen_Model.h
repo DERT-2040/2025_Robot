@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.366
+ * Model version                  : 2.371
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 25 21:42:43 2025
+ * C/C++ source code generated on : Tue Mar 25 23:10:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -154,6 +154,7 @@ typedef struct {
   real_T Elevator_Height_Desired;      /* '<S424>/Reefscape_Chart' */
   real_T Coral_Arm_Angle_Desired;      /* '<S424>/Reefscape_Chart' */
   real_T Coral_Wheel_DC;               /* '<S424>/Reefscape_Chart' */
+  real_T UnitDelay2;                   /* '<S28>/Unit Delay2' */
   real_T Auto_AT_Relative_Error_Y;     /* '<S28>/Signal Copy6' */
   real_T Auto_AT_Relative_Error_X;     /* '<S28>/Signal Copy2' */
   real_T Auto_AT_Relative_Error_Angle; /* '<S28>/Signal Copy7' */
@@ -173,7 +174,6 @@ typedef struct {
   uint16_T Set_Coral_Level_j;          /* '<S31>/Reefscape_Chart' */
   uint16_T WhileIterator;              /* '<S259>/While Iterator' */
   uint8_T Set_Algae_Level;             /* '<S424>/Reefscape_Chart' */
-  uint8_T Switch14;                    /* '<S30>/Switch14' */
   uint8_T Path_ID;                     /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T Auto_Step_ID;                /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T Set_Algae_Level_p;           /* '<S31>/Reefscape_Chart' */
@@ -230,6 +230,7 @@ typedef struct {
   boolean_T Gamepad_RT_out;            /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_POV_Down_o;        /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_POV_Left_d;        /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Gamepad_B1_A_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Elevator_LowerPickup_Reset_g;/* '<S31>/Reefscape_Chart' */
   boolean_T Coral_Pickup_Lower_Wait_State_m;/* '<S31>/Reefscape_Chart' */
   boolean_T Coral_Score_j;             /* '<S31>/Reefscape_Chart' */
@@ -309,6 +310,7 @@ typedef struct {
   real_T UnitDelay3_DSTATE;            /* '<S444>/Unit Delay3' */
   real_T UnitDelay1_DSTATE_e1;         /* '<S421>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_j2;         /* '<S444>/Unit Delay1' */
+  real_T UnitDelay2_DSTATE;            /* '<S28>/Unit Delay2' */
   real_T UnitDelay1_DSTATE_ek;         /* '<S29>/Unit Delay1' */
   real_T UnitDelay_DSTATE_b;           /* '<S29>/Unit Delay' */
   real_T UnitDelay_DSTATE_gh;          /* '<S208>/Unit Delay' */
@@ -337,7 +339,7 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_op;     /* '<S84>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_gln;      /* '<S14>/Unit Delay' */
   boolean_T UnitDelay1_DSTATE_kb;      /* '<S14>/Unit Delay1' */
-  boolean_T UnitDelay2_DSTATE;         /* '<S14>/Unit Delay2' */
+  boolean_T UnitDelay2_DSTATE_k;       /* '<S14>/Unit Delay2' */
   boolean_T UnitDelay_DSTATE_ir;       /* '<S27>/Unit Delay' */
   boolean_T DelayInput1_DSTATE_oy;     /* '<S474>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_f;      /* '<S475>/Delay Input1' */
@@ -353,10 +355,10 @@ typedef struct {
   boolean_T UnitDelay2_DSTATE_l;       /* '<S444>/Unit Delay2' */
   boolean_T UnitDelay4_DSTATE;         /* '<S444>/Unit Delay4' */
   boolean_T UnitDelay1_DSTATE_p;       /* '<S28>/Unit Delay1' */
-  boolean_T DelayInput1_DSTATE_ne;     /* '<S61>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_l;      /* '<S55>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_bd;     /* '<S56>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_au;     /* '<S60>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_ne;     /* '<S61>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_ff;     /* '<S62>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_ev;     /* '<S57>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o1g;    /* '<S63>/Delay Input1' */
@@ -383,6 +385,7 @@ typedef struct {
   uint8_T is_Left_and_Right;           /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_1;           /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_2;           /* '<S28>/Reefscape_Auto_Steps' */
+  uint8_T is_Path_to_Reef_2_v2;        /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_3;           /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_active_c9_Code_Gen_Model; /* '<S22>/Chart' */
   uint8_T is_c9_Code_Gen_Model;        /* '<S22>/Chart' */
@@ -541,6 +544,7 @@ typedef struct {
 typedef struct {
   real_T GameState;                    /* '<Root>/GameState' */
   real_T IsBlueAlliance;               /* '<Root>/IsBlueAlliance' */
+  real_T MatchTime;                    /* '<Root>/MatchTime' */
   real_T Joystick_Left_X;              /* '<Root>/Joystick_Left_X' */
   real_T Joystick_Left_Y;              /* '<Root>/Joystick_Left_Y' */
   real_T Joystick_Left_Z;              /* '<Root>/Joystick_Left_Z' */
@@ -1127,6 +1131,7 @@ extern real_T Coral_Arm_Pos90_DC;      /* Variable: Coral_Arm_Pos90_DC
                                         */
 extern real_T Coral_Detect_Distance;   /* Variable: Coral_Detect_Distance
                                         * Referenced by:
+                                        *   '<S28>/Reefscape_Auto_Steps'
                                         *   '<S424>/Reefscape_Chart'
                                         *   '<S31>/Reefscape_Chart'
                                         */

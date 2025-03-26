@@ -340,6 +340,7 @@ private:
         nt::NetworkTableEntry __Limelight_Tag_Angle__Entry;
         nt::NetworkTableEntry __Limelight_Tag_X__Entry;
         nt::NetworkTableEntry __Limelight_Tag_Y__Entry;
+        nt::NetworkTableEntry __MatchTime__Entry;
         nt::NetworkTableEntry __Num_Tags_Detected__Entry;
         nt::NetworkTableEntry __Winch_Revs__Entry;
         // Outports
@@ -446,6 +447,7 @@ private:
         nt::NetworkTableEntry __Face_Left_Driver__Entry;
         nt::NetworkTableEntry __Face_Right_Driver__Entry;
         nt::NetworkTableEntry __Face_Toward_Driver__Entry;
+        nt::NetworkTableEntry __Gamepad_B1_A_out__Entry;
         nt::NetworkTableEntry __Gamepad_B4_Y_out__Entry;
         nt::NetworkTableEntry __Gamepad_Back_out__Entry;
         nt::NetworkTableEntry __Gamepad_POV_Down__Entry;
@@ -506,7 +508,6 @@ private:
         nt::NetworkTableEntry __Steering_Rel_Cmd__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd_SPF__Entry;
         nt::NetworkTableEntry __Swerve_Drive_Integral_Enable__Entry;
-        nt::NetworkTableEntry __Switch14__Entry;
         nt::NetworkTableEntry __Teleop_AT_On_Target__Entry;
         nt::NetworkTableEntry __Test_Mode__Entry;
         nt::NetworkTableEntry __Translation_Angle__Entry;
@@ -518,6 +519,7 @@ private:
         nt::NetworkTableEntry __Translation_Speed_k__Entry;
         nt::NetworkTableEntry __Translation_Steering_Cmd__Entry;
         nt::NetworkTableEntry __UnitDelay1__Entry;
+        nt::NetworkTableEntry __UnitDelay2__Entry;
         nt::NetworkTableEntry __WhileIterator__Entry;
         nt::NetworkTableEntry __Winch_Cmd__Entry;
 };

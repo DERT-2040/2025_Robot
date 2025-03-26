@@ -341,15 +341,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Auto_Backup_Time_Reef__Entry = NTtable_Tune->GetEntry("Auto_Backup_Time_Reef");
     NTinst.AddListener(__Auto_Backup_Time_Reef__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Backup_Time_Reef = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Backup_Time_Reef__Entry.SetDouble(1);
+    __Auto_Backup_Time_Reef__Entry.SetDouble(0.5);
  
     __Auto_Path1_Delay_to_L4_Time__Entry = NTtable_Tune->GetEntry("Auto_Path1_Delay_to_L4_Time");
     NTinst.AddListener(__Auto_Path1_Delay_to_L4_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path1_Delay_to_L4_Time = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Path1_Delay_to_L4_Time__Entry.SetDouble(1);
+    __Auto_Path1_Delay_to_L4_Time__Entry.SetDouble(0.5);
  
     __Auto_Path2_Delay_to_L4_Time__Entry = NTtable_Tune->GetEntry("Auto_Path2_Delay_to_L4_Time");
     NTinst.AddListener(__Auto_Path2_Delay_to_L4_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path2_Delay_to_L4_Time = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Path2_Delay_to_L4_Time__Entry.SetDouble(1);
+    __Auto_Path2_Delay_to_L4_Time__Entry.SetDouble(0.5);
  
     __Auto_Speed_Algae__Entry = NTtable_Tune->GetEntry("Auto_Speed_Algae");
     NTinst.AddListener(__Auto_Speed_Algae__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Algae = event.GetValueEventData()->value.GetDouble();});
@@ -1031,6 +1031,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Limelight_Tag_Angle__Entry = NTtable_Inport->GetEntry("Limelight_Tag_Angle");
     __Limelight_Tag_X__Entry = NTtable_Inport->GetEntry("Limelight_Tag_X");
     __Limelight_Tag_Y__Entry = NTtable_Inport->GetEntry("Limelight_Tag_Y");
+    __MatchTime__Entry = NTtable_Inport->GetEntry("MatchTime");
     __Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Num_Tags_Detected");
     __Winch_Revs__Entry = NTtable_Inport->GetEntry("Winch_Revs");
  
@@ -1138,6 +1139,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Face_Left_Driver__Entry = NTtable_TPoint->GetEntry("Face_Left_Driver");
     __Face_Right_Driver__Entry = NTtable_TPoint->GetEntry("Face_Right_Driver");
     __Face_Toward_Driver__Entry = NTtable_TPoint->GetEntry("Face_Toward_Driver");
+    __Gamepad_B1_A_out__Entry = NTtable_TPoint->GetEntry("Gamepad_B1_A_out");
     __Gamepad_B4_Y_out__Entry = NTtable_TPoint->GetEntry("Gamepad_B4_Y_out");
     __Gamepad_Back_out__Entry = NTtable_TPoint->GetEntry("Gamepad_Back_out");
     __Gamepad_POV_Down__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Down");
@@ -1198,7 +1200,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Steering_Rel_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd");
     __Steering_Rel_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd_SPF");
     __Swerve_Drive_Integral_Enable__Entry = NTtable_TPoint->GetEntry("Swerve_Drive_Integral_Enable");
-    __Switch14__Entry = NTtable_TPoint->GetEntry("Switch14");
     __Teleop_AT_On_Target__Entry = NTtable_TPoint->GetEntry("Teleop_AT_On_Target");
     __Test_Mode__Entry = NTtable_TPoint->GetEntry("Test_Mode");
     __Translation_Angle__Entry = NTtable_TPoint->GetEntry("Translation_Angle");
@@ -1210,6 +1211,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Translation_Speed_k__Entry = NTtable_TPoint->GetEntry("Translation_Speed_k");
     __Translation_Steering_Cmd__Entry = NTtable_TPoint->GetEntry("Translation_Steering_Cmd");
     __UnitDelay1__Entry = NTtable_TPoint->GetEntry("UnitDelay1");
+    __UnitDelay2__Entry = NTtable_TPoint->GetEntry("UnitDelay2");
     __WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
     __Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
 }
@@ -1308,6 +1310,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Limelight_Tag_Angle__Entry.SetDouble(Code_Gen_Model_U.Limelight_Tag_Angle);
     __Limelight_Tag_X__Entry.SetDouble(Code_Gen_Model_U.Limelight_Tag_X);
     __Limelight_Tag_Y__Entry.SetDouble(Code_Gen_Model_U.Limelight_Tag_Y);
+    __MatchTime__Entry.SetDouble(Code_Gen_Model_U.MatchTime);
     __Num_Tags_Detected__Entry.SetDouble(Code_Gen_Model_U.Num_Tags_Detected);
     __Winch_Revs__Entry.SetDouble(Code_Gen_Model_U.Winch_Revs);
     // Outports
@@ -1413,6 +1416,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Face_Left_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Left_Driver);
     __Face_Right_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Right_Driver);
     __Face_Toward_Driver__Entry.SetDouble(Code_Gen_Model_B.Face_Toward_Driver);
+    __Gamepad_B1_A_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_B1_A_out);
     __Gamepad_B4_Y_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_B4_Y_out);
     __Gamepad_Back_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_Back_out);
     __Gamepad_POV_Down__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Down);
@@ -1473,7 +1477,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Steering_Rel_Cmd__Entry.SetDouble(Code_Gen_Model_B.Steering_Rel_Cmd);
     __Steering_Rel_Cmd_SPF__Entry.SetDouble(Code_Gen_Model_B.Steering_Rel_Cmd_SPF);
     __Swerve_Drive_Integral_Enable__Entry.SetDouble(Code_Gen_Model_B.Swerve_Drive_Integral_Enable);
-    __Switch14__Entry.SetDouble(Code_Gen_Model_B.Switch14);
     __Teleop_AT_On_Target__Entry.SetDouble(Code_Gen_Model_B.Teleop_AT_On_Target);
     __Test_Mode__Entry.SetDouble(Code_Gen_Model_B.Test_Mode);
     __Translation_Angle__Entry.SetDouble(Code_Gen_Model_B.Translation_Angle);
@@ -1485,6 +1488,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Translation_Speed_k__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_k);
     __Translation_Steering_Cmd__Entry.SetDouble(Code_Gen_Model_B.Translation_Steering_Cmd);
     __UnitDelay1__Entry.SetDouble(Code_Gen_Model_B.UnitDelay1);
+    __UnitDelay2__Entry.SetDouble(Code_Gen_Model_B.UnitDelay2);
     __WhileIterator__Entry.SetDouble(Code_Gen_Model_B.WhileIterator);
     __Winch_Cmd__Entry.SetDouble(Code_Gen_Model_B.Winch_Cmd);
     // Tunable Parameters
