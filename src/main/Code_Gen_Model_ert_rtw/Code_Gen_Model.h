@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.374
+ * Model version                  : 2.376
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 26 07:20:57 2025
+ * C/C++ source code generated on : Wed Mar 26 08:11:43 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -49,7 +49,7 @@ typedef struct {
 typedef struct {
   real_T timer;                        /* '<S31>/Reefscape_Chart' */
   real_T timer_robot_target;           /* '<S31>/Reefscape_Chart' */
-  uint8_T is_active_c5_Code_Gen_Model; /* '<S31>/Reefscape_Chart' */
+  uint8_T is_active_c4_Code_Gen_Model; /* '<S31>/Reefscape_Chart' */
   uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S31>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_High;        /* '<S31>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_Low;         /* '<S31>/Reefscape_Chart' */
@@ -649,9 +649,9 @@ typedef struct {
   real_T BackLeft_Drive_DutyCycle;     /* '<Root>/BackLeft_Drive_DutyCycle' */
   real_T BackRight_Steer_DutyCycle;    /* '<Root>/BackRight_Steer_DutyCycle' */
   real_T BackRight_Drive_DutyCycle;    /* '<Root>/BackRight_Drive_DutyCycle' */
-  real_T Enable_Wheels;                /* '<Root>/Enable_Wheels' */
-  real_T Reset_Wheel_Offsets;          /* '<Root>/Reset_Wheel_Offsets' */
-  real_T Disable_Wheels;               /* '<Root>/Disable_Wheels' */
+  boolean_T Enable_Wheels;             /* '<Root>/Enable_Wheels' */
+  boolean_T Reset_Wheel_Offsets;       /* '<Root>/Reset_Wheel_Offsets' */
+  boolean_T Disable_Wheels;            /* '<Root>/Disable_Wheels' */
   boolean_T Swerve_Motors_Disabled;    /* '<Root>/Swerve_Motors_Disabled' */
   real_T Elevator_DutyCycle;           /* '<Root>/Elevator_DutyCycle' */
   real_T Coral_Arm_DutyCycle;          /* '<Root>/Coral_Arm_DutyCycle' */
