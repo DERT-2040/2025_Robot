@@ -17,12 +17,12 @@ AT_Reef_Target_Right_Y = -9.5;  % inches
 AT_Reef_Target_Algae_Y = 2.5;   % inches
 
 AT_Max_Error_XY = 0.5;          % inches
-AT_Max_Error_Angle = 0.5;       % degrees
+AT_Max_Error_Angle = 0.75;       % degrees
 
 AT_Integral_Enable_Error_XY = 2.0;     % inches
 AT_Integral_Enable_Error_Angle = 5.0;  % degrees
 
-AT_On_Target_Time = 0.5;     % seconds
+AT_On_Target_Time = 0.25;     % seconds
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % April Tag locations, dimensions in inches

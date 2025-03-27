@@ -213,7 +213,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Max_Error_Angle__Entry = NTtable_Tune->GetEntry("AT_Max_Error_Angle");
     NTinst.AddListener(__AT_Max_Error_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Max_Error_Angle = event.GetValueEventData()->value.GetDouble();});
-    __AT_Max_Error_Angle__Entry.SetDouble(0.5);
+    __AT_Max_Error_Angle__Entry.SetDouble(0.75);
  
     __AT_Max_Error_XY__Entry = NTtable_Tune->GetEntry("AT_Max_Error_XY");
     NTinst.AddListener(__AT_Max_Error_XY__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Max_Error_XY = event.GetValueEventData()->value.GetDouble();});
@@ -221,7 +221,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_On_Target_Time__Entry = NTtable_Tune->GetEntry("AT_On_Target_Time");
     NTinst.AddListener(__AT_On_Target_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_On_Target_Time = event.GetValueEventData()->value.GetDouble();});
-    __AT_On_Target_Time__Entry.SetDouble(0.5);
+    __AT_On_Target_Time__Entry.SetDouble(0.25);
  
     __AT_Processor_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Processor_Angle_Blue");
     NTinst.AddListener(__AT_Processor_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
@@ -341,7 +341,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Auto_Backup_Time_Reef__Entry = NTtable_Tune->GetEntry("Auto_Backup_Time_Reef");
     NTinst.AddListener(__Auto_Backup_Time_Reef__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Backup_Time_Reef = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Backup_Time_Reef__Entry.SetDouble(0.5);
+    __Auto_Backup_Time_Reef__Entry.SetDouble(0.25);
  
     __Auto_Path1_Delay_to_L2_Time__Entry = NTtable_Tune->GetEntry("Auto_Path1_Delay_to_L2_Time");
     NTinst.AddListener(__Auto_Path1_Delay_to_L2_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path1_Delay_to_L2_Time = event.GetValueEventData()->value.GetDouble();});
@@ -349,11 +349,11 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Auto_Path1_Delay_to_L4_Time__Entry = NTtable_Tune->GetEntry("Auto_Path1_Delay_to_L4_Time");
     NTinst.AddListener(__Auto_Path1_Delay_to_L4_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path1_Delay_to_L4_Time = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Path1_Delay_to_L4_Time__Entry.SetDouble(1);
+    __Auto_Path1_Delay_to_L4_Time__Entry.SetDouble(0.25);
  
     __Auto_Path2_Delay_to_L4_Time__Entry = NTtable_Tune->GetEntry("Auto_Path2_Delay_to_L4_Time");
     NTinst.AddListener(__Auto_Path2_Delay_to_L4_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path2_Delay_to_L4_Time = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Path2_Delay_to_L4_Time__Entry.SetDouble(1);
+    __Auto_Path2_Delay_to_L4_Time__Entry.SetDouble(0);
  
     __Auto_Speed_Algae__Entry = NTtable_Tune->GetEntry("Auto_Speed_Algae");
     NTinst.AddListener(__Auto_Speed_Algae__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Algae = event.GetValueEventData()->value.GetDouble();});
@@ -361,7 +361,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Auto_Speed_Coral__Entry = NTtable_Tune->GetEntry("Auto_Speed_Coral");
     NTinst.AddListener(__Auto_Speed_Coral__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Coral = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Speed_Coral__Entry.SetDouble(0.5);
+    __Auto_Speed_Coral__Entry.SetDouble(1);
  
     __Auto_Speed_Processor__Entry = NTtable_Tune->GetEntry("Auto_Speed_Processor");
     NTinst.AddListener(__Auto_Speed_Processor__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Speed_Processor = event.GetValueEventData()->value.GetDouble();});

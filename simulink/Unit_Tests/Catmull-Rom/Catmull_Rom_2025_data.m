@@ -342,7 +342,7 @@ hold on
 subplot(2,2,4)
 hold on
 
-test_cases = [1:4];
+test_cases = [15 16 17];
 
 for m = 1:length(test_cases)
 
