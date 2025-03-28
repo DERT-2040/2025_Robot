@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.385
+ * Model version                  : 2.389
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar 27 22:05:15 2025
+ * C/C++ source code generated on : Fri Mar 28 00:23:07 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -23,24 +23,24 @@
 const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
   1.0,                                 /* '<S75>/Unary Minus' */
   1.0,                                 /* '<S93>/Unary Minus' */
-  -1.0,                                /* '<S289>/Cos5' */
-  1.2246467991473532E-16,              /* '<S289>/Sin5' */
-  -1.0,                                /* '<S310>/Cos5' */
-  1.2246467991473532E-16,              /* '<S310>/Sin5' */
-  -1.0,                                /* '<S331>/Cos5' */
-  1.2246467991473532E-16,              /* '<S331>/Sin5' */
-  -1.0,                                /* '<S352>/Cos5' */
-  1.2246467991473532E-16,              /* '<S352>/Sin5' */
+  -1.0,                                /* '<S281>/Cos5' */
+  1.2246467991473532E-16,              /* '<S281>/Sin5' */
+  -1.0,                                /* '<S302>/Cos5' */
+  1.2246467991473532E-16,              /* '<S302>/Sin5' */
+  -1.0,                                /* '<S323>/Cos5' */
+  1.2246467991473532E-16,              /* '<S323>/Sin5' */
+  -1.0,                                /* '<S344>/Cos5' */
+  1.2246467991473532E-16,              /* '<S344>/Sin5' */
   0.0,                                 /* '<S31>/Dead Zone' */
   0.0,                                 /* '<S31>/Dead Zone1' */
-  0.62436807884000667,                 /* '<S362>/Atan2' */
-  2.1951644056349031,                  /* '<S362>/Add' */
-  -0.62436807884000667,                /* '<S362>/Atan1' */
-  0.94642824795488989,                 /* '<S362>/Add1' */
-  2.5172245747497866,                  /* '<S362>/Atan3' */
-  4.0880209015446827,                  /* '<S362>/Add2' */
-  -2.5172245747497866,                 /* '<S362>/Atan4' */
-  -0.94642824795489                    /* '<S362>/Add3' */
+  0.62436807884000667,                 /* '<S354>/Atan2' */
+  2.1951644056349031,                  /* '<S354>/Add' */
+  -0.62436807884000667,                /* '<S354>/Atan1' */
+  0.94642824795488989,                 /* '<S354>/Add1' */
+  2.5172245747497866,                  /* '<S354>/Atan3' */
+  4.0880209015446827,                  /* '<S354>/Add2' */
+  -2.5172245747497866,                 /* '<S354>/Atan4' */
+  -0.94642824795489                    /* '<S354>/Add3' */
 };
 
 /* Constant parameters (default storage) */
@@ -87,19 +87,19 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
     7.5716761776610646 },
 
   /* Expression: Spline_Capture_Radius
-   * Referenced by: '<S208>/Capture Radius'
+   * Referenced by: '<S200>/Capture Radius'
    */
   { 0.2, 0.3, 0.4, 0.5 },
 
   /* Pooled Parameter (Expression: Spline_Velocity_Axis)
    * Referenced by:
-   *   '<S208>/Capture Radius'
-   *   '<S208>/Lookahead Distance'
+   *   '<S200>/Capture Radius'
+   *   '<S200>/Lookahead Distance'
    */
   { 0.5, 1.5, 2.5, 3.5 },
 
   /* Expression: Spline_Lookahead_Dist
-   * Referenced by: '<S208>/Lookahead Distance'
+   * Referenced by: '<S200>/Lookahead Distance'
    */
   { 0.2, 0.2, 0.2, 0.4 },
 
@@ -218,25 +218,25 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
     4.0, 4.0, 4.0, 2.0, 4.0, 4.0, 4.0, 4.0, 4.0 },
 
   /* Expression: Steering_Mod_Drv_out
-   * Referenced by: '<S446>/Modulation_Drv'
+   * Referenced by: '<S437>/Modulation_Drv'
    */
   { -1.0, -0.58, -0.31, -0.18, -0.14, -0.09, -0.06, -0.04, -0.01, -0.0, 0.0, 0.0,
     0.01, 0.04, 0.06, 0.09, 0.14, 0.18, 0.31, 0.58, 1.0 },
 
   /* Expression: Steering_Mod_Drv_in
-   * Referenced by: '<S446>/Modulation_Drv'
+   * Referenced by: '<S437>/Modulation_Drv'
    */
   { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.45, -0.4, -0.35, -0.3, 0.0, 0.3, 0.35,
     0.4, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
 
   /* Expression: Steering_Mod_Str_Rel_out
-   * Referenced by: '<S445>/Modulation_Str_Y_Rel'
+   * Referenced by: '<S436>/Modulation_Str_Y_Rel'
    */
   { -1.0, -0.75, -0.55, -0.4, -0.27, -0.17, -0.1, -0.04, -0.015, -0.0, 0.0, 0.0,
     0.015, 0.04, 0.1, 0.17, 0.27, 0.4, 0.55, 0.75, 1.0 },
 
   /* Expression: Steering_Mod_Str_Rel_in
-   * Referenced by: '<S445>/Modulation_Str_Y_Rel'
+   * Referenced by: '<S436>/Modulation_Str_Y_Rel'
    */
   { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.25, -0.15, -0.05, 0.0, 0.05,
     0.15, 0.25, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
@@ -249,19 +249,19 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Scale_Factor)
    * Referenced by:
-   *   '<S280>/1-D Lookup Table'
-   *   '<S301>/1-D Lookup Table'
-   *   '<S322>/1-D Lookup Table'
-   *   '<S343>/1-D Lookup Table'
+   *   '<S272>/1-D Lookup Table'
+   *   '<S293>/1-D Lookup Table'
+   *   '<S314>/1-D Lookup Table'
+   *   '<S335>/1-D Lookup Table'
    */
   { 1.0, 1.0 },
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
-   *   '<S280>/1-D Lookup Table'
-   *   '<S301>/1-D Lookup Table'
-   *   '<S322>/1-D Lookup Table'
-   *   '<S343>/1-D Lookup Table'
+   *   '<S272>/1-D Lookup Table'
+   *   '<S293>/1-D Lookup Table'
+   *   '<S314>/1-D Lookup Table'
+   *   '<S335>/1-D Lookup Table'
    */
   { 0.0, 0.78539816339744828 },
 
@@ -322,7 +322,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   /* Expression: Coral_Arm_DC_Upper_Limit_Out
    * Referenced by: '<S8>/1-D Lookup Table'
    */
-  { 0.6, 0.42, 0.24 },
+  { 1.0, 0.42, 0.24 },
 
   /* Expression: Coral_Arm_DC_Upper_Limit_Angle_In
    * Referenced by: '<S8>/1-D Lookup Table'

@@ -49,6 +49,10 @@ AT_Translation_Speed_Max_Relative = 0.5;  % meter/second
 AT_Translation_Control_Gain_Field = 10;  % meter/second per meter of position error
 AT_Translation_Speed_Max_Field = 5.0;  % meter/second
 
+% Drive into Hook parameters
+Drive_Engage_Hook_Speed = 0.3; % drive slow to engage hook
+Drive_Engage_Hook_Angle = pi;  % back up
+
 
 %% Wheel Gear Ratio
 gear_ratio = 6.12;  % L1 gear ratio = 8.14,  L3 gear ratio = 6.12

@@ -13,7 +13,8 @@ Elevator_Height_Bottom  = 0;
 Elevator_Height_Top_Reset = 30;
 Elevator_Height_PickupLower_Reset = 7.875;
 
-Elevator_Height_Prepare = 14;
+Elevator_Height_Bottom_Pre = 14;
+Elevator_Height_Prepare = 11;
 Elevator_Height_Lower   = 7.5;
 Elevator_Height_Raise   = 9.6;
 
@@ -36,16 +37,16 @@ Elevator_Int_IC = 0;
 Elevator_Int_UL = 0.1;
 Elevator_Int_LL = -0.1;
 Elevator_Total_UL = 1;    % DC
-Elevator_Total_LL = -0.7;      % DC
+Elevator_Total_LL = -0.5;      % DC
 Elevator_Hold_at_Top_DC = 0.1;  % DC
-Elevator_Bottom_DC = -0.04;     % DC
-Elevator_Error_Bottom_Disable = 3; % inches
+Elevator_Bottom_DC = -0.1;     % DC
+Elevator_Error_Bottom_Disable = 1; % inches
 Elevator_Error_Increase = 0.0;  % inches, increase error to force elevator up when we want to go lower but are not able to because of coral arm angle
 Elevator_DC_Inc_RL = 1/0.3*0.02;  % duty cycle per loop
 
 % State transition thresholds
 Elevator_Height_Error_Threshold = 1.00; % inches
-Elevator_LowerPickup_Time = 0.5;  % seconds
+Elevator_LowerPickup_Time = 0.3;  % seconds
 
 % Elevator limit switch debounce
 Elevator_Limit_Switch_Debounce_F2T = 0.5;   % sec
@@ -75,7 +76,7 @@ Coral_Arm_Int_IC = 0;
 Coral_Arm_Int_UL = 0.05*0.5;
 Coral_Arm_Int_LL = -0.05*0.5;
 Coral_Arm_DC_Upper_Limit_Angle_In = [0 50 80];  % deg
-Coral_Arm_DC_Upper_Limit_Out = [1.0 0.7 0.4]*0.6; % DC
+Coral_Arm_DC_Upper_Limit_Out = [1.0 0.7*0.6 0.4*0.6]; % DC
 Coral_Arm_DC_Lower_Limit_Angle_In = [-80 -40];  % deg
 Coral_Arm_DC_Lower_Limit_Out = [-0.2 -0.5]*0.5; % DC
 Coral_Arm_DC_Inc_RL = 1/0.3*0.02*0.5;  % duty cycle per loop

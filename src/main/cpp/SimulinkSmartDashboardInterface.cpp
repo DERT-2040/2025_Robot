@@ -11,198 +11,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     auto NTtable_Outport = NTinst.GetTable("Simulink Top Level Ports");
     auto NTtable_TPoint = NTinst.GetTable("Simulink Test Points");
  
-    __AT_CS_L_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_L_Angle_Blue");
-    NTinst.AddListener(__AT_CS_L_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_L_Angle_Blue__Entry.SetDouble(2.1991);
- 
-    __AT_CS_L_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_CS_L_Angle_Red");
-    NTinst.AddListener(__AT_CS_L_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_L_Angle_Red__Entry.SetDouble(-0.94248);
- 
-    __AT_CS_L_X_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_L_X_Blue");
-    NTinst.AddListener(__AT_CS_L_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_X_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_L_X_Blue__Entry.SetDouble(1.0751);
- 
-    __AT_CS_L_X_Red__Entry = NTtable_Tune->GetEntry("AT_CS_L_X_Red");
-    NTinst.AddListener(__AT_CS_L_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_X_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_L_X_Red__Entry.SetDouble(16.4733);
- 
-    __AT_CS_L_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_L_Y_Blue");
-    NTinst.AddListener(__AT_CS_L_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Y_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_L_Y_Blue__Entry.SetDouble(7.0882);
- 
-    __AT_CS_L_Y_Red__Entry = NTtable_Tune->GetEntry("AT_CS_L_Y_Red");
-    NTinst.AddListener(__AT_CS_L_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_L_Y_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_L_Y_Red__Entry.SetDouble(0.96356);
- 
-    __AT_CS_R_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_R_Angle_Blue");
-    NTinst.AddListener(__AT_CS_R_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_R_Angle_Blue__Entry.SetDouble(-2.1991);
- 
-    __AT_CS_R_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_CS_R_Angle_Red");
-    NTinst.AddListener(__AT_CS_R_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_R_Angle_Red__Entry.SetDouble(0.94248);
- 
-    __AT_CS_R_X_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_R_X_Blue");
-    NTinst.AddListener(__AT_CS_R_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_X_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_R_X_Blue__Entry.SetDouble(1.0751);
- 
-    __AT_CS_R_X_Red__Entry = NTtable_Tune->GetEntry("AT_CS_R_X_Red");
-    NTinst.AddListener(__AT_CS_R_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_X_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_R_X_Red__Entry.SetDouble(16.4733);
- 
-    __AT_CS_R_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_CS_R_Y_Blue");
-    NTinst.AddListener(__AT_CS_R_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_Y_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_R_Y_Blue__Entry.SetDouble(0.96356);
- 
-    __AT_CS_R_Y_Red__Entry = NTtable_Tune->GetEntry("AT_CS_R_Y_Red");
-    NTinst.AddListener(__AT_CS_R_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_CS_R_Y_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_CS_R_Y_Red__Entry.SetDouble(7.0882);
- 
-    __AT_Cage_L_Finish_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_Angle_Blue");
-    NTinst.AddListener(__AT_Cage_L_Finish_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Finish_Angle_Blue__Entry.SetDouble(-3.1416);
- 
-    __AT_Cage_L_Finish_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_Angle_Red");
-    NTinst.AddListener(__AT_Cage_L_Finish_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Finish_Angle_Red__Entry.SetDouble(0);
- 
-    __AT_Cage_L_Finish_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_X_Blue");
-    NTinst.AddListener(__AT_Cage_L_Finish_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_X_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Finish_X_Blue__Entry.SetDouble(8.7681);
- 
-    __AT_Cage_L_Finish_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_X_Red");
-    NTinst.AddListener(__AT_Cage_L_Finish_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_X_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Finish_X_Red__Entry.SetDouble(8.7803);
- 
-    __AT_Cage_L_Finish_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_Y_Blue");
-    NTinst.AddListener(__AT_Cage_L_Finish_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_Y_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Finish_Y_Blue__Entry.SetDouble(7.2603);
- 
-    __AT_Cage_L_Finish_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Finish_Y_Red");
-    NTinst.AddListener(__AT_Cage_L_Finish_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Finish_Y_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Finish_Y_Red__Entry.SetDouble(0.79229);
- 
-    __AT_Cage_L_Start_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_Angle_Blue");
-    NTinst.AddListener(__AT_Cage_L_Start_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Start_Angle_Blue__Entry.SetDouble(-3.1416);
- 
-    __AT_Cage_L_Start_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_Angle_Red");
-    NTinst.AddListener(__AT_Cage_L_Start_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Start_Angle_Red__Entry.SetDouble(0);
- 
-    __AT_Cage_L_Start_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_X_Blue");
-    NTinst.AddListener(__AT_Cage_L_Start_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_X_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Start_X_Blue__Entry.SetDouble(9.5301);
- 
-    __AT_Cage_L_Start_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_X_Red");
-    NTinst.AddListener(__AT_Cage_L_Start_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_X_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Start_X_Red__Entry.SetDouble(8.0183);
- 
-    __AT_Cage_L_Start_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_Y_Blue");
-    NTinst.AddListener(__AT_Cage_L_Start_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_Y_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Start_Y_Blue__Entry.SetDouble(7.2603);
- 
-    __AT_Cage_L_Start_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_L_Start_Y_Red");
-    NTinst.AddListener(__AT_Cage_L_Start_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_L_Start_Y_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_L_Start_Y_Red__Entry.SetDouble(0.79229);
- 
-    __AT_Cage_M_Finish_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_Angle_Blue");
-    NTinst.AddListener(__AT_Cage_M_Finish_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Finish_Angle_Blue__Entry.SetDouble(-3.1416);
- 
-    __AT_Cage_M_Finish_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_Angle_Red");
-    NTinst.AddListener(__AT_Cage_M_Finish_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Finish_Angle_Red__Entry.SetDouble(0);
- 
-    __AT_Cage_M_Finish_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_X_Blue");
-    NTinst.AddListener(__AT_Cage_M_Finish_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_X_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Finish_X_Blue__Entry.SetDouble(8.7681);
- 
-    __AT_Cage_M_Finish_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_X_Red");
-    NTinst.AddListener(__AT_Cage_M_Finish_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_X_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Finish_X_Red__Entry.SetDouble(8.7803);
- 
-    __AT_Cage_M_Finish_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_Y_Blue");
-    NTinst.AddListener(__AT_Cage_M_Finish_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_Y_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Finish_Y_Blue__Entry.SetDouble(6.1697);
- 
-    __AT_Cage_M_Finish_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Finish_Y_Red");
-    NTinst.AddListener(__AT_Cage_M_Finish_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Finish_Y_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Finish_Y_Red__Entry.SetDouble(1.8829);
- 
-    __AT_Cage_M_Start_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_Angle_Blue");
-    NTinst.AddListener(__AT_Cage_M_Start_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Start_Angle_Blue__Entry.SetDouble(-3.1416);
- 
-    __AT_Cage_M_Start_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_Angle_Red");
-    NTinst.AddListener(__AT_Cage_M_Start_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Start_Angle_Red__Entry.SetDouble(0);
- 
-    __AT_Cage_M_Start_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_X_Blue");
-    NTinst.AddListener(__AT_Cage_M_Start_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_X_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Start_X_Blue__Entry.SetDouble(9.5301);
- 
-    __AT_Cage_M_Start_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_X_Red");
-    NTinst.AddListener(__AT_Cage_M_Start_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_X_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Start_X_Red__Entry.SetDouble(8.0183);
- 
-    __AT_Cage_M_Start_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_Y_Blue");
-    NTinst.AddListener(__AT_Cage_M_Start_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_Y_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Start_Y_Blue__Entry.SetDouble(6.1697);
- 
-    __AT_Cage_M_Start_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_M_Start_Y_Red");
-    NTinst.AddListener(__AT_Cage_M_Start_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_M_Start_Y_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_M_Start_Y_Red__Entry.SetDouble(1.8829);
- 
-    __AT_Cage_R_Finish_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_Angle_Blue");
-    NTinst.AddListener(__AT_Cage_R_Finish_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Finish_Angle_Blue__Entry.SetDouble(-3.1416);
- 
-    __AT_Cage_R_Finish_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_Angle_Red");
-    NTinst.AddListener(__AT_Cage_R_Finish_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Finish_Angle_Red__Entry.SetDouble(0);
- 
-    __AT_Cage_R_Finish_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_X_Blue");
-    NTinst.AddListener(__AT_Cage_R_Finish_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_X_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Finish_X_Blue__Entry.SetDouble(8.7681);
- 
-    __AT_Cage_R_Finish_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_X_Red");
-    NTinst.AddListener(__AT_Cage_R_Finish_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_X_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Finish_X_Red__Entry.SetDouble(8.7803);
- 
-    __AT_Cage_R_Finish_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_Y_Blue");
-    NTinst.AddListener(__AT_Cage_R_Finish_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_Y_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Finish_Y_Blue__Entry.SetDouble(5.079);
- 
-    __AT_Cage_R_Finish_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Finish_Y_Red");
-    NTinst.AddListener(__AT_Cage_R_Finish_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Finish_Y_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Finish_Y_Red__Entry.SetDouble(2.9735);
- 
-    __AT_Cage_R_Start_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_Angle_Blue");
-    NTinst.AddListener(__AT_Cage_R_Start_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Start_Angle_Blue__Entry.SetDouble(-3.1416);
- 
-    __AT_Cage_R_Start_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_Angle_Red");
-    NTinst.AddListener(__AT_Cage_R_Start_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Start_Angle_Red__Entry.SetDouble(0);
- 
-    __AT_Cage_R_Start_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_X_Blue");
-    NTinst.AddListener(__AT_Cage_R_Start_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_X_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Start_X_Blue__Entry.SetDouble(9.5301);
- 
-    __AT_Cage_R_Start_X_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_X_Red");
-    NTinst.AddListener(__AT_Cage_R_Start_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_X_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Start_X_Red__Entry.SetDouble(8.0183);
- 
-    __AT_Cage_R_Start_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_Y_Blue");
-    NTinst.AddListener(__AT_Cage_R_Start_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_Y_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Start_Y_Blue__Entry.SetDouble(5.079);
- 
-    __AT_Cage_R_Start_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Cage_R_Start_Y_Red");
-    NTinst.AddListener(__AT_Cage_R_Start_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Cage_R_Start_Y_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Cage_R_Start_Y_Red__Entry.SetDouble(2.9735);
- 
     __AT_Integral_Enable_Error_Angle__Entry = NTtable_Tune->GetEntry("AT_Integral_Enable_Error_Angle");
     NTinst.AddListener(__AT_Integral_Enable_Error_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Integral_Enable_Error_Angle = event.GetValueEventData()->value.GetDouble();});
     __AT_Integral_Enable_Error_Angle__Entry.SetDouble(5);
@@ -222,30 +30,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __AT_On_Target_Time__Entry = NTtable_Tune->GetEntry("AT_On_Target_Time");
     NTinst.AddListener(__AT_On_Target_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_On_Target_Time = event.GetValueEventData()->value.GetDouble();});
     __AT_On_Target_Time__Entry.SetDouble(0.25);
- 
-    __AT_Processor_Angle_Blue__Entry = NTtable_Tune->GetEntry("AT_Processor_Angle_Blue");
-    NTinst.AddListener(__AT_Processor_Angle_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Angle_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Processor_Angle_Blue__Entry.SetDouble(-1.5708);
- 
-    __AT_Processor_Angle_Red__Entry = NTtable_Tune->GetEntry("AT_Processor_Angle_Red");
-    NTinst.AddListener(__AT_Processor_Angle_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Angle_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Processor_Angle_Red__Entry.SetDouble(1.5708);
- 
-    __AT_Processor_X_Blue__Entry = NTtable_Tune->GetEntry("AT_Processor_X_Blue");
-    NTinst.AddListener(__AT_Processor_X_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_X_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Processor_X_Blue__Entry.SetDouble(11.5608);
- 
-    __AT_Processor_X_Red__Entry = NTtable_Tune->GetEntry("AT_Processor_X_Red");
-    NTinst.AddListener(__AT_Processor_X_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_X_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Processor_X_Red__Entry.SetDouble(5.9875);
- 
-    __AT_Processor_Y_Blue__Entry = NTtable_Tune->GetEntry("AT_Processor_Y_Blue");
-    NTinst.AddListener(__AT_Processor_Y_Blue__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Y_Blue = event.GetValueEventData()->value.GetDouble();});
-    __AT_Processor_Y_Blue__Entry.SetDouble(7.4714);
- 
-    __AT_Processor_Y_Red__Entry = NTtable_Tune->GetEntry("AT_Processor_Y_Red");
-    NTinst.AddListener(__AT_Processor_Y_Red__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Processor_Y_Red = event.GetValueEventData()->value.GetDouble();});
-    __AT_Processor_Y_Red__Entry.SetDouble(0.58039);
  
     __AT_Reef_Target_Algae_X__Entry = NTtable_Tune->GetEntry("AT_Reef_Target_Algae_X");
     NTinst.AddListener(__AT_Reef_Target_Algae_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Reef_Target_Algae_X = event.GetValueEventData()->value.GetDouble();});
@@ -499,6 +283,14 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Coral_Motor_DC_Pickup__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Coral_Motor_DC_Pickup = event.GetValueEventData()->value.GetDouble();});
     __Coral_Motor_DC_Pickup__Entry.SetDouble(0.1);
  
+    __Drive_Engage_Hook_Angle__Entry = NTtable_Tune->GetEntry("Drive_Engage_Hook_Angle");
+    NTinst.AddListener(__Drive_Engage_Hook_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Engage_Hook_Angle = event.GetValueEventData()->value.GetDouble();});
+    __Drive_Engage_Hook_Angle__Entry.SetDouble(3.1416);
+ 
+    __Drive_Engage_Hook_Speed__Entry = NTtable_Tune->GetEntry("Drive_Engage_Hook_Speed");
+    NTinst.AddListener(__Drive_Engage_Hook_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Engage_Hook_Speed = event.GetValueEventData()->value.GetDouble();});
+    __Drive_Engage_Hook_Speed__Entry.SetDouble(0.3);
+ 
     __Drive_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_D");
     NTinst.AddListener(__Drive_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
     __Drive_Motor_Control_D__Entry.SetDouble(0.0001);
@@ -541,7 +333,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Bottom_DC__Entry = NTtable_Tune->GetEntry("Elevator_Bottom_DC");
     NTinst.AddListener(__Elevator_Bottom_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Bottom_DC = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Bottom_DC__Entry.SetDouble(-0.04);
+    __Elevator_Bottom_DC__Entry.SetDouble(-0.1);
  
     __Elevator_DC_Inc_RL__Entry = NTtable_Tune->GetEntry("Elevator_DC_Inc_RL");
     NTinst.AddListener(__Elevator_DC_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_DC_Inc_RL = event.GetValueEventData()->value.GetDouble();});
@@ -549,7 +341,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Error_Bottom_Disable__Entry = NTtable_Tune->GetEntry("Elevator_Error_Bottom_Disable");
     NTinst.AddListener(__Elevator_Error_Bottom_Disable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Error_Bottom_Disable = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Error_Bottom_Disable__Entry.SetDouble(3);
+    __Elevator_Error_Bottom_Disable__Entry.SetDouble(1);
  
     __Elevator_Error_Increase__Entry = NTtable_Tune->GetEntry("Elevator_Error_Increase");
     NTinst.AddListener(__Elevator_Error_Increase__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Error_Increase = event.GetValueEventData()->value.GetDouble();});
@@ -578,6 +370,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Elevator_Height_Bottom__Entry = NTtable_Tune->GetEntry("Elevator_Height_Bottom");
     NTinst.AddListener(__Elevator_Height_Bottom__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Bottom = event.GetValueEventData()->value.GetDouble();});
     __Elevator_Height_Bottom__Entry.SetDouble(0);
+ 
+    __Elevator_Height_Bottom_Pre__Entry = NTtable_Tune->GetEntry("Elevator_Height_Bottom_Pre");
+    NTinst.AddListener(__Elevator_Height_Bottom_Pre__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Bottom_Pre = event.GetValueEventData()->value.GetDouble();});
+    __Elevator_Height_Bottom_Pre__Entry.SetDouble(14);
  
     __Elevator_Height_Coral_Arm_Low_Thresh__Entry = NTtable_Tune->GetEntry("Elevator_Height_Coral_Arm_Low_Thresh");
     NTinst.AddListener(__Elevator_Height_Coral_Arm_Low_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Coral_Arm_Low_Thresh = event.GetValueEventData()->value.GetDouble();});
@@ -633,7 +429,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_Prepare__Entry = NTtable_Tune->GetEntry("Elevator_Height_Prepare");
     NTinst.AddListener(__Elevator_Height_Prepare__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Prepare = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Prepare__Entry.SetDouble(14);
+    __Elevator_Height_Prepare__Entry.SetDouble(11);
  
     __Elevator_Height_Raise__Entry = NTtable_Tune->GetEntry("Elevator_Height_Raise");
     NTinst.AddListener(__Elevator_Height_Raise__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Raise = event.GetValueEventData()->value.GetDouble();});
@@ -669,7 +465,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_LowerPickup_Time__Entry = NTtable_Tune->GetEntry("Elevator_LowerPickup_Time");
     NTinst.AddListener(__Elevator_LowerPickup_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_LowerPickup_Time = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_LowerPickup_Time__Entry.SetDouble(0.5);
+    __Elevator_LowerPickup_Time__Entry.SetDouble(0.3);
  
     __Elevator_MotorRev_to_Inch__Entry = NTtable_Tune->GetEntry("Elevator_MotorRev_to_Inch");
     NTinst.AddListener(__Elevator_MotorRev_to_Inch__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_MotorRev_to_Inch = event.GetValueEventData()->value.GetDouble();});
@@ -677,7 +473,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Total_LL__Entry = NTtable_Tune->GetEntry("Elevator_Total_LL");
     NTinst.AddListener(__Elevator_Total_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_LL = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Total_LL__Entry.SetDouble(-0.7);
+    __Elevator_Total_LL__Entry.SetDouble(-0.5);
  
     __Elevator_Total_UL__Entry = NTtable_Tune->GetEntry("Elevator_Total_UL");
     NTinst.AddListener(__Elevator_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_UL = event.GetValueEventData()->value.GetDouble();});
@@ -1063,9 +859,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Winch_DutyCycle__Entry = NTtable_Outport->GetEntry("Winch_DutyCycle");
  
 // Test Points
-    __AT_Field_Error_X__Entry = NTtable_TPoint->GetEntry("AT_Field_Error_X");
-    __AT_Field_Error_Y__Entry = NTtable_TPoint->GetEntry("AT_Field_Error_Y");
-    __AT_Field_Target_Angle__Entry = NTtable_TPoint->GetEntry("AT_Field_Target_Angle");
     __AT_Relative_Error_Angle__Entry = NTtable_TPoint->GetEntry("AT_Relative_Error_Angle");
     __AT_Relative_Error_Enable__Entry = NTtable_TPoint->GetEntry("AT_Relative_Error_Enable");
     __AT_Relative_Error_Error_X__Entry = NTtable_TPoint->GetEntry("AT_Relative_Error_Error_X");
@@ -1073,11 +866,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Active_GameState__Entry = NTtable_TPoint->GetEntry("Active_GameState");
     __Actuator_Cmd__Entry = NTtable_TPoint->GetEntry("Actuator_Cmd");
     __Align_Center__Entry = NTtable_TPoint->GetEntry("Align_Center");
-    __Align_Center_b__Entry = NTtable_TPoint->GetEntry("Align_Center_b");
+    __Align_Center_a__Entry = NTtable_TPoint->GetEntry("Align_Center_a");
     __Align_Left__Entry = NTtable_TPoint->GetEntry("Align_Left");
     __Align_Left_d__Entry = NTtable_TPoint->GetEntry("Align_Left_d");
     __Align_Right__Entry = NTtable_TPoint->GetEntry("Align_Right");
-    __Align_Right_i__Entry = NTtable_TPoint->GetEntry("Align_Right_i");
     __Auto_AT_On_Target__Entry = NTtable_TPoint->GetEntry("Auto_AT_On_Target");
     __Auto_AT_Relative_Enable__Entry = NTtable_TPoint->GetEntry("Auto_AT_Relative_Enable");
     __Auto_AT_Relative_Error_Angle__Entry = NTtable_TPoint->GetEntry("Auto_AT_Relative_Error_Angle");
@@ -1095,12 +887,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Button_Disable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Disable_Wheels");
     __Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
     __Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
-    __Cage_Left_Finish__Entry = NTtable_TPoint->GetEntry("Cage_Left_Finish");
-    __Cage_Left_Start__Entry = NTtable_TPoint->GetEntry("Cage_Left_Start");
-    __Cage_Middle_Finish__Entry = NTtable_TPoint->GetEntry("Cage_Middle_Finish");
-    __Cage_Middle_Start__Entry = NTtable_TPoint->GetEntry("Cage_Middle_Start");
-    __Cage_Right_Finish__Entry = NTtable_TPoint->GetEntry("Cage_Right_Finish");
-    __Cage_Right_Start__Entry = NTtable_TPoint->GetEntry("Cage_Right_Start");
     __Coral_ArmAngle_Error__Entry = NTtable_TPoint->GetEntry("Coral_ArmAngle_Error");
     __Coral_Arm_Angle_Desired__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired");
     __Coral_Arm_Angle_Desired_f__Entry = NTtable_TPoint->GetEntry("Coral_Arm_Angle_Desired_f");
@@ -1109,10 +895,9 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Coral_Pickup_Lower_Wait_State__Entry = NTtable_TPoint->GetEntry("Coral_Pickup_Lower_Wait_State");
     __Coral_Pickup_Lower_Wait_State_m__Entry = NTtable_TPoint->GetEntry("Coral_Pickup_Lower_Wait_State_m");
     __Coral_Score_j__Entry = NTtable_TPoint->GetEntry("Coral_Score_j");
-    __Coral_Station_Left__Entry = NTtable_TPoint->GetEntry("Coral_Station_Left");
-    __Coral_Station_Right__Entry = NTtable_TPoint->GetEntry("Coral_Station_Right");
     __Coral_Wheel_DC__Entry = NTtable_TPoint->GetEntry("Coral_Wheel_DC");
     __Coral_Wheel_DC_a__Entry = NTtable_TPoint->GetEntry("Coral_Wheel_DC_a");
+    __Drive_Engage_Hook__Entry = NTtable_TPoint->GetEntry("Drive_Engage_Hook");
     __Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     __Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     __Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
@@ -1148,9 +933,9 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Gamepad_B4_Y_out__Entry = NTtable_TPoint->GetEntry("Gamepad_B4_Y_out");
     __Gamepad_Back_out__Entry = NTtable_TPoint->GetEntry("Gamepad_Back_out");
     __Gamepad_POV_Down__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Down");
-    __Gamepad_POV_Down_o__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Down_o");
+    __Gamepad_POV_Down_k__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Down_k");
     __Gamepad_POV_Left__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Left");
-    __Gamepad_POV_Left_d__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Left_d");
+    __Gamepad_POV_Left_p__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Left_p");
     __Gamepad_POV_Right__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Right");
     __Gamepad_POV_Up__Entry = NTtable_TPoint->GetEntry("Gamepad_POV_Up");
     __Gamepad_RT_out__Entry = NTtable_TPoint->GetEntry("Gamepad_RT_out");
@@ -1176,7 +961,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Out__Entry = NTtable_TPoint->GetEntry("Out");
     __Out_h__Entry = NTtable_TPoint->GetEntry("Out_h");
     __Path_ID__Entry = NTtable_TPoint->GetEntry("Path_ID");
-    __Processor__Entry = NTtable_TPoint->GetEntry("Processor");
     __Reefscape_Motors_Enable_merge__Entry = NTtable_TPoint->GetEntry("Reefscape_Motors_Enable_merge");
     __Robot_Reached_Destination_l__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination_l");
     __Set_Algae_Level__Entry = NTtable_TPoint->GetEntry("Set_Algae_Level");
@@ -1209,13 +993,12 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Test_Mode__Entry = NTtable_TPoint->GetEntry("Test_Mode");
     __Translation_Angle__Entry = NTtable_TPoint->GetEntry("Translation_Angle");
     __Translation_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Angle_SPF");
-    __Translation_Angle_c__Entry = NTtable_TPoint->GetEntry("Translation_Angle_c");
+    __Translation_Angle_l__Entry = NTtable_TPoint->GetEntry("Translation_Angle_l");
     __Translation_Speed__Entry = NTtable_TPoint->GetEntry("Translation_Speed");
     __Translation_Speed_RL__Entry = NTtable_TPoint->GetEntry("Translation_Speed_RL");
     __Translation_Speed_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Speed_SPF");
-    __Translation_Speed_k__Entry = NTtable_TPoint->GetEntry("Translation_Speed_k");
+    __Translation_Speed_g__Entry = NTtable_TPoint->GetEntry("Translation_Speed_g");
     __Translation_Steering_Cmd__Entry = NTtable_TPoint->GetEntry("Translation_Steering_Cmd");
-    __UnitDelay1__Entry = NTtable_TPoint->GetEntry("UnitDelay1");
     __UnitDelay2__Entry = NTtable_TPoint->GetEntry("UnitDelay2");
     __WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
     __Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
@@ -1341,9 +1124,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Swerve_Motors_Disabled__Entry.SetDouble(Code_Gen_Model_Y.Swerve_Motors_Disabled);
     __Winch_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Winch_DutyCycle);
     // Test Points
-    __AT_Field_Error_X__Entry.SetDouble(Code_Gen_Model_B.AT_Field_Error_X);
-    __AT_Field_Error_Y__Entry.SetDouble(Code_Gen_Model_B.AT_Field_Error_Y);
-    __AT_Field_Target_Angle__Entry.SetDouble(Code_Gen_Model_B.AT_Field_Target_Angle);
     __AT_Relative_Error_Angle__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Angle);
     __AT_Relative_Error_Enable__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Enable);
     __AT_Relative_Error_Error_X__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Error_X);
@@ -1351,11 +1131,10 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Active_GameState__Entry.SetDouble(Code_Gen_Model_B.Active_GameState);
     __Actuator_Cmd__Entry.SetDouble(Code_Gen_Model_B.Actuator_Cmd);
     __Align_Center__Entry.SetDouble(Code_Gen_Model_B.Align_Center);
-    __Align_Center_b__Entry.SetDouble(Code_Gen_Model_B.Align_Center_b);
+    __Align_Center_a__Entry.SetDouble(Code_Gen_Model_B.Align_Center_a);
     __Align_Left__Entry.SetDouble(Code_Gen_Model_B.Align_Left);
     __Align_Left_d__Entry.SetDouble(Code_Gen_Model_B.Align_Left_d);
     __Align_Right__Entry.SetDouble(Code_Gen_Model_B.Align_Right);
-    __Align_Right_i__Entry.SetDouble(Code_Gen_Model_B.Align_Right_i);
     __Auto_AT_On_Target__Entry.SetDouble(Code_Gen_Model_B.Auto_AT_On_Target);
     __Auto_AT_Relative_Enable__Entry.SetDouble(Code_Gen_Model_B.Auto_AT_Relative_Enable);
     __Auto_AT_Relative_Error_Angle__Entry.SetDouble(Code_Gen_Model_B.Auto_AT_Relative_Error_Angle);
@@ -1373,12 +1152,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Button_Disable_Wheels__Entry.SetDouble(Code_Gen_Model_B.Button_Disable_Wheels);
     __Button_Enable_Wheels__Entry.SetDouble(Code_Gen_Model_B.Button_Enable_Wheels);
     __Button_Reset_Wheel_Offsets__Entry.SetDouble(Code_Gen_Model_B.Button_Reset_Wheel_Offsets);
-    __Cage_Left_Finish__Entry.SetDouble(Code_Gen_Model_B.Cage_Left_Finish);
-    __Cage_Left_Start__Entry.SetDouble(Code_Gen_Model_B.Cage_Left_Start);
-    __Cage_Middle_Finish__Entry.SetDouble(Code_Gen_Model_B.Cage_Middle_Finish);
-    __Cage_Middle_Start__Entry.SetDouble(Code_Gen_Model_B.Cage_Middle_Start);
-    __Cage_Right_Finish__Entry.SetDouble(Code_Gen_Model_B.Cage_Right_Finish);
-    __Cage_Right_Start__Entry.SetDouble(Code_Gen_Model_B.Cage_Right_Start);
     __Coral_ArmAngle_Error__Entry.SetDouble(Code_Gen_Model_B.Coral_ArmAngle_Error);
     __Coral_Arm_Angle_Desired__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired);
     __Coral_Arm_Angle_Desired_f__Entry.SetDouble(Code_Gen_Model_B.Coral_Arm_Angle_Desired_f);
@@ -1387,10 +1160,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Coral_Pickup_Lower_Wait_State__Entry.SetDouble(Code_Gen_Model_B.Coral_Pickup_Lower_Wait_State);
     __Coral_Pickup_Lower_Wait_State_m__Entry.SetDouble(Code_Gen_Model_B.Coral_Pickup_Lower_Wait_State_m);
     __Coral_Score_j__Entry.SetDouble(Code_Gen_Model_B.Coral_Score_j);
-    __Coral_Station_Left__Entry.SetDouble(Code_Gen_Model_B.Coral_Station_Left);
-    __Coral_Station_Right__Entry.SetDouble(Code_Gen_Model_B.Coral_Station_Right);
     __Coral_Wheel_DC__Entry.SetDouble(Code_Gen_Model_B.Coral_Wheel_DC);
     __Coral_Wheel_DC_a__Entry.SetDouble(Code_Gen_Model_B.Coral_Wheel_DC_a);
+    __Drive_Engage_Hook__Entry.SetDouble(Code_Gen_Model_B.Drive_Engage_Hook);
     __Drive_Joystick_X__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_X);
     __Drive_Joystick_Y__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Y);
     __Drive_Joystick_Z__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Z);
@@ -1426,9 +1198,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Gamepad_B4_Y_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_B4_Y_out);
     __Gamepad_Back_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_Back_out);
     __Gamepad_POV_Down__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Down);
-    __Gamepad_POV_Down_o__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Down_o);
+    __Gamepad_POV_Down_k__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Down_k);
     __Gamepad_POV_Left__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Left);
-    __Gamepad_POV_Left_d__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Left_d);
+    __Gamepad_POV_Left_p__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Left_p);
     __Gamepad_POV_Right__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Right);
     __Gamepad_POV_Up__Entry.SetDouble(Code_Gen_Model_B.Gamepad_POV_Up);
     __Gamepad_RT_out__Entry.SetDouble(Code_Gen_Model_B.Gamepad_RT_out);
@@ -1454,7 +1226,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Out__Entry.SetDouble(Code_Gen_Model_B.Out);
     __Out_h__Entry.SetDouble(Code_Gen_Model_B.Out_h);
     __Path_ID__Entry.SetDouble(Code_Gen_Model_B.Path_ID);
-    __Processor__Entry.SetDouble(Code_Gen_Model_B.Processor);
     __Reefscape_Motors_Enable_merge__Entry.SetDouble(Code_Gen_Model_B.Reefscape_Motors_Enable_merge);
     __Robot_Reached_Destination_l__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination_l);
     __Set_Algae_Level__Entry.SetDouble(Code_Gen_Model_B.Set_Algae_Level);
@@ -1487,76 +1258,21 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Test_Mode__Entry.SetDouble(Code_Gen_Model_B.Test_Mode);
     __Translation_Angle__Entry.SetDouble(Code_Gen_Model_B.Translation_Angle);
     __Translation_Angle_SPF__Entry.SetDouble(Code_Gen_Model_B.Translation_Angle_SPF);
-    __Translation_Angle_c__Entry.SetDouble(Code_Gen_Model_B.Translation_Angle_c);
+    __Translation_Angle_l__Entry.SetDouble(Code_Gen_Model_B.Translation_Angle_l);
     __Translation_Speed__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed);
     __Translation_Speed_RL__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_RL);
     __Translation_Speed_SPF__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_SPF);
-    __Translation_Speed_k__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_k);
+    __Translation_Speed_g__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_g);
     __Translation_Steering_Cmd__Entry.SetDouble(Code_Gen_Model_B.Translation_Steering_Cmd);
-    __UnitDelay1__Entry.SetDouble(Code_Gen_Model_B.UnitDelay1);
     __UnitDelay2__Entry.SetDouble(Code_Gen_Model_B.UnitDelay2);
     __WhileIterator__Entry.SetDouble(Code_Gen_Model_B.WhileIterator);
     __Winch_Cmd__Entry.SetDouble(Code_Gen_Model_B.Winch_Cmd);
     // Tunable Parameters
-    __AT_CS_L_Angle_Blue__Entry.SetDouble(AT_CS_L_Angle_Blue);
-    __AT_CS_L_Angle_Red__Entry.SetDouble(AT_CS_L_Angle_Red);
-    __AT_CS_L_X_Blue__Entry.SetDouble(AT_CS_L_X_Blue);
-    __AT_CS_L_X_Red__Entry.SetDouble(AT_CS_L_X_Red);
-    __AT_CS_L_Y_Blue__Entry.SetDouble(AT_CS_L_Y_Blue);
-    __AT_CS_L_Y_Red__Entry.SetDouble(AT_CS_L_Y_Red);
-    __AT_CS_R_Angle_Blue__Entry.SetDouble(AT_CS_R_Angle_Blue);
-    __AT_CS_R_Angle_Red__Entry.SetDouble(AT_CS_R_Angle_Red);
-    __AT_CS_R_X_Blue__Entry.SetDouble(AT_CS_R_X_Blue);
-    __AT_CS_R_X_Red__Entry.SetDouble(AT_CS_R_X_Red);
-    __AT_CS_R_Y_Blue__Entry.SetDouble(AT_CS_R_Y_Blue);
-    __AT_CS_R_Y_Red__Entry.SetDouble(AT_CS_R_Y_Red);
-    __AT_Cage_L_Finish_Angle_Blue__Entry.SetDouble(AT_Cage_L_Finish_Angle_Blue);
-    __AT_Cage_L_Finish_Angle_Red__Entry.SetDouble(AT_Cage_L_Finish_Angle_Red);
-    __AT_Cage_L_Finish_X_Blue__Entry.SetDouble(AT_Cage_L_Finish_X_Blue);
-    __AT_Cage_L_Finish_X_Red__Entry.SetDouble(AT_Cage_L_Finish_X_Red);
-    __AT_Cage_L_Finish_Y_Blue__Entry.SetDouble(AT_Cage_L_Finish_Y_Blue);
-    __AT_Cage_L_Finish_Y_Red__Entry.SetDouble(AT_Cage_L_Finish_Y_Red);
-    __AT_Cage_L_Start_Angle_Blue__Entry.SetDouble(AT_Cage_L_Start_Angle_Blue);
-    __AT_Cage_L_Start_Angle_Red__Entry.SetDouble(AT_Cage_L_Start_Angle_Red);
-    __AT_Cage_L_Start_X_Blue__Entry.SetDouble(AT_Cage_L_Start_X_Blue);
-    __AT_Cage_L_Start_X_Red__Entry.SetDouble(AT_Cage_L_Start_X_Red);
-    __AT_Cage_L_Start_Y_Blue__Entry.SetDouble(AT_Cage_L_Start_Y_Blue);
-    __AT_Cage_L_Start_Y_Red__Entry.SetDouble(AT_Cage_L_Start_Y_Red);
-    __AT_Cage_M_Finish_Angle_Blue__Entry.SetDouble(AT_Cage_M_Finish_Angle_Blue);
-    __AT_Cage_M_Finish_Angle_Red__Entry.SetDouble(AT_Cage_M_Finish_Angle_Red);
-    __AT_Cage_M_Finish_X_Blue__Entry.SetDouble(AT_Cage_M_Finish_X_Blue);
-    __AT_Cage_M_Finish_X_Red__Entry.SetDouble(AT_Cage_M_Finish_X_Red);
-    __AT_Cage_M_Finish_Y_Blue__Entry.SetDouble(AT_Cage_M_Finish_Y_Blue);
-    __AT_Cage_M_Finish_Y_Red__Entry.SetDouble(AT_Cage_M_Finish_Y_Red);
-    __AT_Cage_M_Start_Angle_Blue__Entry.SetDouble(AT_Cage_M_Start_Angle_Blue);
-    __AT_Cage_M_Start_Angle_Red__Entry.SetDouble(AT_Cage_M_Start_Angle_Red);
-    __AT_Cage_M_Start_X_Blue__Entry.SetDouble(AT_Cage_M_Start_X_Blue);
-    __AT_Cage_M_Start_X_Red__Entry.SetDouble(AT_Cage_M_Start_X_Red);
-    __AT_Cage_M_Start_Y_Blue__Entry.SetDouble(AT_Cage_M_Start_Y_Blue);
-    __AT_Cage_M_Start_Y_Red__Entry.SetDouble(AT_Cage_M_Start_Y_Red);
-    __AT_Cage_R_Finish_Angle_Blue__Entry.SetDouble(AT_Cage_R_Finish_Angle_Blue);
-    __AT_Cage_R_Finish_Angle_Red__Entry.SetDouble(AT_Cage_R_Finish_Angle_Red);
-    __AT_Cage_R_Finish_X_Blue__Entry.SetDouble(AT_Cage_R_Finish_X_Blue);
-    __AT_Cage_R_Finish_X_Red__Entry.SetDouble(AT_Cage_R_Finish_X_Red);
-    __AT_Cage_R_Finish_Y_Blue__Entry.SetDouble(AT_Cage_R_Finish_Y_Blue);
-    __AT_Cage_R_Finish_Y_Red__Entry.SetDouble(AT_Cage_R_Finish_Y_Red);
-    __AT_Cage_R_Start_Angle_Blue__Entry.SetDouble(AT_Cage_R_Start_Angle_Blue);
-    __AT_Cage_R_Start_Angle_Red__Entry.SetDouble(AT_Cage_R_Start_Angle_Red);
-    __AT_Cage_R_Start_X_Blue__Entry.SetDouble(AT_Cage_R_Start_X_Blue);
-    __AT_Cage_R_Start_X_Red__Entry.SetDouble(AT_Cage_R_Start_X_Red);
-    __AT_Cage_R_Start_Y_Blue__Entry.SetDouble(AT_Cage_R_Start_Y_Blue);
-    __AT_Cage_R_Start_Y_Red__Entry.SetDouble(AT_Cage_R_Start_Y_Red);
     __AT_Integral_Enable_Error_Angle__Entry.SetDouble(AT_Integral_Enable_Error_Angle);
     __AT_Integral_Enable_Error_XY__Entry.SetDouble(AT_Integral_Enable_Error_XY);
     __AT_Max_Error_Angle__Entry.SetDouble(AT_Max_Error_Angle);
     __AT_Max_Error_XY__Entry.SetDouble(AT_Max_Error_XY);
     __AT_On_Target_Time__Entry.SetDouble(AT_On_Target_Time);
-    __AT_Processor_Angle_Blue__Entry.SetDouble(AT_Processor_Angle_Blue);
-    __AT_Processor_Angle_Red__Entry.SetDouble(AT_Processor_Angle_Red);
-    __AT_Processor_X_Blue__Entry.SetDouble(AT_Processor_X_Blue);
-    __AT_Processor_X_Red__Entry.SetDouble(AT_Processor_X_Red);
-    __AT_Processor_Y_Blue__Entry.SetDouble(AT_Processor_Y_Blue);
-    __AT_Processor_Y_Red__Entry.SetDouble(AT_Processor_Y_Red);
     __AT_Reef_Target_Algae_X__Entry.SetDouble(AT_Reef_Target_Algae_X);
     __AT_Reef_Target_Algae_Y__Entry.SetDouble(AT_Reef_Target_Algae_Y);
     __AT_Reef_Target_Center_Y__Entry.SetDouble(AT_Reef_Target_Center_Y);
@@ -1620,6 +1336,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Coral_Motor_DC_Eject__Entry.SetDouble(Coral_Motor_DC_Eject);
     __Coral_Motor_DC_Hold__Entry.SetDouble(Coral_Motor_DC_Hold);
     __Coral_Motor_DC_Pickup__Entry.SetDouble(Coral_Motor_DC_Pickup);
+    __Drive_Engage_Hook_Angle__Entry.SetDouble(Drive_Engage_Hook_Angle);
+    __Drive_Engage_Hook_Speed__Entry.SetDouble(Drive_Engage_Hook_Speed);
     __Drive_Motor_Control_D__Entry.SetDouble(Drive_Motor_Control_D);
     __Drive_Motor_Control_D_FilterCoeff__Entry.SetDouble(Drive_Motor_Control_D_FilterCoeff);
     __Drive_Motor_Control_D_LL__Entry.SetDouble(Drive_Motor_Control_D_LL);
@@ -1640,6 +1358,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Elevator_Height_Algae_Low__Entry.SetDouble(Elevator_Height_Algae_Low);
     __Elevator_Height_Algae_Score__Entry.SetDouble(Elevator_Height_Algae_Score);
     __Elevator_Height_Bottom__Entry.SetDouble(Elevator_Height_Bottom);
+    __Elevator_Height_Bottom_Pre__Entry.SetDouble(Elevator_Height_Bottom_Pre);
     __Elevator_Height_Coral_Arm_Low_Thresh__Entry.SetDouble(Elevator_Height_Coral_Arm_Low_Thresh);
     __Elevator_Height_Coral_Score_Lower_Rate__Entry.SetDouble(Elevator_Height_Coral_Score_Lower_Rate);
     __Elevator_Height_End_Game__Entry.SetDouble(Elevator_Height_End_Game);
