@@ -18,8 +18,8 @@ Elevator_Height_Lower   = 7.5;
 Elevator_Height_Raise   = 9.6;
 
 Elevator_Height_L1      = 12;
-Elevator_Height_L2      = 5.5;
-Elevator_Height_L3      = 13.5;
+Elevator_Height_L2      = 7.25;
+Elevator_Height_L3      = 15.25;
 Elevator_Height_L4      = 27.5;
 
 
@@ -36,7 +36,7 @@ Elevator_Int_IC = 0;
 Elevator_Int_UL = 0.1;
 Elevator_Int_LL = -0.1;
 Elevator_Total_UL = 1;    % DC
-Elevator_Total_LL = -0.50;      % DC
+Elevator_Total_LL = -0.7;      % DC
 Elevator_Hold_at_Top_DC = 0.1;  % DC
 Elevator_Bottom_DC = -0.04;     % DC
 Elevator_Error_Bottom_Disable = 3; % inches
@@ -61,8 +61,8 @@ Coral_Detect_Distance       = 150; % mm
 
 % Coral arm angles (degrees)
 Coral_Arm_Angle_L1      = -15;
-Coral_Arm_Angle_L2      = 60;
-Coral_Arm_Angle_L3      = 60;
+Coral_Arm_Angle_L2      = 50;
+Coral_Arm_Angle_L3      = 50;
 Coral_Arm_Angle_L4      = 57;
 Coral_Arm_Angle_Up      = 85;
 Coral_Arm_Angle_Start   = -15;
