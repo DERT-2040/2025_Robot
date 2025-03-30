@@ -352,8 +352,8 @@ All_Paths_Num_Poses = [
     nnz(Path_Red_Center_B(:,1));    % 16
     nnz(Path_Blue_Left_B_end_early(:,1));  % 17
     nnz(Path_Blue_Right_B_end_early(:,1)); % 18
-    nnz(Path_Red_Left_B_end_early(:,1));   % 20  
-    nnz(Path_Red_Right_B_end_early(:,1));  % 19
+    nnz(Path_Red_Left_B_end_early(:,1));   % 19  
+    nnz(Path_Red_Right_B_end_early(:,1));  % 20
     ];
 
 clear D2R field_width field_length
