@@ -142,6 +142,8 @@ private:
         nt::NetworkTableEntry __Limelight_Tag_Angle_Offset__Entry;
         nt::NetworkTableEntry __Limelight_Tag_X_Offset__Entry;
         nt::NetworkTableEntry __Limelight_Tag_Y_Offset__Entry;
+        nt::NetworkTableEntry __MatchTime_Skip_Coral_Pickup__Entry;
+        nt::NetworkTableEntry __MatchTime_Skip_Second_L4__Entry;
         nt::NetworkTableEntry __Odometry_IC_X__Entry;
         nt::NetworkTableEntry __Odometry_IC_Y__Entry;
         nt::NetworkTableEntry __Odometry_Reset_IC__Entry;
@@ -457,6 +459,7 @@ private:
         nt::NetworkTableEntry __Translation_Speed_SPF__Entry;
         nt::NetworkTableEntry __Translation_Speed_g__Entry;
         nt::NetworkTableEntry __Translation_Steering_Cmd__Entry;
+        nt::NetworkTableEntry __UnitDelay1__Entry;
         nt::NetworkTableEntry __UnitDelay2__Entry;
         nt::NetworkTableEntry __WhileIterator__Entry;
         nt::NetworkTableEntry __Winch_Cmd__Entry;

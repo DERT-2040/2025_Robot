@@ -507,6 +507,14 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Limelight_Tag_Y_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Limelight_Tag_Y_Offset = event.GetValueEventData()->value.GetDouble();});
     __Limelight_Tag_Y_Offset__Entry.SetDouble(-0.28);
  
+    __MatchTime_Skip_Coral_Pickup__Entry = NTtable_Tune->GetEntry("MatchTime_Skip_Coral_Pickup");
+    NTinst.AddListener(__MatchTime_Skip_Coral_Pickup__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {MatchTime_Skip_Coral_Pickup = event.GetValueEventData()->value.GetDouble();});
+    __MatchTime_Skip_Coral_Pickup__Entry.SetDouble(8);
+ 
+    __MatchTime_Skip_Second_L4__Entry = NTtable_Tune->GetEntry("MatchTime_Skip_Second_L4");
+    NTinst.AddListener(__MatchTime_Skip_Second_L4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {MatchTime_Skip_Second_L4 = event.GetValueEventData()->value.GetDouble();});
+    __MatchTime_Skip_Second_L4__Entry.SetDouble(9);
+ 
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
     __Odometry_IC_X__Entry.SetDouble(0);
@@ -999,6 +1007,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Translation_Speed_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Speed_SPF");
     __Translation_Speed_g__Entry = NTtable_TPoint->GetEntry("Translation_Speed_g");
     __Translation_Steering_Cmd__Entry = NTtable_TPoint->GetEntry("Translation_Steering_Cmd");
+    __UnitDelay1__Entry = NTtable_TPoint->GetEntry("UnitDelay1");
     __UnitDelay2__Entry = NTtable_TPoint->GetEntry("UnitDelay2");
     __WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
     __Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
@@ -1264,6 +1273,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Translation_Speed_SPF__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_SPF);
     __Translation_Speed_g__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_g);
     __Translation_Steering_Cmd__Entry.SetDouble(Code_Gen_Model_B.Translation_Steering_Cmd);
+    __UnitDelay1__Entry.SetDouble(Code_Gen_Model_B.UnitDelay1);
     __UnitDelay2__Entry.SetDouble(Code_Gen_Model_B.UnitDelay2);
     __WhileIterator__Entry.SetDouble(Code_Gen_Model_B.WhileIterator);
     __Winch_Cmd__Entry.SetDouble(Code_Gen_Model_B.Winch_Cmd);
@@ -1392,6 +1402,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Limelight_Tag_Angle_Offset__Entry.SetDouble(Limelight_Tag_Angle_Offset);
     __Limelight_Tag_X_Offset__Entry.SetDouble(Limelight_Tag_X_Offset);
     __Limelight_Tag_Y_Offset__Entry.SetDouble(Limelight_Tag_Y_Offset);
+    __MatchTime_Skip_Coral_Pickup__Entry.SetDouble(MatchTime_Skip_Coral_Pickup);
+    __MatchTime_Skip_Second_L4__Entry.SetDouble(MatchTime_Skip_Second_L4);
     __Odometry_IC_X__Entry.SetDouble(Odometry_IC_X);
     __Odometry_IC_Y__Entry.SetDouble(Odometry_IC_Y);
     __Odometry_Reset_IC__Entry.SetDouble(Odometry_Reset_IC);

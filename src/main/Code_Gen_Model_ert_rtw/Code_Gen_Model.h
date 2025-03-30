@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.389
+ * Model version                  : 2.390
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 29 22:04:42 2025
+ * C/C++ source code generated on : Sat Mar 29 23:13:22 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -207,6 +207,7 @@ typedef struct {
   boolean_T Teleop_AT_On_Target;       /* '<S26>/Signal Copy10' */
   boolean_T Elevator_LowerPickup_Reset;/* '<S415>/Reefscape_Chart' */
   boolean_T Coral_Pickup_Lower_Wait_State;/* '<S415>/Reefscape_Chart' */
+  boolean_T UnitDelay1;                /* '<S28>/Unit Delay1' */
   boolean_T Auto_AT_Relative_Enable;   /* '<S28>/Signal Copy1' */
   boolean_T Auto_AT_On_Target;         /* '<S28>/Signal Copy8' */
   boolean_T Align_Left_d;              /* '<S28>/Reefscape_Auto_Steps' */
@@ -444,7 +445,7 @@ typedef struct {
   /* Expression: All_Paths_Ref_Poses
    * Referenced by: '<S28>/Constant'
    */
-  real_T Constant_Value_k[760];
+  real_T Constant_Value_k[800];
 
   /* Expression: All_Paths_Num_Poses
    * Referenced by: '<S28>/1-D Lookup Table'
@@ -1257,6 +1258,12 @@ extern real_T Limelight_Tag_X_Offset;  /* Variable: Limelight_Tag_X_Offset
                                         */
 extern real_T Limelight_Tag_Y_Offset;  /* Variable: Limelight_Tag_Y_Offset
                                         * Referenced by: '<S19>/Constant1'
+                                        */
+extern real_T MatchTime_Skip_Coral_Pickup;/* Variable: MatchTime_Skip_Coral_Pickup
+                                           * Referenced by: '<S28>/Reefscape_Auto_Steps'
+                                           */
+extern real_T MatchTime_Skip_Second_L4;/* Variable: MatchTime_Skip_Second_L4
+                                        * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
 extern real_T Odometry_IC_X;           /* Variable: Odometry_IC_X
                                         * Referenced by: '<S1>/Constant'
