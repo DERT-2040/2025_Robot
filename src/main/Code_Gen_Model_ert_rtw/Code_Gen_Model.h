@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.389
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 29 18:19:27 2025
+ * C/C++ source code generated on : Sat Mar 29 22:04:42 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -444,7 +444,7 @@ typedef struct {
   /* Expression: All_Paths_Ref_Poses
    * Referenced by: '<S28>/Constant'
    */
-  real_T Constant_Value_k[800];
+  real_T Constant_Value_k[760];
 
   /* Expression: All_Paths_Num_Poses
    * Referenced by: '<S28>/1-D Lookup Table'

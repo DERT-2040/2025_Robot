@@ -41,10 +41,10 @@ Path_Blue_Left_B = [
 % Start:  Reef Face I-J
 % Finish: Coral Left
 Path_Blue_Left_B_end_early = [
-    5.418,  5.613,  2.0, -120    *D2R;
-    4.739,  6.453,  2.0,   -120    *D2R;
-    2.485,  6.074,  2.0,   -54     *D2R;
-    1.668,  6.453,  0.5,   -54     *D2R;
+    5.575,  5.806,  2.0, -120    *D2R;
+    4.072,  6.241,  2.0, -98     *D2R;
+    2.828,  6.365,  2.0, -76     *D2R;
+    1.638,  6.512,  0,   -54     *D2R;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -73,8 +73,8 @@ Path_Blue_Left_C = [
 Path_Blue_Right_A = [
     7.582,  1.524,  Path_Blue_Left_A(1,3),  125  *D2R;
     6.806,  1.708,  Path_Blue_Left_A(2,3),  122  *D2R;
-    6.039,  1.940,  Path_Blue_Left_A(3,3),  120  *D2R;
-    5.312,  2.273,  Path_Blue_Left_A(4,3),  120  *D2R;
+    6.039,  2.004,  Path_Blue_Left_A(3,3),  120  *D2R;
+    5.365,  2.306,  Path_Blue_Left_A(4,3),  120  *D2R;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -86,10 +86,10 @@ Path_Blue_Right_A = [
 % Start:  Reef Face E-F
 % Finish: Coral Right
 Path_Blue_Right_B = [
-    5.236,  2.221,  Path_Blue_Left_B(1,3),  120;
-    4.072,  1.811,  Path_Blue_Left_B(2,3),  87;
-    2.681,  1.490,  Path_Blue_Left_B(3,3),  54;
-    1.277,  1.195,  Path_Blue_Left_B(4,3),  54;
+    5.236,  2.221,  Path_Blue_Left_B(1,3),  120  *D2R;
+    4.072,  1.811,  Path_Blue_Left_B(2,3),  87  *D2R;
+    2.681,  1.490,  Path_Blue_Left_B(3,3),  54  *D2R;
+    1.277,  1.195,  Path_Blue_Left_B(4,3),  54  *D2R;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -101,10 +101,10 @@ Path_Blue_Right_B = [
 % Start:  Reef Face E-F
 % Finish: Coral Right
 Path_Blue_Right_B_end_early = [
-    Path_Blue_Left_B_end_early(1,1),  field_width-Path_Blue_Left_B_end_early(1,2),  Path_Blue_Left_B_end_early(1,3),  -Path_Blue_Left_B_end_early(1,4);
-    Path_Blue_Left_B_end_early(2,1),  field_width-Path_Blue_Left_B_end_early(2,2),  Path_Blue_Left_B_end_early(2,3),  -Path_Blue_Left_B_end_early(2,4);
-    Path_Blue_Left_B_end_early(3,1),  field_width-Path_Blue_Left_B_end_early(3,2),  Path_Blue_Left_B_end_early(3,3),  -Path_Blue_Left_B_end_early(3,4);
-    Path_Blue_Left_B_end_early(4,1),  field_width-Path_Blue_Left_B_end_early(4,2),  Path_Blue_Left_B_end_early(4,3),  -Path_Blue_Left_B_end_early(4,4);
+    5.236,  2.221,  Path_Blue_Left_B_end_early(1,3),  -Path_Blue_Left_B_end_early(1,4);
+    4.072,  1.811,  Path_Blue_Left_B_end_early(2,3),  -Path_Blue_Left_B_end_early(2,4);
+    2.828,  1.687,  Path_Blue_Left_B_end_early(3,3),  -Path_Blue_Left_B_end_early(3,4);
+    1.638,  1.540,  Path_Blue_Left_B_end_early(4,3),  -Path_Blue_Left_B_end_early(4,4);
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -118,8 +118,8 @@ Path_Blue_Right_B_end_early = [
 Path_Blue_Right_C = [
     1.209,  1.112,  Path_Blue_Left_C(1,3),  -Path_Blue_Left_C(1,4);
     1.889,  1.541,  Path_Blue_Left_C(2,3),  -Path_Blue_Left_C(2,4);
-    2.581,  1.975,  Path_Blue_Left_C(3,3),  -Path_Blue_Left_C(3,4);
-    3.247,  2.339,  Path_Blue_Left_C(4,3),  -Path_Blue_Left_C(4,4);
+    2.594,  1.929,  Path_Blue_Left_C(3,3),  -Path_Blue_Left_C(3,4);
+    3.256,  2.280,  Path_Blue_Left_C(4,3),  -Path_Blue_Left_C(4,4);
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -146,9 +146,9 @@ Path_Blue_Center_A = [
 % Start:  Reef Face G-H
 % Finish: Processor
 Path_Blue_Center_B = [
-    6.927,  field_width/2,  0.5, -180    *D2R;
-    6.476,  2.921,          2,   -150    *D2R;
-    6.161,  1.839,          2,   -120    *D2R;
+    6.927,  field_width/2,  3,   -180    *D2R;
+    6.630,  2.962,          3,   -150    *D2R;
+    6.299,  1.792,          1.5, -120    *D2R;
     5.995,  0.712,          0,    -90    *D2R;
     0,0,0,0;
     0,0,0,0;
@@ -329,31 +329,31 @@ All_Paths_Ref_Poses = cat(3, ...
     Path_Red_Center_B, ...
     Path_Blue_Left_B_end_early, ...
     Path_Blue_Right_B_end_early, ...
-    Path_Red_Right_B_end_early, ...
     Path_Red_Left_B_end_early);
+    Path_Red_Right_B_end_early, ...
 
 % collect the number of poses in each path
 All_Paths_Num_Poses = [
-    nnz(Path_Blue_Left_A(:,1));         % 1
-    nnz(Path_Blue_Left_B(:,1));         % 2
-    nnz(Path_Blue_Left_C(:,1));         % 3
-    nnz(Path_Blue_Right_A(:,1));         % 4
-    nnz(Path_Blue_Right_B(:,1));         % 5
-    nnz(Path_Blue_Right_C(:,1));         % 6
-    nnz(Path_Blue_Center_A(:,1));         % 7
-    nnz(Path_Blue_Center_B(:,1));         % 8
-    nnz(Path_Red_Left_A(:,1));         % 9
-    nnz(Path_Red_Left_B(:,1));         % 10
-    nnz(Path_Red_Left_C(:,1));         % 11
-    nnz(Path_Red_Right_A(:,1));         % 12
-    nnz(Path_Red_Right_B(:,1));         % 13
-    nnz(Path_Red_Right_C(:,1));         % 14
-    nnz(Path_Red_Center_A(:,1));         % 15
-    nnz(Path_Red_Center_B(:,1));         % 16
-    nnz(Path_Blue_Left_B_end_early(:,1));         % 17
-    nnz(Path_Blue_Right_B_end_early(:,1));         % 18
-    nnz(Path_Red_Right_B_end_early(:,1));         % 19
-    nnz(Path_Red_Left_B_end_early(:,1));         % 20  
+    nnz(Path_Blue_Left_A(:,1));     % 1
+    nnz(Path_Blue_Left_B(:,1));     % 2
+    nnz(Path_Blue_Left_C(:,1));     % 3
+    nnz(Path_Blue_Right_A(:,1));    % 4
+    nnz(Path_Blue_Right_B(:,1));    % 5
+    nnz(Path_Blue_Right_C(:,1));    % 6
+    nnz(Path_Blue_Center_A(:,1));   % 7
+    nnz(Path_Blue_Center_B(:,1));   % 8
+    nnz(Path_Red_Left_A(:,1));      % 9
+    nnz(Path_Red_Left_B(:,1));      % 10
+    nnz(Path_Red_Left_C(:,1));      % 11
+    nnz(Path_Red_Right_A(:,1));     % 12
+    nnz(Path_Red_Right_B(:,1));     % 13
+    nnz(Path_Red_Right_C(:,1));     % 14
+    nnz(Path_Red_Center_A(:,1));    % 15
+    nnz(Path_Red_Center_B(:,1));    % 16
+    nnz(Path_Blue_Left_B_end_early(:,1));  % 17
+    nnz(Path_Blue_Right_B_end_early(:,1)); % 18
+    nnz(Path_Red_Left_B_end_early(:,1));   % 20  
+    nnz(Path_Red_Right_B_end_early(:,1));  % 19
     ];
 
 clear D2R field_width field_length
