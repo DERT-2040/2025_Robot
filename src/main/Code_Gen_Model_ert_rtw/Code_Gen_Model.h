@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.390
+ * Model version                  : 2.391
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 29 23:13:22 2025
+ * C/C++ source code generated on : Sun Mar 30 18:58:20 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -207,7 +207,6 @@ typedef struct {
   boolean_T Teleop_AT_On_Target;       /* '<S26>/Signal Copy10' */
   boolean_T Elevator_LowerPickup_Reset;/* '<S415>/Reefscape_Chart' */
   boolean_T Coral_Pickup_Lower_Wait_State;/* '<S415>/Reefscape_Chart' */
-  boolean_T UnitDelay1;                /* '<S28>/Unit Delay1' */
   boolean_T Auto_AT_Relative_Enable;   /* '<S28>/Signal Copy1' */
   boolean_T Auto_AT_On_Target;         /* '<S28>/Signal Copy8' */
   boolean_T Align_Left_d;              /* '<S28>/Reefscape_Auto_Steps' */
@@ -218,6 +217,7 @@ typedef struct {
   boolean_T Gamepad_RT_out;            /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_POV_Down_k;        /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_POV_Left_p;        /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Path_Enable;               /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_B1_A_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_B3_X_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Elevator_LowerPickup_Reset_g;/* '<S31>/Reefscape_Chart' */

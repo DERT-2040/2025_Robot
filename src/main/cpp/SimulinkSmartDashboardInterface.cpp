@@ -509,11 +509,11 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __MatchTime_Skip_Coral_Pickup__Entry = NTtable_Tune->GetEntry("MatchTime_Skip_Coral_Pickup");
     NTinst.AddListener(__MatchTime_Skip_Coral_Pickup__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {MatchTime_Skip_Coral_Pickup = event.GetValueEventData()->value.GetDouble();});
-    __MatchTime_Skip_Coral_Pickup__Entry.SetDouble(8);
+    __MatchTime_Skip_Coral_Pickup__Entry.SetDouble(7);
  
     __MatchTime_Skip_Second_L4__Entry = NTtable_Tune->GetEntry("MatchTime_Skip_Second_L4");
     NTinst.AddListener(__MatchTime_Skip_Second_L4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {MatchTime_Skip_Second_L4 = event.GetValueEventData()->value.GetDouble();});
-    __MatchTime_Skip_Second_L4__Entry.SetDouble(9);
+    __MatchTime_Skip_Second_L4__Entry.SetDouble(3.6);
  
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
@@ -968,6 +968,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Odometry_Y_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_est_ft");
     __Out__Entry = NTtable_TPoint->GetEntry("Out");
     __Out_h__Entry = NTtable_TPoint->GetEntry("Out_h");
+    __Path_Enable__Entry = NTtable_TPoint->GetEntry("Path_Enable");
     __Path_ID__Entry = NTtable_TPoint->GetEntry("Path_ID");
     __Reefscape_Motors_Enable_merge__Entry = NTtable_TPoint->GetEntry("Reefscape_Motors_Enable_merge");
     __Robot_Reached_Destination_l__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination_l");
@@ -1007,7 +1008,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Translation_Speed_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Speed_SPF");
     __Translation_Speed_g__Entry = NTtable_TPoint->GetEntry("Translation_Speed_g");
     __Translation_Steering_Cmd__Entry = NTtable_TPoint->GetEntry("Translation_Steering_Cmd");
-    __UnitDelay1__Entry = NTtable_TPoint->GetEntry("UnitDelay1");
     __UnitDelay2__Entry = NTtable_TPoint->GetEntry("UnitDelay2");
     __WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
     __Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
@@ -1234,6 +1234,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Odometry_Y_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_est_ft);
     __Out__Entry.SetDouble(Code_Gen_Model_B.Out);
     __Out_h__Entry.SetDouble(Code_Gen_Model_B.Out_h);
+    __Path_Enable__Entry.SetDouble(Code_Gen_Model_B.Path_Enable);
     __Path_ID__Entry.SetDouble(Code_Gen_Model_B.Path_ID);
     __Reefscape_Motors_Enable_merge__Entry.SetDouble(Code_Gen_Model_B.Reefscape_Motors_Enable_merge);
     __Robot_Reached_Destination_l__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination_l);
@@ -1273,7 +1274,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Translation_Speed_SPF__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_SPF);
     __Translation_Speed_g__Entry.SetDouble(Code_Gen_Model_B.Translation_Speed_g);
     __Translation_Steering_Cmd__Entry.SetDouble(Code_Gen_Model_B.Translation_Steering_Cmd);
-    __UnitDelay1__Entry.SetDouble(Code_Gen_Model_B.UnitDelay1);
     __UnitDelay2__Entry.SetDouble(Code_Gen_Model_B.UnitDelay2);
     __WhileIterator__Entry.SetDouble(Code_Gen_Model_B.WhileIterator);
     __Winch_Cmd__Entry.SetDouble(Code_Gen_Model_B.Winch_Cmd);

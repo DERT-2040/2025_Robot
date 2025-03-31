@@ -131,7 +131,7 @@ Path_Blue_Right_C = [
 % Start:  Starting Line on Center
 % Finish: Reef Face G-H
 Path_Blue_Center_A = [
-    7.533,  field_width/2,  2.0, -180    *D2R;
+    7.582,  field_width/2,  2.0, -180    *D2R;
     6.225,  field_width/2,  0.5,   -180    *D2R;
     0,0,0,0;
     0,0,0,0;
@@ -149,7 +149,7 @@ Path_Blue_Center_B = [
     6.927,  field_width/2,  3,   -180    *D2R;
     6.630,  2.962,          3,   -150    *D2R;
     6.299,  1.792,          1.5, -120    *D2R;
-    5.995,  0.712,          0,    -90    *D2R;
+    5.995,  0.731,          0,    -90    *D2R;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;

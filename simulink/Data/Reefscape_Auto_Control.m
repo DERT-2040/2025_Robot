@@ -14,6 +14,8 @@ Auto_Speed_Coral = 1.0;
 Auto_Speed_Algae = 0.5;
 Auto_Speed_Processor = 0.5; 
 
-% Match Timers (end early)
-MatchTime_Skip_Coral_Pickup = 8;   % when reef #1 backup timer is expired
-MatchTime_Skip_Second_L4 = 9;      % when coral is detected by TOF sensor
+% Match Timers (time remaining in Auto from starting 15 seconds)
+MatchTime_Skip_Coral_Pickup = 7;   % When reef #1 backup timer is expired.
+MatchTime_Skip_Second_L4 = 3.6;    % When coral is detected by TOF sensor.
+                                   % With 3.7 seconds remaining from test was 
+                                   %  able to barely score the second L4 coral.

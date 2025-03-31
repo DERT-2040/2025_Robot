@@ -420,6 +420,7 @@ private:
         nt::NetworkTableEntry __Odometry_Y_global_est_ft__Entry;
         nt::NetworkTableEntry __Out__Entry;
         nt::NetworkTableEntry __Out_h__Entry;
+        nt::NetworkTableEntry __Path_Enable__Entry;
         nt::NetworkTableEntry __Path_ID__Entry;
         nt::NetworkTableEntry __Reefscape_Motors_Enable_merge__Entry;
         nt::NetworkTableEntry __Robot_Reached_Destination_l__Entry;
@@ -459,7 +460,6 @@ private:
         nt::NetworkTableEntry __Translation_Speed_SPF__Entry;
         nt::NetworkTableEntry __Translation_Speed_g__Entry;
         nt::NetworkTableEntry __Translation_Steering_Cmd__Entry;
-        nt::NetworkTableEntry __UnitDelay1__Entry;
         nt::NetworkTableEntry __UnitDelay2__Entry;
         nt::NetworkTableEntry __WhileIterator__Entry;
         nt::NetworkTableEntry __Winch_Cmd__Entry;

@@ -2,7 +2,7 @@
 
 void FMSInfo::PreStepCallback()
 {
-
+    Code_Gen_Model_U.MatchTime = frc::DriverStation::GetMatchTime().value();
 }
 
 void FMSInfo::PostStepCallback()
@@ -22,6 +22,4 @@ void FMSInfo::GameStateChangeCallback()
         Code_Gen_Model_U.IsBlueAlliance = 1;
     else
         Code_Gen_Model_U.IsBlueAlliance = CurrentAlliance.value();
-
-    Code_Gen_Model_U.MatchTime = frc::DriverStation::GetMatchTime().value();
 }
