@@ -42,8 +42,8 @@ AT_Steering_Error_Angle_Gain_P = 0.10;
 AT_Steering_Speed_Max = 0.4;
 
 % April tag Translation - Relative
-AT_Translation_Control_Gain_Relative = 0.20;  % meter/second per inch of position error
-AT_Translation_Speed_Max_Relative = 0.5;  % meter/second
+AT_Translation_Control_Gain_Relative = 0.07;  % meter/second per inch of position error
+AT_Translation_Speed_Max_Relative = 0.75;  % meter/second
 
 % April tag Translation - Field
 AT_Translation_Control_Gain_Field = 10;  % meter/second per meter of position error

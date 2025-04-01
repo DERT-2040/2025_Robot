@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.391
+ * Model version                  : 2.393
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 30 18:58:20 2025
+ * C/C++ source code generated on : Mon Mar 31 20:41:56 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -202,7 +202,7 @@ real_T AT_Translation_Control_Gain_Field = 10.0;
                                   /* Variable: AT_Translation_Control_Gain_Field
                                    * Referenced by: '<S436>/Gain2'
                                    */
-real_T AT_Translation_Control_Gain_Relative = 0.2;
+real_T AT_Translation_Control_Gain_Relative = 0.07;
                                /* Variable: AT_Translation_Control_Gain_Relative
                                 * Referenced by:
                                 *   '<S33>/Gain1'
@@ -212,7 +212,7 @@ real_T AT_Translation_Speed_Max_Field = 5.0;
                                      /* Variable: AT_Translation_Speed_Max_Field
                                       * Referenced by: '<S436>/Constant5'
                                       */
-real_T AT_Translation_Speed_Max_Relative = 0.5;
+real_T AT_Translation_Speed_Max_Relative = 0.75;
                                   /* Variable: AT_Translation_Speed_Max_Relative
                                    * Referenced by:
                                    *   '<S33>/Constant8'
@@ -3342,6 +3342,11 @@ void Code_Gen_Model_Reefscape_Chart(uint8_T rtu_GameState, boolean_T
         localDW->is_Algae_Wheels = Code_Gen_Model_IN_Off;
         *rty_Algae_Wheel_Outside_DC = 0.0;
         *rty_Algae_Wheel_Inside_DC = 0.0;
+      } else if ((rtu_Gamepad_LT || rtu_Gamepad_POV_Left) ||
+                 rtu_Gamepad_POV_Right) {
+        localDW->is_Algae_Wheels = Code_Gen_Model_IN_Algae_Pull_In;
+        *rty_Algae_Wheel_Outside_DC = Algae_Pull_In_DC;
+        *rty_Algae_Wheel_Inside_DC = Algae_Pull_In_DC;
       } else {
         localDW->timer += 0.02;
       }

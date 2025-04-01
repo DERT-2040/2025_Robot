@@ -77,7 +77,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Translation_Control_Gain_Relative__Entry = NTtable_Tune->GetEntry("AT_Translation_Control_Gain_Relative");
     NTinst.AddListener(__AT_Translation_Control_Gain_Relative__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Control_Gain_Relative = event.GetValueEventData()->value.GetDouble();});
-    __AT_Translation_Control_Gain_Relative__Entry.SetDouble(0.2);
+    __AT_Translation_Control_Gain_Relative__Entry.SetDouble(0.07);
  
     __AT_Translation_Speed_Max_Field__Entry = NTtable_Tune->GetEntry("AT_Translation_Speed_Max_Field");
     NTinst.AddListener(__AT_Translation_Speed_Max_Field__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Speed_Max_Field = event.GetValueEventData()->value.GetDouble();});
@@ -85,7 +85,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Translation_Speed_Max_Relative__Entry = NTtable_Tune->GetEntry("AT_Translation_Speed_Max_Relative");
     NTinst.AddListener(__AT_Translation_Speed_Max_Relative__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Speed_Max_Relative = event.GetValueEventData()->value.GetDouble();});
-    __AT_Translation_Speed_Max_Relative__Entry.SetDouble(0.5);
+    __AT_Translation_Speed_Max_Relative__Entry.SetDouble(0.75);
  
     __Actuator_DC__Entry = NTtable_Tune->GetEntry("Actuator_DC");
     NTinst.AddListener(__Actuator_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Actuator_DC = event.GetValueEventData()->value.GetDouble();});
