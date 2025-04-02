@@ -25,7 +25,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __AT_Max_Error_XY__Entry = NTtable_Tune->GetEntry("AT_Max_Error_XY");
     NTinst.AddListener(__AT_Max_Error_XY__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Max_Error_XY = event.GetValueEventData()->value.GetDouble();});
-    __AT_Max_Error_XY__Entry.SetDouble(0.5);
+    __AT_Max_Error_XY__Entry.SetDouble(0.75);
  
     __AT_On_Target_Time__Entry = NTtable_Tune->GetEntry("AT_On_Target_Time");
     NTinst.AddListener(__AT_On_Target_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_On_Target_Time = event.GetValueEventData()->value.GetDouble();});
@@ -289,7 +289,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Drive_Engage_Hook_Speed__Entry = NTtable_Tune->GetEntry("Drive_Engage_Hook_Speed");
     NTinst.AddListener(__Drive_Engage_Hook_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Engage_Hook_Speed = event.GetValueEventData()->value.GetDouble();});
-    __Drive_Engage_Hook_Speed__Entry.SetDouble(0.3);
+    __Drive_Engage_Hook_Speed__Entry.SetDouble(0.4);
  
     __Drive_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_D");
     NTinst.AddListener(__Drive_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
@@ -741,7 +741,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Winch_Hold_DC__Entry = NTtable_Tune->GetEntry("Winch_Hold_DC");
     NTinst.AddListener(__Winch_Hold_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Winch_Hold_DC = event.GetValueEventData()->value.GetDouble();});
-    __Winch_Hold_DC__Entry.SetDouble(0.3);
+    __Winch_Hold_DC__Entry.SetDouble(0.05);
  
     __Winch_Rev_Target__Entry = NTtable_Tune->GetEntry("Winch_Rev_Target");
     NTinst.AddListener(__Winch_Rev_Target__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Winch_Rev_Target = event.GetValueEventData()->value.GetDouble();});

@@ -142,7 +142,7 @@ Algae_Eject_Time = 1;  % seconds
 % END GAME
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Winch_Spool_DC = 0.3;
-Winch_Hold_DC = 0.3;
+Winch_Hold_DC = 0.05;
 Winch_Rev_Target = 30;
 
 Actuator_DC = 0.5;

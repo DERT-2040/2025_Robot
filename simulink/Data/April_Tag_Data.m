@@ -16,7 +16,7 @@ AT_Reef_Target_Center_Y = -4.5; % inches
 AT_Reef_Target_Right_Y = -9.5;  % inches
 AT_Reef_Target_Algae_Y = 2.5;   % inches
 
-AT_Max_Error_XY = 0.5;          % inches
+AT_Max_Error_XY = 0.75;         % inches
 AT_Max_Error_Angle = 1.0;       % degrees
 
 AT_Integral_Enable_Error_XY = 2.0;     % inches
