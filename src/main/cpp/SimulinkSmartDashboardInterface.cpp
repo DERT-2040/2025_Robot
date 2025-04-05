@@ -465,7 +465,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_LowerPickup_Time__Entry = NTtable_Tune->GetEntry("Elevator_LowerPickup_Time");
     NTinst.AddListener(__Elevator_LowerPickup_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_LowerPickup_Time = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_LowerPickup_Time__Entry.SetDouble(0.3);
+    __Elevator_LowerPickup_Time__Entry.SetDouble(0);
  
     __Elevator_MotorRev_to_Inch__Entry = NTtable_Tune->GetEntry("Elevator_MotorRev_to_Inch");
     NTinst.AddListener(__Elevator_MotorRev_to_Inch__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_MotorRev_to_Inch = event.GetValueEventData()->value.GetDouble();});
@@ -525,7 +525,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __MatchTime_Skip_Second_L4__Entry = NTtable_Tune->GetEntry("MatchTime_Skip_Second_L4");
     NTinst.AddListener(__MatchTime_Skip_Second_L4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {MatchTime_Skip_Second_L4 = event.GetValueEventData()->value.GetDouble();});
-    __MatchTime_Skip_Second_L4__Entry.SetDouble(3.6);
+    __MatchTime_Skip_Second_L4__Entry.SetDouble(3.4);
  
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});

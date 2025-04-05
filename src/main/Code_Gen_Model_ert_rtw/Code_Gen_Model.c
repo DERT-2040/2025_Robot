@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.394
+ * Model version                  : 2.395
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Apr  5 05:28:53 2025
+ * C/C++ source code generated on : Sat Apr  5 06:33:33 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -650,7 +650,7 @@ real_T Elevator_Limit_Switch_Debounce_T2F = 0.0;
                                   *   '<S9>/Constant2'
                                   *   '<S10>/Constant2'
                                   */
-real_T Elevator_LowerPickup_Time = 0.3;/* Variable: Elevator_LowerPickup_Time
+real_T Elevator_LowerPickup_Time = 0.0;/* Variable: Elevator_LowerPickup_Time
                                         * Referenced by:
                                         *   '<S415>/Reefscape_Chart'
                                         *   '<S31>/Reefscape_Chart'
@@ -708,7 +708,7 @@ real_T Limelight_Tag_Y_Offset = -0.28; /* Variable: Limelight_Tag_Y_Offset
 real_T MatchTime_Skip_Coral_Pickup = 7.0;/* Variable: MatchTime_Skip_Coral_Pickup
                                           * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                           */
-real_T MatchTime_Skip_Second_L4 = 3.6; /* Variable: MatchTime_Skip_Second_L4
+real_T MatchTime_Skip_Second_L4 = 3.4; /* Variable: MatchTime_Skip_Second_L4
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
 real_T Odometry_IC_X = 0.0;            /* Variable: Odometry_IC_X
@@ -3226,7 +3226,7 @@ void Code_Gen__Reefscape_Chart_Reset(real_T *rty_State_ID, real_T
   uint8_T *rty_Set_Algae_Level, boolean_T *rty_Coral_Score,
   DW_Reefscape_Chart_Code_Gen_M_T *localDW)
 {
-  localDW->is_active_c5_Code_Gen_Model = 0U;
+  localDW->is_active_c2_Code_Gen_Model = 0U;
   localDW->is_Elevator_CoralArm_CoralWheel = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
   localDW->is_Algae_Pickup_High = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
   localDW->is_Algae_Pickup_Low = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
@@ -3289,8 +3289,8 @@ void Code_Gen_Model_Reefscape_Chart(uint8_T rtu_GameState, boolean_T
   *rty_Coral_Score, DW_Reefscape_Chart_Code_Gen_M_T *localDW)
 {
   /* Chart: '<S31>/Reefscape_Chart' */
-  if (localDW->is_active_c5_Code_Gen_Model == 0U) {
-    localDW->is_active_c5_Code_Gen_Model = 1U;
+  if (localDW->is_active_c2_Code_Gen_Model == 0U) {
+    localDW->is_active_c2_Code_Gen_Model = 1U;
     localDW->is_Elevator_CoralArm_CoralWheel = Code_Gen_Model_IN_Start;
     *rty_State_ID = 0.0;
     *rty_Elevator_Height_Desired = Elevator_Height_Bottom;
