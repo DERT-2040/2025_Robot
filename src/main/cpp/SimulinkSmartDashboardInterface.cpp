@@ -157,7 +157,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Auto_Starting_Position__Entry = NTtable_Tune->GetEntry("Auto_Starting_Position");
     NTinst.AddListener(__Auto_Starting_Position__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Starting_Position = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Starting_Position__Entry.SetDouble(1);
+    __Auto_Starting_Position__Entry.SetDouble(2);
  
     __Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
@@ -479,9 +479,21 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(__Elevator_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Total_UL = event.GetValueEventData()->value.GetDouble();});
     __Elevator_Total_UL__Entry.SetDouble(1);
  
-    __Gyro_Calibration_Reset_Degree__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Reset_Degree");
-    NTinst.AddListener(__Gyro_Calibration_Reset_Degree__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Reset_Degree = event.GetValueEventData()->value.GetDouble();});
-    __Gyro_Calibration_Reset_Degree__Entry.SetDouble(180);
+    __Gyro_Calibration_Auto_Center__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Auto_Center");
+    NTinst.AddListener(__Gyro_Calibration_Auto_Center__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Auto_Center = event.GetValueEventData()->value.GetDouble();});
+    __Gyro_Calibration_Auto_Center__Entry.SetDouble(180);
+ 
+    __Gyro_Calibration_Auto_Left__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Auto_Left");
+    NTinst.AddListener(__Gyro_Calibration_Auto_Left__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Auto_Left = event.GetValueEventData()->value.GetDouble();});
+    __Gyro_Calibration_Auto_Left__Entry.SetDouble(210);
+ 
+    __Gyro_Calibration_Auto_Right__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Auto_Right");
+    NTinst.AddListener(__Gyro_Calibration_Auto_Right__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Auto_Right = event.GetValueEventData()->value.GetDouble();});
+    __Gyro_Calibration_Auto_Right__Entry.SetDouble(125);
+ 
+    __Gyro_Calibration_Default__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Default");
+    NTinst.AddListener(__Gyro_Calibration_Default__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Default = event.GetValueEventData()->value.GetDouble();});
+    __Gyro_Calibration_Default__Entry.SetDouble(180);
  
     __Gyro_Calibration_Reset_Flag__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Reset_Flag");
     NTinst.AddListener(__Gyro_Calibration_Reset_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Reset_Flag = event.GetValueEventData()->value.GetDouble();});
@@ -1395,7 +1407,10 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Elevator_MotorRev_to_Inch__Entry.SetDouble(Elevator_MotorRev_to_Inch);
     __Elevator_Total_LL__Entry.SetDouble(Elevator_Total_LL);
     __Elevator_Total_UL__Entry.SetDouble(Elevator_Total_UL);
-    __Gyro_Calibration_Reset_Degree__Entry.SetDouble(Gyro_Calibration_Reset_Degree);
+    __Gyro_Calibration_Auto_Center__Entry.SetDouble(Gyro_Calibration_Auto_Center);
+    __Gyro_Calibration_Auto_Left__Entry.SetDouble(Gyro_Calibration_Auto_Left);
+    __Gyro_Calibration_Auto_Right__Entry.SetDouble(Gyro_Calibration_Auto_Right);
+    __Gyro_Calibration_Default__Entry.SetDouble(Gyro_Calibration_Default);
     __Gyro_Calibration_Reset_Flag__Entry.SetDouble(Gyro_Calibration_Reset_Flag);
     __KF_Enable__Entry.SetDouble(KF_Enable);
     __L4_Switch_Time__Entry.SetDouble(L4_Switch_Time);

@@ -1,4 +1,4 @@
-Auto_Starting_Position = 1;  % 1 = left, 2 = center, 3 = right
+Auto_Starting_Position = 2;  % 1 = left, 2 = center, 3 = right
 
 % Timers
 Auto_Backup_Time_Reef = 0.25;

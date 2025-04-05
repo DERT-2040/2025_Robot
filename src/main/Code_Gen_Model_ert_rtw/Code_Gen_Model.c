@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.394
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Apr  4 16:18:47 2025
+ * C/C++ source code generated on : Sat Apr  5 05:28:53 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -277,8 +277,10 @@ real_T Auto_Speed_Processor = 0.5;     /* Variable: Auto_Speed_Processor
 real_T Auto_Speed_Reef = 1.0;          /* Variable: Auto_Speed_Reef
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
-real_T Auto_Starting_Position = 1.0;   /* Variable: Auto_Starting_Position
-                                        * Referenced by: '<S28>/Constant1'
+real_T Auto_Starting_Position = 2.0;   /* Variable: Auto_Starting_Position
+                                        * Referenced by:
+                                        *   '<S15>/Constant2'
+                                        *   '<S28>/Constant1'
                                         */
 real_T Boost_Trigger_Decreasing_Limit = -0.28;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
@@ -667,12 +669,20 @@ real_T Elevator_Total_UL = 1.0;        /* Variable: Elevator_Total_UL
                                         *   '<S93>/Constant'
                                         *   '<S93>/Saturation2'
                                         */
-real_T Gyro_Calibration_Reset_Degree = 180.0;
-                                      /* Variable: Gyro_Calibration_Reset_Degree
-                                       * Referenced by:
-                                       *   '<S15>/Constant2'
-                                       *   '<S15>/Unit Delay1'
-                                       */
+real_T Gyro_Calibration_Auto_Center = 180.0;/* Variable: Gyro_Calibration_Auto_Center
+                                             * Referenced by: '<S15>/Constant5'
+                                             */
+real_T Gyro_Calibration_Auto_Left = 210.0;/* Variable: Gyro_Calibration_Auto_Left
+                                           * Referenced by: '<S15>/Constant4'
+                                           */
+real_T Gyro_Calibration_Auto_Right = 125.0;/* Variable: Gyro_Calibration_Auto_Right
+                                            * Referenced by: '<S15>/Constant6'
+                                            */
+real_T Gyro_Calibration_Default = 180.0;/* Variable: Gyro_Calibration_Default
+                                         * Referenced by:
+                                         *   '<S15>/Constant7'
+                                         *   '<S15>/Unit Delay1'
+                                         */
 real_T Gyro_Calibration_Reset_Flag = 0.0;/* Variable: Gyro_Calibration_Reset_Flag
                                           * Referenced by: '<S15>/Constant3'
                                           */
@@ -3216,7 +3226,7 @@ void Code_Gen__Reefscape_Chart_Reset(real_T *rty_State_ID, real_T
   uint8_T *rty_Set_Algae_Level, boolean_T *rty_Coral_Score,
   DW_Reefscape_Chart_Code_Gen_M_T *localDW)
 {
-  localDW->is_active_c2_Code_Gen_Model = 0U;
+  localDW->is_active_c5_Code_Gen_Model = 0U;
   localDW->is_Elevator_CoralArm_CoralWheel = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
   localDW->is_Algae_Pickup_High = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
   localDW->is_Algae_Pickup_Low = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
@@ -3279,8 +3289,8 @@ void Code_Gen_Model_Reefscape_Chart(uint8_T rtu_GameState, boolean_T
   *rty_Coral_Score, DW_Reefscape_Chart_Code_Gen_M_T *localDW)
 {
   /* Chart: '<S31>/Reefscape_Chart' */
-  if (localDW->is_active_c2_Code_Gen_Model == 0U) {
-    localDW->is_active_c2_Code_Gen_Model = 1U;
+  if (localDW->is_active_c5_Code_Gen_Model == 0U) {
+    localDW->is_active_c5_Code_Gen_Model = 1U;
     localDW->is_Elevator_CoralArm_CoralWheel = Code_Gen_Model_IN_Start;
     *rty_State_ID = 0.0;
     *rty_Elevator_Height_Desired = Elevator_Height_Bottom;
@@ -4152,7 +4162,6 @@ void Code_Gen_Model_step(void)
     0.0);
 
   /* Switch: '<S15>/Switch1' incorporates:
-   *  Constant: '<S15>/Constant2'
    *  Constant: '<S15>/Constant3'
    *  Inport: '<Root>/Gyro_Angle'
    *  RelationalOperator: '<S112>/FixPt Relational Operator'
@@ -4165,7 +4174,33 @@ void Code_Gen_Model_step(void)
    *  Store in Global RAM
    */
   if (Gyro_Calibration_Reset_Flag > Code_Gen_Model_DW.DelayInput1_DSTATE_p) {
-    rtb_Switch1 = Gyro_Calibration_Reset_Degree - Code_Gen_Model_U.Gyro_Angle;
+    /* MultiPortSwitch: '<S15>/Multiport Switch' incorporates:
+     *  Constant: '<S15>/Constant2'
+     *  Constant: '<S15>/Constant4'
+     *  Constant: '<S15>/Constant5'
+     *  Constant: '<S15>/Constant6'
+     *  Constant: '<S15>/Constant7'
+     */
+    switch ((int32_T)Auto_Starting_Position) {
+     case 1:
+      rtb_Switch1 = Gyro_Calibration_Auto_Left;
+      break;
+
+     case 2:
+      rtb_Switch1 = Gyro_Calibration_Auto_Center;
+      break;
+
+     case 3:
+      rtb_Switch1 = Gyro_Calibration_Auto_Right;
+      break;
+
+     default:
+      rtb_Switch1 = Gyro_Calibration_Default;
+      break;
+    }
+
+    /* End of MultiPortSwitch: '<S15>/Multiport Switch' */
+    rtb_Switch1 -= Code_Gen_Model_U.Gyro_Angle;
   } else {
     rtb_Switch1 = Code_Gen_Model_DW.UnitDelay1_DSTATE;
   }
@@ -12740,7 +12775,7 @@ void Code_Gen_Model_initialize(void)
     Code_Gen_Model_DW.If_ActiveSubsystem = -1;
 
     /* InitializeConditions for UnitDelay: '<S15>/Unit Delay1' */
-    Code_Gen_Model_DW.UnitDelay1_DSTATE = Gyro_Calibration_Reset_Degree;
+    Code_Gen_Model_DW.UnitDelay1_DSTATE = Gyro_Calibration_Default;
 
     /* InitializeConditions for Delay: '<S132>/MemoryX' */
     Code_Gen_Model_DW.icLoad = true;

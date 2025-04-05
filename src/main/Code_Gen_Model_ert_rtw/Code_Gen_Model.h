@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.394
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Apr  4 16:18:47 2025
+ * C/C++ source code generated on : Sat Apr  5 05:28:53 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -49,7 +49,7 @@ typedef struct {
 typedef struct {
   real_T timer;                        /* '<S31>/Reefscape_Chart' */
   real_T timer_robot_target;           /* '<S31>/Reefscape_Chart' */
-  uint8_T is_active_c2_Code_Gen_Model; /* '<S31>/Reefscape_Chart' */
+  uint8_T is_active_c5_Code_Gen_Model; /* '<S31>/Reefscape_Chart' */
   uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S31>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_High;        /* '<S31>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_Low;         /* '<S31>/Reefscape_Chart' */
@@ -842,7 +842,9 @@ extern real_T Auto_Speed_Reef;         /* Variable: Auto_Speed_Reef
                                         * Referenced by: '<S28>/Reefscape_Auto_Steps'
                                         */
 extern real_T Auto_Starting_Position;  /* Variable: Auto_Starting_Position
-                                        * Referenced by: '<S28>/Constant1'
+                                        * Referenced by:
+                                        *   '<S15>/Constant2'
+                                        *   '<S28>/Constant1'
                                         */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
@@ -1231,12 +1233,20 @@ extern real_T Elevator_Total_UL;       /* Variable: Elevator_Total_UL
                                         *   '<S93>/Constant'
                                         *   '<S93>/Saturation2'
                                         */
-extern real_T Gyro_Calibration_Reset_Degree;
-                                      /* Variable: Gyro_Calibration_Reset_Degree
-                                       * Referenced by:
-                                       *   '<S15>/Constant2'
-                                       *   '<S15>/Unit Delay1'
-                                       */
+extern real_T Gyro_Calibration_Auto_Center;/* Variable: Gyro_Calibration_Auto_Center
+                                            * Referenced by: '<S15>/Constant5'
+                                            */
+extern real_T Gyro_Calibration_Auto_Left;/* Variable: Gyro_Calibration_Auto_Left
+                                          * Referenced by: '<S15>/Constant4'
+                                          */
+extern real_T Gyro_Calibration_Auto_Right;/* Variable: Gyro_Calibration_Auto_Right
+                                           * Referenced by: '<S15>/Constant6'
+                                           */
+extern real_T Gyro_Calibration_Default;/* Variable: Gyro_Calibration_Default
+                                        * Referenced by:
+                                        *   '<S15>/Constant7'
+                                        *   '<S15>/Unit Delay1'
+                                        */
 extern real_T Gyro_Calibration_Reset_Flag;/* Variable: Gyro_Calibration_Reset_Flag
                                            * Referenced by: '<S15>/Constant3'
                                            */

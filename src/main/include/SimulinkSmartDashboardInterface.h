@@ -135,7 +135,10 @@ private:
         nt::NetworkTableEntry __Elevator_MotorRev_to_Inch__Entry;
         nt::NetworkTableEntry __Elevator_Total_LL__Entry;
         nt::NetworkTableEntry __Elevator_Total_UL__Entry;
-        nt::NetworkTableEntry __Gyro_Calibration_Reset_Degree__Entry;
+        nt::NetworkTableEntry __Gyro_Calibration_Auto_Center__Entry;
+        nt::NetworkTableEntry __Gyro_Calibration_Auto_Left__Entry;
+        nt::NetworkTableEntry __Gyro_Calibration_Auto_Right__Entry;
+        nt::NetworkTableEntry __Gyro_Calibration_Default__Entry;
         nt::NetworkTableEntry __Gyro_Calibration_Reset_Flag__Entry;
         nt::NetworkTableEntry __KF_Enable__Entry;
         nt::NetworkTableEntry __L4_Switch_Time__Entry;

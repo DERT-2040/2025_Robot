@@ -91,4 +91,22 @@ private:
     &Auto_Starting_Position //Simulink parameter name
   };
 
+  Chooser Gyro_Reset_Flag_Chooser {
+    "Gyro Reset Flag",
+    {
+        {"0", 0},
+        {"1", 1},
+        {"2", 2},
+        {"3", 3},
+        {"4", 4},
+        {"5", 5},
+        {"6", 6},
+        {"7", 7},
+        {"8", 8},
+        {"9", 9},
+        {"10", 10}
+    },
+    &Gyro_Calibration_Reset_Flag //Simulink parameter name
+  };
+
 };
