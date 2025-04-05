@@ -141,13 +141,13 @@ Algae_Eject_Time = 1;  % seconds
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END GAME
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Winch_Spool_DC = 0.3;
+Winch_Spool_DC = 1.0;
 Winch_Hold_DC = 0.05;
 Winch_Rev_Target = 30;
 
 Actuator_DC = 0.5;
 Actuator_Rev_Startup_Range = 10;
-Actuator_Rev_Target = 90;
+Actuator_Rev_Target = 85;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -186,6 +186,13 @@ angle_var2(end) = -90*pi/180;  % set last point to -90 degrees
 % define lookup table for Simulink
 Coral_Arm_Lower_Limit_Elevator_Height_Input = 0.5*height_var2; % elevator height control is for middle stage which is half the height of carriage
 Coral_Arm_Lower_Limit_Out = angle_var2*180/pi;  % convert from radians to degrees
+
+% allow low elevator heights when coral arm angle is close to -90 degrees
+for k = 1:length(Elevator_Height_Lower_Limit_Coral_Arm_Input)
+    if Elevator_Height_Lower_Limit_Coral_Arm_Input(k) < -87
+        Elevator_Height_Lower_Limit_Out(k) = -30;
+    end
+end
 
 clear arm_length arm_pivot_offset_x arm_pivot_offset_y m b k angle_var height_var index height_var2 angle_var2
 

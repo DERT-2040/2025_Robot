@@ -97,7 +97,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Actuator_Rev_Target__Entry = NTtable_Tune->GetEntry("Actuator_Rev_Target");
     NTinst.AddListener(__Actuator_Rev_Target__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Actuator_Rev_Target = event.GetValueEventData()->value.GetDouble();});
-    __Actuator_Rev_Target__Entry.SetDouble(90);
+    __Actuator_Rev_Target__Entry.SetDouble(85);
  
     __Algae_Eject_Time__Entry = NTtable_Tune->GetEntry("Algae_Eject_Time");
     NTinst.AddListener(__Algae_Eject_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Algae_Eject_Time = event.GetValueEventData()->value.GetDouble();});
@@ -749,7 +749,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Winch_Spool_DC__Entry = NTtable_Tune->GetEntry("Winch_Spool_DC");
     NTinst.AddListener(__Winch_Spool_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Winch_Spool_DC = event.GetValueEventData()->value.GetDouble();});
-    __Winch_Spool_DC__Entry.SetDouble(0.3);
+    __Winch_Spool_DC__Entry.SetDouble(1);
  
 // Inports
     __Actuator_Revs__Entry = NTtable_Inport->GetEntry("Actuator_Revs");

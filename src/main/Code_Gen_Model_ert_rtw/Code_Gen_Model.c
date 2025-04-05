@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.393
+ * Model version                  : 2.394
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Apr  1 21:47:49 2025
+ * C/C++ source code generated on : Fri Apr  4 16:18:47 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -224,7 +224,7 @@ real_T Actuator_DC = 0.5;              /* Variable: Actuator_DC
 real_T Actuator_Rev_Startup_Range = 10.0;/* Variable: Actuator_Rev_Startup_Range
                                           * Referenced by: '<S108>/Constant'
                                           */
-real_T Actuator_Rev_Target = 90.0;     /* Variable: Actuator_Rev_Target
+real_T Actuator_Rev_Target = 85.0;     /* Variable: Actuator_Rev_Target
                                         * Referenced by: '<S109>/Constant'
                                         */
 real_T Algae_Eject_Time = 1.0;         /* Variable: Algae_Eject_Time
@@ -947,7 +947,7 @@ real_T Winch_Hold_DC = 0.05;           /* Variable: Winch_Hold_DC
 real_T Winch_Rev_Target = 30.0;        /* Variable: Winch_Rev_Target
                                         * Referenced by: '<S107>/Constant'
                                         */
-real_T Winch_Spool_DC = 0.3;           /* Variable: Winch_Spool_DC
+real_T Winch_Spool_DC = 1.0;           /* Variable: Winch_Spool_DC
                                         * Referenced by: '<S14>/Constant1'
                                         */
 
@@ -2403,9 +2403,9 @@ static void Code_Gen_Model_Coral_Pickup(boolean_T rtu_Gamepad_B1_A, boolean_T
 
      case Code_IN_Coral_Pickup_Lower_Wait:
       *rty_State_ID = 1.2;
+      *rty_Elevator_LowerPickup_Reset = false;
       if ((localDW->timer >= Elevator_LowerPickup_Time) && ((((localDW->Set_L1) ||
              (localDW->Set_L2)) || (localDW->Set_L3)) || (localDW->Set_L4))) {
-        *rty_Elevator_LowerPickup_Reset = true;
         *rty_Coral_Pickup_Lower_Wait_Sta = false;
         localDW->is_Actions = Code_Gen__IN_Coral_Pickup_Raise;
         *rty_State_ID = 1.3;
@@ -3216,7 +3216,7 @@ void Code_Gen__Reefscape_Chart_Reset(real_T *rty_State_ID, real_T
   uint8_T *rty_Set_Algae_Level, boolean_T *rty_Coral_Score,
   DW_Reefscape_Chart_Code_Gen_M_T *localDW)
 {
-  localDW->is_active_c5_Code_Gen_Model = 0U;
+  localDW->is_active_c2_Code_Gen_Model = 0U;
   localDW->is_Elevator_CoralArm_CoralWheel = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
   localDW->is_Algae_Pickup_High = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
   localDW->is_Algae_Pickup_Low = Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
@@ -3279,8 +3279,8 @@ void Code_Gen_Model_Reefscape_Chart(uint8_T rtu_GameState, boolean_T
   *rty_Coral_Score, DW_Reefscape_Chart_Code_Gen_M_T *localDW)
 {
   /* Chart: '<S31>/Reefscape_Chart' */
-  if (localDW->is_active_c5_Code_Gen_Model == 0U) {
-    localDW->is_active_c5_Code_Gen_Model = 1U;
+  if (localDW->is_active_c2_Code_Gen_Model == 0U) {
+    localDW->is_active_c2_Code_Gen_Model = 1U;
     localDW->is_Elevator_CoralArm_CoralWheel = Code_Gen_Model_IN_Start;
     *rty_State_ID = 0.0;
     *rty_Elevator_Height_Desired = Elevator_Height_Bottom;
