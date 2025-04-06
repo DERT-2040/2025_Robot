@@ -357,15 +357,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_Algae_High__Entry = NTtable_Tune->GetEntry("Elevator_Height_Algae_High");
     NTinst.AddListener(__Elevator_Height_Algae_High__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Algae_High = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Algae_High__Entry.SetDouble(20.5);
+    __Elevator_Height_Algae_High__Entry.SetDouble(20.3);
  
     __Elevator_Height_Algae_Low__Entry = NTtable_Tune->GetEntry("Elevator_Height_Algae_Low");
     NTinst.AddListener(__Elevator_Height_Algae_Low__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Algae_Low = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Algae_Low__Entry.SetDouble(12.5);
+    __Elevator_Height_Algae_Low__Entry.SetDouble(12.3);
  
     __Elevator_Height_Algae_Score__Entry = NTtable_Tune->GetEntry("Elevator_Height_Algae_Score");
     NTinst.AddListener(__Elevator_Height_Algae_Score__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Algae_Score = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Algae_Score__Entry.SetDouble(3.5);
+    __Elevator_Height_Algae_Score__Entry.SetDouble(3.3);
  
     __Elevator_Height_Bottom__Entry = NTtable_Tune->GetEntry("Elevator_Height_Bottom");
     NTinst.AddListener(__Elevator_Height_Bottom__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Bottom = event.GetValueEventData()->value.GetDouble();});
@@ -373,7 +373,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_Bottom_Pre__Entry = NTtable_Tune->GetEntry("Elevator_Height_Bottom_Pre");
     NTinst.AddListener(__Elevator_Height_Bottom_Pre__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Bottom_Pre = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Bottom_Pre__Entry.SetDouble(14);
+    __Elevator_Height_Bottom_Pre__Entry.SetDouble(13.8);
  
     __Elevator_Height_Coral_Arm_Low_Thresh__Entry = NTtable_Tune->GetEntry("Elevator_Height_Coral_Arm_Low_Thresh");
     NTinst.AddListener(__Elevator_Height_Coral_Arm_Low_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Coral_Arm_Low_Thresh = event.GetValueEventData()->value.GetDouble();});
@@ -385,7 +385,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_End_Game__Entry = NTtable_Tune->GetEntry("Elevator_Height_End_Game");
     NTinst.AddListener(__Elevator_Height_End_Game__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_End_Game = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_End_Game__Entry.SetDouble(15);
+    __Elevator_Height_End_Game__Entry.SetDouble(14.8);
  
     __Elevator_Height_Error_Threshold__Entry = NTtable_Tune->GetEntry("Elevator_Height_Error_Threshold");
     NTinst.AddListener(__Elevator_Height_Error_Threshold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Error_Threshold = event.GetValueEventData()->value.GetDouble();});
@@ -393,31 +393,31 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_L1__Entry = NTtable_Tune->GetEntry("Elevator_Height_L1");
     NTinst.AddListener(__Elevator_Height_L1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L1 = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L1__Entry.SetDouble(12);
+    __Elevator_Height_L1__Entry.SetDouble(11.8);
  
     __Elevator_Height_L2__Entry = NTtable_Tune->GetEntry("Elevator_Height_L2");
     NTinst.AddListener(__Elevator_Height_L2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L2 = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L2__Entry.SetDouble(7.25);
+    __Elevator_Height_L2__Entry.SetDouble(7.05);
  
     __Elevator_Height_L2_Eject__Entry = NTtable_Tune->GetEntry("Elevator_Height_L2_Eject");
     NTinst.AddListener(__Elevator_Height_L2_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L2_Eject = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L2_Eject__Entry.SetDouble(1.25);
+    __Elevator_Height_L2_Eject__Entry.SetDouble(1.05);
  
     __Elevator_Height_L3__Entry = NTtable_Tune->GetEntry("Elevator_Height_L3");
     NTinst.AddListener(__Elevator_Height_L3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L3 = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L3__Entry.SetDouble(15.25);
+    __Elevator_Height_L3__Entry.SetDouble(15.05);
  
     __Elevator_Height_L3_Eject__Entry = NTtable_Tune->GetEntry("Elevator_Height_L3_Eject");
     NTinst.AddListener(__Elevator_Height_L3_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L3_Eject = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L3_Eject__Entry.SetDouble(9.25);
+    __Elevator_Height_L3_Eject__Entry.SetDouble(9.05);
  
     __Elevator_Height_L4__Entry = NTtable_Tune->GetEntry("Elevator_Height_L4");
     NTinst.AddListener(__Elevator_Height_L4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_L4 = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_L4__Entry.SetDouble(27.5);
+    __Elevator_Height_L4__Entry.SetDouble(26.7);
  
     __Elevator_Height_Lower__Entry = NTtable_Tune->GetEntry("Elevator_Height_Lower");
     NTinst.AddListener(__Elevator_Height_Lower__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Lower = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Lower__Entry.SetDouble(7.5);
+    __Elevator_Height_Lower__Entry.SetDouble(7.3);
  
     __Elevator_Height_Manual_Gain__Entry = NTtable_Tune->GetEntry("Elevator_Height_Manual_Gain");
     NTinst.AddListener(__Elevator_Height_Manual_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Manual_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -425,15 +425,15 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Elevator_Height_PickupLower_Reset__Entry = NTtable_Tune->GetEntry("Elevator_Height_PickupLower_Reset");
     NTinst.AddListener(__Elevator_Height_PickupLower_Reset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_PickupLower_Reset = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_PickupLower_Reset__Entry.SetDouble(7.875);
+    __Elevator_Height_PickupLower_Reset__Entry.SetDouble(7.675);
  
     __Elevator_Height_Prepare__Entry = NTtable_Tune->GetEntry("Elevator_Height_Prepare");
     NTinst.AddListener(__Elevator_Height_Prepare__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Prepare = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Prepare__Entry.SetDouble(11);
+    __Elevator_Height_Prepare__Entry.SetDouble(10.8);
  
     __Elevator_Height_Raise__Entry = NTtable_Tune->GetEntry("Elevator_Height_Raise");
     NTinst.AddListener(__Elevator_Height_Raise__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Raise = event.GetValueEventData()->value.GetDouble();});
-    __Elevator_Height_Raise__Entry.SetDouble(9.6);
+    __Elevator_Height_Raise__Entry.SetDouble(9.4);
  
     __Elevator_Height_Top_Reset__Entry = NTtable_Tune->GetEntry("Elevator_Height_Top_Reset");
     NTinst.AddListener(__Elevator_Height_Top_Reset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Elevator_Height_Top_Reset = event.GetValueEventData()->value.GetDouble();});

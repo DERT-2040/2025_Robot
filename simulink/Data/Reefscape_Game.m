@@ -8,27 +8,31 @@ elevator_gear_ratio = 20;
 Elevator_MotorRev_to_Inch = pi*elevator_sprocket_diameter/elevator_gear_ratio;
 clear elevator_sprocket_diameter elevator_gear_ratio
 
+height_offset_for_washers = 0.2;
+
 % ELevator heights (inches)
 Elevator_Height_Bottom  = 0;
 Elevator_Height_Top_Reset = 30;
-Elevator_Height_PickupLower_Reset = 7.875;
+Elevator_Height_PickupLower_Reset = 7.875-height_offset_for_washers;
 
-Elevator_Height_Bottom_Pre = 14;
-Elevator_Height_Prepare = 11;
-Elevator_Height_Lower   = 7.5;
-Elevator_Height_Raise   = 9.6;
+Elevator_Height_Bottom_Pre = 14-height_offset_for_washers;
+Elevator_Height_Prepare = 11-height_offset_for_washers;
+Elevator_Height_Lower   = 7.5-height_offset_for_washers;
+Elevator_Height_Raise   = 9.6-height_offset_for_washers;
 
-Elevator_Height_L1      = 12;
-Elevator_Height_L2      = 7.25;
-Elevator_Height_L3      = 15.25;
-Elevator_Height_L4      = 27.5;
+Elevator_Height_L1      = 12-height_offset_for_washers;
+Elevator_Height_L2      = 7.25-height_offset_for_washers;
+Elevator_Height_L3      = 15.25-height_offset_for_washers;
+Elevator_Height_L4      = 26.9-height_offset_for_washers;
 
 
-Elevator_Height_Algae_Score = 3.5;
-Elevator_Height_Algae_Low   = 12.5;
-Elevator_Height_Algae_High  = 20.5;
+Elevator_Height_Algae_Score = 3.5-height_offset_for_washers;
+Elevator_Height_Algae_Low   = 12.5-height_offset_for_washers;
+Elevator_Height_Algae_High  = 20.5-height_offset_for_washers;
 
-Elevator_Height_End_Game = 15;   % this value should not match any other elevator height setting
+Elevator_Height_End_Game = 15-height_offset_for_washers;   % this value should not match any other elevator height setting
+
+clear height_offset_for_washers
 
 % Closed loop control for elevator height
 Elevator_Gain_Prop = 0.3;  % DC/inch
