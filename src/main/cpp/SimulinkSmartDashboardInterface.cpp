@@ -97,7 +97,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Actuator_Rev_Target__Entry = NTtable_Tune->GetEntry("Actuator_Rev_Target");
     NTinst.AddListener(__Actuator_Rev_Target__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Actuator_Rev_Target = event.GetValueEventData()->value.GetDouble();});
-    __Actuator_Rev_Target__Entry.SetDouble(85);
+    __Actuator_Rev_Target__Entry.SetDouble(80);
  
     __Algae_Eject_Time__Entry = NTtable_Tune->GetEntry("Algae_Eject_Time");
     NTinst.AddListener(__Algae_Eject_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Algae_Eject_Time = event.GetValueEventData()->value.GetDouble();});
@@ -289,7 +289,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Drive_Engage_Hook_Speed__Entry = NTtable_Tune->GetEntry("Drive_Engage_Hook_Speed");
     NTinst.AddListener(__Drive_Engage_Hook_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Engage_Hook_Speed = event.GetValueEventData()->value.GetDouble();});
-    __Drive_Engage_Hook_Speed__Entry.SetDouble(0.4);
+    __Drive_Engage_Hook_Speed__Entry.SetDouble(0.3);
  
     __Drive_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_D");
     NTinst.AddListener(__Drive_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});

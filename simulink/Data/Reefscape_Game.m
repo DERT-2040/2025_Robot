@@ -151,7 +151,7 @@ Winch_Rev_Target = 30;
 
 Actuator_DC = 0.5;
 Actuator_Rev_Startup_Range = 10;
-Actuator_Rev_Target = 85;
+Actuator_Rev_Target = 80;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

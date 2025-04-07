@@ -50,7 +50,7 @@ AT_Translation_Control_Gain_Field = 10;  % meter/second per meter of position er
 AT_Translation_Speed_Max_Field = 5.0;  % meter/second
 
 % Drive into Hook parameters
-Drive_Engage_Hook_Speed = 0.4; % drive slow to engage hook
+Drive_Engage_Hook_Speed = 0.3; % drive slow to engage hook
 Drive_Engage_Hook_Angle = pi;  % back up
 
 
