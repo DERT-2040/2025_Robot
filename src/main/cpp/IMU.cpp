@@ -1,7 +1,7 @@
 //local
 #include "include/IMU.h"
 
-IMU::IMU() : Component("IMU")
+IMU::IMU()
 {
     m_Pigeon2.Reset();
 }

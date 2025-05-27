@@ -19,12 +19,12 @@ public:
     /**
      * Runs before the step function is called in the main loop
      */
-    void PreStepCallback();
+    void PreStepCallback() override;
 
     /**
      * Runs after the step function is called in the main loop
      */
-    void PostStepCallback();
+    void PostStepCallback() override;
     
     /*
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X

@@ -1,48 +1,34 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 //local
 #include "include/Robot.h"
 //  Components are included in Robot.hh
 //  For each component there is a .cpp file in the 'cpp' folder.
 //  For each component there is a .hh file in the 'include' folder
 
-void Robot::RobotInit()
-{
-  Code_Gen_Model_U.GameState = -1;
-  Code_Gen_Model_initialize(); //code gen model init
-}
+void Robot::RobotInit()      {Code_Gen_Model_U.GameState = -1; Code_Gen_Model_initialize();}
+void Robot::DisabledInit()   {Code_Gen_Model_U.GameState = 0; GameStateChange();}
+void Robot::AutonomousInit() {Code_Gen_Model_U.GameState = 1; GameStateChange();}
+void Robot::TeleopInit()     {Code_Gen_Model_U.GameState = 2; GameStateChange();}
+void Robot::TestInit()       {Code_Gen_Model_U.GameState = 3; GameStateChange();}
+void Robot::SimulationInit() {Code_Gen_Model_U.GameState = 4; GameStateChange();}
 
 void Robot::RobotPeriodic() 
 {  
   m_Tracer.ClearEpochs();
-  m_Tracer.AddEpoch("After ClearEpochs");
-
-  Component::RunAllPreSteps();
+  
+  // Pre Step
+  for(auto component : Component::AllCreatedComponents)
+    component->PreStepCallback();
   m_Tracer.AddEpoch("After PreStep");
   
+  // Step
   Code_Gen_Model_step(); //Step the model
-  m_Tracer.AddEpoch("After Simulink");
+  m_Tracer.AddEpoch("After Step");
 
+  //  Post step
+  for(auto component : Component::AllCreatedComponents)
+    component->PostStepCallback();
   m_Tracer.AddEpoch("After PostStep");
 }
-
-void Robot::AutonomousInit() { Code_Gen_Model_U.GameState = 1; GameStateChange();}
-void Robot::AutonomousPeriodic() {}
-
-void Robot::TeleopInit() {Code_Gen_Model_U.GameState = 2; GameStateChange();
-}
-void Robot::TeleopPeriodic() {}
-
-void Robot::DisabledInit() {Code_Gen_Model_U.GameState = 0; GameStateChange();}
-void Robot::DisabledPeriodic() {}
-
-void Robot::TestInit() {Code_Gen_Model_U.GameState = 3; GameStateChange();}
-void Robot::TestPeriodic() {}
-
-void Robot::SimulationInit() {Code_Gen_Model_U.GameState = 4; GameStateChange();}
-void Robot::SimulationPeriodic() {}
 
 void Robot::GameStateChange()
 {

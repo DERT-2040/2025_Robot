@@ -94,6 +94,7 @@
     "*.inc": "cpp",
     "xutility": "cpp",
     "expected": "cpp",
-    "source_location": "cpp"
+    "source_location": "cpp",
+    "charconv": "cpp"
   }
 }

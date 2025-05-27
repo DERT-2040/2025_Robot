@@ -1,6 +1,6 @@
 #include "include/SwerveDrive.h"
 
-SwerveDrive::SwerveDrive() : Component("Swerve Drive")
+SwerveDrive::SwerveDrive()
 {
   //Wheel Offset
     Initalize_Wheel_Offset();   

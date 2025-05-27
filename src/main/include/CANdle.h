@@ -1,14 +1,12 @@
 #include "lib/include/Component.h"
-
-#ifndef __CANdle__
-#define __CANdle__
-
 #include "ctre/phoenix/led/CANdle.h"
 #include "ctre/phoenix/led/SingleFadeAnimation.h"
 #include "ctre/phoenix/led/RgbFadeAnimation.h"
 #include "frc/AddressableLED.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 #include "include/Constants.h"
+
+#include <cstdint>
 
 class CANdle : public Component
 {
@@ -17,12 +15,12 @@ public:
     /**
      * Runs before the step function is called in the main loop
      */
-    void PreStepCallback();
+    void PreStepCallback() override;
 
     /**
      * Runs after the step function is called in the main loop
      */
-    void PostStepCallback();
+    void PostStepCallback() override;
     
 private:
     void TwoColorStrobe(frc::AddressableLED::LEDData colorOne,
@@ -31,7 +29,7 @@ private:
                         int LEDOffset,
                         int msPulseWidth);
 
-    u_int64_t time = 0; // ms
+    uint64_t time = 0; // ms
     const int msPerCycle = 20; //ms
     bool isColorOne = true;
 
@@ -39,4 +37,3 @@ private:
     ctre::phoenix::led::CANdle candle {Constants::CANdle::CANdleID, Constants::CANdle::CANdleNetworkName};
     ctre::phoenix::led::RgbFadeAnimation AmbientAnimation {.5, .5,};
 };
-#endif

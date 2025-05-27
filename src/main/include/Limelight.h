@@ -1,7 +1,5 @@
 #include "lib/include/Component.h"
 
-#ifndef __LIMELIGHT__
-#define __LIMELIGHT__
 // Local
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 
@@ -28,12 +26,12 @@ class Limelight : public Component {
       * @Override
       * Runs before the step function is called in the main loop
       */
-     void PreStepCallback();
+     void PreStepCallback() override;
 
      /**
       * Runs after the step function is called in the main loop
       */
-     void PostStepCallback();
+     void PostStepCallback() override;
     
     private:
 
@@ -52,4 +50,3 @@ class Limelight : public Component {
     //frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};
  
 };
-#endif

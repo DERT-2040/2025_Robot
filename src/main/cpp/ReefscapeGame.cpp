@@ -1,6 +1,6 @@
 #include "include/ReefscapeGame.h"
 
-ReefscapeGame::ReefscapeGame() : Component("Reefscape Game")
+ReefscapeGame::ReefscapeGame()
 {
     coralArmAngle.SetInverted(true);
     coralTimeOfFlightSensor.SetRangeOfInterest(9,9,11,11);

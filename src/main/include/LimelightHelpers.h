@@ -1,7 +1,5 @@
-#include "lib/include/Component.h"
-
-#ifndef LIMELIGHTHELPERS_H
-#define LIMELIGHTHELPERS_H
+#pragma once
+// THIS FILE HAS BEEN EDITED TO MAKE IT PORTABLE
 
 ///
 //https://github.com/LimelightVision/limelightlib-wpicpp
@@ -14,8 +12,18 @@
 #include <wpinet/PortForwarder.h>
 #include "wpi/json.h"
 #include <string>
-#include <unistd.h>
-//#include <curl/curl.h>
+
+#ifdef _WIN32
+    #include <winsock2.h>
+    #include <ws2tcpip.h>
+    #pragma comment(lib, "ws2_32.lib")
+    typedef intptr_t ssize_t;
+#else
+    #include <unistd.h>
+    #include <sys/socket.h>
+    #include <netinet/in.h>
+    #include <arpa/inet.h>
+#endif
 #include <vector>
 #include <chrono>
 #include <iostream>
@@ -25,12 +33,12 @@
 #include <frc/geometry/Pose3d.h>
 #include <frc/geometry/Rotation2d.h>
 #include <frc/geometry/Rotation3d.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 #include <cstring>
 #include <fcntl.h>
-    
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846f
+#endif
+
 namespace LimelightHelpers
 {
     inline std::string sanitizeName(const std::string &name)
@@ -685,21 +693,39 @@ namespace LimelightHelpers
 
             // Set socket for broadcast
             int broadcast = 1;
+            #ifdef _WIN32
+            if (setsockopt(sockfd, SOL_SOCKET, SO_BROADCAST, (const char*)&broadcast, sizeof(broadcast)) == SOCKET_ERROR) {
+                std::cerr << "Error in setting Broadcast option" << std::endl;
+                closesocket(sockfd);
+                sockfd = -1;
+                return;
+            }
+            #else
             if (setsockopt(sockfd, SOL_SOCKET, SO_BROADCAST, &broadcast, sizeof(broadcast)) < 0) {
                 std::cerr << "Error in setting Broadcast option" << std::endl;
                 close(sockfd);
                 sockfd = -1;
                 return;
             }
+            #endif
 
             // Set socket to non-blocking
+            #ifdef _WIN32
+            u_long mode = 1;  // 1 to enable non-blocking mode
+            if (ioctlsocket(sockfd, FIONBIO, &mode) == SOCKET_ERROR) {
+                std::cerr << "Error setting socket to non-blocking" << std::endl;
+                closesocket(sockfd);
+                sockfd = -1;
+                return;
+            }
+            #else
             if (fcntl(sockfd, F_SETFL, O_NONBLOCK) < 0) {
                 std::cerr << "Error setting socket to non-blocking" << std::endl;
                 close(sockfd);
                 sockfd = -1;
                 return;
             }
-
+            #endif
             const char *msg = "LLPhoneHome";
             sendto(sockfd, msg, strlen(msg), 0, (const struct sockaddr *) &servaddr, sizeof(servaddr));
         }
@@ -707,6 +733,18 @@ namespace LimelightHelpers
         char receiveData[1024];
         socklen_t len = sizeof(cliaddr);
 
+        #ifdef _WIN32
+        ssize_t n = recvfrom(sockfd, (char *)receiveData, 1024, 0, (struct sockaddr *) &cliaddr, &len);
+        if (n > 0) {
+            receiveData[n] = '\0'; // Null-terminate the received string
+            std::string received(receiveData, n);
+            std::cout << "Received response: " << received << std::endl;
+        } else if (n < 0 && errno != EWOULDBLOCK && errno != EAGAIN) {
+            std::cerr << "Error receiving data" << std::endl;
+            closesocket(sockfd);
+            sockfd = -1;
+        }
+        #else
         ssize_t n = recvfrom(sockfd, (char *)receiveData, 1024, 0, (struct sockaddr *) &cliaddr, &len);
         if (n > 0) {
             receiveData[n] = '\0'; // Null-terminate the received string
@@ -717,21 +755,22 @@ namespace LimelightHelpers
             close(sockfd);
             sockfd = -1;
         }
+        #endif
     }
 
     inline void SetupPortForwarding(const std::string& limelightName) 
     {
         auto& portForwarder = wpi::PortForwarder::GetInstance();
-        portForwarder.Add(5800, sanitizeName(limelightName), 5800);
-        portForwarder.Add(5801, sanitizeName(limelightName), 5801);
-        portForwarder.Add(5802, sanitizeName(limelightName), 5802);
-        portForwarder.Add(5803, sanitizeName(limelightName), 5803);
-        portForwarder.Add(5804, sanitizeName(limelightName), 5804);
-        portForwarder.Add(5805, sanitizeName(limelightName), 5805);
-        portForwarder.Add(5806, sanitizeName(limelightName), 5806);
-        portForwarder.Add(5807, sanitizeName(limelightName), 5807);
-        portForwarder.Add(5808, sanitizeName(limelightName), 5808);
-        portForwarder.Add(5809, sanitizeName(limelightName), 5809);
+        portForwarder.Add(5800, LimelightHelpers::sanitizeName(limelightName), 5800);
+        portForwarder.Add(5801, LimelightHelpers::sanitizeName(limelightName), 5801);
+        portForwarder.Add(5802, LimelightHelpers::sanitizeName(limelightName), 5802);
+        portForwarder.Add(5803, LimelightHelpers::sanitizeName(limelightName), 5803);
+        portForwarder.Add(5804, LimelightHelpers::sanitizeName(limelightName), 5804);
+        portForwarder.Add(5805, LimelightHelpers::sanitizeName(limelightName), 5805);
+        portForwarder.Add(5806, LimelightHelpers::sanitizeName(limelightName), 5806);
+        portForwarder.Add(5807, LimelightHelpers::sanitizeName(limelightName), 5807);
+        portForwarder.Add(5808, LimelightHelpers::sanitizeName(limelightName), 5808);
+        portForwarder.Add(5809, LimelightHelpers::sanitizeName(limelightName), 5809);
     }
 
     template <typename T, typename KeyType>
@@ -742,7 +781,8 @@ namespace LimelightHelpers
            return jsonData.at(key).template get<T>();
         }
         catch (wpi::json::exception& e)
-        {
+        {  
+            std::cout << e.what();
             return defaultValue;
         }
         catch (...)
@@ -850,6 +890,7 @@ namespace LimelightHelpers
         }
         catch(const std::exception& e)
         {
+           std::cout << e.what();
            return LimelightResultsClass();
         }
         
@@ -872,4 +913,3 @@ namespace LimelightHelpers
         }
     }
 }
-#endif // LIMELIGHTHELPERS_H

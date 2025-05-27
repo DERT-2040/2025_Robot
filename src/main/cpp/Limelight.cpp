@@ -1,7 +1,7 @@
 #include "include/Limelight.h"
 
-#ifndef __LIMELIGHT__
-Limelight::Limelight() : Component("Limelight"){
+Limelight::Limelight()
+{
     LimelightHelpers::setCameraPose_RobotSpace("limelight-one", 
         7.8/39.37008,   // Forward offset (meters)
         9.4/39.37008,   // Side offset (meters)
@@ -106,4 +106,3 @@ void Limelight::PostStepCallback()
     // Pulls Gyro Yaw Offset
     Gyro_Offset = Code_Gen_Model_Y.Gyro_Angle_Offset_Total;
 }
-#endif

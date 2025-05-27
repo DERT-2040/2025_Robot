@@ -1,8 +1,6 @@
 //local
 #include "include\HIDs.h"
 
-HIDs::HIDs() : Component("HIDs"){}
-
 void HIDs::PreStepCallback() {
     // Steer and Drive Joysticks
     Code_Gen_Model_U.Joystick_Left_X = -m_Left_Joystick.GetY();

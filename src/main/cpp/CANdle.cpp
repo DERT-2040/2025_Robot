@@ -1,8 +1,6 @@
 #include "include/CANdle.h"
 
-#ifndef __CANdle__
-
-CANdle::CANdle() : Component("CANdle") {}
+CANdle::CANdle() {}
 
 void CANdle::PostStepCallback()
 {
@@ -42,5 +40,4 @@ void CANdle::TwoColorStrobe(
     }
 }
 
-    void CANdle::PreStepCallback() {}
-#endif
+void CANdle::PreStepCallback() {}
