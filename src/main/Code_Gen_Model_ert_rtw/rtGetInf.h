@@ -8,8 +8,8 @@
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
  * Model version                  : 2.363
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 22 22:34:01 2025
+ * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
+ * C/C++ source code generated on : Mon May 26 19:03:29 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -17,8 +17,8 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_rtGetInf_h_
-#define RTW_HEADER_rtGetInf_h_
+#ifndef rtGetInf_h_
+#define rtGetInf_h_
 #include "rt_nonfinite.h"
 #include "rtwtypes.h"
 
@@ -27,7 +27,7 @@ extern real32_T rtGetInfF(void);
 extern real_T rtGetMinusInf(void);
 extern real32_T rtGetMinusInfF(void);
 
-#endif                                 /* RTW_HEADER_rtGetInf_h_ */
+#endif                                 /* rtGetInf_h_ */
 
 /*
  * File trailer for generated code.

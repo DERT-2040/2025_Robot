@@ -8,8 +8,8 @@
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
  * Model version                  : 2.363
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 22 22:34:01 2025
+ * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
+ * C/C++ source code generated on : Mon May 26 19:03:29 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -17,8 +17,8 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_Code_Gen_Model_private_h_
-#define RTW_HEADER_Code_Gen_Model_private_h_
+#ifndef Code_Gen_Model_private_h_
+#define Code_Gen_Model_private_h_
 #include "rtwtypes.h"
 #include "Code_Gen_Model.h"
 #include "Code_Gen_Model_types.h"
@@ -69,7 +69,7 @@ extern void Code_Gen_Model_Reefscape_Chart(uint8_T rtu_GameState, boolean_T
   uint16_T *rty_Set_Coral_Level, uint8_T *rty_Set_Algae_Level, boolean_T
   *rty_Coral_Score, DW_Reefscape_Chart_Code_Gen_M_T *localDW);
 
-#endif                                /* RTW_HEADER_Code_Gen_Model_private_h_ */
+#endif                                 /* Code_Gen_Model_private_h_ */
 
 /*
  * File trailer for generated code.

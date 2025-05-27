@@ -8,8 +8,8 @@
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
  * Model version                  : 2.363
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 22 22:34:01 2025
+ * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
+ * C/C++ source code generated on : Mon May 26 19:03:29 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -17,15 +17,16 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_Code_Gen_Model_h_
-#define RTW_HEADER_Code_Gen_Model_h_
+#ifndef Code_Gen_Model_h_
+#define Code_Gen_Model_h_
 #ifndef Code_Gen_Model_COMMON_INCLUDES_
 #define Code_Gen_Model_COMMON_INCLUDES_
 #include "rtwtypes.h"
+#include "rt_nonfinite.h"
+#include "math.h"
 #endif                                 /* Code_Gen_Model_COMMON_INCLUDES_ */
 
 #include "Code_Gen_Model_types.h"
-#include "rt_nonfinite.h"
 #include "rtGetInf.h"
 #include "rtGetNaN.h"
 
@@ -67,7 +68,7 @@ typedef struct {
   uint8_T is_Elevator_Height_Bottom;   /* '<S31>/Reefscape_Chart' */
   uint8_T is_Elevator_Height_Bottom_pre;/* '<S31>/Reefscape_Chart' */
   uint8_T is_End_Game_Climb;           /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Set_Level_n;              /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Set_Level_f;              /* '<S31>/Reefscape_Chart' */
   uint8_T is_Algae_Wheels;             /* '<S31>/Reefscape_Chart' */
   uint8_T is_AT_On_Target_Timer;       /* '<S31>/Reefscape_Chart' */
   boolean_T Set_L1;                    /* '<S31>/Reefscape_Chart' */
@@ -157,12 +158,12 @@ typedef struct {
   real_T Auto_AT_Relative_Error_Y;     /* '<S28>/Signal Copy6' */
   real_T Auto_AT_Relative_Error_X;     /* '<S28>/Signal Copy2' */
   real_T Auto_AT_Relative_Error_Angle; /* '<S28>/Signal Copy7' */
-  real_T Translation_Speed_k;          /* '<S28>/Reefscape_Auto_Steps' */
-  real_T Translation_Angle_c;          /* '<S28>/Reefscape_Auto_Steps' */
+  real_T Translation_Speed_g;          /* '<S28>/Reefscape_Auto_Steps' */
+  real_T Translation_Angle_n;          /* '<S28>/Reefscape_Auto_Steps' */
   real_T State_ID_Auto;                /* '<S31>/Reefscape_Chart' */
-  real_T Elevator_Height_Desired_h;    /* '<S31>/Reefscape_Chart' */
-  real_T Coral_Arm_Angle_Desired_f;    /* '<S31>/Reefscape_Chart' */
-  real_T Coral_Wheel_DC_a;             /* '<S31>/Reefscape_Chart' */
+  real_T Elevator_Height_Desired_o;    /* '<S31>/Reefscape_Chart' */
+  real_T Coral_Arm_Angle_Desired_c;    /* '<S31>/Reefscape_Chart' */
+  real_T Coral_Wheel_DC_e;             /* '<S31>/Reefscape_Chart' */
   real_T Spline_Follow_Index;          /* '<S212>/Merge4' */
   real_T Spline_Target_Y;              /* '<S209>/Selector6' */
   real_T Spline_Target_X;              /* '<S209>/Selector2' */
@@ -176,7 +177,7 @@ typedef struct {
   uint8_T Switch14;                    /* '<S30>/Switch14' */
   uint8_T Path_ID;                     /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T Auto_Step_ID;                /* '<S28>/Reefscape_Auto_Steps' */
-  uint8_T Set_Algae_Level_p;           /* '<S31>/Reefscape_Chart' */
+  uint8_T Set_Algae_Level_n;           /* '<S31>/Reefscape_Chart' */
   uint8_T Active_GameState;            /* '<S22>/Chart' */
   boolean_T Button_Enable_Wheels;      /* '<S137>/FixPt Relational Operator' */
   boolean_T Button_Reset_Wheel_Offsets;/* '<S138>/FixPt Relational Operator' */
@@ -221,21 +222,21 @@ typedef struct {
   boolean_T UnitDelay1;                /* '<S28>/Unit Delay1' */
   boolean_T Auto_AT_Relative_Enable;   /* '<S28>/Signal Copy1' */
   boolean_T Auto_AT_On_Target;         /* '<S28>/Signal Copy8' */
-  boolean_T Align_Left_d;              /* '<S28>/Reefscape_Auto_Steps' */
-  boolean_T Align_Right_i;             /* '<S28>/Reefscape_Auto_Steps' */
-  boolean_T Align_Center_b;            /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Align_Left_e;              /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Align_Right_o;             /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Align_Center_c;            /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_B4_Y_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_Start_out;         /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_Back_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_LT_out;            /* '<S28>/Reefscape_Auto_Steps' */
-  boolean_T Gamepad_POV_Down_o;        /* '<S28>/Reefscape_Auto_Steps' */
-  boolean_T Gamepad_POV_Left_d;        /* '<S28>/Reefscape_Auto_Steps' */
-  boolean_T Elevator_LowerPickup_Reset_g;/* '<S31>/Reefscape_Chart' */
-  boolean_T Coral_Pickup_Lower_Wait_State_m;/* '<S31>/Reefscape_Chart' */
-  boolean_T Coral_Score_j;             /* '<S31>/Reefscape_Chart' */
+  boolean_T Gamepad_POV_Down_f;        /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Gamepad_POV_Left_f;        /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Elevator_LowerPickup_Reset_l;/* '<S31>/Reefscape_Chart' */
+  boolean_T Coral_Pickup_Lower_Wait_State_o;/* '<S31>/Reefscape_Chart' */
+  boolean_T Coral_Score_l;             /* '<S31>/Reefscape_Chart' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S212>/Merge1' */
   boolean_T Out;                       /* '<S10>/Debounce' */
-  boolean_T Out_h;                     /* '<S9>/Debounce' */
+  boolean_T Out_m;                     /* '<S9>/Debounce' */
 } B_Code_Gen_Model_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -2285,7 +2286,7 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S477>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase9'
  * '<S478>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Reefscape_Chart'
  */
-#endif                                 /* RTW_HEADER_Code_Gen_Model_h_ */
+#endif                                 /* Code_Gen_Model_h_ */
 
 /*
  * File trailer for generated code.
