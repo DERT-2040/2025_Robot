@@ -10,6 +10,7 @@
 #include "include/Limelight.h"
 #include "include/ReefscapeGame.h"
 #include "include/CANdle.h"
+#include "include/FMSInfo.h"
 // For each component also add content in this file at the bottom of the private area
 
 //frc
@@ -31,12 +32,11 @@ class Robot : public frc::TimedRobot {
 
   /** Runs every 20ms regardless of what mode the robot is in */
   void RobotPeriodic() override;
-
-  //void AutonomousPeriodic() override;
-  //void TeleopPeriodic() override;
-  //void DisabledPeriodic() override;
-  //void TestPeriodic() override;
-  //void SimulationPeriodic() override;
+  void AutonomousPeriodic() override {};
+  void TeleopPeriodic() override {};
+  void DisabledPeriodic() override {};
+  void TestPeriodic() override {};
+  void SimulationPeriodic() override {};
 
 private:
   /** Puts all inputs from sensors and HIDs into Simulink */
@@ -47,9 +47,6 @@ private:
   
   /** Resets variables when the game state changes (teleop, auto, test, etc.) */
   void GameInitValues();
-
-   /** Runs of the change of the game state */
-  void GameStateChange();
 
   /*
    * Below are the instances of the components used by the robot
@@ -81,4 +78,7 @@ private:
 
   /** Candle Object */
   CANdle m_CANdle;
+
+  /** FMSInfo */
+  FMSInfo m_FMSInfo;
 };

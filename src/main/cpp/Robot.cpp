@@ -5,11 +5,11 @@
 //  For each component there is a .hh file in the 'include' folder
 
 void Robot::RobotInit()      {Code_Gen_Model_U.GameState = -1; Code_Gen_Model_initialize();}
-void Robot::DisabledInit()   {Code_Gen_Model_U.GameState = 0; GameStateChange();}
-void Robot::AutonomousInit() {Code_Gen_Model_U.GameState = 1; GameStateChange();}
-void Robot::TeleopInit()     {Code_Gen_Model_U.GameState = 2; GameStateChange();}
-void Robot::TestInit()       {Code_Gen_Model_U.GameState = 3; GameStateChange();}
-void Robot::SimulationInit() {Code_Gen_Model_U.GameState = 4; GameStateChange();}
+void Robot::DisabledInit()   {Code_Gen_Model_U.GameState = 0;}
+void Robot::AutonomousInit() {Code_Gen_Model_U.GameState = 1;}
+void Robot::TeleopInit()     {Code_Gen_Model_U.GameState = 2;}
+void Robot::TestInit()       {Code_Gen_Model_U.GameState = 3;}
+void Robot::SimulationInit() {Code_Gen_Model_U.GameState = 4;}
 
 void Robot::RobotPeriodic() 
 {  
@@ -28,15 +28,6 @@ void Robot::RobotPeriodic()
   for(auto component : Component::AllCreatedComponents)
     component->PostStepCallback();
   m_Tracer.AddEpoch("After PostStep");
-}
-
-void Robot::GameStateChange()
-{
-    std::optional<frc::DriverStation::Alliance> CurrentAlliance = frc::DriverStation::GetAlliance();
-    if(!CurrentAlliance.has_value())
-        Code_Gen_Model_U.IsBlueAlliance = 1;
-    else
-        Code_Gen_Model_U.IsBlueAlliance = CurrentAlliance.value();
 }
 
 #ifndef RUNNING_FRC_TESTS
