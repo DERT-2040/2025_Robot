@@ -72,7 +72,6 @@ namespace Constants
                 60,                                    // smartCurrentLimit
                 60,                                    // secondaryCurrentLimit
                 0.01,                                  // openLoopRampRate (seconds)
-                false                                  // includeSensor
             };
             static NeoSparkCreateInfo frontLeft  = NeoSparkCreateInfo::modifyInfo(defaultSteerCreateInfo,
                                                                                  1, //CAN ID
@@ -111,7 +110,6 @@ namespace Constants
             80,   // smartCurrentLimit
             80,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
-            true  // includeSensor
         };      
         static NeoSparkCreateInfo motorElevator = NeoSparkCreateInfo::modifyInfo(elevatorMotorCreateInfo,
                                                                              10, // CAN ID
@@ -126,7 +124,6 @@ namespace Constants
             12,   // smartCurrentLimit
             12,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
-            false // includeSensor
         };
         static NeoSparkCreateInfo motorCoralArm = NeoSparkCreateInfo::modifyInfo(coralArmMotorCreateInfo,
                                                                              11, // CAN ID
@@ -139,7 +136,6 @@ namespace Constants
             40,   // smartCurrentLimit
             40,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
-            false // includeSensor
         };
         static NeoSparkCreateInfo motorCoralWheel = NeoSparkCreateInfo::modifyInfo(coralWheelMotorCreateInfo,
                                                                              12, // CAN ID
@@ -152,7 +148,6 @@ namespace Constants
             40,   // smartCurrentLimit
             40,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
-            false // includeSensor
         };
         static NeoSparkCreateInfo motorAlgaeWheelOutside = NeoSparkCreateInfo::modifyInfo(algaeOutsideWheelMotorCreateInfo,
                                                                              13, // CAN ID
@@ -165,7 +160,6 @@ namespace Constants
             40,   // smartCurrentLimit
             40,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
-            false // includeSensor
         };
         static NeoSparkCreateInfo motorAlgaeWheelInside = NeoSparkCreateInfo::modifyInfo(algaeInsideWheelMotorCreateInfo,
                                                                              14, // CAN ID
@@ -178,7 +172,6 @@ namespace Constants
             15,   // smartCurrentLimit
             15,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
-            true  // includeSensor
         };      
         static NeoSparkCreateInfo motorWinch = NeoSparkCreateInfo::modifyInfo(winchMotorCreateInfo,
                                                                              15, // CAN ID
@@ -193,7 +186,6 @@ namespace Constants
             80,   // smartCurrentLimit
             80,   // secondaryCurrentLimit
             0.01, // openLoopRampRate (seconds)
-            true  // includeSensor
         };      
         static NeoSparkCreateInfo motorActuator = NeoSparkCreateInfo::modifyInfo(actuatorMotorCreateInfo,
                                                                              16, // CAN ID

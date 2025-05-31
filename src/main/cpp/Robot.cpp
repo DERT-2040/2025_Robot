@@ -1,8 +1,5 @@
 //local
 #include "include/Robot.h"
-//  Components are included in Robot.hh
-//  For each component there is a .cpp file in the 'cpp' folder.
-//  For each component there is a .hh file in the 'include' folder
 
 void Robot::RobotInit()      {Code_Gen_Model_U.GameState = -1; Code_Gen_Model_initialize();}
 void Robot::DisabledInit()   {Code_Gen_Model_U.GameState = 0;}
@@ -15,18 +12,13 @@ void Robot::RobotPeriodic()
 {  
   m_Tracer.ClearEpochs();
   
-  // Pre Step
-  for(auto component : Component::AllCreatedComponents)
-    component->PreStepCallback();
+  PreStep();
   m_Tracer.AddEpoch("After PreStep");
   
-  // Step
   Code_Gen_Model_step(); //Step the model
   m_Tracer.AddEpoch("After Step");
 
-  //  Post step
-  for(auto component : Component::AllCreatedComponents)
-    component->PostStepCallback();
+  PostStep();
   m_Tracer.AddEpoch("After PostStep");
 }
 

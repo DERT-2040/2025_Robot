@@ -11,11 +11,11 @@
 #include "include/ReefscapeGame.h"
 #include "include/CANdle.h"
 #include "include/FMSInfo.h"
-// For each component also add content in this file at the bottom of the private area
 
 //frc
 #include <frc/TimedRobot.h>
 #include <frc/DriverStation.h>
+
 //std
 #include <iostream>
 
@@ -40,20 +40,20 @@ class Robot : public frc::TimedRobot {
 
 private:
   /** Puts all inputs from sensors and HIDs into Simulink */
-  void PreStep();
+  void PreStep() {for(auto component : Component::AllCreatedComponents) component->PreStepCallback();}
   
   /** Takes outputs from simulink and pushes their commands to hardware */
-  void PostStep();
+  void PostStep() {for(auto component : Component::AllCreatedComponents) component->PostStepCallback();}
   
-  /** Resets variables when the game state changes (teleop, auto, test, etc.) */
-  void GameInitValues();
-
   /*
    * Below are the instances of the components used by the robot
    * Everything here should be direct hardware control, only
    * functions that manipulate global variables declared by Simulink
    * are exceptions to this rule.
    */
+
+  /** Monitor code execution time */
+  frc::Tracer m_Tracer{};
 
   /** Component Object for Human Input Devices */
   HIDs m_HIDs;
@@ -67,18 +67,15 @@ private:
   /** Component Object for all Swerve Drive objects such as sensors and motors*/
   SwerveDrive m_SwerveDrive;
     
-  /** Monitor code execution time */
-  frc::Tracer m_Tracer{};
-  
   /** Component for all Tunable Parameters created by simulink */
   SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  
-  
-  /** Component that supports the ReefscapeGame inputs and outputs */
-  ReefscapeGame m_ReefscapeGame;
 
   /** Candle Object */
   CANdle m_CANdle;
 
   /** FMSInfo */
   FMSInfo m_FMSInfo;
+  
+  /** Component that supports the ReefscapeGame inputs and outputs */
+  ReefscapeGame m_ReefscapeGame;
 };
