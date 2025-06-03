@@ -29,6 +29,3 @@ void ReefscapeGame::PostStepCallback()
     // NEO Spark Max motor commands
     ReefscapeGameNeoSet.pullCommands();
 }
-
-void ReefscapeGame::SmartDashboardCallback(){}
-void ReefscapeGame::ChangeGameStatesCallback(){} 

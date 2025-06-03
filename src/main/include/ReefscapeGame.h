@@ -29,23 +29,13 @@ public:
     /**
      * Runs before the step function is called in the main loop
      */
-    void PreStepCallback();
+    void PreStepCallback() override;
 
     /**
      * Runs after the step function is called in the main loop
      */
-    void PostStepCallback();
+    void PostStepCallback() override;
     
-    /**
-     * See PostStep documentation in Robot.h
-     */
-    void ChangeGameStatesCallback();
-
-    /**
-     * Puts values to the SmartDashboard via the SD Callbacks function
-    */
-    void SmartDashboardCallback();
-
     /*
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      * X X X X                 Class Specific Methods                  X X X X

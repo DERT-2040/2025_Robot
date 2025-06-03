@@ -30,13 +30,11 @@ void SwerveDrive::PostStepCallback()
    */
   if(Code_Gen_Model_Y.Enable_Wheels)
   { // Wheels On
-    std::cout << "Swerve Motors Enabled\n";
     swerveDriveMotors.setBrakeModeWhenIdle(true); //brake mode
     swerveSteerMotors.setBrakeModeWhenIdle(true); //brake mode
   }
   else if(Code_Gen_Model_Y.Disable_Wheels)
   { //Wheels Off
-    std::cout << "Swerve Motors Disabled\n";
     swerveDriveMotors.stop();
     swerveSteerMotors.stop();
     swerveDriveMotors.setBrakeModeWhenIdle(false); //coast mode
@@ -58,9 +56,6 @@ void SwerveDrive::PostStepCallback()
   }
 }
 
-void SwerveDrive::SmartDashboardCallback() {}
-void SwerveDrive::ChangeGameStatesCallback() {} 
-
 void SwerveDrive::Initalize_Wheel_Offset() 
 {
   if(!frc::Preferences::ContainsKey(SwerveInfo::k_FrontLeft_Wheel_Offset_Key))
@@ -76,7 +71,6 @@ void SwerveDrive::Initalize_Wheel_Offset()
 
 void SwerveDrive::Set_Wheel_Offset() 
 {
-  std::cout << "Swerve Wheel Offsets Set\n";
   Code_Gen_Model_U.BackLeft_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_BackLeft_Wheel_Offset_Key, 0.0);
   Code_Gen_Model_U.BackRight_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_BackRight_Wheel_Offset_Key, 0.0);
   Code_Gen_Model_U.FrontLeft_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_FrontLeft_Wheel_Offset_Key, 0.0);

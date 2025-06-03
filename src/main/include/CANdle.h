@@ -1,5 +1,3 @@
-#pragma once
-
 #include "lib/include/Component.h"
 #include "ctre/phoenix/led/CANdle.h"
 #include "ctre/phoenix/led/SingleFadeAnimation.h"
@@ -8,28 +6,22 @@
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 #include "include/Constants.h"
 
+#include <cstdint>
+
 class CANdle : public Component
 {
 public:
+    CANdle();
     /**
      * Runs before the step function is called in the main loop
      */
-    void PreStepCallback();
+    void PreStepCallback() override;
 
     /**
      * Runs after the step function is called in the main loop
      */
-    void PostStepCallback();
+    void PostStepCallback() override;
     
-    /**
-     * Puts values to the SmartDashboard via the SD Callbacks function
-     */
-    void SmartDashboardCallback();
-    
-    /**
-     * Callback that triggers when the game state of the robot changes
-     */
-    void GameStateChangeCallback();
 private:
     void TwoColorStrobe(frc::AddressableLED::LEDData colorOne,
                         frc::AddressableLED::LEDData colorTwo,
@@ -37,7 +29,7 @@ private:
                         int LEDOffset,
                         int msPulseWidth);
 
-    u_int64_t time = 0; // ms
+    uint64_t time = 0; // ms
     const int msPerCycle = 20; //ms
     bool isColorOne = true;
 

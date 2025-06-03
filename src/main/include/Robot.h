@@ -1,7 +1,3 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #pragma once
 
 //local
@@ -11,151 +7,75 @@
 #include "include/IMU.h"
 #include "include/SwerveDrive.h"
 #include "include/SimulinkSmartDashboardInterface.h"
-#include "include/FMSInfo.h"
 #include "include/Limelight.h"
 #include "include/ReefscapeGame.h"
 #include "include/CANdle.h"
-// For each component also add content in this file at the bottom of the private area
+#include "include/FMSInfo.h"
 
 //frc
 #include <frc/TimedRobot.h>
+#include <frc/DriverStation.h>
+
 //std
 #include <iostream>
 
 class Robot : public frc::TimedRobot {
  public:
-  /**
-   * Runs once when robot turns on
-   */
+  /** Runs once when robot turns on */
   void RobotInit() override;
-
-  /**
-   * Runs every 20ms regardless of what mode the robot is in
-   */
-  void RobotPeriodic() override;
-
-  /**
-   * Runs once when robot changes into Autonomous mode
-   */
+  /** The following code runs once when its mode is enabledd */
   void AutonomousInit() override;
-
-  /**
-   * runs every 20ms when the robot is in Autonomous mode
-   */
-  void AutonomousPeriodic() override;
-
-  /**
-   * Runs once when robot changes into Teleop mode
-   */
   void TeleopInit() override;
-
-  /**
-   * runs every 20ms when the robot is in Teleop mode
-   */
-  void TeleopPeriodic() override;
-
-  /**
-   * Runs once when robot changes into Disabled mode
-   */
   void DisabledInit() override;
-
-  /**
-   * runs every 20ms when the robot is in Disabled mode
-   */
-  void DisabledPeriodic() override;
-
-  /**
-   * Runs once when robot changes into Test mode
-   */
   void TestInit() override;
-
-  /**
-   * runs every 20ms when the robot is in Test mode
-   */
-  void TestPeriodic() override;
-
-  /**
-   * Runs once when robot changes into Simulation mode
-   */
   void SimulationInit() override;
 
-  /**
-   * runs every 20ms when the robot is in Simulation mode
-   */
-  void SimulationPeriodic() override;
+  /** Runs every 20ms regardless of what mode the robot is in */
+  void RobotPeriodic() override;
+  void AutonomousPeriodic() override {};
+  void TeleopPeriodic() override {};
+  void DisabledPeriodic() override {};
+  void TestPeriodic() override {};
+  void SimulationPeriodic() override {};
 
 private:
-  /**
-   * Puts all inputs from sensors and HIDs into Simulink
-   */
-  void PreStep();
+  /** Puts all inputs from sensors and HIDs into Simulink */
+  void PreStep() {for(auto component : Component::AllCreatedComponents) component->PreStepCallback();}
   
-  /**
-   * Takes outputs from simulink and pushes their commands to hardware
-   */
-  void PostStep();
+  /** Takes outputs from simulink and pushes their commands to hardware */
+  void PostStep() {for(auto component : Component::AllCreatedComponents) component->PostStepCallback();}
   
-  /**
-   * Resets variables when the game state changes (teleop, auto, test, etc.)
-   */
-  void GameInitValues();
-
-   /**
-   * Updates all individal components SmartDashboard values and pushes those updates
-   */
-  void UpdateSmartDashboardValues();
-
   /*
-   * Below are the instances of the subsystems used by the robot
+   * Below are the instances of the components used by the robot
    * Everything here should be direct hardware control, only
    * functions that manipulate global variables declared by Simulink
    * are exceptions to this rule.
    */
 
-  /**
-   * Component Object for Human Input Devices
-   */
+  /** Monitor code execution time */
+  frc::Tracer m_Tracer{};
+
+  /** Component Object for Human Input Devices */
   HIDs m_HIDs;
   
-  /**
-   * Component Object for the IMU pigeon2
-   */
+  /** Component Object for the IMU pigeon2 */
   IMU m_IMU;
   
-  /**
-   * Component Object for Limelight Vision
-   */
+  /** Component Object for Limelight Vision */
   Limelight m_Limelight;
 
-  /**
-   * Component Object for all Swerve Drive objects such as sensors and motors
-   */
+  /** Component Object for all Swerve Drive objects such as sensors and motors*/
   SwerveDrive m_SwerveDrive;
-  
-  // PhotonVisionInterface m_PhotonVisionInterface;
-  
-  /**
-   * Monitor code execution time
-   */
-  frc::Tracer m_Tracer{};
-  
-  /**
-   * Component for all Tunable Parameters created by simulink
-   */
+    
+  /** Component for all Tunable Parameters created by simulink */
   SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  
-  
-  /**
-   * Component that reads the field management system info from smart dashboard and puts it into simulink
-   */
+
+  /** Candle Object */
+  CANdle m_CANdle;
+
+  /** FMSInfo */
   FMSInfo m_FMSInfo;
-
-  /**
-   * Component that supports the ReefscapeGame inputs and outputs
-   */
+  
+  /** Component that supports the ReefscapeGame inputs and outputs */
   ReefscapeGame m_ReefscapeGame;
-
-  /**
-   * Candle Object
-   */
-  //CANdle m_CANdle;
 };
