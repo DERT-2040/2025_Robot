@@ -8,8 +8,8 @@
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
  * Model version                  : 2.395
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Apr  6 14:18:14 2025
+ * Simulink Coder version         : 25.1 (R2025a) 21-Nov-2024
+ * C/C++ source code generated on : Thu Jul 10 15:34:56 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7

@@ -3,7 +3,7 @@
 // Local
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 #include "LimelightHelpers.h"
-#include "lib/include/Component.h"
+#include "DertLib/include/Component.h"
 #include "include/Constants.h"
 
 //wpilib
@@ -14,7 +14,7 @@
 namespace LimelightNameSpace = Constants::Limelight;
 namespace kIMU = Constants::IMU;
 
-class Limelight : public Component {
+class Limelight : public dlib::Component {
     public: 
      Limelight();
      void PreStepCallback() override;

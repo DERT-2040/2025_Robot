@@ -2,9 +2,9 @@
 
 //local
 #include "include/Constants.h"
-#include "lib/include/Component.h"
-#include "lib/include/NeoSet.h"
-#include "lib/include/KrakenSet.h"
+#include "DertLib/include/Component.h"
+#include "DertLib/include/NeoSet.h"
+#include "DertLib/include/KrakenSet.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 
 //frc
@@ -23,7 +23,7 @@ namespace Drive = Constants::SwerveMotorsCreateInfo::Drive;
 namespace Steer = Constants::SwerveMotorsCreateInfo::Steer;
 namespace SwerveInfo = Constants::SwerveInfo;
 
-class SwerveDrive : public Component
+class SwerveDrive : public dlib::Component
 {
 public:
   SwerveDrive();
@@ -37,7 +37,7 @@ private:
   /** Sets the simulink variables for wheel offsets to what is in the robot preferences */
   void Set_Wheel_Offset();
 
-  KrakenSet swerveDriveMotors
+  dlib::KrakenSet swerveDriveMotors
   {
     {
       Drive::frontLeft, Drive::frontRight,
@@ -45,7 +45,7 @@ private:
     }
   };
   
-  NeoSet swerveSteerMotors
+  dlib::NeoSet swerveSteerMotors
   {
     {
       Steer::frontLeft, Steer::frontRight,

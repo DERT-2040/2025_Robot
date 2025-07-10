@@ -8,8 +8,8 @@
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
  * Model version                  : 2.395
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Apr  6 14:18:14 2025
+ * Simulink Coder version         : 25.1 (R2025a) 21-Nov-2024
+ * C/C++ source code generated on : Thu Jul 10 15:34:56 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -17,15 +17,16 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_Code_Gen_Model_h_
-#define RTW_HEADER_Code_Gen_Model_h_
+#ifndef Code_Gen_Model_h_
+#define Code_Gen_Model_h_
 #ifndef Code_Gen_Model_COMMON_INCLUDES_
 #define Code_Gen_Model_COMMON_INCLUDES_
 #include "rtwtypes.h"
+#include "rt_nonfinite.h"
+#include "math.h"
 #endif                                 /* Code_Gen_Model_COMMON_INCLUDES_ */
 
 #include "Code_Gen_Model_types.h"
-#include "rt_nonfinite.h"
 #include "rtGetInf.h"
 #include "rtGetNaN.h"
 
@@ -37,44 +38,6 @@
 #ifndef rtmSetErrorStatus
 #define rtmSetErrorStatus(rtm, val)    ((rtm)->errorStatus = (val))
 #endif
-
-/* Block states (default storage) for system '<S9>/Debounce' */
-typedef struct {
-  real_T timer;                        /* '<S9>/Debounce' */
-  uint8_T is_active_c3_Controls_Component;/* '<S9>/Debounce' */
-  uint8_T is_c3_Controls_Components_lib;/* '<S9>/Debounce' */
-} DW_Debounce_Code_Gen_Model_T;
-
-/* Block states (default storage) for system '<S31>/Reefscape_Chart' */
-typedef struct {
-  real_T timer;                        /* '<S31>/Reefscape_Chart' */
-  real_T timer_robot_target;           /* '<S31>/Reefscape_Chart' */
-  uint8_T is_active_c5_Code_Gen_Model; /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S31>/Reefscape_Chart' */
-  uint8_T is_Algae_Pickup_High;        /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Algae_Pickup_Low;         /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Algae_Score;              /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Coral;                    /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Coral_Eject;              /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Level_2;                  /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Level_3;                  /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Level_4_Auto;             /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Level_4_Teleop;           /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Coral_Score_Position;     /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Actions;                  /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Coral_Pickup_Prepare;     /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Set_Level;                /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Elevator_Height_Bottom;   /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Elevator_Height_Bottom_pre;/* '<S31>/Reefscape_Chart' */
-  uint8_T is_End_Game_Climb;           /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Set_Level_n;              /* '<S31>/Reefscape_Chart' */
-  uint8_T is_Algae_Wheels;             /* '<S31>/Reefscape_Chart' */
-  uint8_T is_AT_On_Target_Timer;       /* '<S31>/Reefscape_Chart' */
-  boolean_T Set_L1;                    /* '<S31>/Reefscape_Chart' */
-  boolean_T Set_L2;                    /* '<S31>/Reefscape_Chart' */
-  boolean_T Set_L3;                    /* '<S31>/Reefscape_Chart' */
-  boolean_T Set_L4;                    /* '<S31>/Reefscape_Chart' */
-} DW_Reefscape_Chart_Code_Gen_M_T;
 
 /* Block signals (default storage) */
 typedef struct {
@@ -141,6 +104,8 @@ typedef struct {
   real_T Odometry_X_global_est_ft;     /* '<S195>/meters to feet' */
   real_T Odometry_X_global_TEAR_ft;    /* '<S195>/Subtract' */
   real_T Steer_Joystick_X;             /* '<S16>/Signal Copy4' */
+  real_T DeadZone;                     /* '<S415>/Dead Zone' */
+  real_T DeadZone1;                    /* '<S415>/Dead Zone1' */
   real_T AT_Relative_Error_Error_Y;    /* '<S26>/Signal Copy8' */
   real_T AT_Relative_Error_Error_X;    /* '<S26>/Signal Copy7' */
   real_T AT_Relative_Error_Angle;      /* '<S26>/Signal Copy9' */
@@ -155,12 +120,12 @@ typedef struct {
   real_T Auto_AT_Relative_Error_Y;     /* '<S28>/Signal Copy6' */
   real_T Auto_AT_Relative_Error_X;     /* '<S28>/Signal Copy2' */
   real_T Auto_AT_Relative_Error_Angle; /* '<S28>/Signal Copy7' */
-  real_T Translation_Speed_g;          /* '<S28>/Reefscape_Auto_Steps' */
-  real_T Translation_Angle_l;          /* '<S28>/Reefscape_Auto_Steps' */
+  real_T Translation_Speed_l;          /* '<S28>/Reefscape_Auto_Steps' */
+  real_T Translation_Angle_g;          /* '<S28>/Reefscape_Auto_Steps' */
   real_T State_ID_Auto;                /* '<S31>/Reefscape_Chart' */
-  real_T Elevator_Height_Desired_h;    /* '<S31>/Reefscape_Chart' */
-  real_T Coral_Arm_Angle_Desired_f;    /* '<S31>/Reefscape_Chart' */
-  real_T Coral_Wheel_DC_a;             /* '<S31>/Reefscape_Chart' */
+  real_T Elevator_Height_Desired_o;    /* '<S31>/Reefscape_Chart' */
+  real_T Coral_Arm_Angle_Desired_c;    /* '<S31>/Reefscape_Chart' */
+  real_T Coral_Wheel_DC_e;             /* '<S31>/Reefscape_Chart' */
   real_T Spline_Follow_Index;          /* '<S204>/Merge4' */
   real_T Spline_Target_Y;              /* '<S201>/Selector6' */
   real_T Spline_Target_X;              /* '<S201>/Selector2' */
@@ -173,7 +138,7 @@ typedef struct {
   uint8_T Set_Algae_Level;             /* '<S415>/Reefscape_Chart' */
   uint8_T Path_ID;                     /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T Auto_Step_ID;                /* '<S28>/Reefscape_Auto_Steps' */
-  uint8_T Set_Algae_Level_p;           /* '<S31>/Reefscape_Chart' */
+  uint8_T Set_Algae_Level_n;           /* '<S31>/Reefscape_Chart' */
   uint8_T Active_GameState;            /* '<S22>/Chart' */
   boolean_T Button_Enable_Wheels;      /* '<S129>/FixPt Relational Operator' */
   boolean_T Button_Reset_Wheel_Offsets;/* '<S130>/FixPt Relational Operator' */
@@ -192,6 +157,8 @@ typedef struct {
   boolean_T Gamepad_POV_Down;          /* '<S115>/Compare' */
   boolean_T Gamepad_POV_Left;          /* '<S117>/Compare' */
   boolean_T Gamepad_POV_Right;         /* '<S116>/Compare' */
+  boolean_T Compare;                   /* '<S6>/Compare' */
+  boolean_T Compare_f;                 /* '<S7>/Compare' */
   boolean_T Spline_Enable;             /* '<S20>/Merge7' */
   boolean_T Is_Absolute_Translation_SPF;/* '<S23>/Merge4' */
   boolean_T Is_Absolute_Steering_SPF;  /* '<S23>/Merge5' */
@@ -202,30 +169,54 @@ typedef struct {
   boolean_T Robot_Reached_Destination_l;/* '<S23>/Merge7' */
   boolean_T Test_Mode;                 /* '<S20>/Merge10' */
   boolean_T Elevator_LowerPickup_Reset_merg;/* '<S20>/Merge21' */
+  boolean_T FixPtRelationalOperator;   /* '<S456>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_n; /* '<S457>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_k; /* '<S462>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_d; /* '<S463>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_ne;/* '<S464>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_j; /* '<S458>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_l; /* '<S465>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_i; /* '<S466>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_m; /* '<S467>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_ji;/* '<S459>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_ml;/* '<S460>/FixPt Relational Operator' */
+  boolean_T UnitDelay;                 /* '<S26>/Unit Delay' */
   boolean_T AT_Relative_Error_Enable;  /* '<S26>/Signal Copy6' */
   boolean_T Steering_Abs_Angle_Active; /* '<S435>/AND6' */
   boolean_T Teleop_AT_On_Target;       /* '<S26>/Signal Copy10' */
   boolean_T Elevator_LowerPickup_Reset;/* '<S415>/Reefscape_Chart' */
   boolean_T Coral_Pickup_Lower_Wait_State;/* '<S415>/Reefscape_Chart' */
+  boolean_T FixPtRelationalOperator_nw;/* '<S54>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_dd;/* '<S55>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_o; /* '<S60>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_a; /* '<S61>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_oi;/* '<S62>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_p; /* '<S56>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_dp;/* '<S63>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_af;/* '<S64>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_oe;/* '<S65>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_e; /* '<S57>/FixPt Relational Operator' */
+  boolean_T FixPtRelationalOperator_lp;/* '<S58>/FixPt Relational Operator' */
+  boolean_T UnitDelay_b;               /* '<S28>/Unit Delay' */
   boolean_T Auto_AT_Relative_Enable;   /* '<S28>/Signal Copy1' */
   boolean_T Auto_AT_On_Target;         /* '<S28>/Signal Copy8' */
-  boolean_T Align_Left_d;              /* '<S28>/Reefscape_Auto_Steps' */
-  boolean_T Align_Center_a;            /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Align_Left_p;              /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Align_Center_j;            /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_B4_Y_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_Start_out;         /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_Back_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_RT_out;            /* '<S28>/Reefscape_Auto_Steps' */
-  boolean_T Gamepad_POV_Down_k;        /* '<S28>/Reefscape_Auto_Steps' */
+  boolean_T Gamepad_POV_Down_a;        /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_POV_Left_p;        /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Path_Enable;               /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_B1_A_out;          /* '<S28>/Reefscape_Auto_Steps' */
   boolean_T Gamepad_B3_X_out;          /* '<S28>/Reefscape_Auto_Steps' */
-  boolean_T Elevator_LowerPickup_Reset_g;/* '<S31>/Reefscape_Chart' */
-  boolean_T Coral_Pickup_Lower_Wait_State_m;/* '<S31>/Reefscape_Chart' */
-  boolean_T Coral_Score_j;             /* '<S31>/Reefscape_Chart' */
+  boolean_T Elevator_LowerPickup_Reset_l;/* '<S31>/Reefscape_Chart' */
+  boolean_T Coral_Pickup_Lower_Wait_State_o;/* '<S31>/Reefscape_Chart' */
+  boolean_T Coral_Score_l;             /* '<S31>/Reefscape_Chart' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S204>/Merge1' */
   boolean_T Out;                       /* '<S10>/Debounce' */
-  boolean_T Out_h;                     /* '<S9>/Debounce' */
+  boolean_T Out_m;                     /* '<S9>/Debounce' */
 } B_Code_Gen_Model_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -308,7 +299,13 @@ typedef struct {
   real_T UnitDelay_DSTATE_g4;          /* '<S252>/Unit Delay' */
   real_T UnitDelay_DSTATE_le;          /* '<S202>/Unit Delay' */
   real_T UnitDelay1_DSTATE_kc;         /* '<S202>/Unit Delay1' */
-  real_T timer;                        /* '<S28>/Reefscape_Auto_Steps' */
+  real_T timer;                        /* '<S415>/Reefscape_Chart' */
+  real_T timer_robot_target;           /* '<S415>/Reefscape_Chart' */
+  real_T timer_k;                      /* '<S28>/Reefscape_Auto_Steps' */
+  real_T timer_g;                      /* '<S31>/Reefscape_Chart' */
+  real_T timer_robot_target_d;         /* '<S31>/Reefscape_Chart' */
+  real_T timer_m;                      /* '<S10>/Debounce' */
+  real_T timer_d;                      /* '<S9>/Debounce' */
   void *MatrixConcatenate_PWORK;       /* '<S221>/Matrix Concatenate' */
   int32_T Selector5_DIMS1[2];          /* '<S221>/Selector5' */
   int32_T MatrixConcatenate_DIMS1[2];  /* '<S221>/Matrix Concatenate' */
@@ -368,6 +365,27 @@ typedef struct {
   int8_T If_ActiveSubsystem_h;         /* '<S204>/If' */
   int8_T If_ActiveSubsystem_o;         /* '<S207>/If' */
   int8_T If_ActiveSubsystem_d;         /* '<S209>/If' */
+  uint8_T is_active_c4_Code_Gen_Model; /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S415>/Reefscape_Chart' */
+  uint8_T is_Algae_Pickup_High;        /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Algae_Pickup_Low;         /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Algae_Score;              /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Coral;                    /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Coral_Eject;              /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Level_2;                  /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Level_3;                  /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Level_4_Auto;             /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Level_4_Teleop;           /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Coral_Score_Position;     /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Actions;                  /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Coral_Pickup_Prepare;     /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Set_Level;                /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Elevator_Height_Bottom;   /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Elevator_Height_Bottom_pre;/* '<S415>/Reefscape_Chart' */
+  uint8_T is_End_Game_Climb;           /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Set_Level_b;              /* '<S415>/Reefscape_Chart' */
+  uint8_T is_Algae_Wheels;             /* '<S415>/Reefscape_Chart' */
+  uint8_T is_AT_On_Target_Timer;       /* '<S415>/Reefscape_Chart' */
   uint8_T is_active_c6_Code_Gen_Model; /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_c6_Code_Gen_Model;        /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Center;                   /* '<S28>/Reefscape_Auto_Steps' */
@@ -377,16 +395,45 @@ typedef struct {
   uint8_T is_Drive;                    /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_2;           /* '<S28>/Reefscape_Auto_Steps' */
   uint8_T is_Path_to_Reef_2_v2;        /* '<S28>/Reefscape_Auto_Steps' */
+  uint8_T is_active_c5_Code_Gen_Model; /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Elevator_CoralArm_CoralWhe_p;/* '<S31>/Reefscape_Chart' */
+  uint8_T is_Algae_Pickup_High_l;      /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Algae_Pickup_Low_e;       /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Algae_Score_o;            /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Coral_n;                  /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Coral_Eject_m;            /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Level_2_m;                /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Level_3_l;                /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Level_4_Auto_c;           /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Level_4_Teleop_l;         /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Coral_Score_Position_k;   /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Actions_j;                /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Coral_Pickup_Prepare_l;   /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Set_Level_d;              /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Elevator_Height_Bottom_h; /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Elevator_Height_Bottom_pre_h;/* '<S31>/Reefscape_Chart' */
+  uint8_T is_End_Game_Climb_l;         /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Set_Level_f;              /* '<S31>/Reefscape_Chart' */
+  uint8_T is_Algae_Wheels_p;           /* '<S31>/Reefscape_Chart' */
+  uint8_T is_AT_On_Target_Timer_k;     /* '<S31>/Reefscape_Chart' */
   uint8_T is_active_c9_Code_Gen_Model; /* '<S22>/Chart' */
   uint8_T is_c9_Code_Gen_Model;        /* '<S22>/Chart' */
+  uint8_T is_active_c3_Controls_Component;/* '<S10>/Debounce' */
+  uint8_T is_c3_Controls_Components_lib;/* '<S10>/Debounce' */
+  uint8_T is_active_c3_Controls_Compone_a;/* '<S9>/Debounce' */
+  uint8_T is_c3_Controls_Components_lib_g;/* '<S9>/Debounce' */
   boolean_T icLoad;                    /* '<S132>/MemoryX' */
+  boolean_T Set_L1;                    /* '<S415>/Reefscape_Chart' */
+  boolean_T Set_L2;                    /* '<S415>/Reefscape_Chart' */
+  boolean_T Set_L3;                    /* '<S415>/Reefscape_Chart' */
+  boolean_T Set_L4;                    /* '<S415>/Reefscape_Chart' */
+  boolean_T Set_L1_n;                  /* '<S31>/Reefscape_Chart' */
+  boolean_T Set_L2_j;                  /* '<S31>/Reefscape_Chart' */
+  boolean_T Set_L3_h;                  /* '<S31>/Reefscape_Chart' */
+  boolean_T Set_L4_d;                  /* '<S31>/Reefscape_Chart' */
   boolean_T Relay_Mode;                /* '<S234>/Relay' */
   boolean_T EnabledSubsystem_MODE;     /* '<S159>/Enabled Subsystem' */
   boolean_T MeasurementUpdate_MODE;    /* '<S152>/MeasurementUpdate' */
-  DW_Reefscape_Chart_Code_Gen_M_T sf_Reefscape_Chart_n;/* '<S415>/Reefscape_Chart' */
-  DW_Reefscape_Chart_Code_Gen_M_T sf_Reefscape_Chart;/* '<S31>/Reefscape_Chart' */
-  DW_Debounce_Code_Gen_Model_T sf_Debounce_m;/* '<S10>/Debounce' */
-  DW_Debounce_Code_Gen_Model_T sf_Debounce;/* '<S9>/Debounce' */
 } DW_Code_Gen_Model_T;
 
 /* Invariant block signals (default storage) */
@@ -2148,7 +2195,7 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S469>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Detect Increase9'
  * '<S470>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Reefscape Teleop/Reefscape_Chart'
  */
-#endif                                 /* RTW_HEADER_Code_Gen_Model_h_ */
+#endif                                 /* Code_Gen_Model_h_ */
 
 /*
  * File trailer for generated code.

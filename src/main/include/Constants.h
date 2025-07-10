@@ -6,10 +6,12 @@
 #include <frc/AddressableLED.h>
 
 //local
-#include "lib/include/NeoSpark.h"
-#include "lib/include/KrakenTalon.h"
+#include "DertLib/include/NeoSpark.h"
+#include "DertLib/include/KrakenTalon.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 #include "LimelightHelpers.h"
+
+using namespace dlib;
 
 namespace Constants
 {

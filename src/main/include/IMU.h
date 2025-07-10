@@ -1,7 +1,7 @@
 #pragma once
 
 //local
-#include "lib/include/Component.h"
+#include "DertLib/include/Component.h"
 #include "include/Constants.h"
 
 //crte
@@ -11,7 +11,7 @@
 
 namespace kIMU = Constants::IMU;
 
-class IMU : public Component
+class IMU : public dlib::Component
 {
 public:
     IMU();

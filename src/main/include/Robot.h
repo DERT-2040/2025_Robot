@@ -2,7 +2,7 @@
 
 //local
 #include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
-#include "lib/include/Component.h"
+#include "DertLib/include/Component.h"
 #include "include/HIDs.h"
 #include "include/IMU.h"
 #include "include/SwerveDrive.h"
@@ -40,10 +40,10 @@ class Robot : public frc::TimedRobot {
 
 private:
   /** Puts all inputs from sensors and HIDs into Simulink */
-  void PreStep() {for(auto component : Component::AllCreatedComponents) component->PreStepCallback();}
+  void PreStep() {for(auto component : dlib::Component::AllCreatedComponents) component->PreStepCallback();}
   
   /** Takes outputs from simulink and pushes their commands to hardware */
-  void PostStep() {for(auto component : Component::AllCreatedComponents) component->PostStepCallback();}
+  void PostStep() {for(auto component : dlib::Component::AllCreatedComponents) component->PostStepCallback();}
   
   /*
    * Below are the instances of the components used by the robot
