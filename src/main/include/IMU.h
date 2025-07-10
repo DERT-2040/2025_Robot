@@ -15,23 +15,9 @@ class IMU : public Component
 {
 public:
     IMU();
-
-    /**
-     * Runs before the step function is called in the main loop
-     */
     void PreStepCallback() override;
-
-    /**
-     * Runs after the step function is called in the main loop
-     */
     void PostStepCallback() override;
-    
-    /*
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     * X X X X                 Class Specific Methods                  X X X X
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     */
-    private:
+private:
     /**
      * Pigeon 2 IMU from CRTE
     */

@@ -25,25 +25,10 @@ class ReefscapeGame : public Component
 {
 public:
   ReefscapeGame();
-    
-    /**
-     * Runs before the step function is called in the main loop
-     */
-    void PreStepCallback() override;
-
-    /**
-     * Runs after the step function is called in the main loop
-     */
-    void PostStepCallback() override;
-    
-    /*
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     * X X X X                 Class Specific Methods                  X X X X
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     */
+  void PreStepCallback() override;
+  void PostStepCallback() override;
 
 private:
- 
   // NEO Spark Max motor controllers
   NeoSet ReefscapeGameNeoSet
   {

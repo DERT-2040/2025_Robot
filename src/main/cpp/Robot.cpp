@@ -22,6 +22,10 @@ void Robot::RobotPeriodic()
   m_Tracer.AddEpoch("After PostStep");
 }
 
+void PreStep() {for(auto component : Component::AllCreatedComponents) component->PreStepCallback();}
+  
+  /** Takes outputs from simulink and pushes their commands to hardware */
+  void PostStep() {for(auto component : Component::AllCreatedComponents) component->PostStepCallback();}
 #ifndef RUNNING_FRC_TESTS
 int main() 
 {

@@ -6,6 +6,7 @@
 #include "lib/include/NeoSet.h"
 #include "lib/include/KrakenSet.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
+
 //frc
 #include <frc/DutyCycleEncoder.h>
 #include <frc/Preferences.h>
@@ -26,35 +27,17 @@ class SwerveDrive : public Component
 {
 public:
   SwerveDrive();
-    
-    /**
-     * Runs before the step function is called in the main loop
-     */
-    void PreStepCallback() override;
-
-    /**
-     * Runs after the step function is called in the main loop
-     */
-    void PostStepCallback() override;
-    
-    /*
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     * X X X X                 Class Specific Methods                  X X X X
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     */
-
-    /**
-     * Creates the wheel offset preferences if they have not been created
-     */
-    void Initalize_Wheel_Offset();
-
-    /**
-     * Sets the simulink variables for wheel offsets to what is in the robot preferences
-     */
-    void Set_Wheel_Offset();
+  void PreStepCallback() override;
+  void PostStepCallback() override;
 
 private:
-    KrakenSet swerveDriveMotors
+  /** Creates the wheel offset preferences if they have not been created */
+  void Initalize_Wheel_Offset();
+
+  /** Sets the simulink variables for wheel offsets to what is in the robot preferences */
+  void Set_Wheel_Offset();
+
+  KrakenSet swerveDriveMotors
   {
     {
       Drive::frontLeft, Drive::frontRight,

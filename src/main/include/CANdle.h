@@ -12,16 +12,8 @@ class CANdle : public Component
 {
 public:
     CANdle();
-    /**
-     * Runs before the step function is called in the main loop
-     */
     void PreStepCallback() override;
-
-    /**
-     * Runs after the step function is called in the main loop
-     */
     void PostStepCallback() override;
-    
 private:
     void TwoColorStrobe(frc::AddressableLED::LEDData colorOne,
                         frc::AddressableLED::LEDData colorTwo,

@@ -2,41 +2,44 @@
 
 Limelight::Limelight()
 {
-    LimelightHelpers::setCameraPose_RobotSpace("limelight-one", 
-        7.8/39.37008,   // Forward offset (meters)
-        9.4/39.37008,   // Side offset (meters)
-        12.5/39.37008,  // Height offset (meters)
-        0.0,            // Roll (degrees)
-        9.0,            // Pitch (degrees)
-        22.2            // Yaw (degrees)
+    LimelightHelpers::setCameraPose_RobotSpace(
+        LimelightNameSpace::CameraOneCreateInfo.LimelightName,
+        LimelightNameSpace::CameraOneCreateInfo.ForwardOffset,
+        LimelightNameSpace::CameraOneCreateInfo.SideOffset,
+        LimelightNameSpace::CameraOneCreateInfo.HeightOffset,
+        LimelightNameSpace::CameraOneCreateInfo.Roll,
+        LimelightNameSpace::CameraOneCreateInfo.Pitch,
+        LimelightNameSpace::CameraOneCreateInfo.Yaw
     );
-    LimelightHelpers::setCameraPose_RobotSpace("limelight-two", 
-        0.5,    // Forward offset (meters)
-        0.0,    // Side offset (meters)
-        0.5,    // Height offset (meters)
-        0.0,    // Roll (degrees)
-        30.0,   // Pitch (degrees)
-        0.0     // Yaw (degrees)
+
+    LimelightHelpers::setCameraPose_RobotSpace(
+        LimelightNameSpace::CameraTwoCreateInfo.LimelightName,
+        LimelightNameSpace::CameraTwoCreateInfo.ForwardOffset,
+        LimelightNameSpace::CameraTwoCreateInfo.SideOffset,
+        LimelightNameSpace::CameraTwoCreateInfo.HeightOffset,
+        LimelightNameSpace::CameraTwoCreateInfo.Roll,
+        LimelightNameSpace::CameraTwoCreateInfo.Pitch,
+        LimelightNameSpace::CameraTwoCreateInfo.Yaw
     );
 }
 
 void Limelight::PreStepCallback() {
     // Check if Limelight One is Connected
-    CameraOneDisconnectedAlert.Set(!nt::NetworkTableInstance::GetDefault().GetTable("limelight-one")->ContainsKey("cl"));
-    //CameraTwoDisconnectedAlert.Set(!nt::NetworkTableInstance::GetDefault().GetTable("limelight-two")->ContainsKey("cl"));
+    CameraOneDisconnectedAlert.Set(!nt::NetworkTableInstance::GetDefault().GetTable(LimelightNameSpace::CameraOneCreateInfo.LimelightName)->ContainsKey("cl"));
+    //CameraTwoDisconnectedAlert.Set(!nt::NetworkTableInstance::GetDefault().GetTable(LimelightNameSpace::CameraTwoCreateInfo.LimelightName)->ContainsKey("cl"));
 
     auto adjustedGyro = m_Pigeon2.GetRotation2d().Degrees().value() + Gyro_Offset;
 
     //Sets Robot Oriention (MT2 Requirement)
-    LimelightHelpers::SetRobotOrientation("limelight-one", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
-    LimelightHelpers::SetRobotOrientation("limelight-two", adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
+    LimelightHelpers::SetRobotOrientation(LimelightNameSpace::CameraOneCreateInfo.LimelightName, adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
+    LimelightHelpers::SetRobotOrientation(LimelightNameSpace::CameraTwoCreateInfo.LimelightName, adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
 
     //Updates Pose
-    CameraOneLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-one");
-    CameraTwoLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue("limelight-two");
+    CameraOneLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue(LimelightNameSpace::CameraOneCreateInfo.LimelightName);
+    CameraTwoLLMeasurement = LimelightHelpers::getBotPoseEstimate_wpiBlue(LimelightNameSpace::CameraTwoCreateInfo.LimelightName);
 
     // Robot Pose Relative to Tag
-    std::vector<double> CameraOneRobotPose = LimelightHelpers::getTargetPose_RobotSpace("limelight-one");
+    std::vector<double> CameraOneRobotPose = LimelightHelpers::getTargetPose_RobotSpace(LimelightNameSpace::CameraOneCreateInfo.LimelightName);
     size_t vectorLength = CameraOneRobotPose.size();
 
     if (vectorLength > 1) {

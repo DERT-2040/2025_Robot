@@ -7,47 +7,14 @@
 //frc
 #include <frc/Joystick.h>
 #include <frc/GenericHID.h>
-// #include <frc/XboxController.h>
 
 namespace HID = Constants::HID;
 
 class HIDs : public Component
 {
 public:
-    /**
-     * returns a reference to the m_Gamepad Object
-    */
-    frc::GenericHID& Get_Gamepad() { return m_Gamepad; }
-
-    /**
-     * returns a reference to the m_XboxGamepad Object
-    */
-    // frc::GenericHID& Get_XboxGamepad() { return m_XboxGamepad; }
-
-    /**
-     * returns a reference to the m_Drive_Joystick Object
-    */
-    frc::GenericHID& Get_Left_Joystick() { return m_Left_Joystick; }
-
-    /**
-     * returns a reference to the m_Steer_Joystick Object
-    */
-    frc::GenericHID& Get_Steer_Joystick() { return m_Right_Joystick; }
-    /**
-     * Runs before the step function is called in the main loop
-     */
     void PreStepCallback() override;
-
-    /**
-     * Runs after the step function is called in the main loop
-     */
     void PostStepCallback() override;
-    
-    /*
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     * X X X X                 Class Specific Methods                  X X X X
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     */
 private:
     /**
      * The gamepad used for robot implements.
@@ -71,11 +38,6 @@ private:
      *    10: Right Joystick
      */
     frc::GenericHID m_Gamepad{HID::k_Gamepad_Port};
-
-    /*
-     * XBOX Controller
-     */
-    // frc::XboxController m_XboxGamepad{Constants::k_Gamepad_Port};
 
     /**
      * Joystick that is on the index of k_Drive_Joystick_Port

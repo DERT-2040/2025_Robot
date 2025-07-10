@@ -1,9 +1,22 @@
 #pragma once
 // THIS FILE HAS BEEN EDITED TO MAKE IT PORTABLE
+// IF THIS NEEDS TO BE UPDATED ASK JANELYN FOR HELP IF YOU CAN NOT FIGURE IT OUT
 
 ///
 //https://github.com/LimelightVision/limelightlib-wpicpp
 ///
+
+#include <string>
+struct LimeLightCameraCreateInfo
+{
+  std::string LimelightName;  // Limelight Name
+  double ForwardOffset;       // Forward offset (meters)
+  double SideOffset;          // Side offset (meters)
+  double HeightOffset;        // Height offset (meters)
+  double Roll;                // Roll (degrees)
+  double Pitch;               // Pitch (degrees)
+  double Yaw;                  // Yaw (degrees)
+};
 
 #include "networktables/NetworkTable.h"
 #include "networktables/NetworkTableInstance.h"

@@ -22,20 +22,20 @@
 class Robot : public frc::TimedRobot {
  public:
   /** Runs once when robot turns on */
-  void RobotInit() override;
+  void RobotInit()      override;
   /** The following code runs once when its mode is enabledd */
   void AutonomousInit() override;
-  void TeleopInit() override;
-  void DisabledInit() override;
-  void TestInit() override;
+  void TeleopInit()     override;
+  void DisabledInit()   override;
+  void TestInit()       override;
   void SimulationInit() override;
 
   /** Runs every 20ms regardless of what mode the robot is in */
-  void RobotPeriodic() override;
+  void RobotPeriodic()      override;
   void AutonomousPeriodic() override {};
-  void TeleopPeriodic() override {};
-  void DisabledPeriodic() override {};
-  void TestPeriodic() override {};
+  void TeleopPeriodic()     override {};
+  void DisabledPeriodic()   override {};
+  void TestPeriodic()       override {};
   void SimulationPeriodic() override {};
 
 private:
