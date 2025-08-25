@@ -8,8 +8,6 @@
 #include "include/SwerveDrive.h"
 #include "include/SimulinkSmartDashboardInterface.h"
 #include "include/Limelight.h"
-#include "include/ReefscapeGame.h"
-#include "include/CANdle.h"
 #include "include/FMSInfo.h"
 
 //frc
@@ -70,12 +68,8 @@ private:
   /** Component for all Tunable Parameters created by simulink */
   SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  
 
-  /** Candle Object */
-  CANdle m_CANdle;
 
   /** FMSInfo */
   FMSInfo m_FMSInfo;
   
-  /** Component that supports the ReefscapeGame inputs and outputs */
-  ReefscapeGame m_ReefscapeGame;
 };

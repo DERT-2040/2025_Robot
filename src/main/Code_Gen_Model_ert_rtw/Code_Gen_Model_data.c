@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.395
+ * Model version                  : 2.396
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Apr  6 14:18:14 2025
+ * C/C++ source code generated on : Thu Aug 14 19:58:34 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -21,8 +21,12 @@
 
 /* Invariant block signals (default storage) */
 const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
+  1.0,                                 /* '<S8>/1-D Lookup Table' */
+  -0.1,                                /* '<S8>/1-D Lookup Table1' */
   1.0,                                 /* '<S74>/Unary Minus' */
   1.0,                                 /* '<S92>/Unary Minus' */
+  -30.0,                          /* '<S12>/Range of Motion Protection Limit' */
+  0.0,                                 /* '<S14>/Abs' */
   -1.0,                                /* '<S280>/Cos5' */
   1.2246467991473532E-16,              /* '<S280>/Sin5' */
   -1.0,                                /* '<S301>/Cos5' */
@@ -40,7 +44,11 @@ const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
   2.5172245747497866,                  /* '<S353>/Atan3' */
   4.0880209015446827,                  /* '<S353>/Add2' */
   -2.5172245747497866,                 /* '<S353>/Atan4' */
-  -0.94642824795489                    /* '<S353>/Add3' */
+  -0.94642824795489,                   /* '<S353>/Add3' */
+  false,                               /* '<S4>/Compare' */
+  false,                               /* '<S5>/Compare' */
+  false,                               /* '<S6>/Compare' */
+  false                                /* '<S7>/Compare' */
 };
 
 /* Constant parameters (default storage) */
@@ -296,27 +304,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
     -26.000000000000004, -25.0, -24.0, -23.0, -21.999999999999996, -21.0, -20.0,
     -19.0, -18.0, -17.0, -16.0, -14.999999999999998, -14.0, -13.000000000000002,
     -12.0, -10.999999999999998, -10.0, -9.0, -8.0, -7.0, -6.0, -5.0, -4.0, -3.0,
-    -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 },
-
-  /* Expression: Coral_Arm_DC_Upper_Limit_Out
-   * Referenced by: '<S8>/1-D Lookup Table'
-   */
-  { 1.0, 0.42, 0.24 },
-
-  /* Expression: Coral_Arm_DC_Upper_Limit_Angle_In
-   * Referenced by: '<S8>/1-D Lookup Table'
-   */
-  { 0.0, 50.0, 80.0 },
-
-  /* Expression: Coral_Arm_DC_Lower_Limit_Out
-   * Referenced by: '<S8>/1-D Lookup Table1'
-   */
-  { -0.1, -0.25 },
-
-  /* Expression: Coral_Arm_DC_Lower_Limit_Angle_In
-   * Referenced by: '<S8>/1-D Lookup Table1'
-   */
-  { -80.0, -40.0 }
+    -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 }
 };
 
 /*
