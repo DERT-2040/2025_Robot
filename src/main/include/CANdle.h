@@ -1,4 +1,4 @@
-#include "lib/include/Component.h"
+#include "DertLib/include/Component.h"
 #include "ctre/phoenix/led/CANdle.h"
 #include "ctre/phoenix/led/SingleFadeAnimation.h"
 #include "ctre/phoenix/led/RgbFadeAnimation.h"
@@ -8,20 +8,12 @@
 
 #include <cstdint>
 
-class CANdle : public Component
+class CANdle : public dlib::Component
 {
 public:
     CANdle();
-    /**
-     * Runs before the step function is called in the main loop
-     */
     void PreStepCallback() override;
-
-    /**
-     * Runs after the step function is called in the main loop
-     */
     void PostStepCallback() override;
-    
 private:
     void TwoColorStrobe(frc::AddressableLED::LEDData colorOne,
                         frc::AddressableLED::LEDData colorTwo,

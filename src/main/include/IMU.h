@@ -1,7 +1,7 @@
 #pragma once
 
 //local
-#include "lib/include/Component.h"
+#include "DertLib/include/Component.h"
 #include "include/Constants.h"
 
 //crte
@@ -11,27 +11,13 @@
 
 namespace kIMU = Constants::IMU;
 
-class IMU : public Component
+class IMU : public dlib::Component
 {
 public:
     IMU();
-
-    /**
-     * Runs before the step function is called in the main loop
-     */
     void PreStepCallback() override;
-
-    /**
-     * Runs after the step function is called in the main loop
-     */
     void PostStepCallback() override;
-    
-    /*
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     * X X X X                 Class Specific Methods                  X X X X
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     */
-    private:
+private:
     /**
      * Pigeon 2 IMU from CRTE
     */

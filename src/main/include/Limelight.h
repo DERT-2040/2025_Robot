@@ -1,38 +1,24 @@
-#include "lib/include/Component.h"
+#pragma once
 
 // Local
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
-
-// Limelight
 #include "LimelightHelpers.h"
-
-
-// IMU
+#include "DertLib/include/Component.h"
 #include "include/Constants.h"
-#include <ctre/phoenix6/Pigeon2.hpp>
-#include "include/IMU.h"
 
 //wpilib
 #include <networktables/NetworkTable.h>
+#include <ctre/phoenix6/Pigeon2.hpp>
 #include <frc/Alert.h>
 
-class Limelight : public Component {
+namespace LimelightNameSpace = Constants::Limelight;
+namespace kIMU = Constants::IMU;
+
+class Limelight : public dlib::Component {
     public: 
-
-    //Initilization Code
      Limelight();
-
-    /**
-      * @Override
-      * Runs before the step function is called in the main loop
-      */
      void PreStepCallback() override;
-
-     /**
-      * Runs after the step function is called in the main loop
-      */
      void PostStepCallback() override;
-    
     private:
 
     // IMU Object used to set Limelight Yaw Value

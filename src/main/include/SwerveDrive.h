@@ -2,10 +2,11 @@
 
 //local
 #include "include/Constants.h"
-#include "lib/include/Component.h"
-#include "lib/include/NeoSet.h"
-#include "lib/include/KrakenSet.h"
+#include "DertLib/include/Component.h"
+#include "DertLib/include/NeoSet.h"
+#include "DertLib/include/KrakenSet.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
+
 //frc
 #include <frc/DutyCycleEncoder.h>
 #include <frc/Preferences.h>
@@ -22,39 +23,21 @@ namespace Drive = Constants::SwerveMotorsCreateInfo::Drive;
 namespace Steer = Constants::SwerveMotorsCreateInfo::Steer;
 namespace SwerveInfo = Constants::SwerveInfo;
 
-class SwerveDrive : public Component
+class SwerveDrive : public dlib::Component
 {
 public:
   SwerveDrive();
-    
-    /**
-     * Runs before the step function is called in the main loop
-     */
-    void PreStepCallback() override;
-
-    /**
-     * Runs after the step function is called in the main loop
-     */
-    void PostStepCallback() override;
-    
-    /*
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     * X X X X                 Class Specific Methods                  X X X X
-     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-     */
-
-    /**
-     * Creates the wheel offset preferences if they have not been created
-     */
-    void Initalize_Wheel_Offset();
-
-    /**
-     * Sets the simulink variables for wheel offsets to what is in the robot preferences
-     */
-    void Set_Wheel_Offset();
+  void PreStepCallback() override;
+  void PostStepCallback() override;
 
 private:
-    KrakenSet swerveDriveMotors
+  /** Creates the wheel offset preferences if they have not been created */
+  void Initalize_Wheel_Offset();
+
+  /** Sets the simulink variables for wheel offsets to what is in the robot preferences */
+  void Set_Wheel_Offset();
+
+  dlib::KrakenSet swerveDriveMotors
   {
     {
       Drive::frontLeft, Drive::frontRight,
@@ -62,7 +45,7 @@ private:
     }
   };
   
-  NeoSet swerveSteerMotors
+  dlib::NeoSet swerveSteerMotors
   {
     {
       Steer::frontLeft, Steer::frontRight,
