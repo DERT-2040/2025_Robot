@@ -1,4 +1,4 @@
-#include "lib/include/Component.h"
+#include "DertLib/include/Component.h"
 #include "ctre/phoenix/led/CANdle.h"
 #include "ctre/phoenix/led/SingleFadeAnimation.h"
 #include "ctre/phoenix/led/RgbFadeAnimation.h"
@@ -8,7 +8,7 @@
 
 #include <cstdint>
 
-class CANdle : public Component
+class CANdle : public dlib::Component
 {
 public:
     CANdle();

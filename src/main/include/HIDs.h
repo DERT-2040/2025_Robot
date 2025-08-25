@@ -3,14 +3,14 @@
 //local
 #include "include/Constants.h"
 #include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
-#include "lib/include/Component.h"
+#include "DertLib/include/Component.h"
 //frc
 #include <frc/Joystick.h>
 #include <frc/GenericHID.h>
 
 namespace HID = Constants::HID;
 
-class HIDs : public Component
+class HIDs : public dlib::Component
 {
 public:
     void PreStepCallback() override;

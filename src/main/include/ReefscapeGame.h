@@ -2,8 +2,8 @@
 
 //local
 #include "include/Constants.h"
-#include "lib/include/Component.h"
-#include "lib/include/NeoSet.h"
+#include "DertLib/include/Component.h"
+#include "DertLib/include/NeoSet.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 //frc
 #include <frc/DutyCycleEncoder.h>
@@ -17,11 +17,11 @@
 #include <TimeOfFlight.h>
 //etc
 #include <frc/smartdashboard/SmartDashboard.h>
-#include "lib/include/Chooser.h"
+#include "DertLib/include/Chooser.h"
 
 namespace ReefscapeGameNameSpace = Constants::ReefscapeGame;
 
-class ReefscapeGame : public Component
+class ReefscapeGame : public dlib::Component
 {
 public:
   ReefscapeGame();
@@ -30,7 +30,7 @@ public:
 
 private:
   // NEO Spark Max motor controllers
-  NeoSet ReefscapeGameNeoSet
+  dlib::NeoSet ReefscapeGameNeoSet
   {
     {
       ReefscapeGameNameSpace::motorElevator,
@@ -56,7 +56,7 @@ private:
   // Initializes a duty cycle encoder on a DIO pin to return a value of 360 degrees for a full rotation with an offset angle
   frc::DutyCycleEncoder coralArmAngle{ReefscapeGameNameSpace::coralThroughBoreEncoderID, 360, ReefscapeGameNameSpace::coralThroughBoreEncoderOffset};
 
-  Chooser Auto_Path_Starting_Position_Chooser {
+  dlib::Chooser Auto_Path_Starting_Position_Chooser {
     "Auto Path Starting Position",
     {
         {"Left", 1},
