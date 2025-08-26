@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.396
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Aug 14 19:58:34 2025
+ * C/C++ source code generated on : Mon Aug 25 18:53:04 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -608,20 +608,9 @@ typedef struct {
   real_T Limelight_Est_Pose_X;         /* '<Root>/Limelight_Est_Pose_X' */
   real_T Limelight_Est_Pose_Y;         /* '<Root>/Limelight_Est_Pose_Y' */
   real_T Num_Tags_Detected;            /* '<Root>/Num_Tags_Detected' */
-  real_T Elevator_Motor_Rev;           /* '<Root>/Elevator_Motor_Rev' */
-  real_T Elevator_Limit_Switch_Bottom;
-                                     /* '<Root>/Elevator_Limit_Switch_Bottom' */
-  real_T Elevator_Limit_Switch_Top;    /* '<Root>/Elevator_Limit_Switch_Top' */
-  real_T Coral_Arm_Angle_Measured_Raw;
-                                     /* '<Root>/Coral_Arm_Angle_Measured_Raw' */
-  real_T Coral_TOF_Distance;           /* '<Root>/Coral_TOF_Distance' */
-  real_T Coral_Limit_Switch;           /* '<Root>/Coral_Limit_Switch' */
-  real_T Algae_Limit_Switch;           /* '<Root>/Algae_Limit_Switch' */
   real_T Limelight_Tag_X;              /* '<Root>/Limelight_Tag_X' */
   real_T Limelight_Tag_Y;              /* '<Root>/Limelight_Tag_Y' */
   real_T Limelight_Tag_Angle;          /* '<Root>/Limelight_Tag_Angle' */
-  real_T Winch_Revs;                   /* '<Root>/Winch_Revs' */
-  real_T Actuator_Revs;                /* '<Root>/Actuator_Revs' */
 } ExtU_Code_Gen_Model_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -638,17 +627,7 @@ typedef struct {
   boolean_T Reset_Wheel_Offsets;       /* '<Root>/Reset_Wheel_Offsets' */
   boolean_T Disable_Wheels;            /* '<Root>/Disable_Wheels' */
   boolean_T Swerve_Motors_Disabled;    /* '<Root>/Swerve_Motors_Disabled' */
-  real_T Elevator_DutyCycle;           /* '<Root>/Elevator_DutyCycle' */
-  real_T Coral_Arm_DutyCycle;          /* '<Root>/Coral_Arm_DutyCycle' */
-  real_T Coral_Wheel_DutyCycle;        /* '<Root>/Coral_Wheel_DutyCycle' */
-  real_T Algae_Wheel_Outside_DutyCycle;
-                                    /* '<Root>/Algae_Wheel_Outside_DutyCycle' */
-  real_T Algae_Wheel_Inside_DutyCycle;
-                                     /* '<Root>/Algae_Wheel_Inside_DutyCycle' */
   real_T Gyro_Angle_Offset_Total;      /* '<Root>/Gyro_Angle_Offset_Total' */
-  real_T Winch_DutyCycle;              /* '<Root>/Winch_DutyCycle' */
-  real_T Actuator_DutyCycle;           /* '<Root>/Actuator_DutyCycle' */
-  real_T CANdle_LED_ID;                /* '<Root>/CANdle_LED_ID' */
 } ExtY_Code_Gen_Model_T;
 
 /* Real-time Model Data Structure */

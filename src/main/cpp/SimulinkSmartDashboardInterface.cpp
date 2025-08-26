@@ -764,8 +764,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     P__Winch_Spool_DC__Entry.SetDouble(1);
  
 // Inports
-    I__Actuator_Revs__Entry = NTtable_Inport->GetEntry("Actuator_Revs");
-    I__Algae_Limit_Switch__Entry = NTtable_Inport->GetEntry("Algae_Limit_Switch");
     I__BackLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Rev");
     I__BackLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Speed");
     I__BackLeft_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Steer_Rev");
@@ -774,12 +772,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     I__BackRight_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackRight_Drive_Motor_Speed");
     I__BackRight_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackRight_Steer_Rev");
     I__BackRight_Turn_Offset__Entry = NTtable_Inport->GetEntry("BackRight_Turn_Offset");
-    I__Coral_Arm_Angle_Measured_Raw__Entry = NTtable_Inport->GetEntry("Coral_Arm_Angle_Measured_Raw");
-    I__Coral_Limit_Switch__Entry = NTtable_Inport->GetEntry("Coral_Limit_Switch");
-    I__Coral_TOF_Distance__Entry = NTtable_Inport->GetEntry("Coral_TOF_Distance");
-    I__Elevator_Limit_Switch_Bottom__Entry = NTtable_Inport->GetEntry("Elevator_Limit_Switch_Bottom");
-    I__Elevator_Limit_Switch_Top__Entry = NTtable_Inport->GetEntry("Elevator_Limit_Switch_Top");
-    I__Elevator_Motor_Rev__Entry = NTtable_Inport->GetEntry("Elevator_Motor_Rev");
     I__FrontLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Rev");
     I__FrontLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Speed");
     I__FrontLeft_Steer_Rev__Entry = NTtable_Inport->GetEntry("FrontLeft_Steer_Rev");
@@ -853,21 +845,13 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     I__Limelight_Tag_Y__Entry = NTtable_Inport->GetEntry("Limelight_Tag_Y");
     I__MatchTime__Entry = NTtable_Inport->GetEntry("MatchTime");
     I__Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Num_Tags_Detected");
-    I__Winch_Revs__Entry = NTtable_Inport->GetEntry("Winch_Revs");
  
 // Outports
-    O__Actuator_DutyCycle__Entry = NTtable_Outport->GetEntry("Actuator_DutyCycle");
-    O__Algae_Wheel_Inside_DutyCycle__Entry = NTtable_Outport->GetEntry("Algae_Wheel_Inside_DutyCycle");
-    O__Algae_Wheel_Outside_DutyCycle__Entry = NTtable_Outport->GetEntry("Algae_Wheel_Outside_DutyCycle");
     O__BackLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Drive_DutyCycle");
     O__BackLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Steer_DutyCycle");
     O__BackRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Drive_DutyCycle");
     O__BackRight_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Steer_DutyCycle");
-    O__CANdle_LED_ID__Entry = NTtable_Outport->GetEntry("CANdle_LED_ID");
-    O__Coral_Arm_DutyCycle__Entry = NTtable_Outport->GetEntry("Coral_Arm_DutyCycle");
-    O__Coral_Wheel_DutyCycle__Entry = NTtable_Outport->GetEntry("Coral_Wheel_DutyCycle");
     O__Disable_Wheels__Entry = NTtable_Outport->GetEntry("Disable_Wheels");
-    O__Elevator_DutyCycle__Entry = NTtable_Outport->GetEntry("Elevator_DutyCycle");
     O__Enable_Wheels__Entry = NTtable_Outport->GetEntry("Enable_Wheels");
     O__FrontLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Drive_DutyCycle");
     O__FrontLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Steer_DutyCycle");
@@ -876,7 +860,6 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     O__Gyro_Angle_Offset_Total__Entry = NTtable_Outport->GetEntry("Gyro_Angle_Offset_Total");
     O__Reset_Wheel_Offsets__Entry = NTtable_Outport->GetEntry("Reset_Wheel_Offsets");
     O__Swerve_Motors_Disabled__Entry = NTtable_Outport->GetEntry("Swerve_Motors_Disabled");
-    O__Winch_DutyCycle__Entry = NTtable_Outport->GetEntry("Winch_DutyCycle");
  
 // Test Points
     T__AT_Relative_Error_Angle__Entry = NTtable_TPoint->GetEntry("AT_Relative_Error_Angle");
@@ -930,12 +913,12 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     T__Elevator_Height_Measured_Raw__Entry = NTtable_TPoint->GetEntry("Elevator_Height_Measured_Raw");
     T__Elevator_Height_Offset__Entry = NTtable_TPoint->GetEntry("Elevator_Height_Offset");
     T__Elevator_Integral__Entry = NTtable_TPoint->GetEntry("Elevator_Integral");
-    T__Elevator_Integral_o__Entry = NTtable_TPoint->GetEntry("Elevator_Integral_o");
+    T__Elevator_Integral_g__Entry = NTtable_TPoint->GetEntry("Elevator_Integral_g");
     T__Elevator_LowerPickup_Reset__Entry = NTtable_TPoint->GetEntry("Elevator_LowerPickup_Reset");
     T__Elevator_LowerPickup_Reset_g__Entry = NTtable_TPoint->GetEntry("Elevator_LowerPickup_Reset_g");
     T__Elevator_LowerPickup_Reset_merg__Entry = NTtable_TPoint->GetEntry("Elevator_LowerPickup_Reset_merg");
     T__Elevator_Proportional__Entry = NTtable_TPoint->GetEntry("Elevator_Proportional");
-    T__Elevator_Proportional_l__Entry = NTtable_TPoint->GetEntry("Elevator_Proportional_l");
+    T__Elevator_Proportional_f__Entry = NTtable_TPoint->GetEntry("Elevator_Proportional_f");
     T__FL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("FL_Desired_Module_Angle");
     T__FL_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("FL_Desired_Wheel_Speed");
     T__FL_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("FL_Desired_Wheel_Speed_in");
@@ -988,6 +971,14 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     T__Set_Algae_Level_p__Entry = NTtable_TPoint->GetEntry("Set_Algae_Level_p");
     T__Set_Coral_Level__Entry = NTtable_TPoint->GetEntry("Set_Coral_Level");
     T__Set_Coral_Level_j__Entry = NTtable_TPoint->GetEntry("Set_Coral_Level_j");
+    T__SignalCopy__Entry = NTtable_TPoint->GetEntry("SignalCopy");
+    T__SignalCopy1__Entry = NTtable_TPoint->GetEntry("SignalCopy1");
+    T__SignalCopy2__Entry = NTtable_TPoint->GetEntry("SignalCopy2");
+    T__SignalCopy3__Entry = NTtable_TPoint->GetEntry("SignalCopy3");
+    T__SignalCopy4__Entry = NTtable_TPoint->GetEntry("SignalCopy4");
+    T__SignalCopy5__Entry = NTtable_TPoint->GetEntry("SignalCopy5");
+    T__SignalCopy6__Entry = NTtable_TPoint->GetEntry("SignalCopy6");
+    T__SignalCopy7__Entry = NTtable_TPoint->GetEntry("SignalCopy7");
     T__Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
     T__Spline_Follow_Index__Entry = NTtable_TPoint->GetEntry("Spline_Follow_Index");
     T__Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
@@ -1219,8 +1210,6 @@ void SimulinkSmartDashboardInterface::PostStepCallback()
     P__Winch_Rev_Target__Entry.SetDouble(Winch_Rev_Target);
     P__Winch_Spool_DC__Entry.SetDouble(Winch_Spool_DC);
     // Inports
-    I__Actuator_Revs__Entry.SetDouble(Code_Gen_Model_U.Actuator_Revs);
-    I__Algae_Limit_Switch__Entry.SetDouble(Code_Gen_Model_U.Algae_Limit_Switch);
     I__BackLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Rev);
     I__BackLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Speed);
     I__BackLeft_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Steer_Rev);
@@ -1229,12 +1218,6 @@ void SimulinkSmartDashboardInterface::PostStepCallback()
     I__BackRight_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.BackRight_Drive_Motor_Speed);
     I__BackRight_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.BackRight_Steer_Rev);
     I__BackRight_Turn_Offset__Entry.SetDouble(Code_Gen_Model_U.BackRight_Turn_Offset);
-    I__Coral_Arm_Angle_Measured_Raw__Entry.SetDouble(Code_Gen_Model_U.Coral_Arm_Angle_Measured_Raw);
-    I__Coral_Limit_Switch__Entry.SetDouble(Code_Gen_Model_U.Coral_Limit_Switch);
-    I__Coral_TOF_Distance__Entry.SetDouble(Code_Gen_Model_U.Coral_TOF_Distance);
-    I__Elevator_Limit_Switch_Bottom__Entry.SetDouble(Code_Gen_Model_U.Elevator_Limit_Switch_Bottom);
-    I__Elevator_Limit_Switch_Top__Entry.SetDouble(Code_Gen_Model_U.Elevator_Limit_Switch_Top);
-    I__Elevator_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.Elevator_Motor_Rev);
     I__FrontLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Rev);
     I__FrontLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed);
     I__FrontLeft_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Steer_Rev);
@@ -1308,20 +1291,12 @@ void SimulinkSmartDashboardInterface::PostStepCallback()
     I__Limelight_Tag_Y__Entry.SetDouble(Code_Gen_Model_U.Limelight_Tag_Y);
     I__MatchTime__Entry.SetDouble(Code_Gen_Model_U.MatchTime);
     I__Num_Tags_Detected__Entry.SetDouble(Code_Gen_Model_U.Num_Tags_Detected);
-    I__Winch_Revs__Entry.SetDouble(Code_Gen_Model_U.Winch_Revs);
     // Outports
-    O__Actuator_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Actuator_DutyCycle);
-    O__Algae_Wheel_Inside_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Algae_Wheel_Inside_DutyCycle);
-    O__Algae_Wheel_Outside_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Algae_Wheel_Outside_DutyCycle);
     O__BackLeft_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackLeft_Drive_DutyCycle);
     O__BackLeft_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
     O__BackRight_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackRight_Drive_DutyCycle);
     O__BackRight_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
-    O__CANdle_LED_ID__Entry.SetDouble(Code_Gen_Model_Y.CANdle_LED_ID);
-    O__Coral_Arm_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Coral_Arm_DutyCycle);
-    O__Coral_Wheel_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Coral_Wheel_DutyCycle);
     O__Disable_Wheels__Entry.SetDouble(Code_Gen_Model_Y.Disable_Wheels);
-    O__Elevator_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Elevator_DutyCycle);
     O__Enable_Wheels__Entry.SetDouble(Code_Gen_Model_Y.Enable_Wheels);
     O__FrontLeft_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle);
     O__FrontLeft_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle);
@@ -1330,7 +1305,6 @@ void SimulinkSmartDashboardInterface::PostStepCallback()
     O__Gyro_Angle_Offset_Total__Entry.SetDouble(Code_Gen_Model_Y.Gyro_Angle_Offset_Total);
     O__Reset_Wheel_Offsets__Entry.SetDouble(Code_Gen_Model_Y.Reset_Wheel_Offsets);
     O__Swerve_Motors_Disabled__Entry.SetDouble(Code_Gen_Model_Y.Swerve_Motors_Disabled);
-    O__Winch_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Winch_DutyCycle);
     // Test Points
     T__AT_Relative_Error_Angle__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Angle);
     T__AT_Relative_Error_Enable__Entry.SetDouble(Code_Gen_Model_B.AT_Relative_Error_Enable);
@@ -1383,12 +1357,12 @@ void SimulinkSmartDashboardInterface::PostStepCallback()
     T__Elevator_Height_Measured_Raw__Entry.SetDouble(Code_Gen_Model_B.Elevator_Height_Measured_Raw);
     T__Elevator_Height_Offset__Entry.SetDouble(Code_Gen_Model_B.Elevator_Height_Offset);
     T__Elevator_Integral__Entry.SetDouble(Code_Gen_Model_B.Elevator_Integral);
-    T__Elevator_Integral_o__Entry.SetDouble(Code_Gen_Model_B.Elevator_Integral_o);
+    T__Elevator_Integral_g__Entry.SetDouble(Code_Gen_Model_B.Elevator_Integral_g);
     T__Elevator_LowerPickup_Reset__Entry.SetDouble(Code_Gen_Model_B.Elevator_LowerPickup_Reset);
     T__Elevator_LowerPickup_Reset_g__Entry.SetDouble(Code_Gen_Model_B.Elevator_LowerPickup_Reset_g);
     T__Elevator_LowerPickup_Reset_merg__Entry.SetDouble(Code_Gen_Model_B.Elevator_LowerPickup_Reset_merg);
     T__Elevator_Proportional__Entry.SetDouble(Code_Gen_Model_B.Elevator_Proportional);
-    T__Elevator_Proportional_l__Entry.SetDouble(Code_Gen_Model_B.Elevator_Proportional_l);
+    T__Elevator_Proportional_f__Entry.SetDouble(Code_Gen_Model_B.Elevator_Proportional_f);
     T__FL_Desired_Module_Angle__Entry.SetDouble(Code_Gen_Model_B.FL_Desired_Module_Angle);
     T__FL_Desired_Wheel_Speed__Entry.SetDouble(Code_Gen_Model_B.FL_Desired_Wheel_Speed);
     T__FL_Desired_Wheel_Speed_in__Entry.SetDouble(Code_Gen_Model_B.FL_Desired_Wheel_Speed_in);
@@ -1441,6 +1415,14 @@ void SimulinkSmartDashboardInterface::PostStepCallback()
     T__Set_Algae_Level_p__Entry.SetDouble(Code_Gen_Model_B.Set_Algae_Level_p);
     T__Set_Coral_Level__Entry.SetDouble(Code_Gen_Model_B.Set_Coral_Level);
     T__Set_Coral_Level_j__Entry.SetDouble(Code_Gen_Model_B.Set_Coral_Level_j);
+    T__SignalCopy__Entry.SetDouble(Code_Gen_Model_B.SignalCopy);
+    T__SignalCopy1__Entry.SetDouble(Code_Gen_Model_B.SignalCopy1);
+    T__SignalCopy2__Entry.SetDouble(Code_Gen_Model_B.SignalCopy2);
+    T__SignalCopy3__Entry.SetDouble(Code_Gen_Model_B.SignalCopy3);
+    T__SignalCopy4__Entry.SetDouble(Code_Gen_Model_B.SignalCopy4);
+    T__SignalCopy5__Entry.SetDouble(Code_Gen_Model_B.SignalCopy5);
+    T__SignalCopy6__Entry.SetDouble(Code_Gen_Model_B.SignalCopy6);
+    T__SignalCopy7__Entry.SetDouble(Code_Gen_Model_B.SignalCopy7);
     T__Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
     T__Spline_Follow_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Follow_Index);
     T__Spline_Num_Poses__Entry.SetDouble(Code_Gen_Model_B.Spline_Num_Poses);

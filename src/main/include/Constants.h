@@ -106,16 +106,7 @@ namespace Constants
         static constexpr std::string_view k_Pigeon2_Device_Name = "uno";
     };
 
-    namespace CANdle
-    {
-        static constexpr int LEDoffset = 0;
-        static constexpr int LEDCount = 158;
-        static frc::AddressableLED::LEDData StrobeColorOne {86, 5, 145}; //r, g, b
-        static frc::AddressableLED::LEDData StrobeColorTwo {176, 0, 0};//r, g, b
 
-        static constexpr int CANdleID = 1;
-        static std::string CANdleNetworkName = "uno";
-    };
 
     namespace Limelight
     {
@@ -141,95 +132,4 @@ namespace Constants
         };
     };
 
-    namespace ReefscapeGame
-    {
-        // Elevator motor controller configuration
-        static const NeoSparkCreateInfo motorElevator{
-            10,   // canID
-            true, // isReversed
-            80,   // smartCurrentLimit
-            80,   // secondaryCurrentLimit
-            0.01, // openLoopRampRate (seconds)
-            &Code_Gen_Model_Y.Elevator_DutyCycle,
-            nullptr,
-            &Code_Gen_Model_U.Elevator_Motor_Rev
-        };      
-
-        // Coral Arm motor controller configuration
-        static const NeoSparkCreateInfo motorCoralArm{
-            11,   // canID
-            true, // isReversed
-            12,   // smartCurrentLimit
-            12,   // secondaryCurrentLimit
-            0.01, // openLoopRampRate (seconds)
-            &Code_Gen_Model_Y.Coral_Arm_DutyCycle
-        };
-
-        // Coral Wheel motor controller configuration
-        static const NeoSparkCreateInfo motorCoralWheel{
-            12,   // canID
-            false,// isReversed
-            40,   // smartCurrentLimit
-            40,   // secondaryCurrentLimit
-            0.01, // openLoopRampRate (seconds)
-            &Code_Gen_Model_Y.Coral_Wheel_DutyCycle
-        };
-
-        // Algae Outside Wheel motor controller configuration
-        static const NeoSparkCreateInfo motorAlgaeWheelOutside{
-            13,   // canID
-            true, // isReversed
-            40,   // smartCurrentLimit
-            40,   // secondaryCurrentLimit
-            0.01, // openLoopRampRate (seconds)
-            &Code_Gen_Model_Y.Algae_Wheel_Outside_DutyCycle
-        };
-
-        // Algae Inside Wheel motor controller configuration
-        static const NeoSparkCreateInfo motorAlgaeWheelInside{
-            14,   // canID
-            false,// isReversed
-            40,   // smartCurrentLimit
-            40,   // secondaryCurrentLimit
-            0.01, // openLoopRampRate (seconds)
-            &Code_Gen_Model_Y.Algae_Wheel_Inside_DutyCycle
-        };
-
-        // Winch motor controller configuration
-        static const NeoSparkCreateInfo motorWinch{
-            15,   // canID
-            false,// isReversed
-            15,   // smartCurrentLimit
-            15,   // secondaryCurrentLimit
-            0.01, // openLoopRampRate (seconds)
-            &Code_Gen_Model_Y.Winch_DutyCycle,
-            nullptr,
-            &Code_Gen_Model_U.Winch_Revs
-        };      
-
-        // Actuator motor controller configuration
-        static const NeoSparkCreateInfo motorActuator{
-            16,                                   // canID
-            false,                                // isReversed
-            80,                                   // smartCurrentLimit
-            80,                                   // secondaryCurrentLimit
-            0.01,                                 // openLoopRampRate (seconds)
-            &Code_Gen_Model_Y.Actuator_DutyCycle, // Dutycycle Output ptr
-            nullptr,                              // Velocity Input ptr
-            &Code_Gen_Model_U.Actuator_Revs       // Position Input ptr
-        };      
-
-        // These values correspond to the RoboRIO Digital Input/Output (DIO) ports
-        static constexpr int bottomLimitSwitchID = 0;
-                 //static constexpr int topLimitSwitchID = 1;
-        static constexpr int coralLimitSwitchID = 1;
-        static constexpr int algaeLimitSwitchID = 2;
-        static constexpr int coralThroughBoreEncoderID = 3;
-        static constexpr int coralThroughBoreEncoderOffset = -164.3; // degrees
-
-        // The Playing with Fusion configuration interface tool may be accessed by typing in the
-        // IP address of the roboRIO into a web browser followed by :5812
-        static constexpr uint8_t Coral_TOF_ID = 0;
-        
-    };
 };

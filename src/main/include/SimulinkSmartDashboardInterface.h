@@ -207,8 +207,6 @@ private:
         nt::NetworkTableEntry P__Winch_Spool_DC__Entry;
  
         // Inports
-        nt::NetworkTableEntry I__Actuator_Revs__Entry;
-        nt::NetworkTableEntry I__Algae_Limit_Switch__Entry;
         nt::NetworkTableEntry I__BackLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry I__BackLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__BackLeft_Steer_Rev__Entry;
@@ -217,12 +215,6 @@ private:
         nt::NetworkTableEntry I__BackRight_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__BackRight_Steer_Rev__Entry;
         nt::NetworkTableEntry I__BackRight_Turn_Offset__Entry;
-        nt::NetworkTableEntry I__Coral_Arm_Angle_Measured_Raw__Entry;
-        nt::NetworkTableEntry I__Coral_Limit_Switch__Entry;
-        nt::NetworkTableEntry I__Coral_TOF_Distance__Entry;
-        nt::NetworkTableEntry I__Elevator_Limit_Switch_Bottom__Entry;
-        nt::NetworkTableEntry I__Elevator_Limit_Switch_Top__Entry;
-        nt::NetworkTableEntry I__Elevator_Motor_Rev__Entry;
         nt::NetworkTableEntry I__FrontLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry I__FrontLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__FrontLeft_Steer_Rev__Entry;
@@ -296,20 +288,12 @@ private:
         nt::NetworkTableEntry I__Limelight_Tag_Y__Entry;
         nt::NetworkTableEntry I__MatchTime__Entry;
         nt::NetworkTableEntry I__Num_Tags_Detected__Entry;
-        nt::NetworkTableEntry I__Winch_Revs__Entry;
         // Outports
-        nt::NetworkTableEntry O__Actuator_DutyCycle__Entry;
-        nt::NetworkTableEntry O__Algae_Wheel_Inside_DutyCycle__Entry;
-        nt::NetworkTableEntry O__Algae_Wheel_Outside_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackRight_Steer_DutyCycle__Entry;
-        nt::NetworkTableEntry O__CANdle_LED_ID__Entry;
-        nt::NetworkTableEntry O__Coral_Arm_DutyCycle__Entry;
-        nt::NetworkTableEntry O__Coral_Wheel_DutyCycle__Entry;
         nt::NetworkTableEntry O__Disable_Wheels__Entry;
-        nt::NetworkTableEntry O__Elevator_DutyCycle__Entry;
         nt::NetworkTableEntry O__Enable_Wheels__Entry;
         nt::NetworkTableEntry O__FrontLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__FrontLeft_Steer_DutyCycle__Entry;
@@ -318,7 +302,6 @@ private:
         nt::NetworkTableEntry O__Gyro_Angle_Offset_Total__Entry;
         nt::NetworkTableEntry O__Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry O__Swerve_Motors_Disabled__Entry;
-        nt::NetworkTableEntry O__Winch_DutyCycle__Entry;
  
         // Test Points
         nt::NetworkTableEntry T__AT_Relative_Error_Angle__Entry;
@@ -372,12 +355,12 @@ private:
         nt::NetworkTableEntry T__Elevator_Height_Measured_Raw__Entry;
         nt::NetworkTableEntry T__Elevator_Height_Offset__Entry;
         nt::NetworkTableEntry T__Elevator_Integral__Entry;
-        nt::NetworkTableEntry T__Elevator_Integral_o__Entry;
+        nt::NetworkTableEntry T__Elevator_Integral_g__Entry;
         nt::NetworkTableEntry T__Elevator_LowerPickup_Reset__Entry;
         nt::NetworkTableEntry T__Elevator_LowerPickup_Reset_g__Entry;
         nt::NetworkTableEntry T__Elevator_LowerPickup_Reset_merg__Entry;
         nt::NetworkTableEntry T__Elevator_Proportional__Entry;
-        nt::NetworkTableEntry T__Elevator_Proportional_l__Entry;
+        nt::NetworkTableEntry T__Elevator_Proportional_f__Entry;
         nt::NetworkTableEntry T__FL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry T__FL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry T__FL_Desired_Wheel_Speed_in__Entry;
@@ -430,6 +413,14 @@ private:
         nt::NetworkTableEntry T__Set_Algae_Level_p__Entry;
         nt::NetworkTableEntry T__Set_Coral_Level__Entry;
         nt::NetworkTableEntry T__Set_Coral_Level_j__Entry;
+        nt::NetworkTableEntry T__SignalCopy__Entry;
+        nt::NetworkTableEntry T__SignalCopy1__Entry;
+        nt::NetworkTableEntry T__SignalCopy2__Entry;
+        nt::NetworkTableEntry T__SignalCopy3__Entry;
+        nt::NetworkTableEntry T__SignalCopy4__Entry;
+        nt::NetworkTableEntry T__SignalCopy5__Entry;
+        nt::NetworkTableEntry T__SignalCopy6__Entry;
+        nt::NetworkTableEntry T__SignalCopy7__Entry;
         nt::NetworkTableEntry T__Spline_Enable__Entry;
         nt::NetworkTableEntry T__Spline_Follow_Index__Entry;
         nt::NetworkTableEntry T__Spline_Num_Poses__Entry;
