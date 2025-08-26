@@ -6,7 +6,6 @@
 #include <frc/AddressableLED.h>
 
 //local
-#include "DertLib/include/NeoSpark.h"
 #include "DertLib/include/KrakenTalon.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 #include "LimelightHelpers.h"
@@ -70,25 +69,26 @@ namespace Constants
         
         namespace Steer
         {
-            static constexpr NeoSparkCreateInfo defaultSteerCreateInfo
+            static constexpr KrakenTalonCreateInfo defaultSteerCreateInfo
             {
                 -1,                                    // canID
+                "uno",                                 // can bus
                 true,                                  // isReversed
                 60,                                    // smartCurrentLimit
-                60,                                    // secondaryCurrentLimit
-                0.01,                                  // openLoopRampRate (seconds)
+                0,                                     // openLoopRampRate (seconds)
+                true                                   // Field Oriented Control
             };
-            static const NeoSparkCreateInfo frontLeft  = NeoSparkCreateInfo::modifyInfo(defaultSteerCreateInfo,
-                                                                                 1, //CAN ID
+            static const KrakenTalonCreateInfo frontLeft = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
+                                                                                 5, //CAN ID
                                                                                  &Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle);
-            static const NeoSparkCreateInfo frontRight = NeoSparkCreateInfo::modifyInfo(defaultSteerCreateInfo,
-                                                                                 2, //CAN ID
+            static const KrakenTalonCreateInfo frontRight = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
+                                                                                 6, //CAN ID
                                                                                  &Code_Gen_Model_Y.FrontRight_Steer_DutyCycle);
-            static const NeoSparkCreateInfo backLeft   = NeoSparkCreateInfo::modifyInfo(defaultSteerCreateInfo,
-                                                                                 3, //CAN ID
+            static const KrakenTalonCreateInfo backLeft   = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
+                                                                                 7, //CAN ID
                                                                                  &Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
-            static const NeoSparkCreateInfo backRight  = NeoSparkCreateInfo::modifyInfo(defaultSteerCreateInfo,
-                                                                                 4, //CAN ID
+            static const KrakenTalonCreateInfo backRight  = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
+                                                                                 8, //CAN ID
                                                                                  &Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
         };
     };

@@ -3,17 +3,12 @@
 //local
 #include "include/Constants.h"
 #include "DertLib/include/Component.h"
-#include "DertLib/include/NeoSet.h"
 #include "DertLib/include/KrakenSet.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
-
 //frc
 #include <frc/DutyCycleEncoder.h>
 #include <frc/Preferences.h>
 #include <frc/smartdashboard/SmartDashboard.h> 
-//rev
-#include <rev/SparkMax.h>
-#include <rev/SparkRelativeEncoder.h>
 //ctr
 #include <ctre/phoenix6/CANcoder.hpp>
 //etc
@@ -45,7 +40,7 @@ private:
     }
   };
   
-  dlib::NeoSet swerveSteerMotors
+  dlib::KrakenSet swerveSteerMotors
   {
     {
       Steer::frontLeft, Steer::frontRight,
