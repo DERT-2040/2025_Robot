@@ -8,7 +8,7 @@
 
 //wpilib
 #include <networktables/NetworkTable.h>
-#include <ctre/phoenix6/Pigeon2.hpp>
+//#include <ctre/phoenix6/Pigeon2.hpp>
 #include <frc/Alert.h>
 
 namespace LimelightNameSpace = Constants::Limelight;
@@ -22,7 +22,7 @@ class Limelight : public dlib::Component {
     private:
 
     // IMU Object used to set Limelight Yaw Value
-    ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, static_cast<std::string>(kIMU::k_Pigeon2_Device_Name)};
+    //ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, static_cast<std::string>(kIMU::k_Pigeon2_Device_Name)};
 
     // Gyro angle Offset Set from Simulink Output Value
     double Gyro_Offset = 0;
