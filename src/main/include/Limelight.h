@@ -19,6 +19,8 @@ class Limelight : public dlib::Component {
      Limelight();
      void PreStepCallback() override;
      void PostStepCallback() override;
+     void SetPipeline(int pipelineIndex);
+     void CoralDetection();
     private:
 
     // IMU Object used to set Limelight Yaw Value
@@ -34,5 +36,6 @@ class Limelight : public dlib::Component {
     // Limelight Alerts
     frc::Alert CameraOneDisconnectedAlert {"ALARM PANIC", "Limelight One Disconnecred", frc::Alert::AlertType::kError};
     //frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};
+ 
  
 };

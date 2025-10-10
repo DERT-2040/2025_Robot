@@ -1,5 +1,7 @@
 #include "include/Limelight.h"
-
+#include "networktables/NetworkTableInstance.h"
+#include "networktables/NetworkTable.h"
+#include "networktables/NetworkTableEntry.h"
 Limelight::Limelight()
 {
     LimelightHelpers::setCameraPose_RobotSpace(
@@ -21,6 +23,7 @@ Limelight::Limelight()
         LimelightNameSpace::CameraTwoCreateInfo.Pitch,
         LimelightNameSpace::CameraTwoCreateInfo.Yaw
     );
+    
 }
 
 void Limelight::PreStepCallback() {
@@ -41,6 +44,7 @@ void Limelight::PreStepCallback() {
     // Robot Pose Relative to Tag
     std::vector<double> CameraOneRobotPose = LimelightHelpers::getTargetPose_RobotSpace(LimelightNameSpace::CameraOneCreateInfo.LimelightName);
     size_t vectorLength = CameraOneRobotPose.size();
+    
 
     if (vectorLength > 1) {
         double cameraOne_Tag_x = CameraOneRobotPose.at(2);
@@ -102,10 +106,41 @@ void Limelight::PreStepCallback() {
             Code_Gen_Model_U.Limelight_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
             Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
     }
+
+    SetPipeline(1);
+
 }
 
 void Limelight::PostStepCallback() 
 {
     // Pulls Gyro Yaw Offset
     Gyro_Offset = Code_Gen_Model_Y.Gyro_Angle_Offset_Total;
+}
+
+void Limelight::SetPipeline(int pipelineIndex)
+{
+    // Get the default NetworkTable instance
+    nt::NetworkTableInstance inst = nt::NetworkTableInstance::GetDefault();
+    // Get the "limelight" table
+    std::shared_ptr<nt::NetworkTable> table = inst.GetTable("limelight");
+    // Get the "pipeline" entry
+    nt::NetworkTableEntry pipelineEntry = table->GetEntry("pipeline");
+    // Set the value of the "pipeline" entry to the desired pipeline index
+    pipelineEntry.SetDouble(pipelineIndex); // Use SetDouble as pipeline index is a number
+}
+
+void Limelight::CoralDetection()
+{
+     SetPipeline(1); // Switch to pipeline 1
+// Basic targeting data
+//double tx = LimelightHelpers.getTX("");  // Horizontal offset from crosshair to target in degrees
+//double ty = LimelightHelpers.getTY("");  // Vertical offset from crosshair to target in degrees
+//double ta = LimelightHelpers.getTA("");  // Target area (0% to 100% of image)
+//bool hasTarget= LimelightHelpers.getTV(""); // Do you have a valid target?
+
+//double txnc = LimelightHelpers.getTXNC("");  // Horizontal offset from principal pixel/point to target in degrees
+//double tync = LimelightHelpers.getTYNC("");  // Vertical  offset from principal pixel/point to target in degrees
+
+
+
 }
