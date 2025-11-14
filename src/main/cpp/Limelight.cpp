@@ -107,7 +107,18 @@ void Limelight::PreStepCallback() {
             Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
     }
 
-    SetPipeline(1);
+    // Set Robot Pipeline (if needed)
+    // Get the default NetworkTable instance
+    nt::NetworkTableInstance inst = nt::NetworkTableInstance::GetDefault();
+    // Get the "limelight" table
+    std::shared_ptr<nt::NetworkTable> table = inst.GetTable("limelight-one");
+    // Get the "pipeline" entry
+    nt::NetworkTableEntry pipelineEntry = table->GetEntry("pipeline");
+    // Set the value of the "pipeline" entry to the desired pipeline index
+    if(pipelineEntry.GetDouble(0) != 0) {
+        SetPipeline(0);
+        //CoralDetection();
+    }
 
 }
 
@@ -122,7 +133,7 @@ void Limelight::SetPipeline(int pipelineIndex)
     // Get the default NetworkTable instance
     nt::NetworkTableInstance inst = nt::NetworkTableInstance::GetDefault();
     // Get the "limelight" table
-    std::shared_ptr<nt::NetworkTable> table = inst.GetTable("limelight");
+    std::shared_ptr<nt::NetworkTable> table = inst.GetTable("limelight-one");
     // Get the "pipeline" entry
     nt::NetworkTableEntry pipelineEntry = table->GetEntry("pipeline");
     // Set the value of the "pipeline" entry to the desired pipeline index
