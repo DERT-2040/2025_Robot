@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.402
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Nov 20 20:22:44 2025
+ * C/C++ source code generated on : Fri Nov 21 06:59:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -49,7 +49,7 @@ typedef struct {
 typedef struct {
   real_T timer;                        /* '<S32>/Reefscape_Chart' */
   real_T timer_robot_target;           /* '<S32>/Reefscape_Chart' */
-  uint8_T is_active_c1_Code_Gen_Model; /* '<S32>/Reefscape_Chart' */
+  uint8_T is_active_c5_Code_Gen_Model; /* '<S32>/Reefscape_Chart' */
   uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S32>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_High;        /* '<S32>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_Low;         /* '<S32>/Reefscape_Chart' */
@@ -503,7 +503,7 @@ typedef struct {
    *   '<S21>/Constant4'
    *   '<S22>/Constant4'
    */
-  real_T pooled29[16];
+  real_T pooled27[16];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Scale_Factor)
    * Referenced by:
@@ -512,7 +512,7 @@ typedef struct {
    *   '<S325>/1-D Lookup Table'
    *   '<S346>/1-D Lookup Table'
    */
-  real_T pooled37[2];
+  real_T pooled35[2];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
@@ -521,21 +521,21 @@ typedef struct {
    *   '<S325>/1-D Lookup Table'
    *   '<S346>/1-D Lookup Table'
    */
-  real_T pooled38[2];
+  real_T pooled36[2];
 
   /* Pooled Parameter (Expression: Elevator_Height_Lower_Limit_Out)
    * Referenced by:
    *   '<S12>/Range of Motion Protection Limit'
    *   '<S12>/Range of Motion Protection Limit1'
    */
-  real_T pooled39[96];
+  real_T pooled37[96];
 
   /* Pooled Parameter (Expression: Elevator_Height_Lower_Limit_Coral_Arm_Input)
    * Referenced by:
    *   '<S12>/Range of Motion Protection Limit'
    *   '<S12>/Range of Motion Protection Limit1'
    */
-  real_T pooled40[96];
+  real_T pooled38[96];
 
   /* Expression: Coral_Arm_DC_Upper_Limit_Out
    * Referenced by: '<S8>/1-D Lookup Table'

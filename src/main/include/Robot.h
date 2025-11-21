@@ -3,9 +3,9 @@
 //local
 #include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
 #include "DertLib/include/Component.h"
-/*#include "include/HIDs.h"
+#include "include/HIDs.h"
 #include "include/IMU.h"
-#include "include/SwerveDrive.h"*/
+#include "include/SwerveDrive.h"
 #include "include/SimulinkSmartDashboardInterface.h"
 #include "include/Limelight.h"
 #include "include/FMSInfo.h"
@@ -54,16 +54,16 @@ private:
   frc::Tracer m_Tracer{};
 
   /** Component Object for Human Input Devices */
-  //HIDs m_HIDs;
+  HIDs m_HIDs;
   
   /** Component Object for the IMU pigeon2 */
-  //IMU m_IMU;
+  IMU m_IMU;
   
   /** Component Object for Limelight Vision */
   Limelight m_Limelight;
 
   /** Component Object for all Swerve Drive objects such as sensors and motors*/
-  //SwerveDrive m_SwerveDrive;
+  SwerveDrive m_SwerveDrive;
     
   /** Component for all Tunable Parameters created by simulink */
   SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  

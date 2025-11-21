@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.402
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Nov 20 20:22:44 2025
+ * C/C++ source code generated on : Fri Nov 21 06:59:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -38,14 +38,14 @@ const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
   { 1.0, 0.0, -0.0, 1.0 },    /* '<S22>/Rotation matrix from local to global' */
   0.0,                                 /* '<S32>/Dead Zone' */
   0.0,                                 /* '<S32>/Dead Zone1' */
-  0.62436807884000667,                 /* '<S365>/Atan2' */
-  2.1951644056349031,                  /* '<S365>/Add' */
-  -0.62436807884000667,                /* '<S365>/Atan1' */
-  0.94642824795488989,                 /* '<S365>/Add1' */
-  2.5172245747497866,                  /* '<S365>/Atan3' */
-  4.0880209015446827,                  /* '<S365>/Add2' */
-  -2.5172245747497866,                 /* '<S365>/Atan4' */
-  -0.94642824795489                    /* '<S365>/Add3' */
+  0.78539816339744828,                 /* '<S365>/Atan2' */
+  2.3561944901923448,                  /* '<S365>/Add' */
+  -0.78539816339744828,                /* '<S365>/Atan1' */
+  0.78539816339744828,                 /* '<S365>/Add1' */
+  2.3561944901923448,                  /* '<S365>/Atan3' */
+  3.9269908169872414,                  /* '<S365>/Add2' */
+  -2.3561944901923448,                 /* '<S365>/Atan4' */
+  -0.78539816339744828                 /* '<S365>/Add3' */
 };
 
 /* Constant parameters (default storage) */
