@@ -73,7 +73,7 @@ namespace Constants
             {
                 -1,                                    // canID
                 "uno",                                 // can bus
-                true,                                  // isReversed
+                false,                                  // isReversed
                 60,                                    // smartCurrentLimit
                 0,                                     // openLoopRampRate (seconds)
                 true                                   // Field Oriented Control
