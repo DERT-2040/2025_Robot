@@ -190,6 +190,7 @@ private:
         nt::NetworkTableEntry P__Steering_Twist_Gain__Entry;
         nt::NetworkTableEntry P__TEST_CANdle_Flag__Entry;
         nt::NetworkTableEntry P__TEST_CANdle_LED_ID__Entry;
+        nt::NetworkTableEntry P__TEST_Pipeline__Entry;
         nt::NetworkTableEntry P__TEST_Swerve_Mode_Override_Flag__Entry;
         nt::NetworkTableEntry P__TEST_Swerve_Mode_Steering__Entry;
         nt::NetworkTableEntry P__TEST_Swerve_Mode_Translation__Entry;
