@@ -40,7 +40,7 @@ namespace Constants
             {
                 -1,                           // CAN ID
                 "uno",                        // CAN Bus
-                false,                         // isReversed
+                true,                         // isReversed
                 80,                           // supplyCurrentLimit
                 0,                            // openLoopRampPeriod (seconds)
                 true                          // Field Oriented Control
