@@ -115,9 +115,8 @@ void Limelight::PreStepCallback() {
     // Get the "pipeline" entry
     nt::NetworkTableEntry pipelineEntry = table->GetEntry("pipeline");
     // Set the value of the "pipeline" entry to the desired pipeline index
-    if(pipelineEntry.GetDouble(0) != 0) {
-        SetPipeline(0);
-        //CoralDetection();
+    if(pipelineEntry.GetDouble(0) != Code_Gen_Model_Y.Desired_Pipeline) {
+        SetPipeline(Code_Gen_Model_Y.Desired_Pipeline);
     }
 
 }
@@ -138,20 +137,4 @@ void Limelight::SetPipeline(int pipelineIndex)
     nt::NetworkTableEntry pipelineEntry = table->GetEntry("pipeline");
     // Set the value of the "pipeline" entry to the desired pipeline index
     pipelineEntry.SetDouble(pipelineIndex); // Use SetDouble as pipeline index is a number
-}
-
-void Limelight::CoralDetection()
-{
-     SetPipeline(1); // Switch to pipeline 1
-// Basic targeting data
-//double tx = LimelightHelpers.getTX("");  // Horizontal offset from crosshair to target in degrees
-//double ty = LimelightHelpers.getTY("");  // Vertical offset from crosshair to target in degrees
-//double ta = LimelightHelpers.getTA("");  // Target area (0% to 100% of image)
-//bool hasTarget= LimelightHelpers.getTV(""); // Do you have a valid target?
-
-//double txnc = LimelightHelpers.getTXNC("");  // Horizontal offset from principal pixel/point to target in degrees
-//double tync = LimelightHelpers.getTYNC("");  // Vertical  offset from principal pixel/point to target in degrees
-
-
-
 }

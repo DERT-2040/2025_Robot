@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.402
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Nov 21 06:59:08 2025
+ * C/C++ source code generated on : Thu Dec  4 19:43:56 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -49,7 +49,7 @@ typedef struct {
 typedef struct {
   real_T timer;                        /* '<S32>/Reefscape_Chart' */
   real_T timer_robot_target;           /* '<S32>/Reefscape_Chart' */
-  uint8_T is_active_c5_Code_Gen_Model; /* '<S32>/Reefscape_Chart' */
+  uint8_T is_active_c1_Code_Gen_Model; /* '<S32>/Reefscape_Chart' */
   uint8_T is_Elevator_CoralArm_CoralWheel;/* '<S32>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_High;        /* '<S32>/Reefscape_Chart' */
   uint8_T is_Algae_Pickup_Low;         /* '<S32>/Reefscape_Chart' */
@@ -1556,6 +1556,9 @@ extern real_T Winch_Rev_Target;        /* Variable: Winch_Rev_Target
                                         */
 extern real_T Winch_Spool_DC;          /* Variable: Winch_Spool_DC
                                         * Referenced by: '<S14>/Constant1'
+                                        */
+extern uint8_T TEST_Pipeline;          /* Variable: TEST_Pipeline
+                                        * Referenced by: '<S28>/Constant22'
                                         */
 
 /* Model entry point functions */

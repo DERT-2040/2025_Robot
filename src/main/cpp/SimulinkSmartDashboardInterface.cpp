@@ -703,6 +703,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     NTinst.AddListener(P__TEST_CANdle_LED_ID__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_CANdle_LED_ID = event.GetValueEventData()->value.GetDouble();});
     P__TEST_CANdle_LED_ID__Entry.SetDouble(0);
  
+    P__TEST_Pipeline__Entry = NTtable_Tune->GetEntry("TEST_Pipeline");
+    NTinst.AddListener(P__TEST_Pipeline__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Pipeline = event.GetValueEventData()->value.GetDouble();});
+    P__TEST_Pipeline__Entry.SetDouble(0);
+ 
     P__TEST_Swerve_Mode_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Swerve_Mode_Override_Flag");
     NTinst.AddListener(P__TEST_Swerve_Mode_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Swerve_Mode_Override_Flag = event.GetValueEventData()->value.GetDouble();});
     P__TEST_Swerve_Mode_Override_Flag__Entry.SetDouble(0);
@@ -1238,6 +1242,7 @@ void SimulinkSmartDashboardInterface::PostStepCallback()
     P__Steering_Twist_Gain__Entry.SetDouble(Steering_Twist_Gain);
     P__TEST_CANdle_Flag__Entry.SetDouble(TEST_CANdle_Flag);
     P__TEST_CANdle_LED_ID__Entry.SetDouble(TEST_CANdle_LED_ID);
+    P__TEST_Pipeline__Entry.SetDouble(TEST_Pipeline);
     P__TEST_Swerve_Mode_Override_Flag__Entry.SetDouble(TEST_Swerve_Mode_Override_Flag);
     P__TEST_Swerve_Mode_Steering__Entry.SetDouble(TEST_Swerve_Mode_Steering);
     P__TEST_Swerve_Mode_Translation__Entry.SetDouble(TEST_Swerve_Mode_Translation);

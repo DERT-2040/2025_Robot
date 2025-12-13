@@ -20,7 +20,6 @@ class Limelight : public dlib::Component {
      void PreStepCallback() override;
      void PostStepCallback() override;
      void SetPipeline(int pipelineIndex);
-     void CoralDetection();
     private:
 
     // IMU Object used to set Limelight Yaw Value
