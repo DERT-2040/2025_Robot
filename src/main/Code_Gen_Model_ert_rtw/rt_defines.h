@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 5.0
- * Simulink Coder version         : 25.1 (R2025a) 21-Nov-2024
- * C/C++ source code generated on : Sat Dec 13 00:01:20 2025
+ * Model version                  : 2.402
+ * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
+ * C/C++ source code generated on : Fri Nov 21 06:59:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -17,8 +17,8 @@
  * Validation result: Not run
  */
 
-#ifndef rt_defines_h_
-#define rt_defines_h_
+#ifndef RTW_HEADER_rt_defines_h_
+#define RTW_HEADER_rt_defines_h_
 
 /*===========*
  * Constants *
@@ -49,7 +49,7 @@
 #define UNUSED_PARAMETER(x)            (void) (x)
 #endif
 #endif
-#endif                                 /* rt_defines_h_ */
+#endif                                 /* RTW_HEADER_rt_defines_h_ */
 
 /*
  * File trailer for generated code.
