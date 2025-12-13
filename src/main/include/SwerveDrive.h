@@ -2,7 +2,7 @@
 
 //local
 #include "include/Constants.h"
-#include "DertLib/include/Component.h"
+#include "DertLib/include/HighFrequencyComponent.h"
 #include "DertLib/include/KrakenSet.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 //frc
@@ -18,12 +18,14 @@ namespace Drive = Constants::SwerveMotorsCreateInfo::Drive;
 namespace Steer = Constants::SwerveMotorsCreateInfo::Steer;
 namespace SwerveInfo = Constants::SwerveInfo;
 
-class SwerveDrive : public dlib::Component
+class SwerveDrive : public dlib::HighFrequencyComponent
 {
 public:
   SwerveDrive();
   void PreStepCallback() override;
   void PostStepCallback() override;
+  void HighFrequencyPreStepCallback() override;
+  void HighFrequencyPostStepCallback() override;
 
 private:
   /** Creates the wheel offset preferences if they have not been created */

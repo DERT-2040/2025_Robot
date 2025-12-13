@@ -2,7 +2,9 @@
 
 //local
 #include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
+#include "Code_Gen_Model_ert_rtw\Code_Gen_Model.c"
 #include "DertLib/include/Component.h"
+#include "DertLib/include/HighFrequencyComponent.h"
 #include "include/HIDs.h"
 #include "include/IMU.h"
 #include "include/SwerveDrive.h"
@@ -43,6 +45,11 @@ private:
   /** Takes outputs from simulink and pushes their commands to hardware */
   void PostStep() {for(auto component : dlib::Component::AllCreatedComponents) component->PostStepCallback();}
   
+  void HighFrequencyPreStep() {for(auto component : dlib::HighFrequencyComponent::AllCreatedHighFrequencyComponents) component->HighFrequencyPreStepCallback();};
+
+  void HighFrequencyPostStep() {for(auto component : dlib::HighFrequencyComponent::AllCreatedHighFrequencyComponents) component->HighFrequencyPreStepCallback();};
+
+
   /*
    * Below are the instances of the components used by the robot
    * Everything here should be direct hardware control, only
@@ -67,7 +74,6 @@ private:
     
   /** Component for all Tunable Parameters created by simulink */
   SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  
-
 
   /** FMSInfo */
   FMSInfo m_FMSInfo;

@@ -10,12 +10,7 @@ SwerveDrive::SwerveDrive()
  
 void SwerveDrive::PreStepCallback() 
 {
-  swerveDriveMotors.pushData();
-  //Steer Module Revolutions
-  Code_Gen_Model_U.FrontLeft_Steer_Rev = m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value();
-  Code_Gen_Model_U.FrontRight_Steer_Rev = m_FrontRight_Steer_Encoder.GetPosition().GetValue().value();
-  Code_Gen_Model_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
-  Code_Gen_Model_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
+  swerveDriveMotors.pushVelocities();
 }
 
 void SwerveDrive::PostStepCallback()
@@ -76,3 +71,14 @@ void SwerveDrive::Set_Wheel_Offset()
   Code_Gen_Model_U.FrontLeft_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_FrontLeft_Wheel_Offset_Key, 0.0);
   Code_Gen_Model_U.FrontRight_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_FrontRight_Wheel_Offset_Key, 0.0);
 }
+
+void SwerveDrive::HighFrequencyPreStepCallback()
+{
+  swerveDriveMotors.pushPositions();
+  Code_Gen_Model_U.FrontLeft_Steer_Rev = m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value();
+  Code_Gen_Model_U.FrontRight_Steer_Rev = m_FrontRight_Steer_Encoder.GetPosition().GetValue().value();
+  Code_Gen_Model_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
+  Code_Gen_Model_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
+}
+
+void SwerveDrive::HighFrequencyPostStepCallback() {}

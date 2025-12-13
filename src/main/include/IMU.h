@@ -1,7 +1,7 @@
 #pragma once
 
 //local
-#include "DertLib/include/Component.h"
+#include "DertLib/include/HighFrequencyComponent.h"
 #include "include/Constants.h"
 
 //crte
@@ -11,12 +11,14 @@
 
 namespace kIMU = Constants::IMU;
 
-class IMU : public dlib::Component
+class IMU : public dlib::HighFrequencyComponent
 {
 public:
     IMU();
     void PreStepCallback() override;
     void PostStepCallback() override;
+    void HighFrequencyPreStepCallback() override;
+    void HighFrequencyPostStepCallback() override;
 private:
     /**
      * Pigeon 2 IMU from CRTE

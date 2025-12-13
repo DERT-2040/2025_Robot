@@ -12,6 +12,8 @@ class FMSInfo : public dlib::Component
 public:
 	void PreStepCallback() override;
 	void PostStepCallback() override;
+	void FastPreStepCallback();
+	void FastPostStepCallback();
 private:
 	bool hasIntChanged(int current, int& previous);
 	int previous = -1; 

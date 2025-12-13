@@ -1,7 +1,19 @@
 //local
 #include "include/Robot.h"
 
-void Robot::RobotInit()      {Code_Gen_Model_U.GameState = -1; Code_Gen_Model_initialize();}
+void Robot::RobotInit()
+{
+  Code_Gen_Model_U.GameState = -1;
+  Code_Gen_Model_initialize();
+
+  AddPeriodic([&](){
+    HighFrequencyPreStep();
+    High_Frequency_Model_Step();
+    HighFrequencyPostStep();
+  },
+  4_ms,
+  2_ms);
+}
 void Robot::DisabledInit()   {Code_Gen_Model_U.GameState = 0;}
 void Robot::AutonomousInit() {Code_Gen_Model_U.GameState = 1;}
 void Robot::TeleopInit()     {Code_Gen_Model_U.GameState = 2;}
@@ -15,7 +27,7 @@ void Robot::RobotPeriodic()
   PreStep();
   m_Tracer.AddEpoch("After PreStep");
   
-  Code_Gen_Model_step(); //Step the model
+  Model_Step(); //Step the model
   m_Tracer.AddEpoch("After Step");
 
   PostStep();
