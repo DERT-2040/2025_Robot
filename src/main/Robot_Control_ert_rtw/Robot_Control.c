@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.422
+ * Model version                  : 2.423
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 20:01:48 2025
+ * C/C++ source code generated on : Sat Dec 13 21:35:45 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -11793,6 +11793,12 @@ void Robot_Control_step(void)
 
   /* Outport: '<Root>/Desired_Pipeline' */
   Robot_Control_Y.Desired_Pipeline = rtb_Desired_Pipeline;
+
+  /* Sum: '<S1>/Sum' incorporates:
+   *  Constant: '<S1>/Constant2'
+   *  UnitDelay: '<S1>/Unit Delay1'
+   */
+  Robot_Control_B.loop_counter_robot_control++;
 
   /* SignalConversion: '<S15>/Signal Copy4' incorporates:
    *  Inport: '<Root>/Joystick_Right_X'

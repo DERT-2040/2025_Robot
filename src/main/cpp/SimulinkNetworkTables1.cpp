@@ -973,6 +973,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__UnitDelay2__Entry = NTtable_TPoint->GetEntry("UnitDelay2");
     T__WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
     T__Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
+    T__loop_counter_robot_control__Entry = NTtable_TPoint->GetEntry("loop_counter_robot_control");
 }
  
 void SimulinkNetworkTables1::PreStepCallback() {}
@@ -1403,6 +1404,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__UnitDelay2__Entry.SetDouble(Robot_Control_B.UnitDelay2);
     T__WhileIterator__Entry.SetDouble(Robot_Control_B.WhileIterator);
     T__Winch_Cmd__Entry.SetDouble(Robot_Control_B.Winch_Cmd);
+    T__loop_counter_robot_control__Entry.SetDouble(Robot_Control_B.loop_counter_robot_control);
 }
 // Why are you reading to the bottom of an autogen file?
 // Get a life...

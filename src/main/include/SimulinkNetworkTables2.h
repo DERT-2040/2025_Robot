@@ -71,4 +71,5 @@ private:
         nt::NetworkTableEntry T__Odometry_X_global_est_ft__Entry;
         nt::NetworkTableEntry T__Odometry_Y_global_TEAR_ft__Entry;
         nt::NetworkTableEntry T__Odometry_Y_global_est_ft__Entry;
+        nt::NetworkTableEntry T__loop_counter_odometry__Entry;
 };

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Odometry'.
  *
- * Model version                  : 2.429
+ * Model version                  : 2.430
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 21:26:53 2025
+ * C/C++ source code generated on : Sat Dec 13 21:34:58 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -489,6 +489,12 @@ void Odometry_step(void)
   /* Sum: '<S16>/Subtract1' */
   Odometry_B.Odometry_Y_global_TEAR_ft = Odometry_B.Odometry_Y_global_est_ft -
     rtb_thetay_p;
+
+  /* Sum: '<S1>/Sum' incorporates:
+   *  Constant: '<S1>/Constant2'
+   *  UnitDelay: '<S1>/Unit Delay'
+   */
+  Odometry_B.loop_counter_odometry++;
 
   /* Update for UnitDelay: '<S8>/UD' incorporates:
    *  Inport: '<Root>/FrontLeft_Drive_Motor_Rev'

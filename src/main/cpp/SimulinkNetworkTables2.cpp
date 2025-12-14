@@ -95,6 +95,7 @@ SimulinkNetworkTables2::SimulinkNetworkTables2()
     T__Odometry_X_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_X_global_est_ft");
     T__Odometry_Y_global_TEAR_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_TEAR_ft");
     T__Odometry_Y_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_est_ft");
+    T__loop_counter_odometry__Entry = NTtable_TPoint->GetEntry("loop_counter_odometry");
 }
  
 void SimulinkNetworkTables2::PreStepCallback() {}
@@ -154,6 +155,7 @@ void SimulinkNetworkTables2::PostStepCallback()
     T__Odometry_X_global_est_ft__Entry.SetDouble(Odometry_B.Odometry_X_global_est_ft);
     T__Odometry_Y_global_TEAR_ft__Entry.SetDouble(Odometry_B.Odometry_Y_global_TEAR_ft);
     T__Odometry_Y_global_est_ft__Entry.SetDouble(Odometry_B.Odometry_Y_global_est_ft);
+    T__loop_counter_odometry__Entry.SetDouble(Odometry_B.loop_counter_odometry);
 }
 // Why are you reading to the bottom of an autogen file?
 // Get a life...

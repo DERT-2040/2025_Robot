@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.422
+ * Model version                  : 2.423
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 20:01:48 2025
+ * C/C++ source code generated on : Sat Dec 13 21:35:45 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -126,6 +126,7 @@ typedef struct {
   real_T Coral_ArmAngle_Error;         /* '<S8>/Subtract' */
   real_T Elevator_Proportional_l;      /* '<S72>/Gain1' */
   real_T Elevator_Integral_o;          /* '<S72>/Switch' */
+  real_T loop_counter_robot_control;   /* '<S1>/Sum' */
   real_T Steer_Joystick_X;             /* '<S15>/Signal Copy4' */
   real_T AT_Relative_Error_Error_Y;    /* '<S23>/Signal Copy8' */
   real_T AT_Relative_Error_Error_X;    /* '<S23>/Signal Copy7' */

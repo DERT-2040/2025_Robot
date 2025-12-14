@@ -442,4 +442,5 @@ private:
         nt::NetworkTableEntry T__UnitDelay2__Entry;
         nt::NetworkTableEntry T__WhileIterator__Entry;
         nt::NetworkTableEntry T__Winch_Cmd__Entry;
+        nt::NetworkTableEntry T__loop_counter_robot_control__Entry;
 };
