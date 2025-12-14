@@ -3,13 +3,14 @@
 
 void FMSInfo::PreStepCallback()
 {
-	Code_Gen_Model_U.MatchTime = frc::DriverStation::GetMatchTime().value();
-	if(hasIntChanged(static_cast<int>(Code_Gen_Model_U.GameState), previous))
+	Robot_Control_U.MatchTime = frc::DriverStation::GetMatchTime().value();
+	if(hasIntChanged(static_cast<int>(Robot_Control_U.GameState), previous))
 	{
 		if(frc::DriverStation::GetAlliance().has_value())
-			Code_Gen_Model_U.IsBlueAlliance = frc::DriverStation::GetAlliance().value();
+			Robot_Control_U.IsBlueAlliance = frc::DriverStation::GetAlliance().value();
 		else
-			Code_Gen_Model_U.IsBlueAlliance = 1;
+			Robot_Control_U.IsBlueAlliance = 1;
+		Odometry_U.IsBlueAlliance = Robot_Control_U.IsBlueAlliance;
 	}
 }
 

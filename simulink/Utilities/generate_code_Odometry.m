@@ -1,7 +1,7 @@
-function generate_code_Robot_Control()
+function generate_code_Odometry()
 % generate_controller_code
 
-controllerModel = 'Robot_Control';
+controllerModel = 'Odometry';
 
 if(~bdIsLoaded(controllerModel))
     open_system(controllerModel);

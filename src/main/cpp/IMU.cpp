@@ -12,7 +12,7 @@ void IMU::PostStepCallback() {}
 
 void IMU::HighFrequencyPreStepCallback()
 {
-    Code_Gen_Model_U.Gyro_Angle = m_Pigeon2.GetRotation2d().Degrees().value();
+    Odometry_U.Gyro_Angle = m_Pigeon2.GetRotation2d().Degrees().value();
 }
 
 void IMU::HighFrequencyPostStepCallback() {}

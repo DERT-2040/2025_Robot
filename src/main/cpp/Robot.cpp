@@ -3,41 +3,61 @@
 
 void Robot::RobotInit()
 {
-  Code_Gen_Model_U.GameState = -1;
-  Code_Gen_Model_initialize();
+  Robot_Control_U.GameState = -1;
+
+  Robot_Control_initialize();
+  Odometry_initialize();
 
   AddPeriodic([&](){
-    HighFrequencyPreStep();
-    High_Frequency_Model_Step();
-    HighFrequencyPostStep();
+    static size_t HighFrequencyCount = 0;
+    if(HighFrequencyCount != 0)
+    {
+      HighFrequencyPreStep();
+      Odometry_step();
+      HighFrequencyPostStep();
+    }
+    if(HighFrequencyCount == 4)
+      HighFrequencyCount = 0;
+    else
+      HighFrequencyCount++;
   },
   4_ms,
-  2_ms);
+  0_ms);
 }
-void Robot::DisabledInit()   {Code_Gen_Model_U.GameState = 0;}
-void Robot::AutonomousInit() {Code_Gen_Model_U.GameState = 1;}
-void Robot::TeleopInit()     {Code_Gen_Model_U.GameState = 2;}
-void Robot::TestInit()       {Code_Gen_Model_U.GameState = 3;}
-void Robot::SimulationInit() {Code_Gen_Model_U.GameState = 4;}
+void Robot::DisabledInit()   {Robot_Control_U.GameState = 0;}
+void Robot::AutonomousInit() {Robot_Control_U.GameState = 1;}
+void Robot::TeleopInit()     {Robot_Control_U.GameState = 2;}
+void Robot::TestInit()       {Robot_Control_U.GameState = 3;}
+void Robot::SimulationInit() {Robot_Control_U.GameState = 4;}
 
 void Robot::RobotPeriodic() 
 {  
-  m_Tracer.ClearEpochs();
-  
-  PreStep();
-  m_Tracer.AddEpoch("After PreStep");
-  
-  Model_Step(); //Step the model
-  m_Tracer.AddEpoch("After Step");
+  HighFrequencyPreStep();
+  Odometry_step();      //Step the model
+  HighFrequencyPostStep();
 
+  Odometry_to_Robot_Control_Transfer();
+
+  PreStep();
+  Robot_Control_step(); //Step the model
   PostStep();
-  m_Tracer.AddEpoch("After PostStep");
 }
 
-void PreStep() {for(auto component : Component::AllCreatedComponents) component->PreStepCallback();}
-  
-  /** Takes outputs from simulink and pushes their commands to hardware */
-  void PostStep() {for(auto component : Component::AllCreatedComponents) component->PostStepCallback();}
+void Robot::Odometry_to_Robot_Control_Transfer()
+{
+  Robot_Control_U.Gyro_Angle_Field_rad  = Odometry_Y.Gyro_Angle_Field_rad;
+  Robot_Control_U.Gyro_Angle_rad        = Odometry_Y.Gyro_Angle_rad;
+  Robot_Control_U.FL_Steer_Module_Angle = Odometry_Y.FL_Steer_Module_Angle;
+  Robot_Control_U.FR_Steer_Module_Angle = Odometry_Y.FR_Steer_Module_Angle;
+  Robot_Control_U.BL_Steer_Module_Angle = Odometry_Y.BL_Steer_Module_Angle;
+  Robot_Control_U.BR_Steer_Module_Angle = Odometry_Y.BR_Steer_Module_Angle;
+  Robot_Control_U.Odom_Position_X       = Odometry_Y.Odom_Position_X;
+  Robot_Control_U.Odom_Position_Y       = Odometry_Y.Odom_Position_Y;
+  Robot_Control_U.Odom_Delta_X          = Odometry_Y.Odom_Delta_X;
+  Robot_Control_U.Odom_Delta_Y          = Odometry_Y.Odom_Delta_Y;
+  Robot_Control_U.Auto_Start_Position   = Odometry_Y.Auto_Start_Position;
+}
+
 #ifndef RUNNING_FRC_TESTS
 int main() 
 {

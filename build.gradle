@@ -63,6 +63,7 @@ model {
                 }
                 exportedHeaders {
                     srcDir 'src/main'
+                    srcDir 'src/main/slprj/ert/_sharedutils'                 
                     include '**/*.h', '**/*.hh'
                 }
             }

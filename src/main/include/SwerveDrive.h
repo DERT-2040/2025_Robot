@@ -4,7 +4,8 @@
 #include "include/Constants.h"
 #include "DertLib/include/HighFrequencyComponent.h"
 #include "DertLib/include/KrakenSet.h"
-#include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
+#include "Robot_Control_ert_rtw/Robot_Control.h"
+#include "Odometry_ert_rtw/Odometry.h"
 //frc
 #include <frc/DutyCycleEncoder.h>
 #include <frc/Preferences.h>

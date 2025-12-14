@@ -51,13 +51,13 @@ void Limelight::PreStepCallback() {
         double cameraOne_Tag_y = CameraOneRobotPose.at(0);
         double cameraOne_Tag_angle = CameraOneRobotPose.at(4);
 
-        Code_Gen_Model_U.Limelight_Tag_X = cameraOne_Tag_x;
-        Code_Gen_Model_U.Limelight_Tag_Y = cameraOne_Tag_y;
-        Code_Gen_Model_U.Limelight_Tag_Angle = cameraOne_Tag_angle;
+        Robot_Control_U.Limelight_Tag_X = cameraOne_Tag_x;
+        Robot_Control_U.Limelight_Tag_Y = cameraOne_Tag_y;
+        Robot_Control_U.Limelight_Tag_Angle = cameraOne_Tag_angle;
     } else {
-        Code_Gen_Model_U.Limelight_Tag_X = 0;
-        Code_Gen_Model_U.Limelight_Tag_Y = 0;
-        Code_Gen_Model_U.Limelight_Tag_Angle = 0;
+        Robot_Control_U.Limelight_Tag_X = 0;
+        Robot_Control_U.Limelight_Tag_Y = 0;
+        Robot_Control_U.Limelight_Tag_Angle = 0;
     }
 
     // Limelight Values for Scoring & Selection
@@ -74,7 +74,7 @@ void Limelight::PreStepCallback() {
     int CameraTwoLLScore = 0;
 
     // Pass Into Simulink
-    Code_Gen_Model_U.Num_Tags_Detected = CameraOneLLTagCount + CameraTwoLLTagCount;
+    Robot_Control_U.Num_Tags_Detected = CameraOneLLTagCount + CameraTwoLLTagCount;
 
     // Logic to evaluate which Limelight has "better" tags currently, based on amount of Tag on screen and tag distance
     // Sets input values based on that
@@ -90,21 +90,21 @@ void Limelight::PreStepCallback() {
     }
     if (CameraOneLLTagCount == CameraTwoLLTagCount) {
         if (CameraOneLLScore > CameraTwoLLScore) {
-            Code_Gen_Model_U.Limelight_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
+            Robot_Control_U.Limelight_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
+            Robot_Control_U.Limelight_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
         } else if (CameraTwoLLScore > CameraOneLLScore) {
-            Code_Gen_Model_U.Limelight_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
+            Robot_Control_U.Limelight_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
+            Robot_Control_U.Limelight_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
         } else if (CameraTwoLLScore == CameraOneLLScore) {
-            Code_Gen_Model_U.Limelight_Est_Pose_X = (CameraTwoLLMeasurement.pose.X().value() + CameraOneLLMeasurement.pose.X().value())/2;
-            Code_Gen_Model_U.Limelight_Est_Pose_Y = (CameraTwoLLMeasurement.pose.Y().value() + CameraOneLLMeasurement.pose.Y().value())/2;
+            Robot_Control_U.Limelight_Est_Pose_X = (CameraTwoLLMeasurement.pose.X().value() + CameraOneLLMeasurement.pose.X().value())/2;
+            Robot_Control_U.Limelight_Est_Pose_Y = (CameraTwoLLMeasurement.pose.Y().value() + CameraOneLLMeasurement.pose.Y().value())/2;
         }
     } else if (CameraOneLLTagCount > CameraTwoLLTagCount) {
-            Code_Gen_Model_U.Limelight_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
+            Robot_Control_U.Limelight_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
+            Robot_Control_U.Limelight_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
     } else if (CameraOneLLTagCount < CameraTwoLLTagCount) {
-            Code_Gen_Model_U.Limelight_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
-            Code_Gen_Model_U.Limelight_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
+            Robot_Control_U.Limelight_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
+            Robot_Control_U.Limelight_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
     }
 
     // Set Robot Pipeline (if needed)
@@ -115,8 +115,8 @@ void Limelight::PreStepCallback() {
     // Get the "pipeline" entry
     nt::NetworkTableEntry pipelineEntry = table->GetEntry("pipeline");
     // Set the value of the "pipeline" entry to the desired pipeline index
-    if(pipelineEntry.GetDouble(0) != Code_Gen_Model_Y.Desired_Pipeline) {
-        SetPipeline(Code_Gen_Model_Y.Desired_Pipeline);
+    if(pipelineEntry.GetDouble(0) != Robot_Control_Y.Desired_Pipeline) {
+        SetPipeline(Robot_Control_Y.Desired_Pipeline);
     }
 
 }
@@ -124,7 +124,7 @@ void Limelight::PreStepCallback() {
 void Limelight::PostStepCallback() 
 {
     // Pulls Gyro Yaw Offset
-    Gyro_Offset = Code_Gen_Model_Y.Gyro_Angle_Offset_Total;
+    Gyro_Offset = Odometry_Y.Gyro_Angle_Offset_Total;
 }
 
 void Limelight::SetPipeline(int pipelineIndex)

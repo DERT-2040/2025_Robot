@@ -2,8 +2,8 @@
 % November 2023
 
 % clear workspace and load data needed for code generation
-clear
-evalin('base', 'Robot_Control_data');
+clear all
+evalin('base', 'Odometry_data');
 
 % Get Project Path for file referencing
 ProjectRoot = currentProject().RootFolder;
@@ -21,7 +21,7 @@ Values = cellfun(@eval, Names, 'UniformOutput',false);
 %       does not work for logical/boolean data types (make these double in Simulink)
 %       type 'doc isa' at the workspace to see a list of numeric data types
 %    scalars (not vectors or matrices)
-%    parameters not in the 'Not_Tunable_List' list (created in 'Robot_Control_data')
+%    parameters not in the 'Not_Tunable_List' list (created in 'Odometry_data')
 % Set the storage class to ExportedGlobal to make them tunable
 for i = 1:length(Names)
     temp_name = Names{i};
@@ -50,7 +50,7 @@ end
 % --- --- --- --- --- --- --- --Build Code-- --- --- --- --- --- --- --- --
 % XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-generate_code_Robot_Control;
+generate_code_Odometry;
 
 % XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 % --- --- --- --- --- -- Scan Model For Names -- --- --- --- --- --- --- --
@@ -58,10 +58,10 @@ generate_code_Robot_Control;
 % Created by Janelyn Anderson (student) without any help
 % December 2023
 
-mdl = 'Robot_Control';
+mdl = 'Odometry';
 load_system(mdl);
 
-Top_Level_Blocks = find_system(mdl, 'FindAll', 'on', 'LookInsideSubsystemReference', 'off', 'Type','Block');
+Top_Level_Blocks = find_system(mdl, 'SearchDepth', 1, 'FindAll', 'on', 'LookInsideSubsystemReference', 'off', 'Type','Block');
 % TF = get(Top_Level_Blocks, 'Port');
 % Port_Blocks = Top_Level_Blocks(logical(cell2mat(TF)));
 % ListOfPorts = get(Port_Blocks,'Name');
@@ -82,7 +82,7 @@ for i = (1:size(Top_Level_Blocks, 1))
 end
 
 
-C_File = fileread(append(ProjectRoot,'/../src/main/Robot_Control_ert_rtw/Robot_Control.h'));
+C_File = fileread(append(ProjectRoot,'/../src/main/Odometry_ert_rtw/Odometry.h'));
 C_File_Split = split(C_File, newline);
 C_File_Trimmed = cellfun(@strtrim, C_File_Split, 'UniformOutput',false);
 TF = contains(C_File_Trimmed, '/* Block signals (default storage) */');
@@ -95,7 +95,7 @@ try
         end
     end
 
-    EndIndex = find(contains(C_File_Trimmed, '} B_Robot_Control_T;')) - 1;
+    EndIndex = find(contains(C_File_Trimmed, '} B_Odometry_T;')) - 1;
     Variable_Lines = C_File_Trimmed(StartIndex:EndIndex);
     Split_Variable_Lines = cellfun(@strsplit, Variable_Lines, 'UniformOutput',false);
     ListOfTestPoints_w_semicolen = cellfun(@(a) a(1,2), Split_Variable_Lines);
@@ -126,8 +126,8 @@ end
 % Janelyn Anderson
 % Edited December 2023 to make code that displays all model ports in
 % Network Tables as well as all test points
-CPPFileID = fopen(append(ProjectRoot,'/../src/main/cpp/SimulinkSmartDashboardInterface.cpp'), 'w');
-HFileID = fopen(append(ProjectRoot,'/../src/main/include/SimulinkSmartDashboardInterface.h'), 'w');
+CPPFileID = fopen(append(ProjectRoot,'/../src/main/cpp/SimulinkNetworkTables2.cpp'), 'w');
+HFileID = fopen(append(ProjectRoot,'/../src/main/include/SimulinkNetworkTables2.h'), 'w');
 if CPPFileID == -1
     error('Could not open .cpp file for writing');
 end
@@ -152,13 +152,13 @@ HFileContents = {...
     '#include <networktables/NetworkTable.h>',...
     '#include <networktables/RawTopic.h>',...
     '#include <networktables/NetworkTableInstance.h>',...
-    '#include "Robot_Control_ert_rtw\Robot_Control.h"',...
+    '#include "Odometry_ert_rtw\Odometry.h"',...
     '#include "DertLib/include/Component.h"',...
     ' ',...
-    'class SimulinkSmartDashboardInterface : public dlib::Component',...
+    'class SimulinkNetworkTables2 : public dlib::Component',...
     '{',...
     'public:',...
-    '    SimulinkSmartDashboardInterface();',...
+    '    SimulinkNetworkTables2();',...
     '    void PreStepCallback() override ;',...
     '    void PostStepCallback() override;',...
     'private:',...
@@ -196,9 +196,9 @@ CPPFileContents = {...
     '// This file has been auto generated from a Matlab script',...
     '// Do not manually edit since changes will be lost',...
     '// Janelyn <3',...
-    '#include "include/SimulinkSmartDashboardInterface.h"',...
+    '#include "include/SimulinkNetworkTables2.h"',...
     ' ',...
-    'SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()',...
+    'SimulinkNetworkTables2::SimulinkNetworkTables2()',...
     '{',...
     '    nt::NetworkTableInstance NTinst = nt::NetworkTableInstance::GetDefault();',...
     '    auto NTtable_Tune = NTinst.GetTable("Simulink Tunable Params");',...
@@ -237,9 +237,9 @@ end
 
 CPPFileContents{end + 1} = '}';
 CPPFileContents{end + 1} = ' ';
-CPPFileContents{end + 1} = 'void SimulinkSmartDashboardInterface::PreStepCallback() {}';
+CPPFileContents{end + 1} = 'void SimulinkNetworkTables2::PreStepCallback() {}';
 CPPFileContents{end + 1} = ' ';
-CPPFileContents{end + 1} = 'void SimulinkSmartDashboardInterface::PostStepCallback()';
+CPPFileContents{end + 1} = 'void SimulinkNetworkTables2::PostStepCallback()';
 CPPFileContents{end + 1} = '{';
 CPPFileContents{end + 1} = '    // Tunable Parameters';
 for i = 1:length(Names)
@@ -250,16 +250,16 @@ for i = 1:length(Names)
 end
 CPPFileContents{end + 1} = '    // Inports';
 for i = 1:length(ListOfInPorts)
-    CPPFileContents{end + 1} = append('    I__', string(ListOfInPorts(i)), '__Entry.SetDouble(Robot_Control_U.', string(ListOfInPorts(i)), ');');
+    CPPFileContents{end + 1} = append('    I__', string(ListOfInPorts(i)), '__Entry.SetDouble(Odometry_U.', string(ListOfInPorts(i)), ');');
 end
 CPPFileContents{end + 1} = '    // Outports';
 for i = 1:length(ListOfOutPorts)
-    CPPFileContents{end + 1} = append('    O__', string(ListOfOutPorts(i)), '__Entry.SetDouble(Robot_Control_Y.', string(ListOfOutPorts(i)), ');');
+    CPPFileContents{end + 1} = append('    O__', string(ListOfOutPorts(i)), '__Entry.SetDouble(Odometry_Y.', string(ListOfOutPorts(i)), ');');
 end
 
 CPPFileContents{end + 1} = '    // Test Points';
 for i = 1:length(ListOfTestPoints)
-    CPPFileContents{end + 1} = append('    T__', string(ListOfTestPoints(i)), '__Entry.SetDouble(Robot_Control_B.', string(ListOfTestPoints(i)), ');');
+    CPPFileContents{end + 1} = append('    T__', string(ListOfTestPoints(i)), '__Entry.SetDouble(Odometry_B.', string(ListOfTestPoints(i)), ');');
 end
 
 CPPFileContents{end + 1} = '}';

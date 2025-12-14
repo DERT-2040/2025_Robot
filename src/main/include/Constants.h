@@ -7,7 +7,8 @@
 
 //local
 #include "DertLib/include/KrakenTalon.h"
-#include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
+#include "Robot_Control_ert_rtw/Robot_Control.h"
+#include "Odometry_ert_rtw/Odometry.h"
 #include "LimelightHelpers.h"
 
 using namespace dlib;
@@ -47,24 +48,24 @@ namespace Constants
             };
             static const KrakenTalonCreateInfo frontLeft  = KrakenTalonCreateInfo::modifyInfo(defaultDriveCreateInfo,
                                                                                  1, //CAN ID
-                                                                                 &Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle,
-                                                                                 &Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed,
-                                                                                 &Code_Gen_Model_U.FrontLeft_Drive_Motor_Rev);
+                                                                                 &Robot_Control_Y.FrontLeft_Drive_DutyCycle,
+                                                                                 &Robot_Control_U.FrontLeft_Drive_Motor_Speed,
+                                                                                 &Odometry_U.FrontLeft_Drive_Motor_Rev);
             static const KrakenTalonCreateInfo frontRight = KrakenTalonCreateInfo::modifyInfo(defaultDriveCreateInfo,
                                                                                  2, //CAN ID
-                                                                                 &Code_Gen_Model_Y.FrontRight_Drive_DutyCycle,
-                                                                                 &Code_Gen_Model_U.FrontRight_Drive_Motor_Speed,
-                                                                                 &Code_Gen_Model_U.FrontRight_Drive_Motor_Rev);
+                                                                                 &Robot_Control_Y.FrontRight_Drive_DutyCycle,
+                                                                                 &Robot_Control_U.FrontRight_Drive_Motor_Speed,
+                                                                                 &Odometry_U.FrontRight_Drive_Motor_Rev);
             static const KrakenTalonCreateInfo backLeft   = KrakenTalonCreateInfo::modifyInfo(defaultDriveCreateInfo,
                                                                                  3, //CAN ID
-                                                                                 &Code_Gen_Model_Y.BackLeft_Drive_DutyCycle,
-                                                                                 &Code_Gen_Model_U.BackLeft_Drive_Motor_Speed,
-                                                                                 &Code_Gen_Model_U.BackLeft_Drive_Motor_Rev);
+                                                                                 &Robot_Control_Y.BackLeft_Drive_DutyCycle,
+                                                                                 &Robot_Control_U.BackLeft_Drive_Motor_Speed,
+                                                                                 &Odometry_U.BackLeft_Drive_Motor_Rev);
             static const KrakenTalonCreateInfo backRight  = KrakenTalonCreateInfo::modifyInfo(defaultDriveCreateInfo,
                                                                                  4, //CAN ID
-                                                                                 &Code_Gen_Model_Y.BackRight_Drive_DutyCycle,
-                                                                                 &Code_Gen_Model_U.BackRight_Drive_Motor_Speed,
-                                                                                 &Code_Gen_Model_U.BackRight_Drive_Motor_Rev);
+                                                                                 &Robot_Control_Y.BackRight_Drive_DutyCycle,
+                                                                                 &Robot_Control_U.BackRight_Drive_Motor_Speed,
+                                                                                 &Odometry_U.BackRight_Drive_Motor_Rev);
         };
         
         namespace Steer
@@ -80,16 +81,16 @@ namespace Constants
             };
             static const KrakenTalonCreateInfo frontLeft = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
                                                                                  5, //CAN ID
-                                                                                 &Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle);
+                                                                                 &Robot_Control_Y.FrontLeft_Steer_DutyCycle);
             static const KrakenTalonCreateInfo frontRight = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
                                                                                  6, //CAN ID
-                                                                                 &Code_Gen_Model_Y.FrontRight_Steer_DutyCycle);
+                                                                                 &Robot_Control_Y.FrontRight_Steer_DutyCycle);
             static const KrakenTalonCreateInfo backLeft   = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
                                                                                  7, //CAN ID
-                                                                                 &Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
+                                                                                 &Robot_Control_Y.BackLeft_Steer_DutyCycle);
             static const KrakenTalonCreateInfo backRight  = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
                                                                                  8, //CAN ID
-                                                                                 &Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
+                                                                                 &Robot_Control_Y.BackRight_Steer_DutyCycle);
         };
     };
     

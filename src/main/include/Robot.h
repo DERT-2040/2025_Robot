@@ -1,14 +1,15 @@
 #pragma once
 
 //local
-#include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
-#include "Code_Gen_Model_ert_rtw\Code_Gen_Model.c"
+#include "Robot_Control_ert_rtw\Robot_Control.h"
+#include "Odometry_ert_rtw\Odometry.h"
 #include "DertLib/include/Component.h"
 #include "DertLib/include/HighFrequencyComponent.h"
 #include "include/HIDs.h"
 #include "include/IMU.h"
 #include "include/SwerveDrive.h"
-#include "include/SimulinkSmartDashboardInterface.h"
+#include "include/SimulinkNetworkTables1.h"
+#include "include/SimulinkNetworkTables2.h"
 #include "include/Limelight.h"
 #include "include/FMSInfo.h"
 
@@ -39,6 +40,9 @@ class Robot : public frc::TimedRobot {
   void SimulationPeriodic() override {};
 
 private:
+  /** Transfer data from Odometry outputs to Robot_Control inputs */
+  void Odometry_to_Robot_Control_Transfer();
+
   /** Puts all inputs from sensors and HIDs into Simulink */
   void PreStep() {for(auto component : dlib::Component::AllCreatedComponents) component->PreStepCallback();}
   
@@ -73,7 +77,8 @@ private:
   SwerveDrive m_SwerveDrive;
     
   /** Component for all Tunable Parameters created by simulink */
-  SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  
+  SimulinkNetworkTables1 m_SimulinkNetworkTables1;
+  SimulinkNetworkTables2 m_SimulinkNetworkTables2;
 
   /** FMSInfo */
   FMSInfo m_FMSInfo;

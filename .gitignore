@@ -212,7 +212,9 @@ compile_commands.json
 helpsearch*/
 
 # Code generation folders
-slprj/
+simulink/Unit_Tests/Catmull-Rom/slprj/
+simulink/slprj/
+src/main/slprj/_sfprj/
 sccprj/
 codegen/
 

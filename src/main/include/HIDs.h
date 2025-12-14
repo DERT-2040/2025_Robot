@@ -2,7 +2,7 @@
 
 //local
 #include "include/Constants.h"
-#include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
+#include "Robot_Control_ert_rtw\Robot_Control.h"
 #include "DertLib/include/Component.h"
 //frc
 #include <frc/Joystick.h>

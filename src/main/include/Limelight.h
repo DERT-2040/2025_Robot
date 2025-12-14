@@ -1,7 +1,8 @@
 #pragma once
 
 // Local
-#include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
+#include "Robot_Control_ert_rtw/Robot_Control.h"
+#include "Odometry_ert_rtw/Odometry.h"
 #include "LimelightHelpers.h"
 #include "DertLib/include/Component.h"
 #include "include/Constants.h"

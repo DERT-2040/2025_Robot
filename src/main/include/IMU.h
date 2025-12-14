@@ -7,7 +7,8 @@
 //crte
 #include <ctre/phoenix6/Pigeon2.hpp>
 //Simulink
-#include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
+#include "Robot_Control_ert_rtw/Robot_Control.h"
+#include "Odometry_ert_rtw/Odometry.h"
 
 namespace kIMU = Constants::IMU;
 

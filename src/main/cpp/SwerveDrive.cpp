@@ -23,28 +23,28 @@ void SwerveDrive::PostStepCallback()
    * 4. Push the Reset_Wheel_Offsets button (Left B12).
    * 5. (optional) Push the Enable_Wheels button (Left B11).  
    */
-  if(Code_Gen_Model_Y.Enable_Wheels)
+  if(Robot_Control_Y.Enable_Wheels)
   { // Wheels On
     swerveDriveMotors.setBrakeModeWhenIdle(true); //brake mode
     swerveSteerMotors.setBrakeModeWhenIdle(true); //brake mode
   }
-  else if(Code_Gen_Model_Y.Disable_Wheels)
+  else if(Robot_Control_Y.Disable_Wheels)
   { //Wheels Off
     swerveDriveMotors.stop();
     swerveSteerMotors.stop();
     swerveDriveMotors.setBrakeModeWhenIdle(false); //coast mode
     swerveSteerMotors.setBrakeModeWhenIdle(false); //coast mode    
   }
-  else if(Code_Gen_Model_Y.Reset_Wheel_Offsets)
+  else if(Robot_Control_Y.Reset_Wheel_Offsets)
   { //Recal Wheels
-    frc::Preferences::SetDouble(SwerveInfo::k_FrontLeft_Wheel_Offset_Key, Code_Gen_Model_U.FrontLeft_Steer_Rev);
-    frc::Preferences::SetDouble(SwerveInfo::k_FrontRight_Wheel_Offset_Key, Code_Gen_Model_U.FrontRight_Steer_Rev);
-    frc::Preferences::SetDouble(SwerveInfo::k_BackLeft_Wheel_Offset_Key, Code_Gen_Model_U.BackLeft_Steer_Rev);
-    frc::Preferences::SetDouble(SwerveInfo::k_BackRight_Wheel_Offset_Key, Code_Gen_Model_U.BackRight_Steer_Rev);
+    frc::Preferences::SetDouble(SwerveInfo::k_FrontLeft_Wheel_Offset_Key, Odometry_U.FrontLeft_Steer_Rev);
+    frc::Preferences::SetDouble(SwerveInfo::k_FrontRight_Wheel_Offset_Key, Odometry_U.FrontRight_Steer_Rev);
+    frc::Preferences::SetDouble(SwerveInfo::k_BackLeft_Wheel_Offset_Key, Odometry_U.BackLeft_Steer_Rev);
+    frc::Preferences::SetDouble(SwerveInfo::k_BackRight_Wheel_Offset_Key, Odometry_U.BackRight_Steer_Rev);
     SwerveDrive::Set_Wheel_Offset();
   }
 
-  if(!Code_Gen_Model_Y.Swerve_Motors_Disabled)
+  if(!Robot_Control_Y.Swerve_Motors_Disabled)
   {
     swerveDriveMotors.pullCommands();
     swerveSteerMotors.pullCommands();
@@ -66,19 +66,19 @@ void SwerveDrive::Initalize_Wheel_Offset()
 
 void SwerveDrive::Set_Wheel_Offset() 
 {
-  Code_Gen_Model_U.BackLeft_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_BackLeft_Wheel_Offset_Key, 0.0);
-  Code_Gen_Model_U.BackRight_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_BackRight_Wheel_Offset_Key, 0.0);
-  Code_Gen_Model_U.FrontLeft_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_FrontLeft_Wheel_Offset_Key, 0.0);
-  Code_Gen_Model_U.FrontRight_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_FrontRight_Wheel_Offset_Key, 0.0);
+  Odometry_U.BackLeft_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_BackLeft_Wheel_Offset_Key, 0.0);
+  Odometry_U.BackRight_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_BackRight_Wheel_Offset_Key, 0.0);
+  Odometry_U.FrontLeft_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_FrontLeft_Wheel_Offset_Key, 0.0);
+  Odometry_U.FrontRight_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_FrontRight_Wheel_Offset_Key, 0.0);
 }
 
 void SwerveDrive::HighFrequencyPreStepCallback()
 {
   swerveDriveMotors.pushPositions();
-  Code_Gen_Model_U.FrontLeft_Steer_Rev = m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value();
-  Code_Gen_Model_U.FrontRight_Steer_Rev = m_FrontRight_Steer_Encoder.GetPosition().GetValue().value();
-  Code_Gen_Model_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
-  Code_Gen_Model_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
+  Odometry_U.FrontLeft_Steer_Rev = m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value();
+  Odometry_U.FrontRight_Steer_Rev = m_FrontRight_Steer_Encoder.GetPosition().GetValue().value();
+  Odometry_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
+  Odometry_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
 }
 
 void SwerveDrive::HighFrequencyPostStepCallback() {}

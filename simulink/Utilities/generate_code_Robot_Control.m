@@ -1,7 +1,7 @@
-function generate_controller_code()
+function generate_code_Robot_Control()
 % generate_controller_code
 
-controllerModel = 'Code_Gen_Model';
+controllerModel = 'Robot_Control';
 
 if(~bdIsLoaded(controllerModel))
     open_system(controllerModel);

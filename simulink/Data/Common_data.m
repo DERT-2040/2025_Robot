@@ -25,12 +25,3 @@ clear FrontBack LeftRight
 %% Wheel Gear Ratio
 gear_ratio = 6.12;  % L1 gear ratio = 8.14,  L3 gear ratio = 6.12
 wheel_diameter = 3.80*0.0254;
-Wheel_Speed_to_Motor_Speed = 60*gear_ratio/(wheel_diameter*pi); % (rev/min)/(m/sec)
-
-Drive_Motor_Max_Speed = 6200; % rpm  (also used below for PID feedforward gain)
-Drive_Wheel_Max_Speed = Drive_Motor_Max_Speed/Wheel_Speed_to_Motor_Speed; % m/sec
-
-% used for odometry
-Motor_Rev_to_Wheel_Distance = wheel_diameter*pi/gear_ratio; % m/rev
-
-clear gear_ratio wheel_diameter adjustment_factor

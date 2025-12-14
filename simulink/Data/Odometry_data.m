@@ -6,10 +6,22 @@ Not_Tunable_List = {'t_sample_fast',...
 };
 
 % sample time model
-t_sample = 0.004;
+t_sample_fast = 0.004;
 
-% Load swerve drive data to get dimensions
-Swerve_Drive
+% Load data files
+Common_data  % common to Robot_Controls and Odometry
+
+% Swerve Geometry
+Motor_Rev_to_Wheel_Distance = wheel_diameter*pi/gear_ratio; % m/rev
+clear gear_ratio wheel_diameter
+
+% Gyro calibration for each starting position
+Auto_Starting_Position = 2;  % 1 = left, 2 = center, 3 = right
+Gyro_Calibration_Reset_Flag = 0;  % when this value increases then reset the degree value
+Gyro_Calibration_Default = 0; % degrees
+Gyro_Calibration_Auto_Left = 210;
+Gyro_Calibration_Auto_Center = 180;
+Gyro_Calibration_Auto_Right = 125;
 
 %% Odometry rotation matrix
 % robot rotation matrix to obtain: 
