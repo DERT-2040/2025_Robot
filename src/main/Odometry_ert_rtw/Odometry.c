@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.429
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 21:00:28 2025
+ * C/C++ source code generated on : Sat Dec 13 21:26:53 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -45,9 +45,6 @@ real_T Gyro_Calibration_Default = 0.0; /* Variable: Gyro_Calibration_Default
 real_T Gyro_Calibration_Reset_Flag = 0.0;/* Variable: Gyro_Calibration_Reset_Flag
                                           * Referenced by: '<S2>/Constant3'
                                           */
-real_T Motor_Rev_to_Wheel_Distance = 0.049547;/* Variable: Motor_Rev_to_Wheel_Distance
-                                               * Referenced by: '<S3>/Constant1'
-                                               */
 real_T Odometry_IC_X = 0.0;            /* Variable: Odometry_IC_X
                                         * Referenced by: '<S1>/Constant'
                                         */
@@ -125,7 +122,7 @@ void Odometry_step(void)
    *  Store in Global RAM
    */
   rtb_thetay = (Odometry_U.FrontLeft_Drive_Motor_Rev - Odometry_DW.UD_DSTATE) *
-    Motor_Rev_to_Wheel_Distance;
+    0.049546817471321378;
 
   /* Sum: '<S19>/Add1' incorporates:
    *  Constant: '<S19>/Constant3'
@@ -157,7 +154,7 @@ void Odometry_step(void)
    *  Store in Global RAM
    */
   rtb_thetay_p = (Odometry_U.FrontRight_Drive_Motor_Rev -
-                  Odometry_DW.UD_DSTATE_i) * Motor_Rev_to_Wheel_Distance;
+                  Odometry_DW.UD_DSTATE_i) * 0.049546817471321378;
 
   /* Sum: '<S20>/Add1' incorporates:
    *  Constant: '<S20>/Constant3'
@@ -188,7 +185,7 @@ void Odometry_step(void)
    *  Store in Global RAM
    */
   rtb_thetay_o = (Odometry_U.BackLeft_Drive_Motor_Rev - Odometry_DW.UD_DSTATE_iy)
-    * Motor_Rev_to_Wheel_Distance;
+    * 0.049546817471321378;
 
   /* Sum: '<S21>/Add1' incorporates:
    *  Constant: '<S21>/Constant3'
@@ -220,7 +217,7 @@ void Odometry_step(void)
    *  Store in Global RAM
    */
   rtb_UnaryMinus2 = (Odometry_U.BackRight_Drive_Motor_Rev -
-                     Odometry_DW.UD_DSTATE_f) * Motor_Rev_to_Wheel_Distance;
+                     Odometry_DW.UD_DSTATE_f) * 0.049546817471321378;
 
   /* SignalConversion generated from: '<S3>/Product7' incorporates:
    *  Fcn: '<S12>/r->x'

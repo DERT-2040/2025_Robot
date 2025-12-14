@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.429
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 21:00:28 2025
+ * C/C++ source code generated on : Sat Dec 13 21:26:53 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -150,9 +150,6 @@ extern real_T Gyro_Calibration_Default;/* Variable: Gyro_Calibration_Default
                                         */
 extern real_T Gyro_Calibration_Reset_Flag;/* Variable: Gyro_Calibration_Reset_Flag
                                            * Referenced by: '<S2>/Constant3'
-                                           */
-extern real_T Motor_Rev_to_Wheel_Distance;/* Variable: Motor_Rev_to_Wheel_Distance
-                                           * Referenced by: '<S3>/Constant1'
                                            */
 extern real_T Odometry_IC_X;           /* Variable: Odometry_IC_X
                                         * Referenced by: '<S1>/Constant'

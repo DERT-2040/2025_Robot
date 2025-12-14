@@ -35,10 +35,6 @@ SimulinkNetworkTables2::SimulinkNetworkTables2()
     NTinst.AddListener(P__Gyro_Calibration_Reset_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Reset_Flag = event.GetValueEventData()->value.GetDouble();});
     P__Gyro_Calibration_Reset_Flag__Entry.SetDouble(0);
  
-    P__Motor_Rev_to_Wheel_Distance__Entry = NTtable_Tune->GetEntry("Motor_Rev_to_Wheel_Distance");
-    NTinst.AddListener(P__Motor_Rev_to_Wheel_Distance__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Motor_Rev_to_Wheel_Distance = event.GetValueEventData()->value.GetDouble();});
-    P__Motor_Rev_to_Wheel_Distance__Entry.SetDouble(0.049547);
- 
     P__Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(P__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
     P__Odometry_IC_X__Entry.SetDouble(0);
@@ -112,7 +108,6 @@ void SimulinkNetworkTables2::PostStepCallback()
     P__Gyro_Calibration_Auto_Right__Entry.SetDouble(Gyro_Calibration_Auto_Right);
     P__Gyro_Calibration_Default__Entry.SetDouble(Gyro_Calibration_Default);
     P__Gyro_Calibration_Reset_Flag__Entry.SetDouble(Gyro_Calibration_Reset_Flag);
-    P__Motor_Rev_to_Wheel_Distance__Entry.SetDouble(Motor_Rev_to_Wheel_Distance);
     P__Odometry_IC_X__Entry.SetDouble(Odometry_IC_X);
     P__Odometry_IC_Y__Entry.SetDouble(Odometry_IC_Y);
     P__Odometry_Reset_IC__Entry.SetDouble(Odometry_Reset_IC);

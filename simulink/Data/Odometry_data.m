@@ -1,9 +1,6 @@
 % Parameters to exclude from being tunable.
 % This is used in the 'Build_Extern.m' file
-Not_Tunable_List = {'t_sample_fast',...
-    'Distance_FL_x','Distance_FL_y','Distance_FR_x','Distance_FR_y',...
-    'Distance_BL_x','Distance_BL_y','Distance_BR_x','Distance_BR_y',...
-};
+Not_Tunable_List = {'t_sample_fast','Motor_Rev_to_Wheel_Distance'};
 
 % sample time model
 t_sample_fast = 0.004;
@@ -36,11 +33,15 @@ Rotation_Local =  [1 0 -Distance_FL_y;
                    1 0 -Distance_BR_y;
                    0 1  Distance_BR_x];
 
+clear Distance_FL_y Distance_FL_x Distance_FR_y Distance_FR_x
+clear Distance_BL_y Distance_BL_x Distance_BR_y Distance_BR_x
+
 % pseudo inverse of the rotation matrix
 temp = pinv(Rotation_Local);
 
 % only keep first two rows since we don't need to estimate Theta
 Rotation_Local_Inv = temp(1:2,:);
+clear temp
 
 % reset the odometry estimate to the IC
 % write to this in Smart Dashboard to reset (rising edge)
@@ -50,8 +51,6 @@ Odometry_Reset_IC = 0;
 % set to 1 to tear the X and Y measurement
 % set to 0 to let the X and Y measurements accumulate since the last tear
 Odometry_X_Y_TEAR = 0;
-
-clear temp
 
 Odometry_IC_X = 0;
 Odometry_IC_Y = 0;

@@ -23,7 +23,6 @@ private:
         nt::NetworkTableEntry P__Gyro_Calibration_Auto_Right__Entry;
         nt::NetworkTableEntry P__Gyro_Calibration_Default__Entry;
         nt::NetworkTableEntry P__Gyro_Calibration_Reset_Flag__Entry;
-        nt::NetworkTableEntry P__Motor_Rev_to_Wheel_Distance__Entry;
         nt::NetworkTableEntry P__Odometry_IC_X__Entry;
         nt::NetworkTableEntry P__Odometry_IC_Y__Entry;
         nt::NetworkTableEntry P__Odometry_Reset_IC__Entry;
