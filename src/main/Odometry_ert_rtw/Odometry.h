@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Odometry'.
  *
- * Model version                  : 2.425
+ * Model version                  : 2.429
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 20:00:44 2025
+ * C/C++ source code generated on : Sat Dec 13 21:00:28 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -58,16 +58,16 @@ typedef struct {
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T UD_DSTATE;                    /* '<S8>/UD' */
-  real_T UD_DSTATE_o;                  /* '<S9>/UD' */
-  real_T UD_DSTATE_m;                  /* '<S10>/UD' */
-  real_T UD_DSTATE_om;                 /* '<S11>/UD' */
+  real_T UD_DSTATE_i;                  /* '<S9>/UD' */
+  real_T UD_DSTATE_iy;                 /* '<S10>/UD' */
+  real_T UD_DSTATE_f;                  /* '<S11>/UD' */
   real_T DelayInput1_DSTATE;           /* '<S6>/Delay Input1' */
   real_T UnitDelay1_DSTATE;            /* '<S2>/Unit Delay1' */
   real_T UD_DSTATE_h;                  /* '<S7>/UD' */
   real_T Accumulator2_DSTATE;          /* '<S3>/Accumulator2' */
   real_T UnitDelay_DSTATE;             /* '<S16>/Unit Delay' */
   real_T Accumulator_DSTATE;           /* '<S3>/Accumulator' */
-  real_T UnitDelay1_DSTATE_h;          /* '<S16>/Unit Delay1' */
+  real_T UnitDelay1_DSTATE_d;          /* '<S16>/Unit Delay1' */
   int8_T Accumulator2_PrevResetState;  /* '<S3>/Accumulator2' */
   int8_T Accumulator_PrevResetState;   /* '<S3>/Accumulator' */
 } DW_Odometry_T;

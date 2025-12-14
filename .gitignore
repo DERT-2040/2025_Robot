@@ -215,6 +215,8 @@ helpsearch*/
 simulink/Unit_Tests/Catmull-Rom/slprj/
 simulink/slprj/
 src/main/slprj/_sfprj/
+src/main/slprj/ert/Robot_Control/
+src/main/slprj/ert/Odometry/
 sccprj/
 codegen/
 
