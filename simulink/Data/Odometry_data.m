@@ -1,3 +1,16 @@
+% Parameters to exclude from being tunable.
+% This is used in the 'Build_Extern.m' file
+Not_Tunable_List = {'t_sample_fast',...
+    'Distance_FL_x','Distance_FL_y','Distance_FR_x','Distance_FR_y',...
+    'Distance_BL_x','Distance_BL_y','Distance_BR_x','Distance_BR_y',...
+};
+
+% sample time model
+t_sample = 0.004;
+
+% Load swerve drive data to get dimensions
+Swerve_Drive
+
 %% Odometry rotation matrix
 % robot rotation matrix to obtain: 
 %   Vx and Vy for each module from the robot center Vx, Vy, and Omega
@@ -31,8 +44,3 @@ clear temp
 Odometry_IC_X = 0;
 Odometry_IC_Y = 0;
 
-
-%% Kalman Filter
-KF_Enable = 1;
-KF_Odom_Covariance = 0.001*eye(2);
-KF_Vision_Covariance = 0.1*eye(2);
