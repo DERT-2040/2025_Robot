@@ -1,0 +1,98 @@
+%implements s223_b0_1hv0r_1_SystemReset "C"
+
+%function SystemReset(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+/*@>1112d3*/localDW->/*@>11c036*/is_active_c5_Code_Gen_Model/*@>a70af*/ = /*@>11bf75*/0U;
+/*@>1112da*/localDW->/*@>11c039*/is_Elevator_CoralArm_CoralWheel/*@>a70b3*/ = /*@>d7ef5*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>1112e1*/localDW->/*@>11c03c*/is_Algae_Pickup_High/*@>a70b7*/ = /*@>d7ef8*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>1112e8*/localDW->/*@>11c03f*/is_Algae_Pickup_Low/*@>a70bb*/ = /*@>d7efb*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>1112ef*/localDW->/*@>11c042*/is_Algae_Score/*@>a70bf*/ = /*@>d7efe*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>1112f6*/localDW->/*@>11c045*/is_Coral/*@>a70c3*/ = /*@>d7f01*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>1112fd*/localDW->/*@>11c048*/is_Coral_Eject/*@>a70c7*/ = /*@>d7f04*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>111304*/localDW->/*@>11c04b*/is_Level_2/*@>a70cb*/ = /*@>d7f07*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>11130b*/localDW->/*@>11c04e*/is_Level_3/*@>a70cf*/ = /*@>d7f0a*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>111312*/localDW->/*@>11c051*/is_Level_4_Auto/*@>a70d3*/ = /*@>d7f0d*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>111319*/localDW->/*@>11c054*/is_Level_4_Teleop/*@>a70d7*/ = /*@>d7f10*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>111320*/localDW->/*@>11c057*/is_Coral_Score_Position/*@>a70db*/ = /*@>d7f13*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>111327*/localDW->/*@>11c05a*/is_Actions/*@>a70df*/ = /*@>d7f16*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>11132e*/localDW->/*@>11c05d*/is_Coral_Pickup_Prepare/*@>a70e3*/ = /*@>d7f19*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>111335*/localDW->/*@>11c060*/is_Set_Level/*@>a70e7*/ = /*@>d7f1c*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>11133c*/localDW->/*@>11c063*/is_Elevator_Height_Bottom/*@>a70eb*/ = /*@>d7f1f*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>111343*/localDW->/*@>11c066*/is_Elevator_Height_Bottom_pre/*@>a70ef*/ = /*@>d7f22*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>11134a*/localDW->/*@>11c069*/is_End_Game_Climb/*@>a70f3*/ = /*@>d7f25*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>111351*/localDW->/*@>11c06c*/is_Set_Level_n/*@>a70f7*/ = /*@>d7f28*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>111358*/localDW->/*@>11c06f*/is_Algae_Wheels/*@>a70fb*/ = /*@>d7f2b*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+/*@>11135f*/localDW->/*@>11c072*/is_AT_On_Target_Timer/*@>a70ff*/ = /*@>d7f2e*/Code_Gen_Mod_IN_NO_ACTIVE_CHILD;
+*rty_State_ID/*@>a7103*/ = /*@>d7f31*/0.0;
+*rty_Elevator_Height_Desired/*@>a7107*/ = /*@>d7f32*/0.0;
+*rty_Coral_Arm_Angle_Desired/*@>a710b*/ = /*@>d7f33*/0.0;
+*rty_Coral_Wheel_DC/*@>a710f*/ = /*@>d7f34*/0.0;
+/*@>111366*/localDW->/*@>11c075*/timer/*@>a7113*/ = /*@>d7f35*/0.0;
+*rty_Algae_Wheel_Outside_DC/*@>a7117*/ = /*@>d7f38*/0.0;
+*rty_Algae_Wheel_Inside_DC/*@>a711b*/ = /*@>d7f39*/0.0;
+*rty_Elevator_LowerPickup_Reset/*@>a711f*/ = /*@>d7f3a*/false;
+/*@>11136d*/localDW->/*@>11c078*/Set_L1/*@>a7123*/ = /*@>d7f3b*/false;
+/*@>111374*/localDW->/*@>11c07b*/Set_L2/*@>a7127*/ = /*@>d7f3e*/false;
+/*@>11137b*/localDW->/*@>11c07e*/Set_L3/*@>a712b*/ = /*@>d7f41*/false;
+/*@>111382*/localDW->/*@>11c081*/Set_L4/*@>a712f*/ = /*@>d7f44*/false;
+*rty_Coral_Pickup_Lower_Wait_Sta/*@>a7133*/ = /*@>d7f47*/false;
+*rty_Set_Coral_Level/*@>a7136*/ = /*@>11bf78*/0U;
+*rty_Set_Algae_Level/*@>a7139*/ = /*@>11bf7b*/0U;
+/*@>111389*/localDW->/*@>11c084*/timer_robot_target/*@>a713d*/ = /*@>d7f48*/0.0;
+*rty_Coral_Score/*@>a7141*/ = /*@>d7f4b*/false;
+*rty_Desired_Pipeline/*@>a7144*/ = /*@>11bf7e*/0U;
+%closefile cfgTxt
+%<cfgTxt>
+%assign rtmArgSys = ::CompiledModel.System[::CompiledModel.System[::CompiledModel.RTWCGModules.RTWCGModule[1].CGSystemIdx].NonInlinedParentSystemIdx]
+%if SysFcnArgNeeded("SystemReset", rtmArgSys.Interface.RTMArgDef, rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "SystemReset"))
+%<SLibCG_AccessArg(1, 19, 0)>
+%endif
+%if SLibCG_ArgAccessed(1, 19, 0)
+%<SLibAccessArg(rtmArgSys.Interface.RTMArgDef, "SystemReset", rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "SystemReset"))>
+%endif
+%if (IsModelReferenceBaseSys(rtmArgSys) && (IsModelRefScalableBuild() || GenerateClassInterface)) ||...
+(GenerateClassInterface && SLibIsMultiInstanceServer(rtmArgSys))
+%<SLibCG_UndoAccessArg(1, 19, 0)>
+%endif
+%endfunction
+%function SystemResetFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Code_Gen__Reefscape_Chart_Reset(\
+%assign comma = ""
+%if SLibCG_ArgAccessed(1, 19, 0)
+%<comma>%<::tSimStructType> * const %<::tSimStruct>\
+%assign comma = ", "
+%<SLibUpdateSymbolForFunction("Code_Gen__Reefscape_Chart_Reset", SLibGetFcnDefinitionRTMSymbolName(), TLC_FALSE)>\
+%endif
+%<comma>real_T *rty_State_ID\
+%assign comma = ", "
+%<comma>real_T *rty_Elevator_Height_Desired\
+%assign comma = ", "
+%<comma>real_T *rty_Coral_Arm_Angle_Desired\
+%assign comma = ", "
+%<comma>real_T *rty_Coral_Wheel_DC\
+%assign comma = ", "
+%<comma>real_T *rty_Algae_Wheel_Outside_DC\
+%assign comma = ", "
+%<comma>real_T *rty_Algae_Wheel_Inside_DC\
+%assign comma = ", "
+%<comma>boolean_T *rty_Elevator_LowerPickup_Reset\
+%assign comma = ", "
+%<comma>boolean_T *rty_Coral_Pickup_Lower_Wait_Sta\
+%assign comma = ", "
+%<comma>uint16_T *rty_Set_Coral_Level\
+%assign comma = ", "
+%<comma>uint8_T *rty_Set_Algae_Level\
+%assign comma = ", "
+%<comma>boolean_T *rty_Coral_Score\
+%assign comma = ", "
+%<comma>uint8_T *rty_Desired_Pipeline\
+%assign comma = ", "
+%<comma>DW_Reefscape_Chart_Code_Gen_M_T *localDW\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(1, 19, fcnProtoType)>
+%endfunction

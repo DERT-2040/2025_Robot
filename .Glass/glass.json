@@ -1,6 +1,9 @@
 {
   "NetworkTables": {
     "transitory": {
+      "Simulink Tunable Params": {
+        "open": true
+      },
       "limelight": {
         "open": true
       },
@@ -22,6 +25,12 @@
       "open": true
     },
     "Server": {
+      "Publishers": {
+        "open": true
+      },
+      "Subscribers": {
+        "open": true
+      },
       "open": true
     },
     "visible": true

@@ -1,0 +1,11 @@
+%implements s223_b0_1hv0r_0_ModuleConstants "C"
+
+%function ModuleConstants(block) Output
+
+
+/* Named constants for Chart: '<S9>/Debounce' */
+#define Code_Gen_Model_IN_False ((uint8_T)1U)
+#define Code_Gen_Model_IN_Timer_False ((uint8_T)2U)
+#define Code_Gen_Model_IN_Timer_True ((uint8_T)3U)
+#define Code_Gen_Model_IN_True ((uint8_T)4U)
+%endfunction

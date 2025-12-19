@@ -1,0 +1,299 @@
+%implements s223_b0_1hv0r_1_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign _modelSS = ""
+
+%if SLibCG_FcnCallArgAccessed(1,20,0,0)
+%<SLibCG_AccessArg(1 ,20, 1)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,1)
+%<SLibCG_AccessArg(1 ,20, 2)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,2)
+%<SLibCG_AccessArg(1 ,20, 3)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,3)
+%<SLibCG_AccessArg(1 ,20, 4)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,4)
+%<SLibCG_AccessArg(1 ,20, 5)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,5)
+%<SLibCG_AccessArg(1 ,20, 6)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,6)
+%<SLibCG_AccessArg(1 ,20, 7)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,7)
+%<SLibCG_AccessArg(1 ,20, 8)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,8)
+%<SLibCG_AccessArg(1 ,20, 11)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,9)
+%<SLibCG_AccessArg(1 ,20, 12)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,10)
+%<SLibCG_AccessArg(1 ,20, 13)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,11)
+%<SLibCG_AccessArg(1 ,20, 14)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,12)
+%<SLibCG_AccessArg(1 ,20, 15)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,13)
+%<SLibCG_AccessArg(1 ,20, 16)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,14)
+%<SLibCG_AccessArg(1 ,20, 17)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,15)
+%<SLibCG_AccessArg(1 ,20, 18)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,16)
+%<SLibCG_AccessArg(1 ,20, 19)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,17)
+%<SLibCG_AccessArg(1 ,20, 20)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,18)
+%<SLibCG_AccessArg(1 ,20, 21)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,19)
+%<SLibCG_AccessArg(1 ,20, 22)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,20)
+%<SLibCG_AccessArg(1 ,20, 23)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,21)
+%<SLibCG_AccessArg(1 ,20, 24)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,22)
+%<SLibCG_AccessArg(1 ,20, 25)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,23)
+%<SLibCG_AccessArg(1 ,20, 26)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,24)
+%<SLibCG_AccessArg(1 ,20, 29)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,25)
+%<SLibCG_AccessArg(1 ,20, 30)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,26)
+%<SLibCG_AccessArg(1 ,20, 31)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,27)
+%<SLibCG_AccessArg(1 ,20, 32)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,28)
+%<SLibCG_AccessArg(1 ,20, 33)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,29)
+%<SLibCG_AccessArg(1 ,20, 34)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,30)
+%<SLibCG_AccessArg(1 ,20, 0)>
+%endif
+%if SLibCG_FcnCallArgAccessed(1,20,0,31)
+%<SLibCG_AccessArg(1 ,20, 35)>
+%endif
+
+/* {S!d4}Chart: '<S32>/Reefscape_Chart' */
+/*@>a715f*/if (/*@>111390*/localDW->/*@>11c270*/is_active_c5_Code_Gen_Model/*@>a715d*/ == /*@>d7fa5*/0U) {
+    /*@>111397*/localDW->/*@>11c273*/is_active_c5_Code_Gen_Model/*@>a7163*/ = /*@>11c0cf*/1U;
+    /*@>1113a5*/localDW->/*@>11c279*/is_Elevator_CoralArm_CoralWheel/*@>a71f6*/ = /*@>d7fde*/Code_Gen_Model_IN_Start;
+    *rty_State_ID/*@>a7218*/ = /*@>d7ff0*/0.0;
+    *rty_Elevator_Height_Desired/*@>a721a*/ = /*@>d7ff1*/Elevator_Height_Bottom;
+    *rty_Coral_Arm_Angle_Desired/*@>a721c*/ = /*@>d7ff3*/Coral_Arm_Angle_Up;
+    *rty_Coral_Wheel_DC/*@>a721d*/ = /*@>d7ff5*/0.0;
+    *rty_Desired_Pipeline/*@>a721e*/ = /*@>11c0d2*/0U;
+    /*@>1113f9*/localDW->/*@>11c29a*/is_Set_Level_n/*@>a729b*/ = /*@>d802a*/Code_Gen_Model_IN_None;
+    /*@>11140e*/localDW->/*@>11c2a3*/Set_L1/*@>a729f*/ = /*@>d802d*/false;
+    /*@>111423*/localDW->/*@>11c2ac*/Set_L2/*@>a72a0*/ = /*@>d8030*/false;
+    /*@>111446*/localDW->/*@>11c2b8*/Set_L3/*@>a72a1*/ = /*@>d8033*/false;
+    /*@>11145b*/localDW->/*@>11c2c1*/Set_L4/*@>a72a2*/ = /*@>d8036*/false;
+    /*@>111462*/localDW->/*@>11c2c4*/is_Algae_Wheels/*@>a7210*/ = /*@>d7fec*/Code_Gen_Model_IN_Off;
+    *rty_Algae_Wheel_Outside_DC/*@>a722d*/ = /*@>d7ff6*/0.0;
+    *rty_Algae_Wheel_Inside_DC/*@>a722e*/ = /*@>d7ff7*/0.0;
+    /*@>111469*/localDW->/*@>11c2c7*/is_AT_On_Target_Timer/*@>a7214*/ = /*@>d7fef*/Code_Gen_Model_IN_Off_Target;
+    /*@>111470*/localDW->/*@>11c2ca*/timer_robot_target/*@>a726d*/ = /*@>d8012*/0.0;
+} else {
+    /*@[1187dd*/%<(SLibCGCallSubFcn("Co_Elevator_CoralArm_CoralWheel", ["/*@>11c2ea*/rtu_GameState", "/*@>11c2f8*/rtu_Gamepad_B1_A", "/*@>11c306*/rtu_Gamepad_B2_B", "/*@>11c314*/rtu_Gamepad_B3_X", "/*@>11c322*/rtu_Gamepad_B4_Y", "/*@>11c330*/rtu_Gamepad_Start", "/*@>11c33e*/rtu_Gamepad_Back", "/*@>11c34c*/rtu_Gamepad_RB", "/*@>11c35a*/rtu_Gamepad_POV_Up", "/*@>11c368*/rtu_Gamepad_POV_Down", "/*@>11c376*/rtu_Gamepad_POV_Left", "/*@>11c384*/rtu_Gamepad_POV_Right", "/*@>11c392*/rtu_Gamepad_Stick_Left_Y", "/*@>11c3a0*/rtu_Gamepad_Stick_Right_Y", "/*@>11c3ae*/rtu_Elevator_Height_Measured", "/*@>11c3bc*/rtu_Coral_Arm_Angle_Measured", "/*@>11c3ca*/rtu_Coral_TOF_Distance", "/*@>11c3d8*/rtu_Coral_Limit_Switch", "/*@>11c3e6*/rtu_Algae_Limit_Switch", "/*@>11c3f4*/rtu_AT_On_Target", "rty_State_ID", "rty_Elevator_Height_Desired", "rty_Coral_Arm_Angle_Desired", "rty_Coral_Wheel_DC", "rty_Elevator_LowerPickup_Reset", "rty_Coral_Pickup_Lower_Wait_Sta", "rty_Set_Coral_Level", "rty_Set_Algae_Level", "rty_Coral_Score", "rty_Desired_Pipeline", "/*@>11c48e*/%<::tSimStruct>", "/*@>11c49d*/localDW"], 1, 20, 0))>/*@]*/;
+/*@>a7167*/    switch (/*@>11139e*/localDW->/*@>11c276*/is_Algae_Wheels) {
+      case /*@>d7fa8*/Code_Gen_Model_IN_Algae_Hold:
+        *rty_Algae_Wheel_Outside_DC/*@>a717c*/ = /*@>d7fb2*/Algae_Hold_DC;
+        *rty_Algae_Wheel_Inside_DC/*@>a7177*/ = /*@>d7fb0*/Algae_Hold_DC;
+        /*@>a7172*/if (/*@>d808a*/rtu_Gamepad_RT) {
+            /*@>1113b3*/localDW->/*@>11c27f*/is_Algae_Wheels/*@>a7173*/ = /*@>d7faf*/Code_Gen_Mode_IN_Algae_Push_Out;
+            *rty_Algae_Wheel_Outside_DC/*@>a7236*/ = /*@>d7ff8*/Algae_Push_Out_DC;
+            *rty_Algae_Wheel_Inside_DC/*@>a7238*/ = /*@>d7ffa*/Algae_Push_Out_DC;
+            /*@>111407*/localDW->/*@>11c2a0*/timer/*@>a7239*/ = /*@>d7ffe*/0.0;
+        }
+        break;
+      case /*@>d7fa9*/Code_Gen_Model_IN_Algae_Pull_In:
+        *rty_Algae_Wheel_Outside_DC/*@>a7192*/ = /*@>d7fbc*/Algae_Pull_In_DC;
+        *rty_Algae_Wheel_Inside_DC/*@>a718d*/ = /*@>d7fba*/Algae_Pull_In_DC;
+        /*@>a7183*/if (/*@>d808c*/rtu_Algae_Limit_Switch) {
+            /*@>1113ba*/localDW->/*@>11c282*/is_Algae_Wheels/*@>a7185*/ = /*@>d7fb6*/Code_Gen_Model_IN_Algae_Hold;
+            *rty_Algae_Wheel_Outside_DC/*@>a7244*/ = /*@>d7fff*/Algae_Hold_DC;
+            *rty_Algae_Wheel_Inside_DC/*@>a7246*/ = /*@>d8001*/Algae_Hold_DC;
+        } else /*@>a7184*/if (/*@>d8092*/rtu_Gamepad_RT) {
+            /*@>1113cf*/localDW->/*@>11c28b*/is_Algae_Wheels/*@>a7189*/ = /*@>d7fb9*/Code_Gen_Mode_IN_Algae_Push_Out;
+            *rty_Algae_Wheel_Outside_DC/*@>a7260*/ = /*@>d8009*/Algae_Push_Out_DC;
+            *rty_Algae_Wheel_Inside_DC/*@>a7262*/ = /*@>d800b*/Algae_Push_Out_DC;
+            /*@>11141c*/localDW->/*@>11c2a9*/timer/*@>a7263*/ = /*@>d800f*/0.0;
+        }
+        break;
+      case /*@>d7faa*/Code_Gen_Mode_IN_Algae_Push_Out:
+        *rty_Algae_Wheel_Outside_DC/*@>a71aa*/ = /*@>d7fc6*/Algae_Push_Out_DC;
+        *rty_Algae_Wheel_Inside_DC/*@>a71a5*/ = /*@>d7fc4*/Algae_Push_Out_DC;
+        /*@>a719b*/if (/*@>1113ac*/localDW->/*@>11c27c*/timer/*@>a71af*/ >= /*@>d7fca*/Algae_Eject_Time) {
+            /*@>1113c1*/localDW->/*@>11c285*/is_Algae_Wheels/*@>a719d*/ = /*@>d7fc0*/Code_Gen_Model_IN_Off;
+            *rty_Algae_Wheel_Outside_DC/*@>a724d*/ = /*@>d8003*/0.0;
+            *rty_Algae_Wheel_Inside_DC/*@>a724e*/ = /*@>d8004*/0.0;
+        } else /*@>a719c*/if ((/*@>d80c8*/rtu_Gamepad_LT/*@>c6e9a*/ || /*@>d80ca*/rtu_Gamepad_POV_Left)/*@>c6e99*/ || /*@>d80cc*/rtu_Gamepad_POV_Right) {
+            /*@>1113e4*/localDW->/*@>11c291*/is_Algae_Wheels/*@>a71a1*/ = /*@>d7fc3*/Code_Gen_Model_IN_Algae_Pull_In;
+            *rty_Algae_Wheel_Outside_DC/*@>a727a*/ = /*@>d8019*/Algae_Pull_In_DC;
+            *rty_Algae_Wheel_Inside_DC/*@>a727c*/ = /*@>d801b*/Algae_Pull_In_DC;
+        } else {
+            /*@>1113d6*/localDW->/*@>11c28e*/timer/*@>11c0e7*/ += /*@>d7fce*/0.02;
+        }
+        break;
+      default:
+        /* case IN_Off: */
+        *rty_Algae_Wheel_Outside_DC/*@>a71de*/ = /*@>d7fdb*/0.0;
+        *rty_Algae_Wheel_Inside_DC/*@>a71da*/ = /*@>d7fda*/0.0;
+        /*@>a71cb*/if (/*@>d8090*/rtu_Algae_Limit_Switch) {
+            /*@>1113c8*/localDW->/*@>11c288*/is_Algae_Wheels/*@>a71ce*/ = /*@>d7fd3*/Code_Gen_Model_IN_Algae_Hold;
+            *rty_Algae_Wheel_Outside_DC/*@>a7256*/ = /*@>d8005*/Algae_Hold_DC;
+            *rty_Algae_Wheel_Inside_DC/*@>a7258*/ = /*@>d8007*/Algae_Hold_DC;
+        } else /*@>a71cc*/if ((/*@>d80c2*/rtu_Gamepad_LT/*@>c6e91*/ || /*@>d80c4*/rtu_Gamepad_POV_Left)/*@>c6e90*/ || /*@>d80c6*/rtu_Gamepad_POV_Right) {
+            /*@>1113eb*/localDW->/*@>11c294*/is_Algae_Wheels/*@>a71d2*/ = /*@>d7fd6*/Code_Gen_Model_IN_Algae_Pull_In;
+            *rty_Algae_Wheel_Outside_DC/*@>a7284*/ = /*@>d801d*/Algae_Pull_In_DC;
+            *rty_Algae_Wheel_Inside_DC/*@>a7286*/ = /*@>d801f*/Algae_Pull_In_DC;
+        } else /*@>a71cd*/if (/*@>d80a8*/rtu_Gamepad_RT) {
+            /*@>111400*/localDW->/*@>11c29d*/is_Algae_Wheels/*@>a71d6*/ = /*@>d7fd9*/Code_Gen_Mode_IN_Algae_Push_Out;
+            *rty_Algae_Wheel_Outside_DC/*@>a728e*/ = /*@>d8021*/Algae_Push_Out_DC;
+            *rty_Algae_Wheel_Inside_DC/*@>a7290*/ = /*@>d8023*/Algae_Push_Out_DC;
+            /*@>11144d*/localDW->/*@>11c2bb*/timer/*@>a7291*/ = /*@>d8027*/0.0;
+        }
+        break;
+    }
+    /*@>d522f*/if (/*@>1113f2*/localDW->/*@>11c297*/is_AT_On_Target_Timer/*@>d522e*/ == /*@>1125aa*/Code_Gen_Model_IN_Off_Target) {
+        /*@>a71fa*/if (/*@>d80ac*/rtu_AT_On_Target) {
+            /*@>111415*/localDW->/*@>11c2a6*/is_AT_On_Target_Timer/*@>a71fb*/ = /*@>d7fe1*/Code_Gen_Model_IN_On_Target;
+            /*@>11143f*/localDW->/*@>11c2b5*/timer_robot_target/*@>a7271*/ = /*@>d8015*/0.02;
+        }
+
+        /* case IN_On_Target: */
+    } else /*@>a7201*/if (!/*@<a7206*//*@>d80b4*/rtu_AT_On_Target) {
+        /*@>111438*/localDW->/*@>11c2b2*/is_AT_On_Target_Timer/*@>a7202*/ = /*@>d7fe4*/Code_Gen_Model_IN_Off_Target;
+        /*@>111454*/localDW->/*@>11c2be*/timer_robot_target/*@>a7275*/ = /*@>d8018*/0.0;
+    } else {
+        /*@>11142a*/localDW->/*@>11c2af*/timer_robot_target/*@>11c0e6*/ += /*@>d7fe7*/0.02;
+    }
+}
+/* {E!d4}End of Chart: '<S32>/Reefscape_Chart' */
+%closefile cfgTxt
+%<cfgTxt>
+%assign rtmArgSys = ::CompiledModel.System[::CompiledModel.System[::CompiledModel.RTWCGModules.RTWCGModule[1].CGSystemIdx].NonInlinedParentSystemIdx]
+%if SysFcnArgNeeded("Output", rtmArgSys.Interface.RTMArgDef, rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Output"))
+%<SLibCG_AccessArg(1, 20, 0)>
+%endif
+%if SLibCG_ArgAccessed(1, 20, 0)
+%<SLibAccessArg(rtmArgSys.Interface.RTMArgDef, "Output", rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Output"))>
+%endif
+%if (IsModelReferenceBaseSys(rtmArgSys) && (IsModelRefScalableBuild() || GenerateClassInterface)) ||...
+(GenerateClassInterface && SLibIsMultiInstanceServer(rtmArgSys))
+%<SLibCG_UndoAccessArg(1, 20, 0)>
+%endif
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Code_Gen_Model_Reefscape_Chart(\
+%assign comma = ""
+%if SLibCG_ArgAccessed(1, 20, 0)
+%<comma>%<::tSimStructType> * const %<::tSimStruct>\
+%assign comma = ", "
+%<SLibUpdateSymbolForFunction("Code_Gen_Model_Reefscape_Chart", SLibGetFcnDefinitionRTMSymbolName(), TLC_FALSE)>\
+%endif
+%<comma>uint8_T rtu_GameState\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_B1_A\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_B2_B\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_B3_X\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_B4_Y\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_Start\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_Back\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_RB\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_LT\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_RT\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_POV_Up\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_POV_Down\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_POV_Left\
+%assign comma = ", "
+%<comma>boolean_T rtu_Gamepad_POV_Right\
+%assign comma = ", "
+%<comma>real_T rtu_Gamepad_Stick_Left_Y\
+%assign comma = ", "
+%<comma>real_T rtu_Gamepad_Stick_Right_Y\
+%assign comma = ", "
+%<comma>real_T rtu_Elevator_Height_Measured\
+%assign comma = ", "
+%<comma>real_T rtu_Coral_Arm_Angle_Measured\
+%assign comma = ", "
+%<comma>real_T rtu_Coral_TOF_Distance\
+%assign comma = ", "
+%<comma>boolean_T rtu_Coral_Limit_Switch\
+%assign comma = ", "
+%<comma>boolean_T rtu_Algae_Limit_Switch\
+%assign comma = ", "
+%<comma>boolean_T rtu_AT_On_Target\
+%assign comma = ", "
+%<comma>real_T *rty_State_ID\
+%assign comma = ", "
+%<comma>real_T *rty_Elevator_Height_Desired\
+%assign comma = ", "
+%<comma>real_T *rty_Coral_Arm_Angle_Desired\
+%assign comma = ", "
+%<comma>real_T *rty_Coral_Wheel_DC\
+%assign comma = ", "
+%<comma>real_T *rty_Algae_Wheel_Outside_DC\
+%assign comma = ", "
+%<comma>real_T *rty_Algae_Wheel_Inside_DC\
+%assign comma = ", "
+%<comma>boolean_T *rty_Elevator_LowerPickup_Reset\
+%assign comma = ", "
+%<comma>boolean_T *rty_Coral_Pickup_Lower_Wait_Sta\
+%assign comma = ", "
+%<comma>uint16_T *rty_Set_Coral_Level\
+%assign comma = ", "
+%<comma>uint8_T *rty_Set_Algae_Level\
+%assign comma = ", "
+%<comma>boolean_T *rty_Coral_Score\
+%assign comma = ", "
+%<comma>uint8_T *rty_Desired_Pipeline\
+%assign comma = ", "
+%<comma>DW_Reefscape_Chart_Code_Gen_M_T *localDW\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(1, 20, fcnProtoType)>
+%endfunction

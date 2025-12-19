@@ -119,6 +119,11 @@ void Limelight::PreStepCallback() {
         SetPipeline(Code_Gen_Model_Y.Desired_Pipeline);
     }
 
+    double x  = table->GetEntry("tx").GetDouble(0);
+    double y  = table->GetEntry("ty").GetDouble(0);
+    double a  = table->GetEntry("ta").GetDouble(0);
+    bool targ = table->GetEntry("tv").GetBoolean(0);
+
 }
 
 void Limelight::PostStepCallback() 

@@ -1,0 +1,70 @@
+%implements s223_b0_1hv0r_1_SystemInitialize "C"
+
+%function SystemInitialize(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+*rty_State_ID/*@>a12d6*/ = /*@>d7e95*/0.0;
+*rty_Elevator_Height_Desired/*@>a12da*/ = /*@>d7e96*/0.0;
+*rty_Coral_Arm_Angle_Desired/*@>a12de*/ = /*@>d7e97*/0.0;
+*rty_Coral_Wheel_DC/*@>a12e2*/ = /*@>d7e98*/0.0;
+*rty_Algae_Wheel_Outside_DC/*@>a12ea*/ = /*@>d7e9c*/0.0;
+*rty_Algae_Wheel_Inside_DC/*@>a12ee*/ = /*@>d7e9d*/0.0;
+*rty_Elevator_LowerPickup_Reset/*@>a12f2*/ = /*@>d7e9e*/false;
+*rty_Coral_Pickup_Lower_Wait_Sta/*@>a1306*/ = /*@>d7eab*/false;
+*rty_Set_Coral_Level/*@>a1309*/ = /*@>11bf22*/0U;
+*rty_Set_Algae_Level/*@>a130c*/ = /*@>11bf25*/0U;
+*rty_Coral_Score/*@>a1314*/ = /*@>d7eaf*/false;
+*rty_Desired_Pipeline/*@>a1317*/ = /*@>11bf28*/0U;
+%closefile cfgTxt
+%<cfgTxt>
+%assign rtmArgSys = ::CompiledModel.System[::CompiledModel.System[::CompiledModel.RTWCGModules.RTWCGModule[1].CGSystemIdx].NonInlinedParentSystemIdx]
+%if SysFcnArgNeeded("SystemInitialize", rtmArgSys.Interface.RTMArgDef, rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "SystemInitialize"))
+%<SLibCG_AccessArg(1, 18, 0)>
+%endif
+%if SLibCG_ArgAccessed(1, 18, 0)
+%<SLibAccessArg(rtmArgSys.Interface.RTMArgDef, "SystemInitialize", rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "SystemInitialize"))>
+%endif
+%if (IsModelReferenceBaseSys(rtmArgSys) && (IsModelRefScalableBuild() || GenerateClassInterface)) ||...
+(GenerateClassInterface && SLibIsMultiInstanceServer(rtmArgSys))
+%<SLibCG_UndoAccessArg(1, 18, 0)>
+%endif
+%<LibSetSystemField(system, "CachedSystemInitializeLocalVars", localVarDecl)>
+%endfunction
+%function SystemInitializeFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Code_Gen_M_Reefscape_Chart_Init(\
+%assign comma = ""
+%if SLibCG_ArgAccessed(1, 18, 0)
+%<comma>%<::tSimStructType> * const %<::tSimStruct>\
+%assign comma = ", "
+%<SLibUpdateSymbolForFunction("Code_Gen_M_Reefscape_Chart_Init", SLibGetFcnDefinitionRTMSymbolName(), TLC_FALSE)>\
+%endif
+%<comma>real_T *rty_State_ID\
+%assign comma = ", "
+%<comma>real_T *rty_Elevator_Height_Desired\
+%assign comma = ", "
+%<comma>real_T *rty_Coral_Arm_Angle_Desired\
+%assign comma = ", "
+%<comma>real_T *rty_Coral_Wheel_DC\
+%assign comma = ", "
+%<comma>real_T *rty_Algae_Wheel_Outside_DC\
+%assign comma = ", "
+%<comma>real_T *rty_Algae_Wheel_Inside_DC\
+%assign comma = ", "
+%<comma>boolean_T *rty_Elevator_LowerPickup_Reset\
+%assign comma = ", "
+%<comma>boolean_T *rty_Coral_Pickup_Lower_Wait_Sta\
+%assign comma = ", "
+%<comma>uint16_T *rty_Set_Coral_Level\
+%assign comma = ", "
+%<comma>uint8_T *rty_Set_Algae_Level\
+%assign comma = ", "
+%<comma>boolean_T *rty_Coral_Score\
+%assign comma = ", "
+%<comma>uint8_T *rty_Desired_Pipeline\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(1, 18, fcnProtoType)>
+%endfunction

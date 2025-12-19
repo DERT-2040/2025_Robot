@@ -1,0 +1,98 @@
+%implements s223_b0_1hv0r_0_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+/* {S!d2}Chart: '<S9>/Debounce' */
+/*@>a700e*/if (/*@>c481e*/localDW->/*@>c4ba7*/is_active_c3_Controls_Component/*@>a700c*/ == /*@>c3404*/0U) {
+    /*@>c482c*/localDW->/*@>c4bad*/is_active_c3_Controls_Component/*@>a7017*/ = /*@>c4b14*/1U;
+    /*@>a7058*/if (!/*@<a7061*//*@>c3443*/rtu_Init_Cond) {
+        /*@>c4856*/localDW->/*@>c4bbf*/is_c3_Controls_Components_lib/*@>a7059*/ = /*@>c342a*/Code_Gen_Model_IN_False;
+        *rty_Out/*@>a7074*/ = /*@>c3433*/false;
+    } else {
+        /*@>c484f*/localDW->/*@>c4bbc*/is_c3_Controls_Components_lib/*@>a705d*/ = /*@>c342d*/Code_Gen_Model_IN_True;
+        *rty_Out/*@>a7070*/ = /*@>c3432*/true;
+    }
+} else {
+/*@>a700f*/    switch (/*@>c4825*/localDW->/*@>c4baa*/is_c3_Controls_Components_lib) {
+      case /*@>c3405*/Code_Gen_Model_IN_False:
+        *rty_Out/*@>a701f*/ = /*@>c340f*/false;
+        /*@>a701a*/if (/*@>c3447*/rtu_In) {
+            /*@>c485d*/localDW->/*@>c4bc2*/is_c3_Controls_Components_lib/*@>a701b*/ = /*@>c340e*/Code_Gen_Model_IN_Timer_True;
+            /*@>c4895*/localDW->/*@>c4bd4*/timer/*@>a7081*/ = /*@>c345d*/0.02;
+        }
+        break;
+      case /*@>c3406*/Code_Gen_Model_IN_Timer_False:
+        /*@>a7025*/if (/*@>c4833*/localDW->/*@>c4bb0*/timer/*@>a702f*/ >= /*@>c343f*/rtu_Time_False) {
+            /*@>c4841*/localDW->/*@>c4bb6*/is_c3_Controls_Components_lib/*@>a7027*/ = /*@>c3412*/Code_Gen_Model_IN_False;
+            *rty_Out/*@>a7078*/ = /*@>c3434*/false;
+        } else /*@>a7026*/if (/*@>c3449*/rtu_In) {
+            /*@>c4872*/localDW->/*@>c4bc8*/is_c3_Controls_Components_lib/*@>a702b*/ = /*@>c3415*/Code_Gen_Model_IN_True;
+            *rty_Out/*@>a7085*/ = /*@>c3438*/true;
+        } else {
+            /*@>c4864*/localDW->/*@>c4bc5*/timer/*@>c4b25*/ += /*@>c345b*/0.02;
+        }
+        break;
+      case /*@>c3407*/Code_Gen_Model_IN_Timer_True:
+        /*@>a703e*/if (/*@>c483a*/localDW->/*@>c4bb3*/timer/*@>a7048*/ >= /*@>c3441*/rtu_Time_True) {
+            /*@>c4848*/localDW->/*@>c4bb9*/is_c3_Controls_Components_lib/*@>a7040*/ = /*@>c341e*/Code_Gen_Model_IN_True;
+            *rty_Out/*@>a707c*/ = /*@>c3435*/true;
+        } else /*@>a703f*/if (!/*@<a704d*//*@>c344b*/rtu_In) {
+            /*@>c4887*/localDW->/*@>c4bce*/is_c3_Controls_Components_lib/*@>a7044*/ = /*@>c3421*/Code_Gen_Model_IN_False;
+            *rty_Out/*@>a7089*/ = /*@>c3439*/false;
+        } else {
+            /*@>c4879*/localDW->/*@>c4bcb*/timer/*@>c4b24*/ += /*@>c345c*/0.02;
+        }
+        break;
+      default:
+        /* case IN_True: */
+        *rty_Out/*@>a7069*/ = /*@>c3431*/true;
+        /*@>a7064*/if (!/*@<a706d*//*@>c344d*/rtu_In) {
+            /*@>c488e*/localDW->/*@>c4bd1*/is_c3_Controls_Components_lib/*@>a7065*/ = /*@>c3430*/Code_Gen_Model_IN_Timer_False;
+            /*@>c489c*/localDW->/*@>c4bd7*/timer/*@>a708e*/ = /*@>c345e*/0.02;
+        }
+        break;
+    }
+}
+/* {E!d2}End of Chart: '<S9>/Debounce' */
+%closefile cfgTxt
+%<cfgTxt>
+%assign rtmArgSys = ::CompiledModel.System[::CompiledModel.System[::CompiledModel.RTWCGModules.RTWCGModule[0].CGSystemIdx].NonInlinedParentSystemIdx]
+%if SysFcnArgNeeded("Output", rtmArgSys.Interface.RTMArgDef, rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Output"))
+%<SLibCG_AccessArg(0, 1, 0)>
+%endif
+%if SLibCG_ArgAccessed(0, 1, 0)
+%<SLibAccessArg(rtmArgSys.Interface.RTMArgDef, "Output", rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Output"))>
+%endif
+%if (IsModelReferenceBaseSys(rtmArgSys) && (IsModelRefScalableBuild() || GenerateClassInterface)) ||...
+(GenerateClassInterface && SLibIsMultiInstanceServer(rtmArgSys))
+%<SLibCG_UndoAccessArg(0, 1, 0)>
+%endif
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Code_Gen_Model_Debounce(\
+%assign comma = ""
+%if SLibCG_ArgAccessed(0, 1, 0)
+%<comma>%<::tSimStructType> * const %<::tSimStruct>\
+%assign comma = ", "
+%<SLibUpdateSymbolForFunction("Code_Gen_Model_Debounce", SLibGetFcnDefinitionRTMSymbolName(), TLC_FALSE)>\
+%endif
+%<comma>boolean_T rtu_In\
+%assign comma = ", "
+%<comma>boolean_T rtu_Init_Cond\
+%assign comma = ", "
+%<comma>real_T rtu_Time_True\
+%assign comma = ", "
+%<comma>real_T rtu_Time_False\
+%assign comma = ", "
+%<comma>boolean_T *rty_Out\
+%assign comma = ", "
+%<comma>DW_Debounce_Code_Gen_Model_T *localDW\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 1, fcnProtoType)>
+%endfunction
