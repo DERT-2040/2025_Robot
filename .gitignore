@@ -212,11 +212,12 @@ compile_commands.json
 helpsearch*/
 
 # Code generation folders
-simulink/Unit_Tests/Catmull-Rom/slprj/
 simulink/slprj/
 src/main/slprj/_sfprj/
 src/main/slprj/ert/Robot_Control/
 src/main/slprj/ert/Odometry/
+simulink/Unit_Tests/Catmull-Rom/slprj/
+simulink/Utilities/slprj/
 sccprj/
 codegen/
 
