@@ -1,6 +1,9 @@
 {
   "NetworkTables": {
     "transitory": {
+      "Simulink Tunable Params": {
+        "open": true
+      },
       "limelight": {
         "open": true
       },

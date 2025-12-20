@@ -31,7 +31,8 @@ void Limelight::PreStepCallback() {
     CameraOneDisconnectedAlert.Set(!nt::NetworkTableInstance::GetDefault().GetTable(LimelightNameSpace::CameraOneCreateInfo.LimelightName)->ContainsKey("cl"));
     //CameraTwoDisconnectedAlert.Set(!nt::NetworkTableInstance::GetDefault().GetTable(LimelightNameSpace::CameraTwoCreateInfo.LimelightName)->ContainsKey("cl"));
 
-    auto adjustedGyro = m_Pigeon2.GetRotation2d().Degrees().value() + Gyro_Offset;
+    // Gyro angle that has been adjusted to the field coordinate system (convert from radians to degrees)
+    auto adjustedGyro = Odometry_Y.Gyro_Angle_Field_rad*180/3.14159265358979323846;
 
     //Sets Robot Oriention (MT2 Requirement)
     LimelightHelpers::SetRobotOrientation(LimelightNameSpace::CameraOneCreateInfo.LimelightName, adjustedGyro, 0.0, 0.0, 0.0, 0.0, 0.0);
@@ -108,33 +109,41 @@ void Limelight::PreStepCallback() {
     }
 
     // Set Robot Pipeline (if needed)
+ 
     // Get the default NetworkTable instance
     nt::NetworkTableInstance inst = nt::NetworkTableInstance::GetDefault();
+ 
     // Get the "limelight" table
     std::shared_ptr<nt::NetworkTable> table = inst.GetTable("limelight-one");
+ 
     // Get the "pipeline" entry
     nt::NetworkTableEntry pipelineEntry = table->GetEntry("pipeline");
+ 
     // Set the value of the "pipeline" entry to the desired pipeline index
     if(pipelineEntry.GetDouble(0) != Robot_Control_Y.Desired_Pipeline) {
         SetPipeline(Robot_Control_Y.Desired_Pipeline);
     }
 
+    // double x  = table->GetEntry("tx").GetDouble(0);
+    // double y  = table->GetEntry("ty").GetDouble(0);
+    // double a  = table->GetEntry("ta").GetDouble(0);
+    // bool targ = table->GetEntry("tv").GetBoolean(0);
+
 }
 
-void Limelight::PostStepCallback() 
-{
-    // Pulls Gyro Yaw Offset
-    Gyro_Offset = Odometry_Y.Gyro_Angle_Offset_Total;
-}
+void Limelight::PostStepCallback() {}
 
 void Limelight::SetPipeline(int pipelineIndex)
 {
     // Get the default NetworkTable instance
     nt::NetworkTableInstance inst = nt::NetworkTableInstance::GetDefault();
+    
     // Get the "limelight" table
     std::shared_ptr<nt::NetworkTable> table = inst.GetTable("limelight-one");
+    
     // Get the "pipeline" entry
     nt::NetworkTableEntry pipelineEntry = table->GetEntry("pipeline");
+    
     // Set the value of the "pipeline" entry to the desired pipeline index
     pipelineEntry.SetDouble(pipelineIndex); // Use SetDouble as pipeline index is a number
 }

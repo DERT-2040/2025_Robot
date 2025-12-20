@@ -26,9 +26,6 @@ class Limelight : public dlib::Component {
     // IMU Object used to set Limelight Yaw Value
     ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, static_cast<std::string>(kIMU::k_Pigeon2_Device_Name)};
 
-    // Gyro angle Offset Set from Simulink Output Value
-    double Gyro_Offset = 0;
-
     // Limelight Data Objects
     LimelightHelpers::PoseEstimate CameraOneLLMeasurement;
     LimelightHelpers::PoseEstimate CameraTwoLLMeasurement;

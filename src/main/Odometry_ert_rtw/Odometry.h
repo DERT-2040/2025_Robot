@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Odometry'.
  *
- * Model version                  : 2.430
+ * Model version                  : 2.431
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 21:34:58 2025
+ * C/C++ source code generated on : Sat Dec 20 08:47:34 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -95,7 +95,6 @@ typedef struct {
 typedef struct {
   real_T Gyro_Angle_Field_rad;         /* '<Root>/Gyro_Angle_Field_rad' */
   real_T Gyro_Angle_rad;               /* '<Root>/Gyro_Angle_rad' */
-  real_T Gyro_Angle_Offset_Total;      /* '<Root>/Gyro_Angle_Offset_Total' */
   real_T Auto_Start_Position;          /* '<Root>/Auto_Start_Position' */
   real_T FL_Steer_Module_Angle;        /* '<Root>/FL_Steer_Module_Angle' */
   real_T FR_Steer_Module_Angle;        /* '<Root>/FR_Steer_Module_Angle' */

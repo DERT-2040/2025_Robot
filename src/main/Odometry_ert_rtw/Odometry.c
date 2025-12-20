@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Odometry'.
  *
- * Model version                  : 2.430
+ * Model version                  : 2.431
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 21:34:58 2025
+ * C/C++ source code generated on : Sat Dec 20 08:47:34 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -82,8 +82,7 @@ void Odometry_step(void)
   real_T rtb_POSEexponentialmatrixfori_0;
   real_T rtb_Rotationmatrixfromlocalto_0;
   real_T rtb_Rotationmatrixfromlocalto_1;
-  real_T rtb_Rotationmatrixfromlocalto_2;
-  real_T rtb_UnaryMinus2;
+  real_T rtb_Subtract2;
   real_T rtb_thetay;
   real_T rtb_thetay_o;
   real_T rtb_thetay_p;
@@ -216,8 +215,8 @@ void Odometry_step(void)
    *
    *  Store in Global RAM
    */
-  rtb_UnaryMinus2 = (Odometry_U.BackRight_Drive_Motor_Rev -
-                     Odometry_DW.UD_DSTATE_f) * 0.049546817471321378;
+  rtb_Subtract2 = (Odometry_U.BackRight_Drive_Motor_Rev -
+                   Odometry_DW.UD_DSTATE_f) * 0.049546817471321378;
 
   /* SignalConversion generated from: '<S3>/Product7' incorporates:
    *  Fcn: '<S12>/r->x'
@@ -235,8 +234,8 @@ void Odometry_step(void)
   rtb_thetay_2[3] = rtb_thetay_p * sin(Odometry_B.FR_Steer_Module_Angle);
   rtb_thetay_2[4] = rtb_thetay_o * cos(Odometry_B.BL_Steer_Module_Angle);
   rtb_thetay_2[5] = rtb_thetay_o * sin(Odometry_B.BL_Steer_Module_Angle);
-  rtb_thetay_2[6] = rtb_UnaryMinus2 * cos(Odometry_B.BR_Steer_Module_Angle);
-  rtb_thetay_2[7] = rtb_UnaryMinus2 * sin(Odometry_B.BR_Steer_Module_Angle);
+  rtb_thetay_2[6] = rtb_Subtract2 * cos(Odometry_B.BR_Steer_Module_Angle);
+  rtb_thetay_2[7] = rtb_Subtract2 * sin(Odometry_B.BR_Steer_Module_Angle);
 
   /* Product: '<S3>/Product7' incorporates:
    *  Constant: '<S3>/Constant4'
@@ -276,24 +275,24 @@ void Odometry_step(void)
      */
     switch ((int32_T)Auto_Starting_Position) {
      case 1:
-      rtb_UnaryMinus2 = Gyro_Calibration_Auto_Left;
+      rtb_Subtract2 = Gyro_Calibration_Auto_Left;
       break;
 
      case 2:
-      rtb_UnaryMinus2 = Gyro_Calibration_Auto_Center;
+      rtb_Subtract2 = Gyro_Calibration_Auto_Center;
       break;
 
      case 3:
-      rtb_UnaryMinus2 = Gyro_Calibration_Auto_Right;
+      rtb_Subtract2 = Gyro_Calibration_Auto_Right;
       break;
 
      default:
-      rtb_UnaryMinus2 = Gyro_Calibration_Default;
+      rtb_Subtract2 = Gyro_Calibration_Default;
       break;
     }
 
     /* End of MultiPortSwitch: '<S2>/Multiport Switch' */
-    rtb_thetay = rtb_UnaryMinus2 - Odometry_U.Gyro_Angle;
+    rtb_thetay = rtb_Subtract2 - Odometry_U.Gyro_Angle;
   } else {
     rtb_thetay = Odometry_DW.UnitDelay1_DSTATE;
   }
@@ -320,24 +319,24 @@ void Odometry_step(void)
     rtb_thetay_p = 3.1415926535897931;
   }
 
-  /* End of Switch: '<S2>/Switch' */
-
-  /* Sum: '<S2>/Add' */
+  /* Sum: '<S2>/Add' incorporates:
+   *  Switch: '<S2>/Switch'
+   */
   Odometry_B.Gyro_Angle_Field_rad = Odometry_B.Gyro_Angle_rad + rtb_thetay_p;
 
   /* Trigonometry: '<S3>/Trigonometric Function1' */
-  rtb_thetay_o = sin(Odometry_B.Gyro_Angle_Field_rad);
+  rtb_Subtract2 = sin(Odometry_B.Gyro_Angle_Field_rad);
 
   /* SignalConversion generated from: '<S3>/Rotation matrix from local to global' incorporates:
    *  Trigonometry: '<S3>/Trigonometric Function'
    */
   rtb_Rotationmatrixfromlocalto_0 = cos(Odometry_B.Gyro_Angle_Field_rad);
-  rtb_Rotationmatrixfromlocalto_1 = rtb_thetay_o;
+  rtb_thetay_o = rtb_Subtract2;
 
   /* SignalConversion generated from: '<S3>/Rotation matrix from local to global' incorporates:
    *  UnaryMinus: '<S3>/Unary Minus'
    */
-  rtb_Rotationmatrixfromlocalto_2 = -rtb_thetay_o;
+  rtb_Rotationmatrixfromlocalto_1 = -rtb_Subtract2;
 
   /* Sum: '<S7>/Diff' incorporates:
    *  UnitDelay: '<S7>/UD'
@@ -350,37 +349,35 @@ void Odometry_step(void)
    *
    *  Store in Global RAM
    */
-  rtb_UnaryMinus2 = Odometry_B.Gyro_Angle_Field_rad - Odometry_DW.UD_DSTATE_h;
+  rtb_thetay_p = Odometry_B.Gyro_Angle_Field_rad - Odometry_DW.UD_DSTATE_h;
 
   /* Sum: '<S3>/Subtract2' incorporates:
    *  Constant: '<S3>/Constant3'
    *  Gain: '<S3>/Gain7'
    *  Math: '<S3>/Square'
    */
-  rtb_thetay_o = 1.0 - ((rtb_UnaryMinus2 * rtb_UnaryMinus2) *
-                        0.16666666666666666);
+  rtb_Subtract2 = 1.0 - ((rtb_thetay_p * rtb_thetay_p) * 0.16666666666666666);
 
   /* Gain: '<S3>/Gain6' */
-  rtb_UnaryMinus2 *= 0.5;
+  rtb_thetay_p *= 0.5;
 
   /* Product: '<S3>/Product6' incorporates:
    *  SignalConversion generated from: '<S3>/POSE exponential matrix for improved accuracy while rotating'
    *  UnaryMinus: '<S3>/Unary Minus2'
    */
-  rtb_POSEexponentialmatrixfori_0 = (rtb_thetay_o * rtb_Product7[0]) +
-    ((-rtb_UnaryMinus2) * rtb_Product7[1]);
-  rtb_thetay_o = (rtb_UnaryMinus2 * rtb_Product7[0]) + (rtb_thetay_o *
+  rtb_POSEexponentialmatrixfori_0 = (rtb_Subtract2 * rtb_Product7[0]) +
+    ((-rtb_thetay_p) * rtb_Product7[1]);
+  rtb_thetay_p = (rtb_thetay_p * rtb_Product7[0]) + (rtb_Subtract2 *
     rtb_Product7[1]);
 
   /* Product: '<S3>/Product6' incorporates:
    *  Concatenate: '<S3>/Rotation matrix from local to global'
    */
   Odometry_B.Product6[0] = (rtb_Rotationmatrixfromlocalto_0 *
-    rtb_POSEexponentialmatrixfori_0) + (rtb_Rotationmatrixfromlocalto_2 *
-    rtb_thetay_o);
-  Odometry_B.Product6[1] = (rtb_Rotationmatrixfromlocalto_1 *
-    rtb_POSEexponentialmatrixfori_0) + (rtb_Rotationmatrixfromlocalto_0 *
-    rtb_thetay_o);
+    rtb_POSEexponentialmatrixfori_0) + (rtb_Rotationmatrixfromlocalto_1 *
+    rtb_thetay_p);
+  Odometry_B.Product6[1] = (rtb_thetay_o * rtb_POSEexponentialmatrixfori_0) +
+    (rtb_Rotationmatrixfromlocalto_0 * rtb_thetay_p);
 
   /* Outport: '<Root>/Odom_Delta_X' */
   Odometry_Y.Odom_Delta_X = Odometry_B.Product6[0];
@@ -390,13 +387,6 @@ void Odometry_step(void)
 
   /* Outport: '<Root>/Gyro_Angle_Field_rad' */
   Odometry_Y.Gyro_Angle_Field_rad = Odometry_B.Gyro_Angle_Field_rad;
-
-  /* Outport: '<Root>/Gyro_Angle_Offset_Total' incorporates:
-   *  Gain: '<S2>/Gain'
-   *  Sum: '<S2>/Add1'
-   */
-  Odometry_Y.Gyro_Angle_Offset_Total = (rtb_thetay_p + rtb_thetay) *
-    57.295779513082323;
 
   /* Outport: '<Root>/Gyro_Angle_rad' */
   Odometry_Y.Gyro_Angle_rad = Odometry_B.Gyro_Angle_rad;
@@ -443,16 +433,16 @@ void Odometry_step(void)
    *  UnitDelay: '<S16>/Unit Delay'
    */
   if (rtb_Compare) {
-    rtb_UnaryMinus2 = Odometry_B.Odometry_X_global_est_ft;
+    rtb_Subtract2 = Odometry_B.Odometry_X_global_est_ft;
   } else {
-    rtb_UnaryMinus2 = Odometry_DW.UnitDelay_DSTATE;
+    rtb_Subtract2 = Odometry_DW.UnitDelay_DSTATE;
   }
 
   /* End of Switch: '<S16>/Switch' */
 
   /* Sum: '<S16>/Subtract' */
   Odometry_B.Odometry_X_global_TEAR_ft = Odometry_B.Odometry_X_global_est_ft -
-    rtb_UnaryMinus2;
+    rtb_Subtract2;
 
   /* Outport: '<Root>/Odom_Position_X' */
   Odometry_Y.Odom_Position_X = Odometry_B.Odom_Position_X;
@@ -581,7 +571,7 @@ void Odometry_step(void)
   /* End of Update for DiscreteIntegrator: '<S3>/Accumulator2' */
 
   /* Update for UnitDelay: '<S16>/Unit Delay' */
-  Odometry_DW.UnitDelay_DSTATE = rtb_UnaryMinus2;
+  Odometry_DW.UnitDelay_DSTATE = rtb_Subtract2;
 
   /* Update for DiscreteIntegrator: '<S3>/Accumulator' */
   Odometry_DW.Accumulator_DSTATE += Odometry_B.Product6[1];

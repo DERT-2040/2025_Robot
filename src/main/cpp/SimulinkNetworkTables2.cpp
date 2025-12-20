@@ -74,7 +74,6 @@ SimulinkNetworkTables2::SimulinkNetworkTables2()
     O__FL_Steer_Module_Angle__Entry = NTtable_Outport->GetEntry("FL_Steer_Module_Angle");
     O__FR_Steer_Module_Angle__Entry = NTtable_Outport->GetEntry("FR_Steer_Module_Angle");
     O__Gyro_Angle_Field_rad__Entry = NTtable_Outport->GetEntry("Gyro_Angle_Field_rad");
-    O__Gyro_Angle_Offset_Total__Entry = NTtable_Outport->GetEntry("Gyro_Angle_Offset_Total");
     O__Gyro_Angle_rad__Entry = NTtable_Outport->GetEntry("Gyro_Angle_rad");
     O__Odom_Delta_X__Entry = NTtable_Outport->GetEntry("Odom_Delta_X");
     O__Odom_Delta_Y__Entry = NTtable_Outport->GetEntry("Odom_Delta_Y");
@@ -135,7 +134,6 @@ void SimulinkNetworkTables2::PostStepCallback()
     O__FL_Steer_Module_Angle__Entry.SetDouble(Odometry_Y.FL_Steer_Module_Angle);
     O__FR_Steer_Module_Angle__Entry.SetDouble(Odometry_Y.FR_Steer_Module_Angle);
     O__Gyro_Angle_Field_rad__Entry.SetDouble(Odometry_Y.Gyro_Angle_Field_rad);
-    O__Gyro_Angle_Offset_Total__Entry.SetDouble(Odometry_Y.Gyro_Angle_Offset_Total);
     O__Gyro_Angle_rad__Entry.SetDouble(Odometry_Y.Gyro_Angle_rad);
     O__Odom_Delta_X__Entry.SetDouble(Odometry_Y.Odom_Delta_X);
     O__Odom_Delta_Y__Entry.SetDouble(Odometry_Y.Odom_Delta_Y);

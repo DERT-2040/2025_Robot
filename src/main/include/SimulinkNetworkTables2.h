@@ -50,7 +50,6 @@ private:
         nt::NetworkTableEntry O__FL_Steer_Module_Angle__Entry;
         nt::NetworkTableEntry O__FR_Steer_Module_Angle__Entry;
         nt::NetworkTableEntry O__Gyro_Angle_Field_rad__Entry;
-        nt::NetworkTableEntry O__Gyro_Angle_Offset_Total__Entry;
         nt::NetworkTableEntry O__Gyro_Angle_rad__Entry;
         nt::NetworkTableEntry O__Odom_Delta_X__Entry;
         nt::NetworkTableEntry O__Odom_Delta_Y__Entry;
