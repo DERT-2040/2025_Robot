@@ -1,22 +1,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% APRIL TAG TRACKING TARGETS
+% APRIL TAG OFFSETS AND TARGETS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Vision_Tag_X_Offset = -0.28;  % inches
-Vision_Tag_Y_Offset = -0.28;  % inches
+Vision_Tag_X_Offset = 0;      % inches
+Vision_Tag_Y_Offset = 0;      % inches
 Vision_Tag_Angle_Offset = 0;  % degrees
 
-Vision_Tag_Target_X = 20;    % inches
-Vision_Tag_Target_Y = 0;     % inches
-Vision_Tag_Target_Angle = 0; % degrees
+Vision_Tag_Target_X = 20;     % inches
+Vision_Tag_Target_Y = 0;      % inches
+Vision_Tag_Target_Angle = 0;  % degrees
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% OBJECT TRACKING TARGETS
+% OBJECT OFFSETS AND TARGETS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Vision_Object_X_Offset = 0;    % inches
 Vision_Object_Y_Offset = 0;    % inches
-Vision_Object_Angle_Offset = 0;% degrees
+Vision_Object_Angle_Offset = 0; % degrees
 
 Vision_Object_Target_X = 20; % inches
 Vision_Object_Target_Y = 0;  % inches

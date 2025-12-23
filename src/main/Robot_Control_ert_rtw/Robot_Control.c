@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.426
+ * Model version                  : 2.428
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Dec 22 17:50:36 2025
+ * C/C++ source code generated on : Tue Dec 23 07:10:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -381,13 +381,13 @@ real_T Vision_Object_Target_X = 20.0;  /* Variable: Vision_Object_Target_X
                                         * Referenced by: '<S301>/Constant1'
                                         */
 real_T Vision_Object_Target_Y = 0.0;   /* Variable: Vision_Object_Target_Y
-                                        * Referenced by: '<S301>/Constant12'
+                                        * Referenced by: '<S301>/Constant4'
                                         */
 real_T Vision_Object_X_Offset = 0.0;   /* Variable: Vision_Object_X_Offset
                                         * Referenced by: '<S13>/Constant3'
                                         */
 real_T Vision_Object_Y_Offset = 0.0;   /* Variable: Vision_Object_Y_Offset
-                                        * Referenced by: '<S13>/Constant4'
+                                        * Referenced by: '<S13>/Constant7'
                                         */
 real_T Vision_Tag_Angle_Offset = 0.0;  /* Variable: Vision_Tag_Angle_Offset
                                         * Referenced by: '<S13>/Constant2'
@@ -399,13 +399,13 @@ real_T Vision_Tag_Target_X = 20.0;     /* Variable: Vision_Tag_Target_X
                                         * Referenced by: '<S301>/Constant2'
                                         */
 real_T Vision_Tag_Target_Y = 0.0;      /* Variable: Vision_Tag_Target_Y
-                                        * Referenced by: '<S301>/Constant13'
+                                        * Referenced by: '<S301>/Constant5'
                                         */
-real_T Vision_Tag_X_Offset = -0.28;    /* Variable: Vision_Tag_X_Offset
+real_T Vision_Tag_X_Offset = 0.0;      /* Variable: Vision_Tag_X_Offset
                                         * Referenced by: '<S13>/Constant'
                                         */
-real_T Vision_Tag_Y_Offset = -0.28;    /* Variable: Vision_Tag_Y_Offset
-                                        * Referenced by: '<S13>/Constant1'
+real_T Vision_Tag_Y_Offset = 0.0;      /* Variable: Vision_Tag_Y_Offset
+                                        * Referenced by: '<S13>/Constant6'
                                         */
 uint8_T TEST_Pipeline = 0U;            /* Variable: TEST_Pipeline
                                         * Referenced by:
@@ -474,12 +474,11 @@ void Robot_Control_step(void)
   uint8_T rtb_Desired_Pipeline;
   boolean_T rtb_AND1;
   boolean_T rtb_AND4;
-  boolean_T rtb_Compare_a;
+  boolean_T rtb_Compare_ai;
   boolean_T rtb_Disable_Wheels;
   boolean_T rtb_Enable_Wheels;
   boolean_T rtb_Is_Absolute_Steering;
   boolean_T rtb_Is_Absolute_Translation_g;
-  boolean_T rtb_LogicalOperator1;
   boolean_T rtb_Reset_Wheel_Offsets;
   boolean_T rtb_Swerve_Motors_Disabled;
 
@@ -581,51 +580,64 @@ void Robot_Control_step(void)
    */
   Robot_Control_B.Face_Away_Driver = (Robot_Control_U.Joystick_Right_POV == 0.0);
 
-  /* Sum: '<S13>/Add' incorporates:
-   *  Constant: '<S13>/Constant'
-   *  Gain: '<S13>/Convert meters to inches1'
-   *  Inport: '<Root>/Vision_Tag_X'
+  /* RelationalOperator: '<S333>/Compare' incorporates:
+   *  Constant: '<S333>/Constant'
+   *  Inport: '<Root>/Vision_Current_Pipeline'
    */
-  Robot_Control_B.Vision_Tag_Corrected_X = (39.37008 *
-    Robot_Control_U.Vision_Tag_X) + Vision_Tag_X_Offset;
+  rtb_Compare_ai = (Robot_Control_U.Vision_Current_Pipeline == 1.0);
+
+  /* Switch: '<S13>/Switch' incorporates:
+   *  Constant: '<S13>/Constant'
+   *  Constant: '<S13>/Constant3'
+   */
+  if (rtb_Compare_ai) {
+    rtb_Add_jrm = Vision_Object_X_Offset;
+  } else {
+    rtb_Add_jrm = Vision_Tag_X_Offset;
+  }
+
+  /* Sum: '<S13>/Add' incorporates:
+   *  Gain: '<S13>/Convert meters to inches1'
+   *  Inport: '<Root>/Vision_c1TargetPoseRobotSpace_X'
+   *  Switch: '<S13>/Switch'
+   */
+  Robot_Control_B.Vision_c1TPRS_Corrected_X = (39.37008 *
+    Robot_Control_U.Vision_c1TargetPoseRobotSpace_X) + rtb_Add_jrm;
+
+  /* Switch: '<S13>/Switch1' incorporates:
+   *  Constant: '<S13>/Constant6'
+   *  Constant: '<S13>/Constant7'
+   */
+  if (rtb_Compare_ai) {
+    rtb_Add_jrm = Vision_Object_Y_Offset;
+  } else {
+    rtb_Add_jrm = Vision_Tag_Y_Offset;
+  }
 
   /* Sum: '<S13>/Add1' incorporates:
-   *  Constant: '<S13>/Constant1'
    *  Gain: '<S13>/Convert meters to inches'
-   *  Inport: '<Root>/Vision_Tag_Y'
+   *  Inport: '<Root>/Vision_c1TargetPoseRobotSpace_Y'
+   *  Switch: '<S13>/Switch1'
    */
-  Robot_Control_B.Vision_Tag_Corrected_Y = (39.37008 *
-    Robot_Control_U.Vision_Tag_Y) + Vision_Tag_Y_Offset;
+  Robot_Control_B.Vision_c1TPRS_Corrected_Y = (39.37008 *
+    Robot_Control_U.Vision_c1TargetPoseRobotSpace_Y) + rtb_Add_jrm;
+
+  /* Switch: '<S13>/Switch2' incorporates:
+   *  Constant: '<S13>/Constant2'
+   *  Constant: '<S13>/Constant5'
+   */
+  if (rtb_Compare_ai) {
+    rtb_Add_jrm = Vision_Object_Angle_Offset;
+  } else {
+    rtb_Add_jrm = Vision_Tag_Angle_Offset;
+  }
 
   /* Sum: '<S13>/Add2' incorporates:
-   *  Constant: '<S13>/Constant2'
-   *  Inport: '<Root>/Vision_Tag_Angle'
+   *  Inport: '<Root>/Vision_c1TargetPoseRobotSpace_A'
+   *  Switch: '<S13>/Switch2'
    */
-  Robot_Control_B.Vision_Tag_Corrected_Angle = Robot_Control_U.Vision_Tag_Angle
-    + Vision_Tag_Angle_Offset;
-
-  /* Sum: '<S13>/Add3' incorporates:
-   *  Constant: '<S13>/Constant3'
-   *  Gain: '<S13>/Convert meters to inches3'
-   *  Inport: '<Root>/Vision_Object_X'
-   */
-  Robot_Control_B.Vision_Object_Corrected_X = (39.37008 *
-    Robot_Control_U.Vision_Object_X) + Vision_Object_X_Offset;
-
-  /* Sum: '<S13>/Add4' incorporates:
-   *  Constant: '<S13>/Constant4'
-   *  Gain: '<S13>/Convert meters to inches2'
-   *  Inport: '<Root>/Vision_Object_Y'
-   */
-  Robot_Control_B.Vision_Object_Corrected_Y = (39.37008 *
-    Robot_Control_U.Vision_Object_Y) + Vision_Object_Y_Offset;
-
-  /* Sum: '<S13>/Add5' incorporates:
-   *  Constant: '<S13>/Constant5'
-   *  Inport: '<Root>/Vision_Object_Angle'
-   */
-  Robot_Control_B.Vision_Object_Corrected_Angle =
-    Robot_Control_U.Vision_Object_Angle + Vision_Object_Angle_Offset;
+  Robot_Control_B.Vision_c1TPRS_Corrected_A =
+    Robot_Control_U.Vision_c1TargetPoseRobotSpace_A + rtb_Add_jrm;
 
   /* RelationalOperator: '<S26>/Compare' incorporates:
    *  Constant: '<S26>/Constant'
@@ -912,60 +924,46 @@ void Robot_Control_step(void)
      *  ActionPort: '<S11>/Action Port'
      */
     /* Logic: '<S301>/Logical Operator3' incorporates:
-     *  Constant: '<S324>/Constant'
-     *  Constant: '<S325>/Constant'
-     *  Constant: '<S326>/Constant'
-     *  Logic: '<S301>/Logical Operator2'
-     *  Logic: '<S301>/NOT'
-     *  RelationalOperator: '<S324>/Compare'
-     *  RelationalOperator: '<S325>/Compare'
-     *  RelationalOperator: '<S326>/Compare'
-     */
-    rtb_Swerve_Motors_Disabled = ((Robot_Control_B.Align_Left) &&
-      (((!(Robot_Control_B.Vision_Tag_Corrected_X == 0.0)) ||
-        (!(Robot_Control_B.Vision_Tag_Corrected_Y == 0.0))) ||
-       (!(Robot_Control_B.Vision_Tag_Corrected_Angle == 0.0))));
-
-    /* Logic: '<S301>/Logical Operator5' incorporates:
      *  Constant: '<S327>/Constant'
      *  Constant: '<S328>/Constant'
      *  Constant: '<S329>/Constant'
-     *  Logic: '<S301>/Logical Operator4'
-     *  Logic: '<S301>/NOT1'
+     *  Logic: '<S301>/Logical Operator1'
+     *  Logic: '<S301>/Logical Operator2'
      *  RelationalOperator: '<S327>/Compare'
      *  RelationalOperator: '<S328>/Compare'
      *  RelationalOperator: '<S329>/Compare'
      */
-    rtb_Enable_Wheels = ((Robot_Control_B.Align_Right) &&
-                         (((!(Robot_Control_B.Vision_Object_Corrected_X == 0.0))
-      || (!(Robot_Control_B.Vision_Object_Corrected_Y == 0.0))) ||
-                          (!(Robot_Control_B.Vision_Object_Corrected_Angle ==
-      0.0))));
-
-    /* Logic: '<S301>/Logical Operator1' */
-    rtb_Is_Absolute_Translation_g = (rtb_Swerve_Motors_Disabled ||
-      rtb_Enable_Wheels);
+    rtb_Disable_Wheels = (((Robot_Control_B.Align_Left) ||
+      (Robot_Control_B.Align_Right)) &&
+                          (((Robot_Control_B.Vision_c1TPRS_Corrected_X != 0.0) ||
+      (Robot_Control_B.Vision_c1TPRS_Corrected_Y != 0.0)) ||
+      (Robot_Control_B.Vision_c1TPRS_Corrected_A != 0.0)));
 
     /* Switch: '<S303>/Switch' incorporates:
      *  Constant: '<S303>/Constant9'
      */
-    if (rtb_Is_Absolute_Translation_g) {
+    if (rtb_Disable_Wheels) {
       /* Switch: '<S301>/Switch4' incorporates:
        *  Constant: '<S301>/Constant6'
        *  Constant: '<S301>/Constant8'
-       *  Sum: '<S301>/Subtract1'
+       *  Constant: '<S326>/Constant'
+       *  Constant: '<S332>/Constant'
+       *  Inport: '<Root>/Vision_Current_Pipeline'
+       *  RelationalOperator: '<S326>/Compare'
+       *  RelationalOperator: '<S332>/Compare'
+       *  Sum: '<S301>/Subtract4'
        *  Switch: '<S301>/Switch5'
        */
-      if (rtb_Swerve_Motors_Disabled) {
+      if (Robot_Control_U.Vision_Current_Pipeline == 0.0) {
         rtb_Add_jrm = Vision_Tag_Target_Angle -
-          Robot_Control_B.Vision_Tag_Corrected_Angle;
-      } else if (rtb_Enable_Wheels) {
+          Robot_Control_B.Vision_c1TPRS_Corrected_A;
+      } else if (Robot_Control_U.Vision_Current_Pipeline == 1.0) {
         /* Switch: '<S301>/Switch5' incorporates:
          *  Constant: '<S301>/Constant7'
-         *  Sum: '<S301>/Subtract6'
+         *  Sum: '<S301>/Subtract5'
          */
         rtb_Add_jrm = Vision_Object_Target_Angle -
-          Robot_Control_B.Vision_Object_Corrected_Angle;
+          Robot_Control_B.Vision_c1TPRS_Corrected_A;
       } else {
         rtb_Add_jrm = 0.0;
       }
@@ -1025,7 +1023,7 @@ void Robot_Control_step(void)
     /* RelationalOperator: '<S305>/Compare' incorporates:
      *  Constant: '<S305>/Constant'
      */
-    rtb_Compare_a = (rtb_Add_h5 == 0.0);
+    rtb_Compare_ai = (rtb_Add_h5 == 0.0);
 
     /* Logic: '<S303>/AND2' incorporates:
      *  RelationalOperator: '<S306>/FixPt Relational Operator'
@@ -1053,7 +1051,7 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    rtb_Reset_Wheel_Offsets = ((((((int32_T)Robot_Control_B.Face_Away_Driver) >
+    rtb_Enable_Wheels = ((((((int32_T)Robot_Control_B.Face_Away_Driver) >
       ((int32_T)Robot_Control_DW.DelayInput1_DSTATE_m)) || (((int32_T)
       Robot_Control_B.Face_Left_Driver) > ((int32_T)
       Robot_Control_DW.DelayInput1_DSTATE_k))) || (((int32_T)
@@ -1066,14 +1064,14 @@ void Robot_Control_step(void)
      *  Logic: '<S303>/AND3'
      *  UnitDelay: '<S303>/Unit Delay2'
      */
-    rtb_AND1 = (rtb_Compare_a && (rtb_Reset_Wheel_Offsets ||
+    rtb_AND1 = (rtb_Compare_ai && (rtb_Enable_Wheels ||
       (Robot_Control_DW.UnitDelay2_DSTATE)));
 
     /* Logic: '<S303>/AND4' incorporates:
      *  Logic: '<S303>/AND8'
      *  UnitDelay: '<S303>/Unit Delay4'
      */
-    rtb_AND4 = ((rtb_Compare_a && (!rtb_Reset_Wheel_Offsets)) &&
+    rtb_AND4 = ((rtb_Compare_ai && (!rtb_Enable_Wheels)) &&
                 (Robot_Control_DW.UnitDelay4_DSTATE));
 
     /* Logic: '<S303>/AND6' */
@@ -1091,8 +1089,8 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    if (((Robot_Control_B.Steering_Abs_Angle_Active) || (((int32_T)rtb_Compare_a)
-          > ((int32_T)Robot_Control_DW.DelayInput1_DSTATE_j))) ||
+    if (((Robot_Control_B.Steering_Abs_Angle_Active) || (((int32_T)
+           rtb_Compare_ai) > ((int32_T)Robot_Control_DW.DelayInput1_DSTATE_j))) ||
         (Robot_Control_B.Active_GameState != 2)) {
       /* Switch: '<S303>/Switch8' incorporates:
        *  Inport: '<Root>/Gyro_Angle_rad'
@@ -1192,7 +1190,7 @@ void Robot_Control_step(void)
     if (TEST_Swerve_Mode_Override_Flag != 0.0) {
       rtb_Is_Absolute_Steering = (TEST_Swerve_Mode_Steering != 0.0);
     } else {
-      rtb_Is_Absolute_Steering = rtb_Compare_a;
+      rtb_Is_Absolute_Steering = rtb_Compare_ai;
     }
 
     /* End of Switch: '<S302>/Switch1' */
@@ -1207,7 +1205,7 @@ void Robot_Control_step(void)
     /* RelationalOperator: '<S315>/Compare' incorporates:
      *  Constant: '<S315>/Constant'
      */
-    rtb_Disable_Wheels = (rtb_Modulation_Drv == 0.0);
+    rtb_Swerve_Motors_Disabled = (rtb_Modulation_Drv == 0.0);
 
     /* DeadZone: '<S304>/Dead Zone' */
     if (Robot_Control_B.Drive_Joystick_Z > Twist_Deadzone_pos) {
@@ -1224,11 +1222,10 @@ void Robot_Control_step(void)
      *  Constant: '<S316>/Constant'
      *  RelationalOperator: '<S316>/Compare'
      */
-    rtb_Reset_Wheel_Offsets = ((rtb_DeadZone != 0.0) && rtb_Disable_Wheels);
+    rtb_Enable_Wheels = ((rtb_DeadZone != 0.0) && rtb_Swerve_Motors_Disabled);
 
     /* Logic: '<S304>/Logical Operator1' */
-    rtb_LogicalOperator1 = (rtb_Is_Absolute_Translation_g ||
-      rtb_Reset_Wheel_Offsets);
+    rtb_Disable_Wheels = (rtb_Disable_Wheels || rtb_Enable_Wheels);
 
     /* Switch: '<S302>/Switch' incorporates:
      *  Constant: '<S302>/Constant5'
@@ -1239,39 +1236,44 @@ void Robot_Control_step(void)
     if (TEST_Swerve_Mode_Override_Flag != 0.0) {
       rtb_Is_Absolute_Translation_g = (TEST_Swerve_Mode_Translation != 0.0);
     } else {
-      rtb_Is_Absolute_Translation_g = !rtb_LogicalOperator1;
+      rtb_Is_Absolute_Translation_g = !rtb_Disable_Wheels;
     }
 
     /* End of Switch: '<S302>/Switch' */
 
     /* Switch: '<S301>/Switch2' incorporates:
-     *  Constant: '<S301>/Constant13'
      *  Constant: '<S301>/Constant2'
+     *  Constant: '<S301>/Constant5'
+     *  Constant: '<S325>/Constant'
+     *  Constant: '<S331>/Constant'
+     *  Inport: '<Root>/Vision_Current_Pipeline'
+     *  RelationalOperator: '<S325>/Compare'
+     *  RelationalOperator: '<S331>/Compare'
      *  Sum: '<S301>/Subtract'
-     *  Sum: '<S301>/Subtract4'
+     *  Sum: '<S301>/Subtract1'
      *  Switch: '<S301>/Switch'
      *  Switch: '<S301>/Switch1'
      *  Switch: '<S301>/Switch3'
      */
-    if (rtb_Swerve_Motors_Disabled) {
+    if (Robot_Control_U.Vision_Current_Pipeline == 0.0) {
       rtb_Relative_Error_Y = Vision_Tag_Target_Y -
-        Robot_Control_B.Vision_Tag_Corrected_Y;
+        Robot_Control_B.Vision_c1TPRS_Corrected_Y;
       rtb_Switch2_k = Vision_Tag_Target_X -
-        Robot_Control_B.Vision_Tag_Corrected_X;
-    } else if (rtb_Enable_Wheels) {
+        Robot_Control_B.Vision_c1TPRS_Corrected_X;
+    } else if (Robot_Control_U.Vision_Current_Pipeline == 1.0) {
       /* Switch: '<S301>/Switch3' incorporates:
-       *  Constant: '<S301>/Constant12'
-       *  Sum: '<S301>/Subtract5'
+       *  Constant: '<S301>/Constant4'
+       *  Sum: '<S301>/Subtract2'
        */
       rtb_Relative_Error_Y = Vision_Object_Target_Y -
-        Robot_Control_B.Vision_Object_Corrected_Y;
+        Robot_Control_B.Vision_c1TPRS_Corrected_Y;
 
       /* Switch: '<S301>/Switch1' incorporates:
        *  Constant: '<S301>/Constant1'
        *  Sum: '<S301>/Subtract3'
        */
       rtb_Switch2_k = Vision_Object_Target_X -
-        Robot_Control_B.Vision_Object_Corrected_X;
+        Robot_Control_B.Vision_c1TPRS_Corrected_X;
     } else {
       /* Switch: '<S301>/Switch3' incorporates:
        *  Constant: '<S301>/Constant3'
@@ -1313,9 +1315,9 @@ void Robot_Control_step(void)
     /* Switch: '<S304>/Switch9' incorporates:
      *  Switch: '<S304>/Switch4'
      */
-    if (rtb_LogicalOperator1) {
+    if (rtb_Disable_Wheels) {
       /* Switch: '<S304>/Switch1' */
-      if (rtb_Reset_Wheel_Offsets) {
+      if (rtb_Enable_Wheels) {
         /* Signum: '<S304>/Sign' */
         if (rtIsNaN(rtb_DeadZone)) {
           rtb_Add_jrm = (rtNaN);
@@ -1353,7 +1355,7 @@ void Robot_Control_step(void)
       }
 
       /* End of Switch: '<S304>/Switch1' */
-    } else if (rtb_Disable_Wheels) {
+    } else if (rtb_Swerve_Motors_Disabled) {
       /* Switch: '<S304>/Switch6' incorporates:
        *  Inport: '<Root>/IsBlueAlliance'
        *  Switch: '<S304>/Switch4'
@@ -1432,9 +1434,9 @@ void Robot_Control_step(void)
     /* Switch: '<S304>/Switch8' incorporates:
      *  Switch: '<S304>/Switch2'
      */
-    if (rtb_LogicalOperator1) {
+    if (rtb_Disable_Wheels) {
       /* Switch: '<S304>/Switch' */
-      if (rtb_Reset_Wheel_Offsets) {
+      if (rtb_Enable_Wheels) {
         /* Merge: '<S7>/Merge4' incorporates:
          *  Gain: '<S304>/Gain'
          */
@@ -1454,7 +1456,7 @@ void Robot_Control_step(void)
       }
 
       /* End of Switch: '<S304>/Switch' */
-    } else if (rtb_Disable_Wheels) {
+    } else if (rtb_Swerve_Motors_Disabled) {
       /* Merge: '<S7>/Merge4' incorporates:
        *  Constant: '<S11>/Constant7'
        *  Constant: '<S11>/Constant8'
@@ -1564,7 +1566,7 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    Robot_Control_DW.DelayInput1_DSTATE_j = rtb_Compare_a;
+    Robot_Control_DW.DelayInput1_DSTATE_j = rtb_Compare_ai;
 
     /* Update for UnitDelay: '<S310>/Delay Input1' incorporates:
      *  Constant: '<S11>/Constant5'
@@ -1747,17 +1749,17 @@ void Robot_Control_step(void)
   /* End of SwitchCase: '<S1>/Switch Case' */
 
   /* Reshape: '<S34>/Reshapey' incorporates:
-   *  Inport: '<Root>/Vision_Est_Pose_X'
-   *  Inport: '<Root>/Vision_Est_Pose_Y'
+   *  Inport: '<Root>/Vision_RobotPoseFieldSpace_X'
+   *  Inport: '<Root>/Vision_RobotPoseFieldSpace_Y'
    *  S-Function (sfix_udelay): '<S6>/Tapped Delay'
    *  S-Function (sfix_udelay): '<S6>/Tapped Delay1'
    *  Sum: '<S6>/Add'
    *  Sum: '<S6>/Add1'
    */
-  rtb_Reshapey[0] = (Robot_Control_U.Vision_Est_Pose_X +
+  rtb_Reshapey[0] = (Robot_Control_U.Vision_RobotPoseFieldSpace_X +
                      Robot_Control_DW.TappedDelay_X[0]) +
     Robot_Control_DW.TappedDelay_X[1];
-  rtb_Reshapey[1] = (Robot_Control_U.Vision_Est_Pose_Y +
+  rtb_Reshapey[1] = (Robot_Control_U.Vision_RobotPoseFieldSpace_Y +
                      Robot_Control_DW.TappedDelay1_X[0]) +
     Robot_Control_DW.TappedDelay1_X[1];
 
@@ -2022,7 +2024,7 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S246>/Compare' incorporates:
    *  Constant: '<S246>/Constant'
    */
-  rtb_Compare_a = (rtb_uDLookupTable == 0.0);
+  rtb_Compare_ai = (rtb_uDLookupTable == 0.0);
 
   /* RelationalOperator: '<S247>/Compare' incorporates:
    *  Constant: '<S247>/Constant'
@@ -2041,7 +2043,7 @@ void Robot_Control_step(void)
    *  Switch: '<S239>/Switch1'
    *  UnaryMinus: '<S239>/Unary Minus'
    */
-  if (rtb_Compare_a) {
+  if (rtb_Compare_ai) {
     /* SignalConversion generated from: '<S239>/Lookup Table Dynamic' incorporates:
      *  Constant: '<S239>/Constant4'
      *  Constant: '<S239>/Constant6'
@@ -2129,7 +2131,7 @@ void Robot_Control_step(void)
      *  Constant: '<S239>/Constant1'
      *  Switch: '<S239>/Switch4'
      */
-    if (rtb_Compare_a) {
+    if (rtb_Compare_ai) {
       rtb_Modulation_Drv = Translation_Speed_Rate_Limit_Dec;
     } else if (rtb_AND1) {
       /* Switch: '<S239>/Switch4' incorporates:
@@ -2378,7 +2380,7 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S263>/Compare' incorporates:
    *  Constant: '<S263>/Constant'
    */
-  rtb_Compare_a = (rtb_Switch2_nt == 0.0);
+  rtb_Compare_ai = (rtb_Switch2_nt == 0.0);
 
   /* RelationalOperator: '<S264>/Compare' incorporates:
    *  Constant: '<S264>/Constant'
@@ -2397,7 +2399,7 @@ void Robot_Control_step(void)
    *  Switch: '<S252>/Switch5'
    *  UnaryMinus: '<S252>/Unary Minus'
    */
-  if (rtb_Compare_a) {
+  if (rtb_Compare_ai) {
     rtb_Relative_Error_Y = -Steering_Absolute_Cmd_Rate_Limit_Dec;
 
     /* SignalConversion generated from: '<S252>/Lookup Table Dynamic' incorporates:
@@ -2484,7 +2486,7 @@ void Robot_Control_step(void)
      *  Constant: '<S252>/Constant1'
      *  Switch: '<S252>/Switch4'
      */
-    if (rtb_Compare_a) {
+    if (rtb_Compare_ai) {
       rtb_Relative_Error_Y = Steering_Absolute_Cmd_Rate_Limit_Dec;
     } else if (rtb_AND1) {
       /* Switch: '<S252>/Switch4' incorporates:
@@ -2584,7 +2586,7 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S256>/Compare' incorporates:
    *  Constant: '<S256>/Constant'
    */
-  rtb_Compare_a = (rtb_Switch2_nt == 0.0);
+  rtb_Compare_ai = (rtb_Switch2_nt == 0.0);
 
   /* RelationalOperator: '<S257>/Compare' incorporates:
    *  Constant: '<S257>/Constant'
@@ -2603,7 +2605,7 @@ void Robot_Control_step(void)
    *  Switch: '<S251>/Switch1'
    *  UnaryMinus: '<S251>/Unary Minus'
    */
-  if (rtb_Compare_a) {
+  if (rtb_Compare_ai) {
     /* SignalConversion generated from: '<S251>/Lookup Table Dynamic' incorporates:
      *  Constant: '<S251>/Constant4'
      *  Constant: '<S251>/Constant6'
@@ -2693,7 +2695,7 @@ void Robot_Control_step(void)
      *  Switch: '<S251>/Switch4'
      *  UnaryMinus: '<S251>/Unary Minus1'
      */
-    if (rtb_Compare_a) {
+    if (rtb_Compare_ai) {
       rtb_Add_jrm = Steering_Relative_Cmd_Rate_Limit_Dec;
     } else if (rtb_AND1) {
       /* Switch: '<S251>/Switch4' incorporates:
@@ -2801,10 +2803,10 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S299>/Compare' incorporates:
    *  Constant: '<S299>/Constant'
    */
-  rtb_Compare_a = (rtb_Relative_Error_Y == 0.0);
+  rtb_Compare_ai = (rtb_Relative_Error_Y == 0.0);
 
   /* Switch: '<S295>/Switch1' */
-  if (rtb_Compare_a) {
+  if (rtb_Compare_ai) {
     /* Switch: '<S295>/Switch1' incorporates:
      *  Constant: '<S295>/Constant'
      */
@@ -2898,7 +2900,7 @@ void Robot_Control_step(void)
     Robot_Control_B.BR_Desired_Wheel_Speed_in * rtb_Relative_Error_Y;
 
   /* Switch: '<S295>/Switch' */
-  if (!rtb_Compare_a) {
+  if (!rtb_Compare_ai) {
     /* Switch: '<S295>/Switch' incorporates:
      *  Fcn: '<S296>/x->theta'
      */

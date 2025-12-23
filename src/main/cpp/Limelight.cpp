@@ -45,6 +45,9 @@ void Limelight::PreStepCallback() {
     // Get the current pipeline (double check after setting it above)
     Current_Pipeline = LimelightHelpers::getLimelightNTDouble(LimelightNameSpace::CameraOneCreateInfo.LimelightName, "pipeline");
 
+    // Set current pipeline to a Simulink input so control action is taken based on current pipeline (instead of desired pipeline)
+    Robot_Control_U.Vision_Current_Pipeline = Current_Pipeline;
+
     /////////////////////////////////
     // APRIL TAG PIPELINE
     /////////////////////////////////
@@ -91,43 +94,43 @@ void Limelight::PreStepCallback() {
         }
         if (CameraOneLLTagCount == CameraTwoLLTagCount) {
             if (CameraOneLLScore > CameraTwoLLScore) {
-                Robot_Control_U.Vision_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
-                Robot_Control_U.Vision_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
+                Robot_Control_U.Vision_RobotPoseFieldSpace_X = CameraOneLLMeasurement.pose.X().value();
+                Robot_Control_U.Vision_RobotPoseFieldSpace_Y = CameraOneLLMeasurement.pose.Y().value();
             } else if (CameraTwoLLScore > CameraOneLLScore) {
-                Robot_Control_U.Vision_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
-                Robot_Control_U.Vision_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
+                Robot_Control_U.Vision_RobotPoseFieldSpace_X = CameraTwoLLMeasurement.pose.X().value();
+                Robot_Control_U.Vision_RobotPoseFieldSpace_Y = CameraTwoLLMeasurement.pose.Y().value();
             } else if (CameraTwoLLScore == CameraOneLLScore) {
-                Robot_Control_U.Vision_Est_Pose_X = (CameraTwoLLMeasurement.pose.X().value() + CameraOneLLMeasurement.pose.X().value())/2;
-                Robot_Control_U.Vision_Est_Pose_Y = (CameraTwoLLMeasurement.pose.Y().value() + CameraOneLLMeasurement.pose.Y().value())/2;
+                Robot_Control_U.Vision_RobotPoseFieldSpace_X = (CameraTwoLLMeasurement.pose.X().value() + CameraOneLLMeasurement.pose.X().value())/2;
+                Robot_Control_U.Vision_RobotPoseFieldSpace_Y = (CameraTwoLLMeasurement.pose.Y().value() + CameraOneLLMeasurement.pose.Y().value())/2;
             }
         } else if (CameraOneLLTagCount > CameraTwoLLTagCount) {
-                Robot_Control_U.Vision_Est_Pose_X = CameraOneLLMeasurement.pose.X().value();
-                Robot_Control_U.Vision_Est_Pose_Y = CameraOneLLMeasurement.pose.Y().value();
+                Robot_Control_U.Vision_RobotPoseFieldSpace_X = CameraOneLLMeasurement.pose.X().value();
+                Robot_Control_U.Vision_RobotPoseFieldSpace_Y = CameraOneLLMeasurement.pose.Y().value();
         } else if (CameraOneLLTagCount < CameraTwoLLTagCount) {
-                Robot_Control_U.Vision_Est_Pose_X = CameraTwoLLMeasurement.pose.X().value();
-                Robot_Control_U.Vision_Est_Pose_Y = CameraTwoLLMeasurement.pose.Y().value();
+                Robot_Control_U.Vision_RobotPoseFieldSpace_X = CameraTwoLLMeasurement.pose.X().value();
+                Robot_Control_U.Vision_RobotPoseFieldSpace_Y = CameraTwoLLMeasurement.pose.Y().value();
         }
 
         // Robot Pose Relative to Tag
-        CameraOneRobotPose = LimelightHelpers::getTargetPose_RobotSpace(LimelightNameSpace::CameraOneCreateInfo.LimelightName);
-        vectorLength = CameraOneRobotPose.size();
+        c1TargetPoseRobotSpace = LimelightHelpers::getTargetPose_RobotSpace(LimelightNameSpace::CameraOneCreateInfo.LimelightName);
+        c1VectorLength = c1TargetPoseRobotSpace.size();
         
-        if (vectorLength > 1) {
-            Robot_Control_U.Vision_Tag_X = CameraOneRobotPose.at(2);
-            Robot_Control_U.Vision_Tag_Y = CameraOneRobotPose.at(0);
-            Robot_Control_U.Vision_Tag_Angle = CameraOneRobotPose.at(4);
+        if (c1VectorLength > 1) {
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_X = c1TargetPoseRobotSpace.at(2);
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_Y = c1TargetPoseRobotSpace.at(0);
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_A = c1TargetPoseRobotSpace.at(4);
         } else {
-            Robot_Control_U.Vision_Tag_X = 0;
-            Robot_Control_U.Vision_Tag_Y = 0;
-            Robot_Control_U.Vision_Tag_Angle = 0;
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_X = 0;
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_Y = 0;
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_A = 0;
         }
 
     } else {
-        Robot_Control_U.Vision_Est_Pose_X = 0;
-        Robot_Control_U.Vision_Est_Pose_Y = 0;
-        Robot_Control_U.Vision_Tag_X = 0;
-        Robot_Control_U.Vision_Tag_Y = 0;
-        Robot_Control_U.Vision_Tag_Angle = 0;
+        Robot_Control_U.Vision_RobotPoseFieldSpace_X = 0;
+        Robot_Control_U.Vision_RobotPoseFieldSpace_Y = 0;
+        Robot_Control_U.Vision_c1TargetPoseRobotSpace_X = 0;
+        Robot_Control_U.Vision_c1TargetPoseRobotSpace_Y = 0;
+        Robot_Control_U.Vision_c1TargetPoseRobotSpace_A = 0;
     }
 
     /////////////////////////////////
@@ -136,22 +139,22 @@ void Limelight::PreStepCallback() {
     if(Current_Pipeline == 1)
     {
         // Robot Pose Relative to Object
-        CameraOneRobotPose = LimelightHelpers::getTargetPose_RobotSpace(LimelightNameSpace::CameraOneCreateInfo.LimelightName);
-        vectorLength = CameraOneRobotPose.size();
+        c1TargetPoseRobotSpace = LimelightHelpers::getTargetPose_RobotSpace(LimelightNameSpace::CameraOneCreateInfo.LimelightName);
+        c1VectorLength = c1TargetPoseRobotSpace.size();
         
-        if (vectorLength > 1) {
-            Robot_Control_U.Vision_Object_X = CameraOneRobotPose.at(2);
-            Robot_Control_U.Vision_Object_Y = CameraOneRobotPose.at(0);
-            Robot_Control_U.Vision_Object_Angle = CameraOneRobotPose.at(4);
+        if (c1VectorLength > 1) {
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_X = c1TargetPoseRobotSpace.at(2);
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_Y = c1TargetPoseRobotSpace.at(0);
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_A = c1TargetPoseRobotSpace.at(4);
         } else {
-            Robot_Control_U.Vision_Object_X        = 0;
-            Robot_Control_U.Vision_Object_Y        = 0;
-            Robot_Control_U.Vision_Object_Angle    = 0;
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_X        = 0;
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_Y        = 0;
+            Robot_Control_U.Vision_c1TargetPoseRobotSpace_A    = 0;
         }
     } else {
-        Robot_Control_U.Vision_Object_X        = 0;
-        Robot_Control_U.Vision_Object_Y        = 0;
-        Robot_Control_U.Vision_Object_Angle    = 0;
+        Robot_Control_U.Vision_c1TargetPoseRobotSpace_X        = 0;
+        Robot_Control_U.Vision_c1TargetPoseRobotSpace_Y        = 0;
+        Robot_Control_U.Vision_c1TargetPoseRobotSpace_A    = 0;
     }
 }
 

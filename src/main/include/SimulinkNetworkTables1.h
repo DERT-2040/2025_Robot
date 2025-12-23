@@ -176,15 +176,13 @@ private:
         nt::NetworkTableEntry I__Odom_Delta_Y__Entry;
         nt::NetworkTableEntry I__Odom_Position_X__Entry;
         nt::NetworkTableEntry I__Odom_Position_Y__Entry;
-        nt::NetworkTableEntry I__Vision_Est_Pose_X__Entry;
-        nt::NetworkTableEntry I__Vision_Est_Pose_Y__Entry;
+        nt::NetworkTableEntry I__Vision_Current_Pipeline__Entry;
         nt::NetworkTableEntry I__Vision_Num_Tags_Detected__Entry;
-        nt::NetworkTableEntry I__Vision_Object_Angle__Entry;
-        nt::NetworkTableEntry I__Vision_Object_X__Entry;
-        nt::NetworkTableEntry I__Vision_Object_Y__Entry;
-        nt::NetworkTableEntry I__Vision_Tag_Angle__Entry;
-        nt::NetworkTableEntry I__Vision_Tag_X__Entry;
-        nt::NetworkTableEntry I__Vision_Tag_Y__Entry;
+        nt::NetworkTableEntry I__Vision_RobotPoseFieldSpace_X__Entry;
+        nt::NetworkTableEntry I__Vision_RobotPoseFieldSpace_Y__Entry;
+        nt::NetworkTableEntry I__Vision_c1TargetPoseRobotSpace_A__Entry;
+        nt::NetworkTableEntry I__Vision_c1TargetPoseRobotSpace_X__Entry;
+        nt::NetworkTableEntry I__Vision_c1TargetPoseRobotSpace_Y__Entry;
         // Outports
         nt::NetworkTableEntry O__BackLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackLeft_Steer_DutyCycle__Entry;
@@ -268,12 +266,9 @@ private:
         nt::NetworkTableEntry T__Translation_Speed_RL__Entry;
         nt::NetworkTableEntry T__Translation_Speed_SPF__Entry;
         nt::NetworkTableEntry T__Translation_Steering_Cmd__Entry;
-        nt::NetworkTableEntry T__Vision_Object_Corrected_Angle__Entry;
-        nt::NetworkTableEntry T__Vision_Object_Corrected_X__Entry;
-        nt::NetworkTableEntry T__Vision_Object_Corrected_Y__Entry;
-        nt::NetworkTableEntry T__Vision_Tag_Corrected_Angle__Entry;
-        nt::NetworkTableEntry T__Vision_Tag_Corrected_X__Entry;
-        nt::NetworkTableEntry T__Vision_Tag_Corrected_Y__Entry;
+        nt::NetworkTableEntry T__Vision_c1TPRS_Corrected_A__Entry;
+        nt::NetworkTableEntry T__Vision_c1TPRS_Corrected_X__Entry;
+        nt::NetworkTableEntry T__Vision_c1TPRS_Corrected_Y__Entry;
         nt::NetworkTableEntry T__Winch_Cmd__Entry;
         nt::NetworkTableEntry T__loop_counter_robot_control__Entry;
 };

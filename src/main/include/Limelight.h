@@ -35,7 +35,7 @@ class Limelight : public dlib::Component {
     //frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};
  
     // Used in calculations
-    std::vector<double> CameraOneRobotPose;
-    size_t vectorLength;   
+    std::vector<double> c1TargetPoseRobotSpace;
+    size_t c1VectorLength;   
  
 };

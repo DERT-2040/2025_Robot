@@ -341,11 +341,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Vision_Tag_X_Offset__Entry = NTtable_Tune->GetEntry("Vision_Tag_X_Offset");
     NTinst.AddListener(P__Vision_Tag_X_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Vision_Tag_X_Offset = event.GetValueEventData()->value.GetDouble();});
-    P__Vision_Tag_X_Offset__Entry.SetDouble(-0.28);
+    P__Vision_Tag_X_Offset__Entry.SetDouble(0);
  
     P__Vision_Tag_Y_Offset__Entry = NTtable_Tune->GetEntry("Vision_Tag_Y_Offset");
     NTinst.AddListener(P__Vision_Tag_Y_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Vision_Tag_Y_Offset = event.GetValueEventData()->value.GetDouble();});
-    P__Vision_Tag_Y_Offset__Entry.SetDouble(-0.28);
+    P__Vision_Tag_Y_Offset__Entry.SetDouble(0);
  
 // Inports
     I__Auto_Start_Position__Entry = NTtable_Inport->GetEntry("Auto_Start_Position");
@@ -421,15 +421,13 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     I__Odom_Delta_Y__Entry = NTtable_Inport->GetEntry("Odom_Delta_Y");
     I__Odom_Position_X__Entry = NTtable_Inport->GetEntry("Odom_Position_X");
     I__Odom_Position_Y__Entry = NTtable_Inport->GetEntry("Odom_Position_Y");
-    I__Vision_Est_Pose_X__Entry = NTtable_Inport->GetEntry("Vision_Est_Pose_X");
-    I__Vision_Est_Pose_Y__Entry = NTtable_Inport->GetEntry("Vision_Est_Pose_Y");
+    I__Vision_Current_Pipeline__Entry = NTtable_Inport->GetEntry("Vision_Current_Pipeline");
     I__Vision_Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Vision_Num_Tags_Detected");
-    I__Vision_Object_Angle__Entry = NTtable_Inport->GetEntry("Vision_Object_Angle");
-    I__Vision_Object_X__Entry = NTtable_Inport->GetEntry("Vision_Object_X");
-    I__Vision_Object_Y__Entry = NTtable_Inport->GetEntry("Vision_Object_Y");
-    I__Vision_Tag_Angle__Entry = NTtable_Inport->GetEntry("Vision_Tag_Angle");
-    I__Vision_Tag_X__Entry = NTtable_Inport->GetEntry("Vision_Tag_X");
-    I__Vision_Tag_Y__Entry = NTtable_Inport->GetEntry("Vision_Tag_Y");
+    I__Vision_RobotPoseFieldSpace_X__Entry = NTtable_Inport->GetEntry("Vision_RobotPoseFieldSpace_X");
+    I__Vision_RobotPoseFieldSpace_Y__Entry = NTtable_Inport->GetEntry("Vision_RobotPoseFieldSpace_Y");
+    I__Vision_c1TargetPoseRobotSpace_A__Entry = NTtable_Inport->GetEntry("Vision_c1TargetPoseRobotSpace_A");
+    I__Vision_c1TargetPoseRobotSpace_X__Entry = NTtable_Inport->GetEntry("Vision_c1TargetPoseRobotSpace_X");
+    I__Vision_c1TargetPoseRobotSpace_Y__Entry = NTtable_Inport->GetEntry("Vision_c1TargetPoseRobotSpace_Y");
  
 // Outports
     O__BackLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Drive_DutyCycle");
@@ -514,12 +512,9 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Translation_Speed_RL__Entry = NTtable_TPoint->GetEntry("Translation_Speed_RL");
     T__Translation_Speed_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Speed_SPF");
     T__Translation_Steering_Cmd__Entry = NTtable_TPoint->GetEntry("Translation_Steering_Cmd");
-    T__Vision_Object_Corrected_Angle__Entry = NTtable_TPoint->GetEntry("Vision_Object_Corrected_Angle");
-    T__Vision_Object_Corrected_X__Entry = NTtable_TPoint->GetEntry("Vision_Object_Corrected_X");
-    T__Vision_Object_Corrected_Y__Entry = NTtable_TPoint->GetEntry("Vision_Object_Corrected_Y");
-    T__Vision_Tag_Corrected_Angle__Entry = NTtable_TPoint->GetEntry("Vision_Tag_Corrected_Angle");
-    T__Vision_Tag_Corrected_X__Entry = NTtable_TPoint->GetEntry("Vision_Tag_Corrected_X");
-    T__Vision_Tag_Corrected_Y__Entry = NTtable_TPoint->GetEntry("Vision_Tag_Corrected_Y");
+    T__Vision_c1TPRS_Corrected_A__Entry = NTtable_TPoint->GetEntry("Vision_c1TPRS_Corrected_A");
+    T__Vision_c1TPRS_Corrected_X__Entry = NTtable_TPoint->GetEntry("Vision_c1TPRS_Corrected_X");
+    T__Vision_c1TPRS_Corrected_Y__Entry = NTtable_TPoint->GetEntry("Vision_c1TPRS_Corrected_Y");
     T__Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
     T__loop_counter_robot_control__Entry = NTtable_TPoint->GetEntry("loop_counter_robot_control");
 }
@@ -687,15 +682,13 @@ void SimulinkNetworkTables1::PostStepCallback()
     I__Odom_Delta_Y__Entry.SetDouble(Robot_Control_U.Odom_Delta_Y);
     I__Odom_Position_X__Entry.SetDouble(Robot_Control_U.Odom_Position_X);
     I__Odom_Position_Y__Entry.SetDouble(Robot_Control_U.Odom_Position_Y);
-    I__Vision_Est_Pose_X__Entry.SetDouble(Robot_Control_U.Vision_Est_Pose_X);
-    I__Vision_Est_Pose_Y__Entry.SetDouble(Robot_Control_U.Vision_Est_Pose_Y);
+    I__Vision_Current_Pipeline__Entry.SetDouble(Robot_Control_U.Vision_Current_Pipeline);
     I__Vision_Num_Tags_Detected__Entry.SetDouble(Robot_Control_U.Vision_Num_Tags_Detected);
-    I__Vision_Object_Angle__Entry.SetDouble(Robot_Control_U.Vision_Object_Angle);
-    I__Vision_Object_X__Entry.SetDouble(Robot_Control_U.Vision_Object_X);
-    I__Vision_Object_Y__Entry.SetDouble(Robot_Control_U.Vision_Object_Y);
-    I__Vision_Tag_Angle__Entry.SetDouble(Robot_Control_U.Vision_Tag_Angle);
-    I__Vision_Tag_X__Entry.SetDouble(Robot_Control_U.Vision_Tag_X);
-    I__Vision_Tag_Y__Entry.SetDouble(Robot_Control_U.Vision_Tag_Y);
+    I__Vision_RobotPoseFieldSpace_X__Entry.SetDouble(Robot_Control_U.Vision_RobotPoseFieldSpace_X);
+    I__Vision_RobotPoseFieldSpace_Y__Entry.SetDouble(Robot_Control_U.Vision_RobotPoseFieldSpace_Y);
+    I__Vision_c1TargetPoseRobotSpace_A__Entry.SetDouble(Robot_Control_U.Vision_c1TargetPoseRobotSpace_A);
+    I__Vision_c1TargetPoseRobotSpace_X__Entry.SetDouble(Robot_Control_U.Vision_c1TargetPoseRobotSpace_X);
+    I__Vision_c1TargetPoseRobotSpace_Y__Entry.SetDouble(Robot_Control_U.Vision_c1TargetPoseRobotSpace_Y);
     // Outports
     O__BackLeft_Drive_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackLeft_Drive_DutyCycle);
     O__BackLeft_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackLeft_Steer_DutyCycle);
@@ -778,12 +771,9 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Translation_Speed_RL__Entry.SetDouble(Robot_Control_B.Translation_Speed_RL);
     T__Translation_Speed_SPF__Entry.SetDouble(Robot_Control_B.Translation_Speed_SPF);
     T__Translation_Steering_Cmd__Entry.SetDouble(Robot_Control_B.Translation_Steering_Cmd);
-    T__Vision_Object_Corrected_Angle__Entry.SetDouble(Robot_Control_B.Vision_Object_Corrected_Angle);
-    T__Vision_Object_Corrected_X__Entry.SetDouble(Robot_Control_B.Vision_Object_Corrected_X);
-    T__Vision_Object_Corrected_Y__Entry.SetDouble(Robot_Control_B.Vision_Object_Corrected_Y);
-    T__Vision_Tag_Corrected_Angle__Entry.SetDouble(Robot_Control_B.Vision_Tag_Corrected_Angle);
-    T__Vision_Tag_Corrected_X__Entry.SetDouble(Robot_Control_B.Vision_Tag_Corrected_X);
-    T__Vision_Tag_Corrected_Y__Entry.SetDouble(Robot_Control_B.Vision_Tag_Corrected_Y);
+    T__Vision_c1TPRS_Corrected_A__Entry.SetDouble(Robot_Control_B.Vision_c1TPRS_Corrected_A);
+    T__Vision_c1TPRS_Corrected_X__Entry.SetDouble(Robot_Control_B.Vision_c1TPRS_Corrected_X);
+    T__Vision_c1TPRS_Corrected_Y__Entry.SetDouble(Robot_Control_B.Vision_c1TPRS_Corrected_Y);
     T__Winch_Cmd__Entry.SetDouble(Robot_Control_B.Winch_Cmd);
     T__loop_counter_robot_control__Entry.SetDouble(Robot_Control_B.loop_counter_robot_control);
 }

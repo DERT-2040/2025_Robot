@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.426
+ * Model version                  : 2.428
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Dec 22 17:50:36 2025
+ * C/C++ source code generated on : Tue Dec 23 07:10:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -44,12 +44,9 @@ typedef struct {
   real_T Drive_Joystick_Z;             /* '<S4>/Signal Copy3' */
   real_T Steer_Joystick_Y;             /* '<S4>/Signal Copy5' */
   real_T Steer_Joystick_Z;             /* '<S4>/Signal Copy6' */
-  real_T Vision_Tag_Corrected_X;       /* '<S13>/Add' */
-  real_T Vision_Tag_Corrected_Y;       /* '<S13>/Add1' */
-  real_T Vision_Tag_Corrected_Angle;   /* '<S13>/Add2' */
-  real_T Vision_Object_Corrected_X;    /* '<S13>/Add3' */
-  real_T Vision_Object_Corrected_Y;    /* '<S13>/Add4' */
-  real_T Vision_Object_Corrected_Angle;/* '<S13>/Add5' */
+  real_T Vision_c1TPRS_Corrected_X;    /* '<S13>/Add' */
+  real_T Vision_c1TPRS_Corrected_Y;    /* '<S13>/Add1' */
+  real_T Vision_c1TPRS_Corrected_A;    /* '<S13>/Add2' */
   real_T KF_Position_X;                /* '<S6>/Switch' */
   real_T KF_Position_Y;                /* '<S6>/Switch1' */
   real_T Spline_Num_Poses;             /* '<S7>/Merge9' */
@@ -288,15 +285,18 @@ typedef struct {
   real_T Odom_Position_Y;              /* '<Root>/Odom_Position_Y' */
   real_T Odom_Delta_X;                 /* '<Root>/Odom_Delta_X' */
   real_T Odom_Delta_Y;                 /* '<Root>/Odom_Delta_Y' */
-  real_T Vision_Est_Pose_X;            /* '<Root>/Vision_Est_Pose_X' */
-  real_T Vision_Est_Pose_Y;            /* '<Root>/Vision_Est_Pose_Y' */
+  real_T Vision_RobotPoseFieldSpace_X;
+                                     /* '<Root>/Vision_RobotPoseFieldSpace_X' */
+  real_T Vision_RobotPoseFieldSpace_Y;
+                                     /* '<Root>/Vision_RobotPoseFieldSpace_Y' */
   real_T Vision_Num_Tags_Detected;     /* '<Root>/Vision_Num_Tags_Detected' */
-  real_T Vision_Tag_X;                 /* '<Root>/Vision_Tag_X' */
-  real_T Vision_Tag_Y;                 /* '<Root>/Vision_Tag_Y' */
-  real_T Vision_Tag_Angle;             /* '<Root>/Vision_Tag_Angle' */
-  real_T Vision_Object_X;              /* '<Root>/Vision_Object_X' */
-  real_T Vision_Object_Y;              /* '<Root>/Vision_Object_Y' */
-  real_T Vision_Object_Angle;          /* '<Root>/Vision_Object_Angle' */
+  real_T Vision_Current_Pipeline;      /* '<Root>/Vision_Current_Pipeline' */
+  real_T Vision_c1TargetPoseRobotSpace_X;
+                                  /* '<Root>/Vision_c1TargetPoseRobotSpace_X' */
+  real_T Vision_c1TargetPoseRobotSpace_Y;
+                                  /* '<Root>/Vision_c1TargetPoseRobotSpace_Y' */
+  real_T Vision_c1TargetPoseRobotSpace_A;
+                                  /* '<Root>/Vision_c1TargetPoseRobotSpace_A' */
 } ExtU_Robot_Control_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -690,13 +690,13 @@ extern real_T Vision_Object_Target_X;  /* Variable: Vision_Object_Target_X
                                         * Referenced by: '<S301>/Constant1'
                                         */
 extern real_T Vision_Object_Target_Y;  /* Variable: Vision_Object_Target_Y
-                                        * Referenced by: '<S301>/Constant12'
+                                        * Referenced by: '<S301>/Constant4'
                                         */
 extern real_T Vision_Object_X_Offset;  /* Variable: Vision_Object_X_Offset
                                         * Referenced by: '<S13>/Constant3'
                                         */
 extern real_T Vision_Object_Y_Offset;  /* Variable: Vision_Object_Y_Offset
-                                        * Referenced by: '<S13>/Constant4'
+                                        * Referenced by: '<S13>/Constant7'
                                         */
 extern real_T Vision_Tag_Angle_Offset; /* Variable: Vision_Tag_Angle_Offset
                                         * Referenced by: '<S13>/Constant2'
@@ -708,13 +708,13 @@ extern real_T Vision_Tag_Target_X;     /* Variable: Vision_Tag_Target_X
                                         * Referenced by: '<S301>/Constant2'
                                         */
 extern real_T Vision_Tag_Target_Y;     /* Variable: Vision_Tag_Target_Y
-                                        * Referenced by: '<S301>/Constant13'
+                                        * Referenced by: '<S301>/Constant5'
                                         */
 extern real_T Vision_Tag_X_Offset;     /* Variable: Vision_Tag_X_Offset
                                         * Referenced by: '<S13>/Constant'
                                         */
 extern real_T Vision_Tag_Y_Offset;     /* Variable: Vision_Tag_Y_Offset
-                                        * Referenced by: '<S13>/Constant1'
+                                        * Referenced by: '<S13>/Constant6'
                                         */
 extern uint8_T TEST_Pipeline;          /* Variable: TEST_Pipeline
                                         * Referenced by:
@@ -826,12 +826,6 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * Block '<S6>/Signal Copy' : Eliminate redundant signal conversion block
  * Block '<S6>/Signal Copy1' : Eliminate redundant signal conversion block
  * Block '<S144>/Signal Copy' : Eliminate redundant signal conversion block
- * Block '<S11>/Signal Copy1' : Eliminate redundant signal conversion block
- * Block '<S11>/Signal Copy2' : Eliminate redundant signal conversion block
- * Block '<S11>/Signal Copy3' : Eliminate redundant signal conversion block
- * Block '<S11>/Signal Copy4' : Eliminate redundant signal conversion block
- * Block '<S11>/Signal Copy5' : Eliminate redundant signal conversion block
- * Block '<S11>/Signal Copy6' : Eliminate redundant signal conversion block
  */
 
 /*-
@@ -1172,12 +1166,16 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * '<S321>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
  * '<S322>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
  * '<S323>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
- * '<S324>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero'
- * '<S325>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero1'
- * '<S326>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero2'
- * '<S327>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero3'
- * '<S328>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero4'
- * '<S329>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero5'
+ * '<S324>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant'
+ * '<S325>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant1'
+ * '<S326>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant2'
+ * '<S327>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero'
+ * '<S328>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero1'
+ * '<S329>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero2'
+ * '<S330>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero6'
+ * '<S331>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero7'
+ * '<S332>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero8'
+ * '<S333>' : 'Robot_Control/Control_System/Vision_Corrections/Compare To Constant'
  */
 #endif                                 /* RTW_HEADER_Robot_Control_h_ */
 
