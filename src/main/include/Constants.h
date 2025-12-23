@@ -114,12 +114,12 @@ namespace Constants
         static const LimeLightCameraCreateInfo CameraOneCreateInfo
         {
             "limelight-one", // Limelight Name
-            7.8/39.37008,    // Forward offset (meters)
-            9.4/39.37008,    // Side offset (meters)
-            12.5/39.37008,   // Height offset (meters)
+            10.0/39.37008,   // Forward offset (meters)
+            0.0/39.37008,    // Side offset (meters)
+            10.0/39.37008,   // Height offset (meters)
             0.0,             // Roll (degrees)
-            9.0,             // Pitch (degrees)
-            22.2             // Yaw (degrees)
+            0.0,             // Pitch (degrees)
+            0.0              // Yaw (degrees)
         };
         static const LimeLightCameraCreateInfo CameraTwoCreateInfo
         {
