@@ -3,6 +3,7 @@
 
 IMU::IMU()
 {
+    // Reset zero position for the gyro
     m_Pigeon2.Reset();
 }
 

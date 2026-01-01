@@ -71,7 +71,4 @@ void HIDs::PreStepCallback() {
 
 }
 
-void HIDs::PostStepCallback()
-{
-
-}
+void HIDs::PostStepCallback() {}
