@@ -11,30 +11,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     auto NTtable_Outport = NTinst.GetTable("Simulink Top Level Ports");
     auto NTtable_TPoint = NTinst.GetTable("Simulink Test Points");
  
-    P__AT_Steering_Error_Angle_Gain_P__Entry = NTtable_Tune->GetEntry("AT_Steering_Error_Angle_Gain_P");
-    NTinst.AddListener(P__AT_Steering_Error_Angle_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Error_Angle_Gain_P = event.GetValueEventData()->value.GetDouble();});
-    P__AT_Steering_Error_Angle_Gain_P__Entry.SetDouble(0.1);
- 
-    P__AT_Steering_Speed_Max__Entry = NTtable_Tune->GetEntry("AT_Steering_Speed_Max");
-    NTinst.AddListener(P__AT_Steering_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Steering_Speed_Max = event.GetValueEventData()->value.GetDouble();});
-    P__AT_Steering_Speed_Max__Entry.SetDouble(0.4);
- 
-    P__AT_Translation_Control_Gain_Field__Entry = NTtable_Tune->GetEntry("AT_Translation_Control_Gain_Field");
-    NTinst.AddListener(P__AT_Translation_Control_Gain_Field__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Control_Gain_Field = event.GetValueEventData()->value.GetDouble();});
-    P__AT_Translation_Control_Gain_Field__Entry.SetDouble(10);
- 
-    P__AT_Translation_Control_Gain_Relative__Entry = NTtable_Tune->GetEntry("AT_Translation_Control_Gain_Relative");
-    NTinst.AddListener(P__AT_Translation_Control_Gain_Relative__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Control_Gain_Relative = event.GetValueEventData()->value.GetDouble();});
-    P__AT_Translation_Control_Gain_Relative__Entry.SetDouble(0.07);
- 
-    P__AT_Translation_Speed_Max_Field__Entry = NTtable_Tune->GetEntry("AT_Translation_Speed_Max_Field");
-    NTinst.AddListener(P__AT_Translation_Speed_Max_Field__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Speed_Max_Field = event.GetValueEventData()->value.GetDouble();});
-    P__AT_Translation_Speed_Max_Field__Entry.SetDouble(5);
- 
-    P__AT_Translation_Speed_Max_Relative__Entry = NTtable_Tune->GetEntry("AT_Translation_Speed_Max_Relative");
-    NTinst.AddListener(P__AT_Translation_Speed_Max_Relative__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Translation_Speed_Max_Relative = event.GetValueEventData()->value.GetDouble();});
-    P__AT_Translation_Speed_Max_Relative__Entry.SetDouble(0.75);
- 
     P__Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(P__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
     P__Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.28);
@@ -91,9 +67,37 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Drive_Motor_Control_Sign_Change_Deadband__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_Sign_Change_Deadband = event.GetValueEventData()->value.GetDouble();});
     P__Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(7000);
  
+    P__Field_Translation_Control_Gain__Entry = NTtable_Tune->GetEntry("Field_Translation_Control_Gain");
+    NTinst.AddListener(P__Field_Translation_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Translation_Control_Gain = event.GetValueEventData()->value.GetDouble();});
+    P__Field_Translation_Control_Gain__Entry.SetDouble(10);
+ 
+    P__Field_Translation_Speed_Max__Entry = NTtable_Tune->GetEntry("Field_Translation_Speed_Max");
+    NTinst.AddListener(P__Field_Translation_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Translation_Speed_Max = event.GetValueEventData()->value.GetDouble();});
+    P__Field_Translation_Speed_Max__Entry.SetDouble(5);
+ 
     P__KF_Enable__Entry = NTtable_Tune->GetEntry("KF_Enable");
     NTinst.AddListener(P__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
     P__KF_Enable__Entry.SetDouble(1);
+ 
+    P__Relative_Steering_Error_Angle_Gain__Entry = NTtable_Tune->GetEntry("Relative_Steering_Error_Angle_Gain");
+    NTinst.AddListener(P__Relative_Steering_Error_Angle_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Relative_Steering_Error_Angle_Gain = event.GetValueEventData()->value.GetDouble();});
+    P__Relative_Steering_Error_Angle_Gain__Entry.SetDouble(0.05);
+ 
+    P__Relative_Steering_Error_Angle_Gain_Object_Factor__Entry = NTtable_Tune->GetEntry("Relative_Steering_Error_Angle_Gain_Object_Factor");
+    NTinst.AddListener(P__Relative_Steering_Error_Angle_Gain_Object_Factor__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Relative_Steering_Error_Angle_Gain_Object_Factor = event.GetValueEventData()->value.GetDouble();});
+    P__Relative_Steering_Error_Angle_Gain_Object_Factor__Entry.SetDouble(0.1);
+ 
+    P__Relative_Steering_Speed_Max__Entry = NTtable_Tune->GetEntry("Relative_Steering_Speed_Max");
+    NTinst.AddListener(P__Relative_Steering_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Relative_Steering_Speed_Max = event.GetValueEventData()->value.GetDouble();});
+    P__Relative_Steering_Speed_Max__Entry.SetDouble(0.3);
+ 
+    P__Relative_Translation_Control_Gain__Entry = NTtable_Tune->GetEntry("Relative_Translation_Control_Gain");
+    NTinst.AddListener(P__Relative_Translation_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Relative_Translation_Control_Gain = event.GetValueEventData()->value.GetDouble();});
+    P__Relative_Translation_Control_Gain__Entry.SetDouble(0.05);
+ 
+    P__Relative_Translation_Speed_Max__Entry = NTtable_Tune->GetEntry("Relative_Translation_Speed_Max");
+    NTinst.AddListener(P__Relative_Translation_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Relative_Translation_Speed_Max = event.GetValueEventData()->value.GetDouble();});
+    P__Relative_Translation_Speed_Max__Entry.SetDouble(2);
  
     P__Spline_Last_Pose_Distance_to_Velocity_Gain__Entry = NTtable_Tune->GetEntry("Spline_Last_Pose_Distance_to_Velocity_Gain");
     NTinst.AddListener(P__Spline_Last_Pose_Distance_to_Velocity_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Last_Pose_Distance_to_Velocity_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -309,7 +313,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Vision_Object_Target_X__Entry = NTtable_Tune->GetEntry("Vision_Object_Target_X");
     NTinst.AddListener(P__Vision_Object_Target_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Vision_Object_Target_X = event.GetValueEventData()->value.GetDouble();});
-    P__Vision_Object_Target_X__Entry.SetDouble(20);
+    P__Vision_Object_Target_X__Entry.SetDouble(35);
  
     P__Vision_Object_Target_Y__Entry = NTtable_Tune->GetEntry("Vision_Object_Target_Y");
     NTinst.AddListener(P__Vision_Object_Target_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Vision_Object_Target_Y = event.GetValueEventData()->value.GetDouble();});
@@ -333,7 +337,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Vision_Tag_Target_X__Entry = NTtable_Tune->GetEntry("Vision_Tag_Target_X");
     NTinst.AddListener(P__Vision_Tag_Target_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Vision_Tag_Target_X = event.GetValueEventData()->value.GetDouble();});
-    P__Vision_Tag_Target_X__Entry.SetDouble(20);
+    P__Vision_Tag_Target_X__Entry.SetDouble(30);
  
     P__Vision_Tag_Target_Y__Entry = NTtable_Tune->GetEntry("Vision_Tag_Target_Y");
     NTinst.AddListener(P__Vision_Tag_Target_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Vision_Tag_Target_Y = event.GetValueEventData()->value.GetDouble();});
@@ -425,9 +429,12 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     I__Vision_Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Vision_Num_Tags_Detected");
     I__Vision_RobotPoseFieldSpace_X__Entry = NTtable_Inport->GetEntry("Vision_RobotPoseFieldSpace_X");
     I__Vision_RobotPoseFieldSpace_Y__Entry = NTtable_Inport->GetEntry("Vision_RobotPoseFieldSpace_Y");
-    I__Vision_c1TargetPoseRobotSpace_A__Entry = NTtable_Inport->GetEntry("Vision_c1TargetPoseRobotSpace_A");
-    I__Vision_c1TargetPoseRobotSpace_X__Entry = NTtable_Inport->GetEntry("Vision_c1TargetPoseRobotSpace_X");
-    I__Vision_c1TargetPoseRobotSpace_Y__Entry = NTtable_Inport->GetEntry("Vision_c1TargetPoseRobotSpace_Y");
+    I__Vision_c1_AprilTag_X_m__Entry = NTtable_Inport->GetEntry("Vision_c1_AprilTag_X_m");
+    I__Vision_c1_AprilTag_Y_m__Entry = NTtable_Inport->GetEntry("Vision_c1_AprilTag_Y_m");
+    I__Vision_c1_AprilTag_Yaw_deg__Entry = NTtable_Inport->GetEntry("Vision_c1_AprilTag_Yaw_deg");
+    I__Vision_c1_Object_Area_pct__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Area_pct");
+    I__Vision_c1_Object_Hor_deg__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Hor_deg");
+    I__Vision_c1_Object_Ver_deg__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Ver_deg");
  
 // Outports
     O__BackLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Drive_DutyCycle");
@@ -484,6 +491,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Is_Boosting__Entry = NTtable_TPoint->GetEntry("Is_Boosting");
     T__KF_Position_X__Entry = NTtable_TPoint->GetEntry("KF_Position_X");
     T__KF_Position_Y__Entry = NTtable_TPoint->GetEntry("KF_Position_Y");
+    T__Relative_Enable__Entry = NTtable_TPoint->GetEntry("Relative_Enable");
+    T__Relative_Error_Angle__Entry = NTtable_TPoint->GetEntry("Relative_Error_Angle");
+    T__Relative_Error_X__Entry = NTtable_TPoint->GetEntry("Relative_Error_X");
+    T__Relative_Error_Y__Entry = NTtable_TPoint->GetEntry("Relative_Error_Y");
     T__Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
     T__Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
     T__Spline_Follow_Index__Entry = NTtable_TPoint->GetEntry("Spline_Follow_Index");
@@ -512,9 +523,12 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Translation_Speed_RL__Entry = NTtable_TPoint->GetEntry("Translation_Speed_RL");
     T__Translation_Speed_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Speed_SPF");
     T__Translation_Steering_Cmd__Entry = NTtable_TPoint->GetEntry("Translation_Steering_Cmd");
-    T__Vision_c1TPRS_Corrected_A__Entry = NTtable_TPoint->GetEntry("Vision_c1TPRS_Corrected_A");
-    T__Vision_c1TPRS_Corrected_X__Entry = NTtable_TPoint->GetEntry("Vision_c1TPRS_Corrected_X");
-    T__Vision_c1TPRS_Corrected_Y__Entry = NTtable_TPoint->GetEntry("Vision_c1TPRS_Corrected_Y");
+    T__Vision_c1_AprilTag_Corr_X_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_AprilTag_Corr_X_inch");
+    T__Vision_c1_AprilTag_Corr_Y_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_AprilTag_Corr_Y_inch");
+    T__Vision_c1_AprilTag_Corr_Yaw_deg__Entry = NTtable_TPoint->GetEntry("Vision_c1_AprilTag_Corr_Yaw_deg");
+    T__Vision_c1_Object_Corr_X_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_X_inch");
+    T__Vision_c1_Object_Corr_Y_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_Y_inch");
+    T__Vision_c1_Object_Corr_Yaw_deg__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_Yaw_deg");
     T__Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
     T__loop_counter_robot_control__Entry = NTtable_TPoint->GetEntry("loop_counter_robot_control");
 }
@@ -524,12 +538,6 @@ void SimulinkNetworkTables1::PreStepCallback() {}
 void SimulinkNetworkTables1::PostStepCallback()
 {
     // Tunable Parameters
-    P__AT_Steering_Error_Angle_Gain_P__Entry.SetDouble(AT_Steering_Error_Angle_Gain_P);
-    P__AT_Steering_Speed_Max__Entry.SetDouble(AT_Steering_Speed_Max);
-    P__AT_Translation_Control_Gain_Field__Entry.SetDouble(AT_Translation_Control_Gain_Field);
-    P__AT_Translation_Control_Gain_Relative__Entry.SetDouble(AT_Translation_Control_Gain_Relative);
-    P__AT_Translation_Speed_Max_Field__Entry.SetDouble(AT_Translation_Speed_Max_Field);
-    P__AT_Translation_Speed_Max_Relative__Entry.SetDouble(AT_Translation_Speed_Max_Relative);
     P__Boost_Trigger_Decreasing_Limit__Entry.SetDouble(Boost_Trigger_Decreasing_Limit);
     P__Boost_Trigger_High_Speed__Entry.SetDouble(Boost_Trigger_High_Speed);
     P__Boost_Trigger_Increasing_Limit__Entry.SetDouble(Boost_Trigger_Increasing_Limit);
@@ -544,7 +552,14 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Drive_Motor_Control_I_UL__Entry.SetDouble(Drive_Motor_Control_I_UL);
     P__Drive_Motor_Control_P__Entry.SetDouble(Drive_Motor_Control_P);
     P__Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(Drive_Motor_Control_Sign_Change_Deadband);
+    P__Field_Translation_Control_Gain__Entry.SetDouble(Field_Translation_Control_Gain);
+    P__Field_Translation_Speed_Max__Entry.SetDouble(Field_Translation_Speed_Max);
     P__KF_Enable__Entry.SetDouble(KF_Enable);
+    P__Relative_Steering_Error_Angle_Gain__Entry.SetDouble(Relative_Steering_Error_Angle_Gain);
+    P__Relative_Steering_Error_Angle_Gain_Object_Factor__Entry.SetDouble(Relative_Steering_Error_Angle_Gain_Object_Factor);
+    P__Relative_Steering_Speed_Max__Entry.SetDouble(Relative_Steering_Speed_Max);
+    P__Relative_Translation_Control_Gain__Entry.SetDouble(Relative_Translation_Control_Gain);
+    P__Relative_Translation_Speed_Max__Entry.SetDouble(Relative_Translation_Speed_Max);
     P__Spline_Last_Pose_Distance_to_Velocity_Gain__Entry.SetDouble(Spline_Last_Pose_Distance_to_Velocity_Gain);
     P__Spline_Max_Centripital_Acceleration__Entry.SetDouble(Spline_Max_Centripital_Acceleration);
     P__Spline_Pose_Num_Before_End_Reduce_Speed__Entry.SetDouble(Spline_Pose_Num_Before_End_Reduce_Speed);
@@ -686,9 +701,12 @@ void SimulinkNetworkTables1::PostStepCallback()
     I__Vision_Num_Tags_Detected__Entry.SetDouble(Robot_Control_U.Vision_Num_Tags_Detected);
     I__Vision_RobotPoseFieldSpace_X__Entry.SetDouble(Robot_Control_U.Vision_RobotPoseFieldSpace_X);
     I__Vision_RobotPoseFieldSpace_Y__Entry.SetDouble(Robot_Control_U.Vision_RobotPoseFieldSpace_Y);
-    I__Vision_c1TargetPoseRobotSpace_A__Entry.SetDouble(Robot_Control_U.Vision_c1TargetPoseRobotSpace_A);
-    I__Vision_c1TargetPoseRobotSpace_X__Entry.SetDouble(Robot_Control_U.Vision_c1TargetPoseRobotSpace_X);
-    I__Vision_c1TargetPoseRobotSpace_Y__Entry.SetDouble(Robot_Control_U.Vision_c1TargetPoseRobotSpace_Y);
+    I__Vision_c1_AprilTag_X_m__Entry.SetDouble(Robot_Control_U.Vision_c1_AprilTag_X_m);
+    I__Vision_c1_AprilTag_Y_m__Entry.SetDouble(Robot_Control_U.Vision_c1_AprilTag_Y_m);
+    I__Vision_c1_AprilTag_Yaw_deg__Entry.SetDouble(Robot_Control_U.Vision_c1_AprilTag_Yaw_deg);
+    I__Vision_c1_Object_Area_pct__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Area_pct);
+    I__Vision_c1_Object_Hor_deg__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Hor_deg);
+    I__Vision_c1_Object_Ver_deg__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Ver_deg);
     // Outports
     O__BackLeft_Drive_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackLeft_Drive_DutyCycle);
     O__BackLeft_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackLeft_Steer_DutyCycle);
@@ -743,6 +761,10 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Is_Boosting__Entry.SetDouble(Robot_Control_B.Is_Boosting);
     T__KF_Position_X__Entry.SetDouble(Robot_Control_B.KF_Position_X);
     T__KF_Position_Y__Entry.SetDouble(Robot_Control_B.KF_Position_Y);
+    T__Relative_Enable__Entry.SetDouble(Robot_Control_B.Relative_Enable);
+    T__Relative_Error_Angle__Entry.SetDouble(Robot_Control_B.Relative_Error_Angle);
+    T__Relative_Error_X__Entry.SetDouble(Robot_Control_B.Relative_Error_X);
+    T__Relative_Error_Y__Entry.SetDouble(Robot_Control_B.Relative_Error_Y);
     T__Robot_Reached_Destination__Entry.SetDouble(Robot_Control_B.Robot_Reached_Destination);
     T__Spline_Enable__Entry.SetDouble(Robot_Control_B.Spline_Enable);
     T__Spline_Follow_Index__Entry.SetDouble(Robot_Control_B.Spline_Follow_Index);
@@ -771,9 +793,12 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Translation_Speed_RL__Entry.SetDouble(Robot_Control_B.Translation_Speed_RL);
     T__Translation_Speed_SPF__Entry.SetDouble(Robot_Control_B.Translation_Speed_SPF);
     T__Translation_Steering_Cmd__Entry.SetDouble(Robot_Control_B.Translation_Steering_Cmd);
-    T__Vision_c1TPRS_Corrected_A__Entry.SetDouble(Robot_Control_B.Vision_c1TPRS_Corrected_A);
-    T__Vision_c1TPRS_Corrected_X__Entry.SetDouble(Robot_Control_B.Vision_c1TPRS_Corrected_X);
-    T__Vision_c1TPRS_Corrected_Y__Entry.SetDouble(Robot_Control_B.Vision_c1TPRS_Corrected_Y);
+    T__Vision_c1_AprilTag_Corr_X_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_AprilTag_Corr_X_inch);
+    T__Vision_c1_AprilTag_Corr_Y_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_AprilTag_Corr_Y_inch);
+    T__Vision_c1_AprilTag_Corr_Yaw_deg__Entry.SetDouble(Robot_Control_B.Vision_c1_AprilTag_Corr_Yaw_deg);
+    T__Vision_c1_Object_Corr_X_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_X_inch);
+    T__Vision_c1_Object_Corr_Y_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_Y_inch);
+    T__Vision_c1_Object_Corr_Yaw_deg__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_Yaw_deg);
     T__Winch_Cmd__Entry.SetDouble(Robot_Control_B.Winch_Cmd);
     T__loop_counter_robot_control__Entry.SetDouble(Robot_Control_B.loop_counter_robot_control);
 }

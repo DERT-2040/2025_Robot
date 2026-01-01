@@ -45,17 +45,18 @@ Translation_Twist_Gain = -0.5;
 Twist_Deadzone_pos = 0.01;
 Twist_Deadzone_neg = -Twist_Deadzone_pos;
 
-% April Tag Steering - Relative
-AT_Steering_Error_Angle_Gain_P = 0.10;
-AT_Steering_Speed_Max = 0.4;
+% April Tag & Object Steering - Relative
+Relative_Steering_Error_Angle_Gain = 0.05;  % gain for April tags and Objects
+Relative_Steering_Error_Angle_Gain_Object_Factor = 0.1;  % extra gain factor for Objects for more stability
+Relative_Steering_Speed_Max = 0.3;
 
-% April tag Translation - Relative
-AT_Translation_Control_Gain_Relative = 0.07;  % meter/second per inch of position error
-AT_Translation_Speed_Max_Relative = 0.75;  % meter/second
+% April Tag & Object Translation - Relative
+Relative_Translation_Control_Gain = 0.05;  % meter/second per inch of position error
+Relative_Translation_Speed_Max = 2.0;  % meter/second
 
 % April tag Translation - Field
-AT_Translation_Control_Gain_Field = 10;  % meter/second per meter of position error
-AT_Translation_Speed_Max_Field = 5.0;  % meter/second
+Field_Translation_Control_Gain = 10;  % meter/second per meter of position error
+Field_Translation_Speed_Max = 5.0;  % meter/second
 
 %% Drive Motor PID
 Drive_Motor_Control_FF= 1/Drive_Motor_Max_Speed;  % 1 DC / Max Speed RPM;

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.428
+ * Model version                  : 2.431
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Dec 23 07:10:08 2025
+ * C/C++ source code generated on : Thu Jan  1 14:54:37 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -26,6 +26,7 @@
 
 #include "Robot_Control_types.h"
 #include "rt_nonfinite.h"
+#include "rtGetInf.h"
 #include "rtGetNaN.h"
 
 /* Macros for accessing real-time model data structure */
@@ -44,9 +45,12 @@ typedef struct {
   real_T Drive_Joystick_Z;             /* '<S4>/Signal Copy3' */
   real_T Steer_Joystick_Y;             /* '<S4>/Signal Copy5' */
   real_T Steer_Joystick_Z;             /* '<S4>/Signal Copy6' */
-  real_T Vision_c1TPRS_Corrected_X;    /* '<S13>/Add' */
-  real_T Vision_c1TPRS_Corrected_Y;    /* '<S13>/Add1' */
-  real_T Vision_c1TPRS_Corrected_A;    /* '<S13>/Add2' */
+  real_T Vision_c1_AprilTag_Corr_X_inch;/* '<S13>/Add' */
+  real_T Vision_c1_AprilTag_Corr_Y_inch;/* '<S13>/Add1' */
+  real_T Vision_c1_AprilTag_Corr_Yaw_deg;/* '<S13>/Add2' */
+  real_T Vision_c1_Object_Corr_X_inch; /* '<S13>/Add3' */
+  real_T Vision_c1_Object_Corr_Y_inch; /* '<S13>/Add4' */
+  real_T Vision_c1_Object_Corr_Yaw_deg;/* '<S13>/Add5' */
   real_T KF_Position_X;                /* '<S6>/Switch' */
   real_T KF_Position_Y;                /* '<S6>/Switch1' */
   real_T Spline_Num_Poses;             /* '<S7>/Merge9' */
@@ -77,9 +81,12 @@ typedef struct {
   real_T BL_Desired_Wheel_Speed;       /* '<S275>/Product2' */
   real_T loop_counter_robot_control;   /* '<S1>/Sum' */
   real_T Steer_Joystick_X;             /* '<S4>/Signal Copy4' */
+  real_T Relative_Error_Angle;         /* '<S301>/Switch4' */
   real_T Steering_Abs_Gyro_Latch;      /* '<S303>/Switch8' */
   real_T Steering_Abs_Gyro;            /* '<S303>/Switch2' */
   real_T Steering_Abs_Angle;           /* '<S303>/Switch3' */
+  real_T Relative_Error_Y;             /* '<S301>/Switch2' */
+  real_T Relative_Error_X;             /* '<S301>/Unary Minus1' */
   real_T Spline_Follow_Index;          /* '<S95>/Merge4' */
   real_T Spline_Target_Y;              /* '<S92>/Selector6' */
   real_T Spline_Target_X;              /* '<S92>/Selector2' */
@@ -111,6 +118,7 @@ typedef struct {
   boolean_T Align_Center;              /* '<S27>/Compare' */
   boolean_T Actuator_Cmd;              /* '<S29>/Compare' */
   boolean_T Winch_Cmd;                 /* '<S30>/Compare' */
+  boolean_T Relative_Enable;           /* '<S301>/Logical Operator1' */
   boolean_T Steering_Abs_Angle_Active; /* '<S303>/AND6' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S95>/Merge1' */
 } B_Robot_Control_T;
@@ -291,12 +299,12 @@ typedef struct {
                                      /* '<Root>/Vision_RobotPoseFieldSpace_Y' */
   real_T Vision_Num_Tags_Detected;     /* '<Root>/Vision_Num_Tags_Detected' */
   real_T Vision_Current_Pipeline;      /* '<Root>/Vision_Current_Pipeline' */
-  real_T Vision_c1TargetPoseRobotSpace_X;
-                                  /* '<Root>/Vision_c1TargetPoseRobotSpace_X' */
-  real_T Vision_c1TargetPoseRobotSpace_Y;
-                                  /* '<Root>/Vision_c1TargetPoseRobotSpace_Y' */
-  real_T Vision_c1TargetPoseRobotSpace_A;
-                                  /* '<Root>/Vision_c1TargetPoseRobotSpace_A' */
+  real_T Vision_c1_AprilTag_X_m;       /* '<Root>/Vision_c1_AprilTag_X_m' */
+  real_T Vision_c1_AprilTag_Y_m;       /* '<Root>/Vision_c1_AprilTag_Y_m' */
+  real_T Vision_c1_AprilTag_Yaw_deg;   /* '<Root>/Vision_c1_AprilTag_Yaw_deg' */
+  real_T Vision_c1_Object_Area_pct;    /* '<Root>/Vision_c1_Object_Area_pct' */
+  real_T Vision_c1_Object_Hor_deg;     /* '<Root>/Vision_c1_Object_Hor_deg' */
+  real_T Vision_c1_Object_Ver_deg;     /* '<Root>/Vision_c1_Object_Ver_deg' */
 } ExtU_Robot_Control_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -342,29 +350,6 @@ extern const ConstB_Robot_Control_T Robot_Control_ConstB;/* constant block i/o *
  * these parameters and exports their symbols.
  *
  */
-extern real_T AT_Steering_Error_Angle_Gain_P;
-                                     /* Variable: AT_Steering_Error_Angle_Gain_P
-                                      * Referenced by: '<S303>/Constant4'
-                                      */
-extern real_T AT_Steering_Speed_Max;   /* Variable: AT_Steering_Speed_Max
-                                        * Referenced by: '<S303>/Constant10'
-                                        */
-extern real_T AT_Translation_Control_Gain_Field;
-                                  /* Variable: AT_Translation_Control_Gain_Field
-                                   * Referenced by: '<S304>/Gain2'
-                                   */
-extern real_T AT_Translation_Control_Gain_Relative;
-                               /* Variable: AT_Translation_Control_Gain_Relative
-                                * Referenced by: '<S304>/Gain1'
-                                */
-extern real_T AT_Translation_Speed_Max_Field;
-                                     /* Variable: AT_Translation_Speed_Max_Field
-                                      * Referenced by: '<S304>/Constant5'
-                                      */
-extern real_T AT_Translation_Speed_Max_Relative;
-                                  /* Variable: AT_Translation_Speed_Max_Relative
-                                   * Referenced by: '<S304>/Constant8'
-                                   */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
                                       * Referenced by: '<S318>/Constant1'
@@ -453,11 +438,37 @@ extern real_T Drive_Motor_Control_Sign_Change_Deadband;
                             *   '<S203>/Constant'
                             *   '<S224>/Constant'
                             */
+extern real_T Field_Translation_Control_Gain;
+                                     /* Variable: Field_Translation_Control_Gain
+                                      * Referenced by: '<S304>/Gain2'
+                                      */
+extern real_T Field_Translation_Speed_Max;/* Variable: Field_Translation_Speed_Max
+                                           * Referenced by: '<S304>/Constant5'
+                                           */
 extern real_T KF_Enable;               /* Variable: KF_Enable
                                         * Referenced by:
                                         *   '<S6>/Constant1'
                                         *   '<S6>/Constant2'
                                         */
+extern real_T Relative_Steering_Error_Angle_Gain;
+                                 /* Variable: Relative_Steering_Error_Angle_Gain
+                                  * Referenced by: '<S303>/Constant4'
+                                  */
+extern real_T Relative_Steering_Error_Angle_Gain_Object_Factor;
+                   /* Variable: Relative_Steering_Error_Angle_Gain_Object_Factor
+                    * Referenced by: '<S301>/Gain'
+                    */
+extern real_T Relative_Steering_Speed_Max;/* Variable: Relative_Steering_Speed_Max
+                                           * Referenced by: '<S303>/Constant10'
+                                           */
+extern real_T Relative_Translation_Control_Gain;
+                                  /* Variable: Relative_Translation_Control_Gain
+                                   * Referenced by: '<S304>/Gain1'
+                                   */
+extern real_T Relative_Translation_Speed_Max;
+                                     /* Variable: Relative_Translation_Speed_Max
+                                      * Referenced by: '<S304>/Constant8'
+                                      */
 extern real_T Spline_Last_Pose_Distance_to_Velocity_Gain;
                          /* Variable: Spline_Last_Pose_Distance_to_Velocity_Gain
                           * Referenced by: '<S145>/Constant2'
@@ -681,7 +692,7 @@ extern real_T Twist_Deadzone_pos;      /* Variable: Twist_Deadzone_pos
                                         *   '<S304>/Dead Zone'
                                         */
 extern real_T Vision_Object_Angle_Offset;/* Variable: Vision_Object_Angle_Offset
-                                          * Referenced by: '<S13>/Constant5'
+                                          * Referenced by: '<S13>/Constant6'
                                           */
 extern real_T Vision_Object_Target_Angle;/* Variable: Vision_Object_Target_Angle
                                           * Referenced by: '<S301>/Constant7'
@@ -693,13 +704,13 @@ extern real_T Vision_Object_Target_Y;  /* Variable: Vision_Object_Target_Y
                                         * Referenced by: '<S301>/Constant4'
                                         */
 extern real_T Vision_Object_X_Offset;  /* Variable: Vision_Object_X_Offset
-                                        * Referenced by: '<S13>/Constant3'
+                                        * Referenced by: '<S13>/Constant4'
                                         */
 extern real_T Vision_Object_Y_Offset;  /* Variable: Vision_Object_Y_Offset
-                                        * Referenced by: '<S13>/Constant7'
+                                        * Referenced by: '<S13>/Constant8'
                                         */
 extern real_T Vision_Tag_Angle_Offset; /* Variable: Vision_Tag_Angle_Offset
-                                        * Referenced by: '<S13>/Constant2'
+                                        * Referenced by: '<S13>/Constant5'
                                         */
 extern real_T Vision_Tag_Target_Angle; /* Variable: Vision_Tag_Target_Angle
                                         * Referenced by: '<S301>/Constant8'
@@ -711,10 +722,10 @@ extern real_T Vision_Tag_Target_Y;     /* Variable: Vision_Tag_Target_Y
                                         * Referenced by: '<S301>/Constant5'
                                         */
 extern real_T Vision_Tag_X_Offset;     /* Variable: Vision_Tag_X_Offset
-                                        * Referenced by: '<S13>/Constant'
+                                        * Referenced by: '<S13>/Constant3'
                                         */
 extern real_T Vision_Tag_Y_Offset;     /* Variable: Vision_Tag_Y_Offset
-                                        * Referenced by: '<S13>/Constant6'
+                                        * Referenced by: '<S13>/Constant7'
                                         */
 extern uint8_T TEST_Pipeline;          /* Variable: TEST_Pipeline
                                         * Referenced by:
@@ -1172,10 +1183,17 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * '<S327>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero'
  * '<S328>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero1'
  * '<S329>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero2'
- * '<S330>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero6'
- * '<S331>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero7'
- * '<S332>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero8'
- * '<S333>' : 'Robot_Control/Control_System/Vision_Corrections/Compare To Constant'
+ * '<S330>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero3'
+ * '<S331>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero4'
+ * '<S332>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero5'
+ * '<S333>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero6'
+ * '<S334>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero7'
+ * '<S335>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero8'
+ * '<S336>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance'
+ * '<S337>' : 'Robot_Control/Control_System/Vision_Corrections/Degrees to Radians'
+ * '<S338>' : 'Robot_Control/Control_System/Vision_Corrections/Polar to Cartesian1'
+ * '<S339>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Prevent raising 0 to a negative exponent'
+ * '<S340>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Subsystem'
  */
 #endif                                 /* RTW_HEADER_Robot_Control_h_ */
 

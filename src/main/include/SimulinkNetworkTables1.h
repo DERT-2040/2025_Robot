@@ -17,12 +17,6 @@ public:
     void PostStepCallback() override;
 private:
         // Parameters
-        nt::NetworkTableEntry P__AT_Steering_Error_Angle_Gain_P__Entry;
-        nt::NetworkTableEntry P__AT_Steering_Speed_Max__Entry;
-        nt::NetworkTableEntry P__AT_Translation_Control_Gain_Field__Entry;
-        nt::NetworkTableEntry P__AT_Translation_Control_Gain_Relative__Entry;
-        nt::NetworkTableEntry P__AT_Translation_Speed_Max_Field__Entry;
-        nt::NetworkTableEntry P__AT_Translation_Speed_Max_Relative__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Decreasing_Limit__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_High_Speed__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Increasing_Limit__Entry;
@@ -37,7 +31,14 @@ private:
         nt::NetworkTableEntry P__Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry P__Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry P__Drive_Motor_Control_Sign_Change_Deadband__Entry;
+        nt::NetworkTableEntry P__Field_Translation_Control_Gain__Entry;
+        nt::NetworkTableEntry P__Field_Translation_Speed_Max__Entry;
         nt::NetworkTableEntry P__KF_Enable__Entry;
+        nt::NetworkTableEntry P__Relative_Steering_Error_Angle_Gain__Entry;
+        nt::NetworkTableEntry P__Relative_Steering_Error_Angle_Gain_Object_Factor__Entry;
+        nt::NetworkTableEntry P__Relative_Steering_Speed_Max__Entry;
+        nt::NetworkTableEntry P__Relative_Translation_Control_Gain__Entry;
+        nt::NetworkTableEntry P__Relative_Translation_Speed_Max__Entry;
         nt::NetworkTableEntry P__Spline_Last_Pose_Distance_to_Velocity_Gain__Entry;
         nt::NetworkTableEntry P__Spline_Max_Centripital_Acceleration__Entry;
         nt::NetworkTableEntry P__Spline_Pose_Num_Before_End_Reduce_Speed__Entry;
@@ -180,9 +181,12 @@ private:
         nt::NetworkTableEntry I__Vision_Num_Tags_Detected__Entry;
         nt::NetworkTableEntry I__Vision_RobotPoseFieldSpace_X__Entry;
         nt::NetworkTableEntry I__Vision_RobotPoseFieldSpace_Y__Entry;
-        nt::NetworkTableEntry I__Vision_c1TargetPoseRobotSpace_A__Entry;
-        nt::NetworkTableEntry I__Vision_c1TargetPoseRobotSpace_X__Entry;
-        nt::NetworkTableEntry I__Vision_c1TargetPoseRobotSpace_Y__Entry;
+        nt::NetworkTableEntry I__Vision_c1_AprilTag_X_m__Entry;
+        nt::NetworkTableEntry I__Vision_c1_AprilTag_Y_m__Entry;
+        nt::NetworkTableEntry I__Vision_c1_AprilTag_Yaw_deg__Entry;
+        nt::NetworkTableEntry I__Vision_c1_Object_Area_pct__Entry;
+        nt::NetworkTableEntry I__Vision_c1_Object_Hor_deg__Entry;
+        nt::NetworkTableEntry I__Vision_c1_Object_Ver_deg__Entry;
         // Outports
         nt::NetworkTableEntry O__BackLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackLeft_Steer_DutyCycle__Entry;
@@ -238,6 +242,10 @@ private:
         nt::NetworkTableEntry T__Is_Boosting__Entry;
         nt::NetworkTableEntry T__KF_Position_X__Entry;
         nt::NetworkTableEntry T__KF_Position_Y__Entry;
+        nt::NetworkTableEntry T__Relative_Enable__Entry;
+        nt::NetworkTableEntry T__Relative_Error_Angle__Entry;
+        nt::NetworkTableEntry T__Relative_Error_X__Entry;
+        nt::NetworkTableEntry T__Relative_Error_Y__Entry;
         nt::NetworkTableEntry T__Robot_Reached_Destination__Entry;
         nt::NetworkTableEntry T__Spline_Enable__Entry;
         nt::NetworkTableEntry T__Spline_Follow_Index__Entry;
@@ -266,9 +274,12 @@ private:
         nt::NetworkTableEntry T__Translation_Speed_RL__Entry;
         nt::NetworkTableEntry T__Translation_Speed_SPF__Entry;
         nt::NetworkTableEntry T__Translation_Steering_Cmd__Entry;
-        nt::NetworkTableEntry T__Vision_c1TPRS_Corrected_A__Entry;
-        nt::NetworkTableEntry T__Vision_c1TPRS_Corrected_X__Entry;
-        nt::NetworkTableEntry T__Vision_c1TPRS_Corrected_Y__Entry;
+        nt::NetworkTableEntry T__Vision_c1_AprilTag_Corr_X_inch__Entry;
+        nt::NetworkTableEntry T__Vision_c1_AprilTag_Corr_Y_inch__Entry;
+        nt::NetworkTableEntry T__Vision_c1_AprilTag_Corr_Yaw_deg__Entry;
+        nt::NetworkTableEntry T__Vision_c1_Object_Corr_X_inch__Entry;
+        nt::NetworkTableEntry T__Vision_c1_Object_Corr_Y_inch__Entry;
+        nt::NetworkTableEntry T__Vision_c1_Object_Corr_Yaw_deg__Entry;
         nt::NetworkTableEntry T__Winch_Cmd__Entry;
         nt::NetworkTableEntry T__loop_counter_robot_control__Entry;
 };
