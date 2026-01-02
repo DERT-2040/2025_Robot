@@ -4,13 +4,13 @@ SwerveDrive::SwerveDrive()
 {
   //Wheel Offset
     Initalize_Wheel_Offset();   
-    swerveDriveMotors.setBrakeModeWhenIdle(true); //brake mode
-    swerveSteerMotors.setBrakeModeWhenIdle(true); //brake mode
+    swerveDriveMotors.SetBrakeModeWhenIdle(true); //brake mode
+    swerveSteerMotors.SetBrakeModeWhenIdle(true); //brake mode
 }
  
 void SwerveDrive::PreStepCallback() 
 {
-  swerveDriveMotors.pushVelocities();
+  swerveDriveMotors.SendVelocityValuesToSL();
 }
 
 void SwerveDrive::PostStepCallback()
@@ -25,15 +25,15 @@ void SwerveDrive::PostStepCallback()
    */
   if(Robot_Control_Y.Enable_Wheels)
   { // Wheels On
-    swerveDriveMotors.setBrakeModeWhenIdle(true); //brake mode
-    swerveSteerMotors.setBrakeModeWhenIdle(true); //brake mode
+    swerveDriveMotors.SetBrakeModeWhenIdle(true); //brake mode
+    swerveSteerMotors.SetBrakeModeWhenIdle(true); //brake mode
   }
   else if(Robot_Control_Y.Disable_Wheels)
   { //Wheels Off
-    swerveDriveMotors.stop();
-    swerveSteerMotors.stop();
-    swerveDriveMotors.setBrakeModeWhenIdle(false); //coast mode
-    swerveSteerMotors.setBrakeModeWhenIdle(false); //coast mode    
+    swerveDriveMotors.Stop();
+    swerveSteerMotors.Stop();
+    swerveDriveMotors.SetBrakeModeWhenIdle(false); //coast mode
+    swerveSteerMotors.SetBrakeModeWhenIdle(false); //coast mode    
   }
   else if(Robot_Control_Y.Reset_Wheel_Offsets)
   { //Recal Wheels
@@ -46,8 +46,8 @@ void SwerveDrive::PostStepCallback()
 
   if(!Robot_Control_Y.Swerve_Motors_Disabled)
   {
-    swerveDriveMotors.pullCommands();
-    swerveSteerMotors.pullCommands();
+    swerveDriveMotors.FetchMotorCommandsFromSL();
+    swerveSteerMotors.FetchMotorCommandsFromSL();
   }
 }
 
@@ -74,7 +74,7 @@ void SwerveDrive::Set_Wheel_Offset()
 
 void SwerveDrive::HighFrequencyPreStepCallback()
 {
-  swerveDriveMotors.pushPositions();
+  swerveDriveMotors.SendPositionValuesToSL();
   Odometry_U.FrontLeft_Steer_Rev = m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value();
   Odometry_U.FrontRight_Steer_Rev = m_FrontRight_Steer_Encoder.GetPosition().GetValue().value();
   Odometry_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();

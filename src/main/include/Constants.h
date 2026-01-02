@@ -6,7 +6,7 @@
 #include <frc/AddressableLED.h>
 
 //local
-#include "DertLib/include/KrakenTalon.h"
+#include "DertLib/include/KrakenX60Motor.h"
 #include "Robot_Control_ert_rtw/Robot_Control.h"
 #include "Odometry_ert_rtw/Odometry.h"
 #include "LimelightHelpers.h"
@@ -37,60 +37,62 @@ namespace Constants
             static constexpr int kStatus2_ms = 60; //ms
         namespace Drive
         {
-            static constexpr KrakenTalonCreateInfo defaultDriveCreateInfo
-            {
-                -1,                           // CAN ID
-                "uno",                        // CAN Bus
-                true,                         // isReversed
-                80,                           // supplyCurrentLimit
-                0,                            // openLoopRampPeriod (seconds)
-                true                          // Field Oriented Control
-            };
-            static const KrakenTalonCreateInfo frontLeft  = KrakenTalonCreateInfo::modifyInfo(defaultDriveCreateInfo,
-                                                                                 1, //CAN ID
-                                                                                 &Robot_Control_Y.FrontLeft_Drive_DutyCycle,
-                                                                                 &Robot_Control_U.FrontLeft_Drive_Motor_Speed,
-                                                                                 &Odometry_U.FrontLeft_Drive_Motor_Rev);
-            static const KrakenTalonCreateInfo frontRight = KrakenTalonCreateInfo::modifyInfo(defaultDriveCreateInfo,
-                                                                                 2, //CAN ID
-                                                                                 &Robot_Control_Y.FrontRight_Drive_DutyCycle,
-                                                                                 &Robot_Control_U.FrontRight_Drive_Motor_Speed,
-                                                                                 &Odometry_U.FrontRight_Drive_Motor_Rev);
-            static const KrakenTalonCreateInfo backLeft   = KrakenTalonCreateInfo::modifyInfo(defaultDriveCreateInfo,
-                                                                                 3, //CAN ID
-                                                                                 &Robot_Control_Y.BackLeft_Drive_DutyCycle,
-                                                                                 &Robot_Control_U.BackLeft_Drive_Motor_Speed,
-                                                                                 &Odometry_U.BackLeft_Drive_Motor_Rev);
-            static const KrakenTalonCreateInfo backRight  = KrakenTalonCreateInfo::modifyInfo(defaultDriveCreateInfo,
-                                                                                 4, //CAN ID
-                                                                                 &Robot_Control_Y.BackRight_Drive_DutyCycle,
-                                                                                 &Robot_Control_U.BackRight_Drive_Motor_Speed,
-                                                                                 &Odometry_U.BackRight_Drive_Motor_Rev);
+            static KrakenX60MotorCreateInfo defaultDriveCreateInfo = KrakenX60MotorCreateInfo::getDefaultCreateInfo()
+                .SetCanbusName("uno")
+                .SetIsReversed(true)
+                .SetSupplyCurrentLimit(80)
+                .SetOpenLoopRampPeriod(0)
+                .SetEnableFOC(true);
+
+            static const KrakenX60MotorCreateInfo frontLeft = defaultDriveCreateInfo
+                .SetCanID(1)
+                .SetDutyCycleCallback(&Robot_Control_Y.FrontLeft_Drive_DutyCycle)
+                .SetVelocityCallback(&Robot_Control_U.FrontLeft_Drive_Motor_Speed)
+                .SetPositionCallback(&Odometry_U.FrontLeft_Drive_Motor_Rev);
+            
+            static const KrakenX60MotorCreateInfo frontRight = defaultDriveCreateInfo
+                .SetCanID(2)
+                .SetDutyCycleCallback(&Robot_Control_Y.FrontRight_Drive_DutyCycle)
+                .SetVelocityCallback(&Robot_Control_U.FrontRight_Drive_Motor_Speed)
+                .SetPositionCallback(&Odometry_U.FrontRight_Drive_Motor_Rev);
+                
+            static const KrakenX60MotorCreateInfo backLeft = defaultDriveCreateInfo
+                .SetCanID(3)
+                .SetDutyCycleCallback(&Robot_Control_Y.BackLeft_Drive_DutyCycle)
+                .SetVelocityCallback(&Robot_Control_U.BackLeft_Drive_Motor_Speed)
+                .SetPositionCallback(&Odometry_U.BackLeft_Drive_Motor_Rev);
+            
+            static const KrakenX60MotorCreateInfo backRight = defaultDriveCreateInfo
+                .SetCanID(4)
+                .SetDutyCycleCallback(&Robot_Control_Y.BackRight_Drive_DutyCycle)
+                .SetVelocityCallback(&Robot_Control_U.BackRight_Drive_Motor_Speed)
+                .SetPositionCallback(&Odometry_U.BackRight_Drive_Motor_Rev);  
         };
         
         namespace Steer
         {
-            static constexpr KrakenTalonCreateInfo defaultSteerCreateInfo
-            {
-                -1,                                    // canID
-                "uno",                                 // can bus
-                false,                                  // isReversed
-                60,                                    // smartCurrentLimit
-                0,                                     // openLoopRampRate (seconds)
-                true                                   // Field Oriented Control
-            };
-            static const KrakenTalonCreateInfo frontLeft = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
-                                                                                 5, //CAN ID
-                                                                                 &Robot_Control_Y.FrontLeft_Steer_DutyCycle);
-            static const KrakenTalonCreateInfo frontRight = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
-                                                                                 6, //CAN ID
-                                                                                 &Robot_Control_Y.FrontRight_Steer_DutyCycle);
-            static const KrakenTalonCreateInfo backLeft   = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
-                                                                                 7, //CAN ID
-                                                                                 &Robot_Control_Y.BackLeft_Steer_DutyCycle);
-            static const KrakenTalonCreateInfo backRight  = KrakenTalonCreateInfo::modifyInfo(defaultSteerCreateInfo,
-                                                                                 8, //CAN ID
-                                                                                 &Robot_Control_Y.BackRight_Steer_DutyCycle);
+            static KrakenX60MotorCreateInfo defaultSteerCreateInfo = KrakenX60MotorCreateInfo::getDefaultCreateInfo()
+                .SetCanbusName("uno")
+                .SetIsReversed(false)
+                .SetSupplyCurrentLimit(60)
+                .SetOpenLoopRampPeriod(0)
+                .SetEnableFOC(true);
+
+            static const KrakenX60MotorCreateInfo frontLeft = defaultSteerCreateInfo
+                .SetCanID(5)
+                .SetDutyCycleCallback(&Robot_Control_Y.FrontLeft_Steer_DutyCycle);
+            
+            static const KrakenX60MotorCreateInfo frontRight = defaultSteerCreateInfo
+                .SetCanID(6)
+                .SetDutyCycleCallback(&Robot_Control_Y.FrontRight_Steer_DutyCycle); 
+            
+            static const KrakenX60MotorCreateInfo backLeft = defaultSteerCreateInfo
+                .SetCanID(7)
+                .SetDutyCycleCallback(&Robot_Control_Y.BackLeft_Steer_DutyCycle);
+
+            static const KrakenX60MotorCreateInfo backRight = defaultSteerCreateInfo
+                .SetCanID(8)
+                .SetDutyCycleCallback(&Robot_Control_Y.BackRight_Steer_DutyCycle);
         };
     };
     

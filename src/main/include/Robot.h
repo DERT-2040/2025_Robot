@@ -44,14 +44,14 @@ private:
   void Odometry_to_Robot_Control_Transfer();
 
   /** Puts all inputs from sensors and HIDs into Simulink */
-  void PreStep() {for(auto component : dlib::Component::AllCreatedComponents) component->PreStepCallback();}
+  void PreStep() {for(auto component : dlib::Component::allCreatedComponents) component->PreStepCallback();}
   
   /** Takes outputs from simulink and pushes their commands to hardware */
-  void PostStep() {for(auto component : dlib::Component::AllCreatedComponents) component->PostStepCallback();}
+  void PostStep() {for(auto component : dlib::Component::allCreatedComponents) component->PostStepCallback();}
   
-  void HighFrequencyPreStep() {for(auto component : dlib::HighFrequencyComponent::AllCreatedHighFrequencyComponents) component->HighFrequencyPreStepCallback();};
+  void HighFrequencyPreStep() {for(auto component : dlib::HighFrequencyComponent::allCreatedHighFrequencyComponents) component->HighFrequencyPreStepCallback();};
 
-  void HighFrequencyPostStep() {for(auto component : dlib::HighFrequencyComponent::AllCreatedHighFrequencyComponents) component->HighFrequencyPreStepCallback();};
+  void HighFrequencyPostStep() {for(auto component : dlib::HighFrequencyComponent::allCreatedHighFrequencyComponents) component->HighFrequencyPreStepCallback();};
 
 
   /*

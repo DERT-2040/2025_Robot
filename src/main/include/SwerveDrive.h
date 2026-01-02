@@ -3,7 +3,7 @@
 //local
 #include "include/Constants.h"
 #include "DertLib/include/HighFrequencyComponent.h"
-#include "DertLib/include/KrakenSet.h"
+#include "DertLib/include/KrakenX60Group.h"
 #include "Robot_Control_ert_rtw/Robot_Control.h"
 #include "Odometry_ert_rtw/Odometry.h"
 //frc
@@ -35,7 +35,7 @@ private:
   /** Sets the simulink variables for wheel offsets to what is in the robot preferences */
   void Set_Wheel_Offset();
 
-  dlib::KrakenSet swerveDriveMotors
+  dlib::KrakenX60Group swerveDriveMotors
   {
     {
       Drive::frontLeft, Drive::frontRight,
@@ -43,7 +43,7 @@ private:
     }
   };
   
-  dlib::KrakenSet swerveSteerMotors
+  dlib::KrakenX60Group swerveSteerMotors
   {
     {
       Steer::frontLeft, Steer::frontRight,
