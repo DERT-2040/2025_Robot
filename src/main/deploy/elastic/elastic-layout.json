@@ -23,9 +23,9 @@
           },
           {
             "title": "limelight-one",
-            "x": 768.0,
+            "x": 896.0,
             "y": 0.0,
-            "width": 768.0,
+            "width": 640.0,
             "height": 512.0,
             "type": "Camera Stream",
             "properties": {
@@ -37,7 +37,7 @@
             "title": "Drive_Joystick_X",
             "x": 0.0,
             "y": 0.0,
-            "width": 256.0,
+            "width": 128.0,
             "height": 128.0,
             "type": "Text Display",
             "properties": {
@@ -49,9 +49,9 @@
           },
           {
             "title": "Gyro_Angle_Calibrated_deg",
-            "x": 0.0,
-            "y": 128.0,
-            "width": 256.0,
+            "x": 128.0,
+            "y": 384.0,
+            "width": 128.0,
             "height": 128.0,
             "type": "Text Display",
             "properties": {
@@ -64,7 +64,7 @@
           {
             "title": "Actuator_Revs",
             "x": 128.0,
-            "y": 384.0,
+            "y": 512.0,
             "width": 128.0,
             "height": 128.0,
             "type": "Text Display",
@@ -78,7 +78,7 @@
           {
             "title": "Winch_Revs",
             "x": 0.0,
-            "y": 384.0,
+            "y": 512.0,
             "width": 128.0,
             "height": 128.0,
             "type": "Text Display",
@@ -97,16 +97,16 @@
             "height": 128.0,
             "type": "ComboBox Chooser",
             "properties": {
-              "topic": "/SmartDashboard/Auto Modes",
+              "topic": "/SmartDashboard/Auto Path Starting Position",
               "period": 0.06,
               "sort_options": false
             }
           },
           {
             "title": "State_ID_Teleop",
-            "x": 768.0,
+            "x": 1152.0,
             "y": 512.0,
-            "width": 128.0,
+            "width": 256.0,
             "height": 128.0,
             "type": "Text Display",
             "properties": {
@@ -118,9 +118,9 @@
           },
           {
             "title": "Elevator_Limit_Switch_Bottom",
-            "x": 0.0,
+            "x": 256.0,
             "y": 512.0,
-            "width": 256.0,
+            "width": 128.0,
             "height": 128.0,
             "type": "Text Display",
             "properties": {
@@ -128,6 +128,151 @@
               "period": 0.06,
               "data_type": "double",
               "show_submit_button": false
+            }
+          },
+          {
+            "title": "State_ID_Auto",
+            "x": 896.0,
+            "y": 512.0,
+            "width": 256.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Test Points/State_ID_Auto",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "KF_Position_X",
+            "x": 256.0,
+            "y": 0.0,
+            "width": 256.0,
+            "height": 256.0,
+            "type": "Graph",
+            "properties": {
+              "topic": "/Simulink Test Points/KF_Position_X",
+              "period": 0.033,
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "color": 4278238420,
+              "line_width": 2.0
+            }
+          },
+          {
+            "title": "KF_Position_Y",
+            "x": 512.0,
+            "y": 0.0,
+            "width": 256.0,
+            "height": 256.0,
+            "type": "Graph",
+            "properties": {
+              "topic": "/Simulink Test Points/KF_Position_Y",
+              "period": 0.033,
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "color": 4278238420,
+              "line_width": 2.0
+            }
+          },
+          {
+            "title": "MatchTime",
+            "x": 256.0,
+            "y": 256.0,
+            "width": 640.0,
+            "height": 256.0,
+            "type": "Match Time",
+            "properties": {
+              "topic": "/Simulink Top Level Ports/MatchTime",
+              "period": 0.06,
+              "data_type": "double",
+              "time_display_mode": "Minutes and Seconds",
+              "red_start_time": 15,
+              "yellow_start_time": 30
+            }
+          },
+          {
+            "title": "Algae_Limit_Switch",
+            "x": 384.0,
+            "y": 512.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Top Level Ports/Algae_Limit_Switch",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Coral_Limit_Switch",
+            "x": 512.0,
+            "y": 512.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Top Level Ports/Coral_Limit_Switch",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Gamepad_Stick_Left_Y",
+            "x": 0.0,
+            "y": 128.0,
+            "width": 256.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Top Level Ports/Gamepad_Stick_Left_Y",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Steer_Joystick_Y",
+            "x": 128.0,
+            "y": 0.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Test Points/Steer_Joystick_Y",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Coral_TOF_Distance",
+            "x": 640.0,
+            "y": 512.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Top Level Ports/Coral_TOF_Distance",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Gyro Reset Flag",
+            "x": 0.0,
+            "y": 384.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "ComboBox Chooser",
+            "properties": {
+              "topic": "/SmartDashboard/Gyro Reset Flag",
+              "period": 0.06,
+              "sort_options": false
             }
           }
         ]
@@ -567,6 +712,34 @@
             "properties": {
               "topic": "/CameraPublisher/limelight-one",
               "period": 0.06
+            }
+          },
+          {
+            "title": "KF_Position_X",
+            "x": 1024.0,
+            "y": 0.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Test Points/KF_Position_X",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "KF_Position_Y",
+            "x": 1152.0,
+            "y": 0.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Test Points/KF_Position_Y",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
             }
           }
         ]
@@ -1028,6 +1201,54 @@
             "type": "Text Display",
             "properties": {
               "topic": "/Simulink Top Level Ports/Actuator_Revs",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Limelight Camera",
+      "grid_layout": {
+        "layouts": [],
+        "containers": [
+          {
+            "title": "limelight-one",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 896.0,
+            "height": 768.0,
+            "type": "Camera Stream",
+            "properties": {
+              "topic": "/CameraPublisher/limelight-one",
+              "period": 0.06
+            }
+          },
+          {
+            "title": "Vision_c1_Object_Area_pct",
+            "x": 896.0,
+            "y": 128.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Top Level Ports/Vision_c1_Object_Area_pct",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Vision_c1_Object_Hor_deg",
+            "x": 896.0,
+            "y": 256.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Top Level Ports/Vision_c1_Object_Hor_deg",
               "period": 0.06,
               "data_type": "double",
               "show_submit_button": false
