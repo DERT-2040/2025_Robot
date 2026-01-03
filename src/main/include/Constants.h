@@ -78,7 +78,7 @@ namespace Constants
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
                 .SetEnableFOC(true)
-                .SetMotorType(TalonFXMotorType::KrakenX60);
+                .SetMotorType(TalonFXMotorType::KrakenX44);
 
             static const TalonFXMotorCreateInfo frontLeft = defaultSteerCreateInfo
                 .SetCanID(5)

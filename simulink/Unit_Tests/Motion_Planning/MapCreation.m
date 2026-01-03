@@ -62,7 +62,8 @@ inflate(map, 0.55);
 
 planner = plannerAStarGrid(map);
 
-path = plan(planner, world2grid(map,[2 1]), [20, 140]);
+path = plan(planner, world2grid(map,[2.5 4]), world2grid(map,[16 6]));
+
 
 pathWorld = grid2world(map, path);
 
