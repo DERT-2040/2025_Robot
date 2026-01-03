@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.431
+ * Model version                  : 2.432
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Jan  1 14:54:37 2026
+ * C/C++ source code generated on : Sat Jan  3 07:03:36 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -607,51 +607,51 @@ void Robot_Control_step(void)
   Robot_Control_B.Vision_c1_AprilTag_Corr_Yaw_deg =
     Robot_Control_U.Vision_c1_AprilTag_Yaw_deg + Vision_Tag_Angle_Offset;
 
-  /* If: '<S336>/If' incorporates:
+  /* If: '<S330>/If' incorporates:
    *  Inport: '<Root>/Vision_c1_Object_Area_pct'
    */
   if (Robot_Control_U.Vision_c1_Object_Area_pct > 0.0) {
-    /* Outputs for IfAction SubSystem: '<S336>/Prevent raising 0 to a negative exponent' incorporates:
-     *  ActionPort: '<S339>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S330>/Prevent raising 0 to a negative exponent' incorporates:
+     *  ActionPort: '<S333>/Action Port'
      */
-    /* Product: '<S339>/Product' incorporates:
-     *  Constant: '<S339>/Constant1'
-     *  Constant: '<S339>/Constant2'
-     *  Math: '<S339>/Math Function'
+    /* Product: '<S333>/Product' incorporates:
+     *  Constant: '<S333>/Constant1'
+     *  Constant: '<S333>/Constant2'
+     *  Math: '<S333>/Math Function'
      */
     rtb_Subtract_e = rt_powd_snf(Robot_Control_U.Vision_c1_Object_Area_pct,
       -0.3495) * 111.0;
 
-    /* End of Outputs for SubSystem: '<S336>/Prevent raising 0 to a negative exponent' */
+    /* End of Outputs for SubSystem: '<S330>/Prevent raising 0 to a negative exponent' */
   } else {
-    /* Outputs for IfAction SubSystem: '<S336>/Subsystem' incorporates:
-     *  ActionPort: '<S340>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S330>/Subsystem' incorporates:
+     *  ActionPort: '<S334>/Action Port'
      */
-    /* SignalConversion generated from: '<S340>/Out1' incorporates:
-     *  Constant: '<S340>/Constant'
+    /* SignalConversion generated from: '<S334>/Out1' incorporates:
+     *  Constant: '<S334>/Constant'
      */
     rtb_Subtract_e = 0.0;
 
-    /* End of Outputs for SubSystem: '<S336>/Subsystem' */
+    /* End of Outputs for SubSystem: '<S330>/Subsystem' */
   }
 
-  /* End of If: '<S336>/If' */
+  /* End of If: '<S330>/If' */
 
-  /* Gain: '<S337>/Gain1' incorporates:
+  /* Gain: '<S331>/Gain1' incorporates:
    *  Inport: '<Root>/Vision_c1_Object_Hor_deg'
    */
   rtb_Sin4 = 0.017453292519943295 * Robot_Control_U.Vision_c1_Object_Hor_deg;
 
   /* Sum: '<S13>/Add3' incorporates:
    *  Constant: '<S13>/Constant4'
-   *  Fcn: '<S338>/r->x'
+   *  Fcn: '<S332>/r->x'
    */
   Robot_Control_B.Vision_c1_Object_Corr_X_inch = (rtb_Subtract_e * cos(rtb_Sin4))
     + Vision_Object_X_Offset;
 
   /* Sum: '<S13>/Add4' incorporates:
    *  Constant: '<S13>/Constant8'
-   *  Fcn: '<S338>/theta->y'
+   *  Fcn: '<S332>/theta->y'
    */
   Robot_Control_B.Vision_c1_Object_Corr_Y_inch = (rtb_Subtract_e * sin(rtb_Sin4))
     + Vision_Object_Y_Offset;
@@ -949,10 +949,10 @@ void Robot_Control_step(void)
      */
     /* Switch: '<S301>/Switch4' incorporates:
      *  Constant: '<S326>/Constant'
-     *  Constant: '<S335>/Constant'
+     *  Constant: '<S329>/Constant'
      *  Inport: '<Root>/Vision_Current_Pipeline'
      *  RelationalOperator: '<S326>/Compare'
-     *  RelationalOperator: '<S335>/Compare'
+     *  RelationalOperator: '<S329>/Compare'
      *  Switch: '<S301>/Switch5'
      */
     if (Robot_Control_U.Vision_Current_Pipeline == 0.0) {
@@ -983,31 +983,14 @@ void Robot_Control_step(void)
     /* End of Switch: '<S301>/Switch4' */
 
     /* Logic: '<S301>/Logical Operator1' incorporates:
-     *  Constant: '<S327>/Constant'
-     *  Constant: '<S328>/Constant'
-     *  Constant: '<S329>/Constant'
-     *  Constant: '<S330>/Constant'
-     *  Constant: '<S331>/Constant'
-     *  Constant: '<S332>/Constant'
+     *  Inport: '<Root>/Vision_c1_AprilTag_Valid'
+     *  Inport: '<Root>/Vision_c1_Object_Valid'
      *  Logic: '<S301>/Logical Operator2'
      *  Logic: '<S301>/Logical Operator3'
-     *  Logic: '<S301>/Logical Operator4'
-     *  Logic: '<S301>/Logical Operator5'
-     *  RelationalOperator: '<S327>/Compare'
-     *  RelationalOperator: '<S328>/Compare'
-     *  RelationalOperator: '<S329>/Compare'
-     *  RelationalOperator: '<S330>/Compare'
-     *  RelationalOperator: '<S331>/Compare'
-     *  RelationalOperator: '<S332>/Compare'
      */
     Robot_Control_B.Relative_Enable = (((Robot_Control_B.Align_Left) &&
-      (((Robot_Control_B.Vision_c1_AprilTag_Corr_X_inch != 0.0) ||
-        (Robot_Control_B.Vision_c1_AprilTag_Corr_Y_inch != 0.0)) ||
-       (Robot_Control_B.Vision_c1_AprilTag_Corr_Yaw_deg != 0.0))) ||
-      ((Robot_Control_B.Align_Right) &&
-       (((Robot_Control_B.Vision_c1_Object_Corr_X_inch != 0.0) ||
-         (Robot_Control_B.Vision_c1_Object_Corr_Y_inch != 0.0)) ||
-        (Robot_Control_B.Vision_c1_Object_Corr_Yaw_deg != 0.0))));
+      (Robot_Control_U.Vision_c1_AprilTag_Valid)) ||
+      ((Robot_Control_B.Align_Right) && (Robot_Control_U.Vision_c1_Object_Valid)));
 
     /* Switch: '<S303>/Switch' incorporates:
      *  Constant: '<S303>/Constant9'
@@ -1288,10 +1271,10 @@ void Robot_Control_step(void)
     /* Switch: '<S301>/Switch2' incorporates:
      *  Constant: '<S301>/Constant2'
      *  Constant: '<S325>/Constant'
-     *  Constant: '<S334>/Constant'
+     *  Constant: '<S328>/Constant'
      *  Inport: '<Root>/Vision_Current_Pipeline'
      *  RelationalOperator: '<S325>/Compare'
-     *  RelationalOperator: '<S334>/Compare'
+     *  RelationalOperator: '<S328>/Compare'
      *  Sum: '<S301>/Subtract'
      *  Switch: '<S301>/Switch'
      *  Switch: '<S301>/Switch1'

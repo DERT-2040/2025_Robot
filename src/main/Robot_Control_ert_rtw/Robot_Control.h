@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.431
+ * Model version                  : 2.432
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Jan  1 14:54:37 2026
+ * C/C++ source code generated on : Sat Jan  3 07:03:36 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -299,9 +299,11 @@ typedef struct {
                                      /* '<Root>/Vision_RobotPoseFieldSpace_Y' */
   real_T Vision_Num_Tags_Detected;     /* '<Root>/Vision_Num_Tags_Detected' */
   real_T Vision_Current_Pipeline;      /* '<Root>/Vision_Current_Pipeline' */
+  boolean_T Vision_c1_AprilTag_Valid;  /* '<Root>/Vision_c1_AprilTag_Valid' */
   real_T Vision_c1_AprilTag_X_m;       /* '<Root>/Vision_c1_AprilTag_X_m' */
   real_T Vision_c1_AprilTag_Y_m;       /* '<Root>/Vision_c1_AprilTag_Y_m' */
   real_T Vision_c1_AprilTag_Yaw_deg;   /* '<Root>/Vision_c1_AprilTag_Yaw_deg' */
+  boolean_T Vision_c1_Object_Valid;    /* '<Root>/Vision_c1_Object_Valid' */
   real_T Vision_c1_Object_Area_pct;    /* '<Root>/Vision_c1_Object_Area_pct' */
   real_T Vision_c1_Object_Hor_deg;     /* '<Root>/Vision_c1_Object_Hor_deg' */
   real_T Vision_c1_Object_Ver_deg;     /* '<Root>/Vision_c1_Object_Ver_deg' */
@@ -826,6 +828,8 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * Block '<S320>/Data Type Duplicate' : Unused code path elimination
  * Block '<S320>/Data Type Propagation' : Unused code path elimination
  * Block '<S321>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S1>/Data Type Conversion' : Eliminate redundant data type conversion
+ * Block '<S1>/Data Type Conversion1' : Eliminate redundant data type conversion
  * Block '<S77>/Conversion' : Eliminate redundant data type conversion
  * Block '<S78>/Conversion' : Eliminate redundant data type conversion
  * Block '<S80>/Conversion' : Eliminate redundant data type conversion
@@ -1180,20 +1184,14 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * '<S324>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant'
  * '<S325>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant1'
  * '<S326>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant2'
- * '<S327>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero'
- * '<S328>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero1'
- * '<S329>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero2'
- * '<S330>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero3'
- * '<S331>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero4'
- * '<S332>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero5'
- * '<S333>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero6'
- * '<S334>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero7'
- * '<S335>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero8'
- * '<S336>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance'
- * '<S337>' : 'Robot_Control/Control_System/Vision_Corrections/Degrees to Radians'
- * '<S338>' : 'Robot_Control/Control_System/Vision_Corrections/Polar to Cartesian1'
- * '<S339>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Prevent raising 0 to a negative exponent'
- * '<S340>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Subsystem'
+ * '<S327>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero6'
+ * '<S328>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero7'
+ * '<S329>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero8'
+ * '<S330>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance'
+ * '<S331>' : 'Robot_Control/Control_System/Vision_Corrections/Degrees to Radians'
+ * '<S332>' : 'Robot_Control/Control_System/Vision_Corrections/Polar to Cartesian1'
+ * '<S333>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Prevent raising 0 to a negative exponent'
+ * '<S334>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Subsystem'
  */
 #endif                                 /* RTW_HEADER_Robot_Control_h_ */
 

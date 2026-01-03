@@ -181,11 +181,13 @@ private:
         nt::NetworkTableEntry I__Vision_Num_Tags_Detected__Entry;
         nt::NetworkTableEntry I__Vision_RobotPoseFieldSpace_X__Entry;
         nt::NetworkTableEntry I__Vision_RobotPoseFieldSpace_Y__Entry;
+        nt::NetworkTableEntry I__Vision_c1_AprilTag_Valid__Entry;
         nt::NetworkTableEntry I__Vision_c1_AprilTag_X_m__Entry;
         nt::NetworkTableEntry I__Vision_c1_AprilTag_Y_m__Entry;
         nt::NetworkTableEntry I__Vision_c1_AprilTag_Yaw_deg__Entry;
         nt::NetworkTableEntry I__Vision_c1_Object_Area_pct__Entry;
         nt::NetworkTableEntry I__Vision_c1_Object_Hor_deg__Entry;
+        nt::NetworkTableEntry I__Vision_c1_Object_Valid__Entry;
         nt::NetworkTableEntry I__Vision_c1_Object_Ver_deg__Entry;
         // Outports
         nt::NetworkTableEntry O__BackLeft_Drive_DutyCycle__Entry;

@@ -429,11 +429,13 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     I__Vision_Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Vision_Num_Tags_Detected");
     I__Vision_RobotPoseFieldSpace_X__Entry = NTtable_Inport->GetEntry("Vision_RobotPoseFieldSpace_X");
     I__Vision_RobotPoseFieldSpace_Y__Entry = NTtable_Inport->GetEntry("Vision_RobotPoseFieldSpace_Y");
+    I__Vision_c1_AprilTag_Valid__Entry = NTtable_Inport->GetEntry("Vision_c1_AprilTag_Valid");
     I__Vision_c1_AprilTag_X_m__Entry = NTtable_Inport->GetEntry("Vision_c1_AprilTag_X_m");
     I__Vision_c1_AprilTag_Y_m__Entry = NTtable_Inport->GetEntry("Vision_c1_AprilTag_Y_m");
     I__Vision_c1_AprilTag_Yaw_deg__Entry = NTtable_Inport->GetEntry("Vision_c1_AprilTag_Yaw_deg");
     I__Vision_c1_Object_Area_pct__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Area_pct");
     I__Vision_c1_Object_Hor_deg__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Hor_deg");
+    I__Vision_c1_Object_Valid__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Valid");
     I__Vision_c1_Object_Ver_deg__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Ver_deg");
  
 // Outports
@@ -701,11 +703,13 @@ void SimulinkNetworkTables1::PostStepCallback()
     I__Vision_Num_Tags_Detected__Entry.SetDouble(Robot_Control_U.Vision_Num_Tags_Detected);
     I__Vision_RobotPoseFieldSpace_X__Entry.SetDouble(Robot_Control_U.Vision_RobotPoseFieldSpace_X);
     I__Vision_RobotPoseFieldSpace_Y__Entry.SetDouble(Robot_Control_U.Vision_RobotPoseFieldSpace_Y);
+    I__Vision_c1_AprilTag_Valid__Entry.SetDouble(Robot_Control_U.Vision_c1_AprilTag_Valid);
     I__Vision_c1_AprilTag_X_m__Entry.SetDouble(Robot_Control_U.Vision_c1_AprilTag_X_m);
     I__Vision_c1_AprilTag_Y_m__Entry.SetDouble(Robot_Control_U.Vision_c1_AprilTag_Y_m);
     I__Vision_c1_AprilTag_Yaw_deg__Entry.SetDouble(Robot_Control_U.Vision_c1_AprilTag_Yaw_deg);
     I__Vision_c1_Object_Area_pct__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Area_pct);
     I__Vision_c1_Object_Hor_deg__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Hor_deg);
+    I__Vision_c1_Object_Valid__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Valid);
     I__Vision_c1_Object_Ver_deg__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Ver_deg);
     // Outports
     O__BackLeft_Drive_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackLeft_Drive_DutyCycle);

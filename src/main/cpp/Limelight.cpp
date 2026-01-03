@@ -116,16 +116,19 @@ void Limelight::PreStepCallback() {
         c1VectorLength = c1TargetPoseRobotSpace.size();
         
         if (c1VectorLength > 1) {
+            Robot_Control_U.Vision_c1_AprilTag_Valid = 1;
             Robot_Control_U.Vision_c1_AprilTag_X_m = c1TargetPoseRobotSpace.at(2);
             Robot_Control_U.Vision_c1_AprilTag_Y_m = c1TargetPoseRobotSpace.at(0);
             Robot_Control_U.Vision_c1_AprilTag_Yaw_deg = c1TargetPoseRobotSpace.at(4);
         } else {
+            Robot_Control_U.Vision_c1_AprilTag_Valid = 0;
             Robot_Control_U.Vision_c1_AprilTag_X_m = 0;
             Robot_Control_U.Vision_c1_AprilTag_Y_m = 0;
             Robot_Control_U.Vision_c1_AprilTag_Yaw_deg = 0;
         }
 
         // Set object detection estimates to 0 since not detecting objects
+        Robot_Control_U.Vision_c1_Object_Valid = 0;
         Robot_Control_U.Vision_c1_Object_Area_pct = 0;
         Robot_Control_U.Vision_c1_Object_Hor_deg = 0;
         Robot_Control_U.Vision_c1_Object_Ver_deg = 0;
@@ -139,6 +142,8 @@ void Limelight::PreStepCallback() {
         Robot_Control_U.Vision_Num_Tags_Detected = 0;
         Robot_Control_U.Vision_RobotPoseFieldSpace_X = 0;
         Robot_Control_U.Vision_RobotPoseFieldSpace_Y = 0;
+        
+        Robot_Control_U.Vision_c1_AprilTag_Valid = 0;
         Robot_Control_U.Vision_c1_AprilTag_X_m = 0;
         Robot_Control_U.Vision_c1_AprilTag_Y_m = 0;
         Robot_Control_U.Vision_c1_AprilTag_Yaw_deg = 0;
@@ -147,10 +152,12 @@ void Limelight::PreStepCallback() {
         bool hasTarget = LimelightHelpers::getTV(LimelightNameSpace::CameraOneCreateInfo.LimelightName); // Returns true if a target is detected.
         if (hasTarget)
         {        
+            Robot_Control_U.Vision_c1_Object_Valid = 1;
             Robot_Control_U.Vision_c1_Object_Hor_deg = LimelightHelpers::getTX(LimelightNameSpace::CameraOneCreateInfo.LimelightName); // Horizontal offset from crosshair to target in degrees.
             Robot_Control_U.Vision_c1_Object_Ver_deg = LimelightHelpers::getTY(LimelightNameSpace::CameraOneCreateInfo.LimelightName); // Vertical offset from crosshair to target in degrees.
             Robot_Control_U.Vision_c1_Object_Area_pct = LimelightHelpers::getTA(LimelightNameSpace::CameraOneCreateInfo.LimelightName); // Target area (0% to 100% of image).
         } else {
+            Robot_Control_U.Vision_c1_Object_Valid = 0;
             Robot_Control_U.Vision_c1_Object_Area_pct = 0;
             Robot_Control_U.Vision_c1_Object_Hor_deg = 0;
             Robot_Control_U.Vision_c1_Object_Ver_deg = 0;
@@ -163,9 +170,13 @@ void Limelight::PreStepCallback() {
         Robot_Control_U.Vision_Num_Tags_Detected = 0;        
         Robot_Control_U.Vision_RobotPoseFieldSpace_X = 0;
         Robot_Control_U.Vision_RobotPoseFieldSpace_Y = 0;
+
+        Robot_Control_U.Vision_c1_AprilTag_Valid = 0;
         Robot_Control_U.Vision_c1_AprilTag_X_m = 0;
         Robot_Control_U.Vision_c1_AprilTag_Y_m = 0;
         Robot_Control_U.Vision_c1_AprilTag_Yaw_deg = 0;
+
+        Robot_Control_U.Vision_c1_Object_Valid = 0;
         Robot_Control_U.Vision_c1_Object_Area_pct = 0;
         Robot_Control_U.Vision_c1_Object_Hor_deg = 0;
         Robot_Control_U.Vision_c1_Object_Ver_deg = 0;
