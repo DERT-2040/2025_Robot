@@ -6,7 +6,7 @@
 #include <frc/AddressableLED.h>
 
 //local
-#include "DertLib/include/KrakenX60Motor.h"
+#include "DertLib/include/TalonFXMotor.h"
 #include "Robot_Control_ert_rtw/Robot_Control.h"
 #include "Odometry_ert_rtw/Odometry.h"
 #include "LimelightHelpers.h"
@@ -37,32 +37,33 @@ namespace Constants
             static constexpr int kStatus2_ms = 60; //ms
         namespace Drive
         {
-            static KrakenX60MotorCreateInfo defaultDriveCreateInfo = KrakenX60MotorCreateInfo::getDefaultCreateInfo()
+            static TalonFXMotorCreateInfo defaultDriveCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
                 .SetCanbusName("uno")
                 .SetIsReversed(true)
                 .SetSupplyCurrentLimit(80)
                 .SetOpenLoopRampPeriod(0)
-                .SetEnableFOC(true);
+                .SetEnableFOC(true)
+                .SetMotorType(TalonFXMotorType::KrakenX60);
 
-            static const KrakenX60MotorCreateInfo frontLeft = defaultDriveCreateInfo
+            static const TalonFXMotorCreateInfo frontLeft = defaultDriveCreateInfo
                 .SetCanID(1)
                 .SetDutyCycleCallback(&Robot_Control_Y.FrontLeft_Drive_DutyCycle)
                 .SetVelocityCallback(&Robot_Control_U.FrontLeft_Drive_Motor_Speed)
                 .SetPositionCallback(&Odometry_U.FrontLeft_Drive_Motor_Rev);
             
-            static const KrakenX60MotorCreateInfo frontRight = defaultDriveCreateInfo
+            static const TalonFXMotorCreateInfo frontRight = defaultDriveCreateInfo
                 .SetCanID(2)
                 .SetDutyCycleCallback(&Robot_Control_Y.FrontRight_Drive_DutyCycle)
                 .SetVelocityCallback(&Robot_Control_U.FrontRight_Drive_Motor_Speed)
                 .SetPositionCallback(&Odometry_U.FrontRight_Drive_Motor_Rev);
                 
-            static const KrakenX60MotorCreateInfo backLeft = defaultDriveCreateInfo
+            static const TalonFXMotorCreateInfo backLeft = defaultDriveCreateInfo
                 .SetCanID(3)
                 .SetDutyCycleCallback(&Robot_Control_Y.BackLeft_Drive_DutyCycle)
                 .SetVelocityCallback(&Robot_Control_U.BackLeft_Drive_Motor_Speed)
                 .SetPositionCallback(&Odometry_U.BackLeft_Drive_Motor_Rev);
             
-            static const KrakenX60MotorCreateInfo backRight = defaultDriveCreateInfo
+            static const TalonFXMotorCreateInfo backRight = defaultDriveCreateInfo
                 .SetCanID(4)
                 .SetDutyCycleCallback(&Robot_Control_Y.BackRight_Drive_DutyCycle)
                 .SetVelocityCallback(&Robot_Control_U.BackRight_Drive_Motor_Speed)
@@ -71,26 +72,27 @@ namespace Constants
         
         namespace Steer
         {
-            static KrakenX60MotorCreateInfo defaultSteerCreateInfo = KrakenX60MotorCreateInfo::getDefaultCreateInfo()
+            static TalonFXMotorCreateInfo defaultSteerCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
                 .SetCanbusName("uno")
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
-                .SetEnableFOC(true);
+                .SetEnableFOC(true)
+                .SetMotorType(TalonFXMotorType::KrakenX60);
 
-            static const KrakenX60MotorCreateInfo frontLeft = defaultSteerCreateInfo
+            static const TalonFXMotorCreateInfo frontLeft = defaultSteerCreateInfo
                 .SetCanID(5)
                 .SetDutyCycleCallback(&Robot_Control_Y.FrontLeft_Steer_DutyCycle);
             
-            static const KrakenX60MotorCreateInfo frontRight = defaultSteerCreateInfo
+            static const TalonFXMotorCreateInfo frontRight = defaultSteerCreateInfo
                 .SetCanID(6)
                 .SetDutyCycleCallback(&Robot_Control_Y.FrontRight_Steer_DutyCycle); 
             
-            static const KrakenX60MotorCreateInfo backLeft = defaultSteerCreateInfo
+            static const TalonFXMotorCreateInfo backLeft = defaultSteerCreateInfo
                 .SetCanID(7)
                 .SetDutyCycleCallback(&Robot_Control_Y.BackLeft_Steer_DutyCycle);
 
-            static const KrakenX60MotorCreateInfo backRight = defaultSteerCreateInfo
+            static const TalonFXMotorCreateInfo backRight = defaultSteerCreateInfo
                 .SetCanID(8)
                 .SetDutyCycleCallback(&Robot_Control_Y.BackRight_Steer_DutyCycle);
         };
