@@ -1,4 +1,5 @@
 clc;
+
 Boarder = [164.989375, 21.656250 ;
            723.010625, 21.656250 ;
            790.500479, 70.670000 ;
@@ -62,8 +63,7 @@ inflate(map, 0.55);
 
 planner = plannerAStarGrid(map);
 
-path = plan(planner, world2grid(map,[2.5 4]), world2grid(map,[16 6]));
-
+path = plan(planner, world2grid(map,start_xy), world2grid(map,end_xy));
 
 pathWorld = grid2world(map, path);
 

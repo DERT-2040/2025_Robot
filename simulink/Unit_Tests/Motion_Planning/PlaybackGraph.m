@@ -1,3 +1,11 @@
+addpath Resources
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THIS IS WHERE TO SET THE START AND END POINTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+start_xy = [2.5 4];
+end_xy = [15 4.9];
+
 MapCreation;
 
 points = {...
