@@ -3,10 +3,7 @@
 
 void FMSInfo::PreStepCallback()
 {
-	// Grab match time every loop
 	Robot_Control_U.MatchTime = frc::DriverStation::GetMatchTime().value();
-	
-	// Grab Alliance color (red / blue) whenever game state changes (diabled, auto, teleop, test)
 	if(hasIntChanged(static_cast<int>(Robot_Control_U.GameState), previous))
 	{
 		if(frc::DriverStation::GetAlliance().has_value())
