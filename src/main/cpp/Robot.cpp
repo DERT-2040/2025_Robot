@@ -16,6 +16,18 @@ void Robot::RobotInit()
       Odometry_step();
       HighFrequencyPostStep();
     }
+    if(HighFrequencyCount == 2)
+    {
+      for (auto group : dlib::TalonFXMotorGroup::allTalonFXMotorGroups)
+      {
+        group->UpdateMotorCANConnectionAlerts();
+      }
+      
+      for (auto group : dlib::SparkMaxMotorGroup::allSparkMaxMotorGroups)
+      {
+        group->UpdateMotorCANConnectionAlerts();
+      }
+    }
     if(HighFrequencyCount == 4)
       HighFrequencyCount = 0;
     else

@@ -49,25 +49,30 @@ namespace Constants
                 .SetCanID(1)
                 .SetDutyCycleCallback(&Robot_Control_Y.FrontLeft_Drive_DutyCycle)
                 .SetVelocityCallback(&Robot_Control_U.FrontLeft_Drive_Motor_Speed)
-                .SetPositionCallback(&Odometry_U.FrontLeft_Drive_Motor_Rev);
+                .SetPositionCallback(&Odometry_U.FrontLeft_Drive_Motor_Rev)
+                .SetDisplayName("Front Left Drive Motor");
             
             static const TalonFXMotorCreateInfo frontRight = defaultDriveCreateInfo
                 .SetCanID(2)
                 .SetDutyCycleCallback(&Robot_Control_Y.FrontRight_Drive_DutyCycle)
                 .SetVelocityCallback(&Robot_Control_U.FrontRight_Drive_Motor_Speed)
-                .SetPositionCallback(&Odometry_U.FrontRight_Drive_Motor_Rev);
-                
+                .SetPositionCallback(&Odometry_U.FrontRight_Drive_Motor_Rev)
+                .SetDisplayName("Front Right Drive Motor");
+
             static const TalonFXMotorCreateInfo backLeft = defaultDriveCreateInfo
                 .SetCanID(3)
                 .SetDutyCycleCallback(&Robot_Control_Y.BackLeft_Drive_DutyCycle)
                 .SetVelocityCallback(&Robot_Control_U.BackLeft_Drive_Motor_Speed)
-                .SetPositionCallback(&Odometry_U.BackLeft_Drive_Motor_Rev);
-            
+                .SetPositionCallback(&Odometry_U.BackLeft_Drive_Motor_Rev)
+                .SetDisplayName("Back Left Drive Motor");
+
             static const TalonFXMotorCreateInfo backRight = defaultDriveCreateInfo
                 .SetCanID(4)
                 .SetDutyCycleCallback(&Robot_Control_Y.BackRight_Drive_DutyCycle)
                 .SetVelocityCallback(&Robot_Control_U.BackRight_Drive_Motor_Speed)
-                .SetPositionCallback(&Odometry_U.BackRight_Drive_Motor_Rev);  
+                .SetPositionCallback(&Odometry_U.BackRight_Drive_Motor_Rev)  
+                .SetDisplayName("Back Right Drive Motor");
+
         };
         
         namespace Steer
@@ -82,19 +87,23 @@ namespace Constants
 
             static const TalonFXMotorCreateInfo frontLeft = defaultSteerCreateInfo
                 .SetCanID(5)
-                .SetDutyCycleCallback(&Robot_Control_Y.FrontLeft_Steer_DutyCycle);
+                .SetDutyCycleCallback(&Robot_Control_Y.FrontLeft_Steer_DutyCycle)
+                .SetDisplayName("Front Left Steer Motor");
             
             static const TalonFXMotorCreateInfo frontRight = defaultSteerCreateInfo
                 .SetCanID(6)
-                .SetDutyCycleCallback(&Robot_Control_Y.FrontRight_Steer_DutyCycle); 
-            
+                .SetDutyCycleCallback(&Robot_Control_Y.FrontRight_Steer_DutyCycle) 
+                .SetDisplayName("Front Right Steer Motor");
+
             static const TalonFXMotorCreateInfo backLeft = defaultSteerCreateInfo
                 .SetCanID(7)
-                .SetDutyCycleCallback(&Robot_Control_Y.BackLeft_Steer_DutyCycle);
+                .SetDutyCycleCallback(&Robot_Control_Y.BackLeft_Steer_DutyCycle)
+                .SetDisplayName("Back Left Steer Motor");
 
             static const TalonFXMotorCreateInfo backRight = defaultSteerCreateInfo
                 .SetCanID(8)
-                .SetDutyCycleCallback(&Robot_Control_Y.BackRight_Steer_DutyCycle);
+                .SetDutyCycleCallback(&Robot_Control_Y.BackRight_Steer_DutyCycle)
+                .SetDisplayName("Back Right Steer Motor");
         };
     };
     
