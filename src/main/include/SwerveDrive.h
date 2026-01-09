@@ -28,13 +28,6 @@ public:
   void HighFrequencyPreStepCallback() override;
   void HighFrequencyPostStepCallback() override;
 
-private:
-  /** Creates the wheel offset preferences if they have not been created */
-  void Initalize_Wheel_Offset();
-
-  /** Sets the simulink variables for wheel offsets to what is in the robot preferences */
-  void Set_Wheel_Offset();
-
   dlib::TalonFXMotorGroup swerveDriveMotors
   {
     {
@@ -50,6 +43,15 @@ private:
       Steer::backLeft, Steer::backRight
     }
   };
+
+private:
+  /** Creates the wheel offset preferences if they have not been created */
+  void Initalize_Wheel_Offset();
+
+  /** Sets the simulink variables for wheel offsets to what is in the robot preferences */
+  void Set_Wheel_Offset();
+
+  
 
   //Steer Absolute Encoders
     ctre::phoenix6::hardware::CANcoder m_FrontLeft_Steer_Encoder{SwerveInfo::k_FrontLeft_Steer_Encoder_ID, "uno"};
