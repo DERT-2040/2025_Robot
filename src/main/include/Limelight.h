@@ -13,18 +13,13 @@
 #include <frc/Alert.h>
 
 namespace LimelightNameSpace = Constants::Limelight;
-namespace kIMU = Constants::IMU;
 
 class Limelight : public dlib::Component {
     public: 
      Limelight();
      void PreStepCallback() override;
      void PostStepCallback() override;
-     void SetPipeline(int pipelineIndex);
     private:
-
-    // IMU Object used to set Limelight Yaw Value
-    ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, static_cast<std::string>(kIMU::k_Pigeon2_Device_Name)};
 
     // Limelight Data Objects
     LimelightHelpers::PoseEstimate CameraOneLLMeasurement;
@@ -32,10 +27,6 @@ class Limelight : public dlib::Component {
 
     // Limelight Alerts
     frc::Alert CameraOneDisconnectedAlert {"ALARM PANIC", "Limelight One Disconnecred", frc::Alert::AlertType::kError};
-    //frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};
- 
-    // Used in calculations
-    std::vector<double> c1TargetPoseRobotSpace;
-    size_t c1VectorLength;   
+    //frc::Alert CameraTwoDisconnectedAlert {"Limelight Two Disconnecred", frc::Alert::AlertType::kError};  
  
 };

@@ -38,12 +38,15 @@ void Limelight::PreStepCallback() {
     // Get the current pipeline
     double Current_Pipeline = LimelightHelpers::getLimelightNTDouble(LimelightNameSpace::CameraOneCreateInfo.LimelightName, "pipeline");
 
-    // Set the pipeline if it is different than desired pipeline
-    if(Current_Pipeline != Robot_Control_Y.Vision_Desired_Pipeline)      
+    // Check if current pipeline is different than desired pipeline
+    if(Current_Pipeline != Robot_Control_Y.Vision_Desired_Pipeline)
+    {
+        // Set the pipeline if the current pipeline is different than desired pipeline
         LimelightHelpers::setPipelineIndex(LimelightNameSpace::CameraOneCreateInfo.LimelightName, int(Robot_Control_Y.Vision_Desired_Pipeline));
 
-    // Get the current pipeline (double check after setting it above)
-    Current_Pipeline = LimelightHelpers::getLimelightNTDouble(LimelightNameSpace::CameraOneCreateInfo.LimelightName, "pipeline");
+        // Get the current pipeline (double check after setting it above)
+        Current_Pipeline = LimelightHelpers::getLimelightNTDouble(LimelightNameSpace::CameraOneCreateInfo.LimelightName, "pipeline");
+    }
 
     // Set current pipeline to a Simulink input so control action is taken based on current pipeline (instead of desired pipeline)
     Robot_Control_U.Vision_Current_Pipeline = Current_Pipeline;
@@ -112,8 +115,8 @@ void Limelight::PreStepCallback() {
         }
 
         // Robot Pose Relative to Tag
-        c1TargetPoseRobotSpace = LimelightHelpers::getTargetPose_RobotSpace(LimelightNameSpace::CameraOneCreateInfo.LimelightName);
-        c1VectorLength = c1TargetPoseRobotSpace.size();
+        std::vector<double> c1TargetPoseRobotSpace = LimelightHelpers::getTargetPose_RobotSpace(LimelightNameSpace::CameraOneCreateInfo.LimelightName);
+        size_t c1VectorLength = c1TargetPoseRobotSpace.size();
         
         if (c1VectorLength > 1) {
             Robot_Control_U.Vision_c1_AprilTag_Valid = 1;
